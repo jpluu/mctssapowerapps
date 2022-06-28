@@ -177,7 +177,9 @@ componentProgressBar As CanvasComponent:
             DisplayMode: =DisplayMode.View
             Fill: =If(componentProgressBar.inputCurrentStep >= 5, Green, Black)
             Height: =6
-            Visible: =If (DateDiff(DataCardValue27, DataCardValue28, Days) >= 90 Or DataCardValue57.Selected.Value = "Five Days"= true, true, false)
+            Visible: |-
+                =If (isLongTerm, true, false)
+                /*If (DateDiff(DataCardValue27, DataCardValue28, Days) >= 90 Or DataCardValue57.Selected.Value = "Five Days"= true, true, false)*/
             Width: =Parent.Width -125
             X: =125
             Y: =31
@@ -193,7 +195,10 @@ componentProgressBar As CanvasComponent:
             PaddingLeft: =0
             Size: =10
             Text: ="Review"
-            Visible: =If (DateDiff(DataCardValue27, DataCardValue28, Days) >= 90 Or DataCardValue57.Selected.Value = "Five Days"= true, true, false) 
+            Visible: |-
+                =If (isLongTerm, true, false)
+                
+                /*If (DateDiff(DataCardValue27, DataCardValue28, Days) >= 90 Or DataCardValue57.Selected.Value = "Five Days"= true, true, false) */
             Width: =125
             X: =35
             Y: =73
