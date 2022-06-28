@@ -1,0 +1,278 @@
+componentProgressBar As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =100
+    inputCurrentStep: =1
+    Width: =1500
+    X: =0
+    Y: =0
+    ZIndex: =2
+
+    collectionESI As groupContainer.manualLayoutContainer:
+        Height: =Parent.Height
+        Width: =201
+        ZIndex: =2
+
+        rectangleNewEventNameStatusBar_5 As rectangle:
+            BorderColor: =RGBA(99, 139, 44, 1)
+            DisplayMode: =DisplayMode.View
+            Fill: =If(componentProgressBar.inputCurrentStep >= 2, Green, Black)
+            Height: =6
+            Width: =Parent.Width -125
+            X: =125
+            Y: =31
+            ZIndex: =1
+
+        labelNewEventName_6 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(89, 0, 0, 1)
+            Color: =Black
+            DisplayMode: =DisplayMode.View
+            FontWeight: =FontWeight.Bold
+            Height: =29
+            PaddingLeft: =0
+            Size: =10
+            Text: ="Event and Sponsor Information"
+            Width: =201
+            Y: =71
+            ZIndex: =2
+
+        Circle2_5 As circle:
+            Fill: =If(componentProgressBar.inputCurrentStep >= 1, Green, Black)
+            Height: =66
+            Width: =68
+            X: =60
+            ZIndex: =3
+
+        iconESI_1 As icon.Information:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =53
+            Icon: =Icon.Information
+            Width: =44
+            X: =73
+            Y: =8
+            ZIndex: =4
+
+    collectionVI As groupContainer.manualLayoutContainer:
+        Height: =Parent.Height
+        Width: =201
+        X: =140
+        ZIndex: =6
+
+        rectangleNewEventNameStatusBar_11 As rectangle:
+            BorderColor: =RGBA(99, 139, 44, 1)
+            DisplayMode: =DisplayMode.View
+            Fill: =If(componentProgressBar.inputCurrentStep >= 3, Green, Black)
+            Height: =6
+            Width: =Parent.Width -125
+            X: =125
+            Y: =31
+            ZIndex: =1
+
+        labelNewEventName_15 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(89, 0, 0, 1)
+            Color: =Black
+            DisplayMode: =DisplayMode.View
+            FontWeight: =FontWeight.Bold
+            Height: =27
+            PaddingLeft: =0
+            Size: =10
+            Text: ="Visitor Information"
+            Width: =125
+            X: =35
+            Y: =73
+            ZIndex: =2
+
+        Circle2_6 As circle:
+            Fill: =If(componentProgressBar.inputCurrentStep >= 2, Green, Black)
+            Height: =66
+            Width: =68
+            X: =60
+            ZIndex: =3
+
+        iconVI_1 As icon.Person:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =53
+            Icon: =Icon.Person
+            Width: =50
+            X: =69
+            Y: =7
+            ZIndex: =4
+
+    "'collectionLTAI/R' As groupContainer.manualLayoutContainer":
+        Height: =Parent.Height
+        Width: =201
+        X: =280
+        ZIndex: =7
+
+        rectangleNewEventNameStatusBar_12 As rectangle:
+            BorderColor: =RGBA(99, 139, 44, 1)
+            DisplayMode: =DisplayMode.View
+            Fill: =If(componentProgressBar.inputCurrentStep >= 4, Green, Black)
+            Height: =6
+            Width: =Parent.Width -125
+            X: =125
+            Y: =31
+            ZIndex: =1
+
+        labelNewEventName_17 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(89, 0, 0, 1)
+            Color: =Black
+            DisplayMode: =DisplayMode.View
+            FontWeight: =FontWeight.Bold
+            Height: =27
+            PaddingLeft: =0
+            Size: =10
+            Text: ="Long-Term Additional Information"
+            Visible: |-
+                =If (isLongTerm, true, false)
+                /*If (DateDiff(DataCardValue27, DataCardValue28, Days) >= 90 Or DataCardValue57.Selected.Value = "Five Days"= true, true, false)*/
+            Width: =201
+            Y: =73
+            ZIndex: =2
+
+        Circle2_7 As circle:
+            Fill: =If(componentProgressBar.inputCurrentStep >= 3, Green, Black)
+            Height: =66
+            Width: =68
+            X: =60
+            ZIndex: =3
+
+        labelNewEventName_18 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(89, 0, 0, 1)
+            Color: =Black
+            DisplayMode: =DisplayMode.View
+            FontWeight: =FontWeight.Bold
+            Height: =27
+            PaddingLeft: =0
+            Size: =10
+            Text: ="Review"
+            Visible: |-
+                =If (isLongTerm, false, true)
+                
+                /*If (DateDiff(DataCardValue27, DataCardValue28, Days) >= 90 Or DataCardValue57.Selected.Value = "Five Days"= true, false, true)*/
+            Width: =201
+            Y: =73
+            ZIndex: =4
+
+        iconLTAI_1 As icon.Clock:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =53
+            Icon: =Icon.Clock
+            Width: =48
+            X: =70
+            Y: =7
+            ZIndex: =5
+
+    collectionR As groupContainer.manualLayoutContainer:
+        Height: =Parent.Height
+        Width: =201
+        X: =410
+        ZIndex: =8
+
+        rectangleNewEventNameStatusBar_13 As rectangle:
+            BorderColor: =RGBA(99, 139, 44, 1)
+            DisplayMode: =DisplayMode.View
+            Fill: =If(componentProgressBar.inputCurrentStep >= 5, Green, Black)
+            Height: =6
+            Visible: =If (DateDiff(DataCardValue27, DataCardValue28, Days) >= 90 Or DataCardValue57.Selected.Value = "Five Days"= true, true, false)
+            Width: =Parent.Width -125
+            X: =125
+            Y: =31
+            ZIndex: =2
+
+        labelNewEventName_19 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(89, 0, 0, 1)
+            Color: =Black
+            DisplayMode: =DisplayMode.View
+            FontWeight: =FontWeight.Bold
+            Height: =27
+            PaddingLeft: =0
+            Size: =10
+            Text: ="Review"
+            Visible: =If (DateDiff(DataCardValue27, DataCardValue28, Days) >= 90 Or DataCardValue57.Selected.Value = "Five Days"= true, true, false) 
+            Width: =125
+            X: =35
+            Y: =73
+            ZIndex: =3
+
+        Circle2 As circle:
+            Fill: =If(componentProgressBar.inputCurrentStep >= 4, Green, Black)
+            Height: =66
+            Width: =68
+            X: =60
+            ZIndex: =4
+
+        labelNewEventName_20 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(89, 0, 0, 1)
+            Color: =Black
+            DisplayMode: =DisplayMode.View
+            FontWeight: =FontWeight.Bold
+            Height: =27
+            PaddingLeft: =0
+            Size: =10
+            Text: ="Acknowledge"
+            Visible: |-
+                =If (isLongTerm, false, true)
+                
+                /*If (DateDiff(DataCardValue27, DataCardValue28, Days) >= 90 Or DataCardValue57.Selected.Value = "Five Days"= true, false, true)*/
+            Width: =125
+            X: =37
+            Y: =73
+            ZIndex: =5
+
+        iconR_1 As icon.DockCheckProperties:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =53
+            Icon: =Icon.DockCheckProperties
+            Width: =48
+            X: =72
+            Y: =6
+            ZIndex: =6
+
+    collectionA As groupContainer.manualLayoutContainer:
+        Height: =Parent.Height
+        Visible: |-
+            =If (isLongTerm, true, false)
+            
+            
+            /*If (DateDiff(DataCardValue27, DataCardValue28, Days) >= 90 Or DataCardValue57.Selected.Value = "Five Days"= true, true, false)*/
+        Width: =201
+        X: =547
+        ZIndex: =9
+
+        Circle2_9 As circle:
+            Fill: =If(componentProgressBar.inputCurrentStep >= 5, Green, Black)
+            Height: =66
+            Width: =68
+            X: =60
+            ZIndex: =3
+
+        labelNewEventName_21 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(89, 0, 0, 1)
+            Color: =Black
+            DisplayMode: =DisplayMode.View
+            FontWeight: =FontWeight.Bold
+            Height: =27
+            PaddingLeft: =0
+            Size: =10
+            Text: ="Acknowledge"
+            Width: =125
+            X: =37
+            Y: =73
+            ZIndex: =4
+
+        iconA_1 As icon.Check:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =47
+            Icon: =Icon.Check
+            Width: =42
+            X: =73
+            Y: =9
+            ZIndex: =5
+
