@@ -3297,6 +3297,22 @@ screenRequest As screen:
                     1,
                     isVisitorPage,
                     2,
+                    isLongTerm && isLongTermPage,
+                    3,
+                    isLongTerm && isReviewPage,
+                    4,
+                     isReviewPage,
+                    3,
+                    isLongTerm && isAcknowPage,
+                    5,
+                    isAcknowPage,
+                    4
+                )
+                /*If(
+                    isEventPage,
+                    1,
+                    isVisitorPage,
+                    2,
                     isLongTermPage,
                     3,
                     isReviewPage,
@@ -3304,7 +3320,7 @@ screenRequest As screen:
                     isAcknowPage,
                     5,
                     0
-                )
+                ) */
             Width: =pageEvent.Width - 2 * nextEvent.Width
             X: =200
             Y: =565
@@ -3312,27 +3328,4 @@ screenRequest As screen:
 
     Header_1 As Header:
         ZIndex: =5
-
-    componentProgressBar_1 As componentProgressBar:
-        inputCurrentStep: |-
-            =If(
-                isEventPage,
-                1,
-                isVisitorPage,
-                2,
-                isLongTerm && isLongTermPage,
-                3,
-                isLongTerm && isReviewPage,
-                4,
-                 isReviewPage,
-                3,
-                isLongTerm && isAcknowPage,
-                5,
-                isAcknowPage,
-                4
-            )
-        Width: =786
-        X: =324
-        Y: =567
-        ZIndex: =6
 
