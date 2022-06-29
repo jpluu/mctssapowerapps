@@ -126,8 +126,8 @@ Screen1 As screen:
                     Height: =102
                     Required: =false
                     Width: =583
-                    X: =1
-                    Y: =1
+                    X: =0
+                    Y: =2
                     ZIndex: =1
 
                     DataCardKey43 As label:
@@ -152,8 +152,8 @@ Screen1 As screen:
                         Size: =19
                         Text: =Parent.Default
                         Width: =Parent.Width - 60
-                        X: =30
-                        Y: =DataCardKey43.Y + DataCardKey43.Height + 5
+                        X: =60
+                        Y: =44
                         ZIndex: =2
 
                 "'Visit End Date_DataCard3' As typedDataCard.textualViewCard":
@@ -166,7 +166,7 @@ Screen1 As screen:
                     Height: =40
                     Required: =false
                     Width: =583
-                    X: =0
+                    X: =1
                     Y: =2
                     ZIndex: =1
 
