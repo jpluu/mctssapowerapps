@@ -7880,14 +7880,7 @@
         "DisplayFields",
         "SearchFields",
         "SelectionColor",
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "RGBA(255, 255, 255, 1)",
-          "InvariantPropertyName": "ChevronFill",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
+        "ChevronFill",
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,
@@ -7904,14 +7897,7 @@
         "SelectionTagFill",
         "SelectionTagColor",
         "Color",
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "RGBA(0, 0, 0, 1)",
-          "InvariantPropertyName": "HoverColor",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
+        "HoverColor",
         "PressedColor",
         "DisabledColor",
         "DisabledBorderColor",

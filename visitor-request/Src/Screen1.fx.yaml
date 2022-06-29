@@ -189,16 +189,10 @@ Screen1 As screen:
 
                     DataCardValue40 As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        ChevronFill: |-
-                            =RGBA(0, 0, 0, 0)
-                            //RGBA(255, 255, 255, 1)
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
                         Fill: =RGBA(0, 0, 0, 0)
-                        HoverColor: |-
-                            =Self.Color
-                            //RGBA(0, 0, 0, 1)
                         Items: =Choices([@VisitorRequest].Sponsor)
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
