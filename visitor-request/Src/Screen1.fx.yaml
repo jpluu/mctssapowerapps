@@ -1249,6 +1249,7 @@ Screen1 As screen:
                     ZIndex: =1
 
                     Button2_10 As button:
+                        Color: =RGBA(0, 0, 0, 1)
                         DisplayMode: |-
                             =/*If(
                                 varIsSecurity = true,
@@ -1256,6 +1257,7 @@ Screen1 As screen:
                                 DisplayMode.Disabled)*/
                         Fill: =RGBA(54, 176, 75, 1)
                         Height: =62
+                        HoverFill: =RGBA(54, 176, 75, 1)
                         OnSelect: |+
                             =
                             
@@ -1291,6 +1293,7 @@ Screen1 As screen:
                             )
                                 )
                             
+                        PressedColor: =ColorFade(RGBA(54, 176, 75, 100), -20%)
                         Size: =24
                         Text: ="Approved"
                         Visible: |-
@@ -1374,6 +1377,7 @@ Screen1 As screen:
 
                     Button2_11 As button:
                         BorderColor: =RGBA(184, 0, 0, 1)
+                        Color: =RGBA(0, 0, 0, 1)
                         DisplayMode: |-
                             =/*If(
                                 varIsSecurity = true,
@@ -1383,6 +1387,7 @@ Screen1 As screen:
                                 
                         Fill: =RGBA(184, 0, 0, 1)
                         Height: =62
+                        HoverFill: =ColorFade(RGBA(184, 0, 0, 100), -20%)
                         OnSelect: |-
                             =If(
                                 Not(IsBlank(ComboBox1_3.Selected.Value)),
