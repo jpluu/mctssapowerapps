@@ -1166,7 +1166,7 @@ Screen1 As screen:
                     BorderStyle: =BorderStyle.Solid
                     DisplayMode: =DisplayMode.Edit
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =200
+                    Height: =85
                     Width: =583
                     X: =0
                     Y: =14
@@ -1185,7 +1185,7 @@ Screen1 As screen:
                     BorderStyle: =BorderStyle.Solid
                     DisplayMode: =DisplayMode.Edit
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =200
+                    Height: =132
                     Width: =583
                     X: =1
                     Y: =14
