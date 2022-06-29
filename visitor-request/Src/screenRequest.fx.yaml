@@ -20,7 +20,7 @@ screenRequest As screen:
         Y: =103
         ZIndex: =2
 
-    dropDownDateFilter As dropdown:
+    ddDateFilter As dropdown:
         AllowEmptySelection: =true
         Default: ="All"
         Height: =57
@@ -94,17 +94,17 @@ screenRequest As screen:
         Y: =618
         ZIndex: =7
 
-    "galleryTemp As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
+    "galleryRequests As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
         Height: =489
         Items: |-
             =SortByColumns(
                 If( 
-                    IsBlank(searchBarRequest.Text) && dropDownDateFilter.Selected.Value = "All",
+                    IsBlank(searchBarRequest.Text) && ddDateFilter.Selected.Value = "All",
                         Filter(
                         VisitorRequest,
                         Approved.Value = VarStatus),
                     If(
-                        IsBlank(searchBarRequest.Text) && dropDownDateFilter.Selected.Value = "This Month",
+                        IsBlank(searchBarRequest.Text) && ddDateFilter.Selected.Value = "This Month",
                         With(
                             {
                                 StartDate: Date(
@@ -126,7 +126,7 @@ screenRequest As screen:
                             )
                         ),
                         If(
-                            IsBlank(searchBarRequest.Text) && dropDownDateFilter.Selected.Value = "Next Month",
+                            IsBlank(searchBarRequest.Text) && ddDateFilter.Selected.Value = "Next Month",
                             With(
                                 {
                                     StartDate: Date(
@@ -148,7 +148,7 @@ screenRequest As screen:
                                 )
                             ),
                             If(
-                                IsBlank(searchBarRequest.Text) && dropDownDateFilter.Selected.Value = "Next Quarter",
+                                IsBlank(searchBarRequest.Text) && ddDateFilter.Selected.Value = "Next Quarter",
                                 With(
                                     {
                                         StartDate: Date(
@@ -390,7 +390,7 @@ screenRequest As screen:
 
             formAcknow As form:
                 DataSource: =VisitorRequest
-                Height: =Parent.Height - labelAcknow.Height
+                Height: =Parent.Height - labelAcknow.Height - pbRequest.Height
                 Item: =formData
                 NumberOfColumns: =1
                 Width: =Parent.Width
@@ -450,9 +450,9 @@ screenRequest As screen:
                             formData,
                             formEvent.Updates,
                             formVisitor.Updates,
-                            formLongTerm.Updates,
                             formAcknow.Updates
                         );
+                        If(isLongTerm, Patch(VisitorRequest, formData, formLongTerm.Updates));
                         IsEmpty(Errors(VisitorRequest)),
                         Notify(
                             "Success",
@@ -1925,7 +1925,7 @@ screenRequest As screen:
 
             formLongTerm As form:
                 DataSource: =VisitorRequest
-                Height: =Parent.Height - labelLongTerm.Height
+                Height: =Parent.Height - labelLongTerm.Height - pbRequest.Height
                 Item: =formData
                 NumberOfColumns: =2
                 Width: =Parent.Width
@@ -2314,7 +2314,7 @@ screenRequest As screen:
 
             formVisitor As form:
                 DataSource: =VisitorRequest
-                Height: =Parent.Height - Self.Y
+                Height: =Parent.Height - Self.Y - pbRequest.Height
                 Item: =formData
                 Width: =Parent.Width
                 Y: =labelVisitor.Height
@@ -3074,7 +3074,7 @@ screenRequest As screen:
             formEvent As form:
                 DataSource: =VisitorRequest
                 Height: |
-                    =Parent.Height - Self.Y
+                    =Parent.Height - Self.Y - nextEvent.Height - 3
                 Item: =formData
                 NumberOfColumns: =2
                 Width: =Parent.Width
@@ -3156,7 +3156,8 @@ screenRequest As screen:
                     DisplayMode: =Parent.DisplayMode
                     DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"VisitStartDate")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
+                    Height: |
+                        =71
                     Required: =true
                     Update: =dcStartDate.SelectedDate
                     Width: =583
@@ -3221,7 +3222,7 @@ screenRequest As screen:
                     DisplayMode: =Parent.DisplayMode
                     DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"VisitEndDate")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
+                    Height: =71
                     Required: =true
                     Update: =dcEndDate.SelectedDate
                     Width: =583
@@ -3251,7 +3252,7 @@ screenRequest As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =56
+                        Y: =DataCardKey4.Y + DataCardKey4.Height + 5
                         ZIndex: =2
 
                     ErrorMessage4 As label:

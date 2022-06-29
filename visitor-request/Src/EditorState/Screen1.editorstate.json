@@ -209,7 +209,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Acknowledgement_DataCard2",
-      "ParentIndex": 31,
+      "ParentIndex": 32,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1343,7 +1343,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "DataCard10",
-      "ParentIndex": 30,
+      "ParentIndex": 31,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -14992,7 +14992,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "dcHeader",
-      "ParentIndex": 0,
+      "ParentIndex": 30,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -17495,7 +17495,7 @@
       "LayoutName": "vertical",
       "MetaDataIDKey": "",
       "Name": "formSecurity",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -18547,7 +18547,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "labelSecurity",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -22715,7 +22715,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Visit End Date_DataCard3",
-      "ParentIndex": 3,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -22849,7 +22849,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Visit Start Date_DataCard3",
-      "ParentIndex": 1,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
