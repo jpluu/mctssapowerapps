@@ -150,7 +150,7 @@ screenRequest As screen:
                     Height: =100
                     Required: |
                         =true
-                    Update: =DataCardValue1.Value
+                    Update: =cbAcknow.Value
                     Width: =1166
                     X: =0
                     Y: =
@@ -166,26 +166,11 @@ screenRequest As screen:
                         Y: =10
                         ZIndex: =1
 
-                    DataCardValue1 As checkbox:
+                    cbAcknow As checkbox:
                         Text: ="Agree"
                         X: =40
                         Y: =40
                         ZIndex: =2
-
-                    ErrorMessage1 As label:
-                        AutoHeight: =true
-                        Height: =10
-                        Live: =Live.Assertive
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Text: =Parent.Error
-                        Visible: =Parent.DisplayMode=DisplayMode.Edit
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =DataCardValue1.Y + DataCardValue1.Height
-                        ZIndex: =4
 
                     StarVisible1 As label:
                         Align: =Align.Center
@@ -198,6 +183,7 @@ screenRequest As screen:
                         ZIndex: =5
 
             nextAcknow As icon.NextArrow:
+                DisplayMode: =If(cbAcknow.Value, DisplayMode.Edit, DisplayMode.Disabled)
                 Height: =100
                 Icon: =Icon.NextArrow
                 OnSelect: |
