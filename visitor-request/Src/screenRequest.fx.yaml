@@ -22,12 +22,12 @@ screenRequest As screen:
         Items: |-
             =SortByColumns(
                 If( 
-                    IsBlank(searchBarRequest.Text) && dropdownDateFilter.Selected.Value = "All",
+                    IsBlank(searchBarRequest.Text) && dropDownDateFilter.Selected.Value = "All",
                         Filter(
                         VisitorRequest,
                         Approved.Value = VarStatus),
                     If(
-                        IsBlank(searchBarRequest.Text) && dropdownDateFilter.Selected.Value = "This Month",
+                        IsBlank(searchBarRequest.Text) && dropDownDateFilter.Selected.Value = "This Month",
                         With(
                             {
                                 StartDate: Date(
@@ -49,7 +49,7 @@ screenRequest As screen:
                             )
                         ),
                         If(
-                            IsBlank(searchBarRequest.Text) && dropdownDateFilter.Selected.Value = "Next Month",
+                            IsBlank(searchBarRequest.Text) && dropDownDateFilter.Selected.Value = "Next Month",
                             With(
                                 {
                                     StartDate: Date(
@@ -71,7 +71,7 @@ screenRequest As screen:
                                 )
                             ),
                             If(
-                                IsBlank(searchBarRequest.Text) && dropdownDateFilter.Selected.Value = "Next Quarter",
+                                IsBlank(searchBarRequest.Text) && dropDownDateFilter.Selected.Value = "Next Quarter",
                                 With(
                                     {
                                         StartDate: Date(
@@ -3490,7 +3490,7 @@ screenRequest As screen:
         Size: =20
         Width: =1074
         X: =165
-        Y: =114
+        Y: =103
         ZIndex: =6
 
     searchIconRequest As icon.Search:
@@ -3499,18 +3499,18 @@ screenRequest As screen:
         Icon: =Icon.Search
         Width: =39
         X: =126
-        Y: =114
+        Y: =103
         ZIndex: =7
 
-    dropdownDateFilter As dropdown:
+    dropDownDateFilter As dropdown:
         AllowEmptySelection: =true
         Default: ="All"
         Height: =57
         Items: =["All", "This Month", "Next Month", "Next Quarter"]
         Size: =20
         Width: =193
-        X: =1046
-        Y: =114
+        X: =1026
+        Y: =103
         ZIndex: =8
 
     buttonDenied As button:
