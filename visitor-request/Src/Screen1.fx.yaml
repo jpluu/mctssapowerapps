@@ -31,6 +31,33 @@ Screen1 As screen:
                 Y: =labelSecurity.Height
                 ZIndex: =1
 
+                DataCard2 As typedDataCard.blankCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =125
+                    Width: =1166
+                    X: =0
+                    Y: =14
+                    ZIndex: =1
+
+                    Label2_3 As label:
+                        FontWeight: =FontWeight.Bold
+                        Height: =85
+                        Size: =22
+                        Text: ="Acknowledgement"
+                        Width: =498
+                        X: =40
+                        Y: =35
+                        ZIndex: =1
+
+                    Rectangle2_3 As rectangle:
+                        Fill: =RGBA(128, 128, 128, 1)
+                        Height: =28
+                        Width: =DataCard1.Width ///583
+                        Y: =97
+                        ZIndex: =2
+
                 DataCard1 As typedDataCard.blankCard:
                     BorderStyle: =BorderStyle.Solid
                     DisplayMode: =DisplayMode.Edit
@@ -1148,33 +1175,6 @@ Screen1 As screen:
                         Wrap: =false
                         Y: =DataCardKey58.Y
                         ZIndex: =4
-
-                DataCard2 As typedDataCard.blankCard:
-                    BorderStyle: =BorderStyle.Solid
-                    DisplayMode: =DisplayMode.Edit
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =125
-                    Width: =1166
-                    X: =0
-                    Y: =14
-                    ZIndex: =1
-
-                    Label2_3 As label:
-                        FontWeight: =FontWeight.Bold
-                        Height: =85
-                        Size: =22
-                        Text: ="Acknowledgement"
-                        Width: =498
-                        X: =40
-                        Y: =35
-                        ZIndex: =1
-
-                    Rectangle2_3 As rectangle:
-                        Fill: =RGBA(128, 128, 128, 1)
-                        Height: =28
-                        Width: =DataCard1.Width ///583
-                        Y: =97
-                        ZIndex: =2
 
                 Acknowledgement_DataCard2 As typedDataCard.toggleViewCard:
                     BorderStyle: =BorderStyle.Solid

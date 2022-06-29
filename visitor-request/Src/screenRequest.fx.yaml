@@ -20,7 +20,7 @@ screenRequest As screen:
         Y: =103
         ZIndex: =2
 
-    dropDownDateFilter As dropdown:
+    ddDateFilter As dropdown:
         AllowEmptySelection: =true
         Default: ="All"
         Height: =57
@@ -94,17 +94,17 @@ screenRequest As screen:
         Y: =618
         ZIndex: =7
 
-    "galleryTemp As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
+    "galleryRequests As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
         Height: =489
         Items: |-
             =SortByColumns(
                 If( 
-                    IsBlank(searchBarRequest.Text) && dropDownDateFilter.Selected.Value = "All",
+                    IsBlank(searchBarRequest.Text) && ddDateFilter.Selected.Value = "All",
                         Filter(
                         VisitorRequest,
                         Approved.Value = VarStatus),
                     If(
-                        IsBlank(searchBarRequest.Text) && dropDownDateFilter.Selected.Value = "This Month",
+                        IsBlank(searchBarRequest.Text) && ddDateFilter.Selected.Value = "This Month",
                         With(
                             {
                                 StartDate: Date(
@@ -126,7 +126,7 @@ screenRequest As screen:
                             )
                         ),
                         If(
-                            IsBlank(searchBarRequest.Text) && dropDownDateFilter.Selected.Value = "Next Month",
+                            IsBlank(searchBarRequest.Text) && ddDateFilter.Selected.Value = "Next Month",
                             With(
                                 {
                                     StartDate: Date(
@@ -148,7 +148,7 @@ screenRequest As screen:
                                 )
                             ),
                             If(
-                                IsBlank(searchBarRequest.Text) && dropDownDateFilter.Selected.Value = "Next Quarter",
+                                IsBlank(searchBarRequest.Text) && ddDateFilter.Selected.Value = "Next Quarter",
                                 With(
                                     {
                                         StartDate: Date(
@@ -282,75 +282,6 @@ screenRequest As screen:
         Y: =257
         ZIndex: =8
 
-        Title2 As label:
-            Height: =Self.Size * 1.8
-            OnSelect: =Select(Parent)
-            PaddingBottom: =0
-            PaddingLeft: =0
-            PaddingRight: =0
-            PaddingTop: =0
-            Text: =ThisItem.'First Name' & " " & ThisItem.'Last Name'
-            VerticalAlign: =VerticalAlign.Top
-            Width: =Parent.TemplateWidth - 104
-            X: =32
-            Y: =16
-            ZIndex: =1
-
-        Subtitle2 As label:
-            Height: =Self.Size * 1.8
-            OnSelect: =Select(Parent)
-            PaddingBottom: =0
-            PaddingLeft: =0
-            PaddingRight: =0
-            PaddingTop: =0
-            Text: =ThisItem.'Visit Start Date'
-            VerticalAlign: =VerticalAlign.Top
-            Width: =Parent.TemplateWidth - 104
-            X: =32
-            Y: =Title2.Y + Title2.Height + 2
-            ZIndex: =2
-
-        Body1 As label:
-            Height: =Self.Size * 4
-            OnSelect: =Select(Parent)
-            PaddingBottom: =0
-            PaddingLeft: =0
-            PaddingRight: =0
-            PaddingTop: =0
-            Text: =ThisItem.Approved.Value
-            VerticalAlign: =VerticalAlign.Top
-            Width: =Parent.TemplateWidth - 104
-            X: =32
-            Y: =Subtitle2.Y + Subtitle2.Height + 4
-            ZIndex: =3
-
-        NextArrow2 As icon.ChevronRight:
-            AccessibleLabel: =Self.Tooltip
-            Height: =60
-            Icon: =Icon.Information
-            OnSelect: |
-                =Set(currentRequest, ThisItem);
-                Set(formData, currentRequest);
-                Set(isModalRequest, true);
-                Set(isEventPage, true);
-            PaddingBottom: =10
-            PaddingLeft: =10
-            PaddingRight: =10
-            PaddingTop: =10
-            TabIndex: =0
-            Tooltip: ="View item details"
-            Width: =60
-            X: =Parent.TemplateWidth - Self.Width - 5
-            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
-            ZIndex: =4
-
-        Separator2 As rectangle:
-            Height: =1
-            OnSelect: =Select(Parent)
-            Width: =Parent.TemplateWidth
-            Y: =Parent.TemplateHeight - 1
-            ZIndex: =5
-
     compHeaderRequest As Header:
         ZIndex: =9
 
@@ -390,7 +321,7 @@ screenRequest As screen:
 
             formAcknow As form:
                 DataSource: =VisitorRequest
-                Height: =Parent.Height - labelAcknow.Height
+                Height: =Parent.Height - labelAcknow.Height - pbRequest.Height
                 Item: =formData
                 NumberOfColumns: =1
                 Width: =Parent.Width
@@ -450,9 +381,9 @@ screenRequest As screen:
                             formData,
                             formEvent.Updates,
                             formVisitor.Updates,
-                            formLongTerm.Updates,
                             formAcknow.Updates
                         );
+                        If(isLongTerm, Patch(VisitorRequest, formData, formLongTerm.Updates));
                         IsEmpty(Errors(VisitorRequest)),
                         Notify(
                             "Success",
@@ -1925,7 +1856,7 @@ screenRequest As screen:
 
             formLongTerm As form:
                 DataSource: =VisitorRequest
-                Height: =Parent.Height - labelLongTerm.Height
+                Height: =Parent.Height - labelLongTerm.Height - pbRequest.Height
                 Item: =formData
                 NumberOfColumns: =2
                 Width: =Parent.Width
@@ -2314,7 +2245,7 @@ screenRequest As screen:
 
             formVisitor As form:
                 DataSource: =VisitorRequest
-                Height: =Parent.Height - Self.Y
+                Height: =Parent.Height - Self.Y - pbRequest.Height
                 Item: =formData
                 Width: =Parent.Width
                 Y: =labelVisitor.Height
@@ -3074,7 +3005,7 @@ screenRequest As screen:
             formEvent As form:
                 DataSource: =VisitorRequest
                 Height: |
-                    =Parent.Height - Self.Y
+                    =Parent.Height - Self.Y - nextEvent.Height - 3
                 Item: =formData
                 NumberOfColumns: =2
                 Width: =Parent.Width
@@ -3156,7 +3087,8 @@ screenRequest As screen:
                     DisplayMode: =Parent.DisplayMode
                     DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"VisitStartDate")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
+                    Height: |
+                        =71
                     Required: =true
                     Update: =dcStartDate.SelectedDate
                     Width: =583
@@ -3221,7 +3153,7 @@ screenRequest As screen:
                     DisplayMode: =Parent.DisplayMode
                     DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"VisitEndDate")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
+                    Height: =71
                     Required: =true
                     Update: =dcEndDate.SelectedDate
                     Width: =583
@@ -3251,7 +3183,7 @@ screenRequest As screen:
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
-                        Y: =56
+                        Y: =DataCardKey4.Y + DataCardKey4.Height + 5
                         ZIndex: =2
 
                     ErrorMessage4 As label:
