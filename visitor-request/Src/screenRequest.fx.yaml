@@ -21,93 +21,182 @@ screenRequest As screen:
         Height: =511
         Items: |-
             =SortByColumns(
+                If( 
+                    IsBlank(searchBarRequest.Text) && dropdownDateFilter.Selected.Value = "All",
+                    Filter(
+                        VisitorRequest,
+                        Approved.Value = VarStatus
+                    ),
+                    If(
+                        IsBlank(searchBarRequest.Text) && dropdownDateFilter.Selected.Value = "This Month",
+                        With(
+                            {
+                                StartDate: Date(
+                                    Year(Today()),
+                                    Month(Today()),
+                                    1
+                                ),
+                                EndDate: Date(
+                                    Year(Today()),
+                                    Month(Today()) + 1,
+                                    1
+                                ) - 1
+                            },
+                            Filter(
+                                VisitorRequest,
+                                'Visit Start Date' >= StartDate,
+                                'Visit Start Date' <= EndDate/*,
+                                 Approved.Value = VarStatus*/
+                            )
+                        ),
+                        If(
+                            IsBlank(searchBarRequest.Text) && dropdownDateFilter.Selected.Value = "Next Month",
+                            With(
+                                {
+                                    StartDate: Date(
+                                        Year(Today()),
+                                        Month(Today()) + 1,
+                                        1
+                                    ),
+                                    EndDate: Date(
+                                        Year(Today()),
+                                        Month(Today()) + 2,
+                                        1
+                                    ) - 1
+                                },
+                                Filter(
+                                    VisitorRequest,
+                                    'Visit Start Date' >= StartDate,
+                                    'Visit Start Date' <= EndDate
+                                )
+                            ),
+                            If(
+                                IsBlank(searchBarRequest.Text) && dropdownDateFilter.Selected.Value = "Next Quarter",
+                                With(
+                                    {
+                                        StartDate: Date(
+                                            Year(Today()),
+                                            Month(Today()),
+                                            Day(Today())
+                                        ),
+                                        EndDate: Date(
+                                            Year(Today()),
+                                            Month(Today()) + 3,
+                                            Day(Today())
+                                        ) - 1
+                                    },
+                                    Filter(
+                                        VisitorRequest,
+                                        'Visit Start Date' >= StartDate,
+                                        'Visit Start Date' <= EndDate
+                                    )
+                                ),
+                                Search(
+                                    VisitorRequest,
+                                    searchBarRequest.Text,
+                                    "LastName"
+                                )
+                            )
+                        )
+                    )
+                ),
+                "LastName",
+                Ascending
+            )
+            
+            /*SortByColumns(
                 If(
                     IsBlank(searchBarRequest.Text) && dropdownDateFilter.Selected.Value = "All",
                     Filter(
                         VisitorRequest,
                         Approved.Value = VarStatus
-                ),
-            
-                If(
-                    IsBlank(searchBarRequest.Text) && dropdownDateFilter.Selected.Value = "This Month",
-                    With(
-                        {
-                            StartDate:
-                            Date(
-                                Year(
-                                    Today()
-                                    ),
-                                Month(
-                                    Today()
-                                    ),
-                                1
-                            ),
-                            EndDate: 
-                            Date(
-                                Year(
-                                    Today()
-                                ),
-                                Month(
-                                    Today()
-                                ) 
-                                +1,
-                                1
-                            )
-                            -1
-                        },
-            
-                        Filter(
-                            VisitorRequest,
-                            'Visitor Start Date' >= StartDate,
-                            'Visit Start Date' <= EndDate
-                        )
                     ),
-            
                     If(
-                        IsBlank(searchBarRequest.Test) && dropdownDateFilter.Selected.Value = "Next Month",
-                        
-            
-            
-                    If(
-                        IsBlank(searchBarRequest.Text) && dropdownDateFilter.Selected.Value = "Next Quarter",
+                        IsBlank(searchBarRequest.Text) && dropdownDateFilter.Selected.Value = "This Month",
                         With(
                             {
-                                StartDate: 
-                                Date(
-                                    Year(
-                                        Today()
-                                    ),
-                                    Month(
-                                        Today()
-                                    )
-                                    +3,
-                                    Day(
-                                        Today()
-                                    )
-                                ) 
-                                -1
+                                StartDate: Date(
+                                    Year(Today()),
+                                    Month(Today()),
+                                    1
+                                ),
+                                EndDate: Date(
+                                    Year(Today()),
+                                    Month(Today()) + 1,
+                                    1
+                                ) - 1
                             },
-            
                             Filter(
                                 VisitorRequest,
                                 'Visit Start Date' >= StartDate,
                                 'Visit Start Date' <= EndDate
                             )
                         ),
-            
-                        Search(
-                            VisitRequest,
-                            searchBarRequest.Text,"LastName")
+                        If(
+                            IsBlank(searchBarRequest.Text) && dropdownDateFilter.Selected.Value = "Next Month",
+                            With(
+                                {
+                                    StartDate: Date(
+                                        Year(Today()),
+                                        Month(Today()) + 1,
+                                        1
+                                    ),
+                                    EndDate: Date(
+                                        Year(Today()),
+                                        Month(Today()) + 2,
+                                        1
+                                    ) - 1
+                                },
+                                Filter(
+                                    VisitorRequest,
+                                    'Visit Start Date' >= StartDate,
+                                    'Visit Start Date' <= EndDate
                                 )
+                            ),
+                            If(
+                                IsBlank(searchBarRequest.Text) && dropdownDateFilter.Selected.Value = "Next Quarter",
+                                With(
+                                    {
+                                        StartDate: Date(
+                                            Year(Today()),
+                                            Month(Today()),
+                                            Day(Today())
+                                        ),
+                                        EndDate: Date(
+                                            Year(Today()),
+                                            Month(Today()) + 3,
+                                            Day(Today())
+                                        ) - 1
+                                    },
+                                    Filter(
+                                        VisitorRequest,
+                                        'Visit Start Date' >= StartDate,
+                                        'Visit Start Date' <= EndDate
+                                    )
+                                ),
+                                Search(
+                                    VisitorRequest,
+                                    searchBarRequest.Text,
+                                    "LastName"
+                                )
+                            )
                         )
                     )
-            ),
-            
-            "LastName",
-            Ascending
-            ) 
-                            
+                ),
+                "LastName",
+                Ascending
+            )*/
         Layout: =Layout.Vertical
+        TemplateFill: |+
+            =Switch(ThisItem.Approved.Value,
+            
+            "Approved", PaleGreen,
+            
+            "Pending", PaleGoldenRod, 
+            
+            "Denied", Red
+            )
+            
         TemplatePadding: =0
         TemplateSize: =123
         Width: =App.Width - 2 * buttonNewRequest.Width
@@ -150,7 +239,7 @@ screenRequest As screen:
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
-            Text: =ThisItem.'Visit End Date'
+            Text: =ThisItem.Approved.Value
             VerticalAlign: =VerticalAlign.Top
             Width: =Parent.TemplateWidth - 104
             X: =32
@@ -3418,8 +3507,69 @@ screenRequest As screen:
         Height: =57
         Items: =["All", "This Month", "Next Month", "Next Quarter"]
         Size: =20
-        Width: =169
-        X: =1070
+        Width: =193
+        X: =1046
         Y: =114
         ZIndex: =8
+
+    buttonDenied As button:
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =Red
+        FontWeight: =FontWeight.Bold
+        Height: =46
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =ColorFade(RGBA(255, 0, 0, 100), -20%)
+        OnSelect: |
+            =Set(VarStatus, "Denied")
+        Size: =18
+        Text: ="Denied"
+        Width: =200
+        X: =566
+        Y: =181
+        ZIndex: =9
+
+    buttonApproved As button:
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =PaleGreen
+        FontWeight: =FontWeight.Bold
+        Height: =46
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =ColorFade(RGBA(152, 251, 152, 100), -20%)
+        OnSelect: =Set(VarStatus, "Approved")
+        Size: =18
+        Text: ="Approved"
+        Width: =200
+        X: =766
+        Y: =181
+        ZIndex: =10
+
+    buttonPending As button:
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =PaleGoldenRod
+        FontWeight: =FontWeight.Bold
+        Height: =46
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =ColorFade(RGBA(238, 232, 170, 100), -20%)  
+        OnSelect: =Set(VarStatus, "Pending")
+        Size: =18
+        Text: ="Pending"
+        Width: =200
+        X: =366
+        Y: =181
+        ZIndex: =11
+
+    buttonApproved_1 As button:
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =PaleGreen
+        FontWeight: =FontWeight.Bold
+        Height: =46
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =ColorFade(RGBA(152, 251, 152, 100), -20%)
+        OnSelect: =Set(VarStatus, Any )
+        Size: =18
+        Text: ="All"
+        Width: =200
+        X: =966
+        Y: =181
+        ZIndex: =12
 

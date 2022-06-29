@@ -28,6 +28,9 @@ screenPre As screen:
         Set(isLongTerm, false);
         Set(isEditing, false); // bool | control for editing request
         
+        //Security Variable
+        Set(VarStatus, false)
+        
         
         // End Pre-Load
         Set(isLoaded, true)
