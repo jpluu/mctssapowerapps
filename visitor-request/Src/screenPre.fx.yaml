@@ -8,8 +8,6 @@ screenPre As screen:
         Set(currentUser365, Office365Users.UserProfile(currentUser.Email));
         Set(currentUserPhone, Office365Users.UserProfile(currentUser.Email).mobilePhone);
         
-        
-        
         // General Settings
         Set(modalX, 100);
         Set(modalY, 100);
@@ -28,6 +26,8 @@ screenPre As screen:
         Set(isLongTerm, false);
         Set(isEditing, false); // bool | control for editing request
         
+        // Security Modal Variables
+        Set(isModalSecurity, false);
         
         // End Pre-Load
         Set(isLoaded, true)
