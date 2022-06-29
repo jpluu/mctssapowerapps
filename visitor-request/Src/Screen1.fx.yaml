@@ -61,8 +61,8 @@ Screen1 As screen:
                     Height: =40
                     Required: =false
                     Width: =683
-                    X: =1
-                    Y: =1
+                    X: =0
+                    Y: =2
                     ZIndex: =1
 
                     DataCardKey43 As label:
@@ -135,7 +135,7 @@ Screen1 As screen:
                     Height: =40
                     Required: =false
                     Width: =683
-                    X: =0
+                    X: =1
                     Y: =2
                     ZIndex: =1
 

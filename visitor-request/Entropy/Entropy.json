@@ -312,7 +312,7 @@
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "06/29/2022 18:16:17",
+  "HeaderLastSavedDateTimeUTC": "06/29/2022 18:32:19",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "17ba9056-a80f-4186-8daa-c0ccc989b864": "\"/providers/microsoft.powerapps/apis/shared_sharepointonline/connections/2e24395df0824c8fb53e52c89dcf5850\"",
@@ -685,7 +685,7 @@
   "VolatileProperties": {
     "AnalysisLoadTime": 3.3004091,
     "ControlCount": {
-      "button": 7,
+      "button": 10,
       "checkbox": 2,
       "circle": 5,
       "combobox": 14,
