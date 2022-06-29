@@ -19,7 +19,94 @@ screenRequest As screen:
 
     "galleryTemp As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
         Height: =511
-        Items: =VisitorRequest
+        Items: |-
+            =SortByColumns(
+                If(
+                    IsBlank(searchBarRequest.Text) && dropdownDateFilter.Selected.Value = "All",
+                    Filter(
+                        VisitorRequest,
+                        Approved.Value = VarStatus
+                ),
+            
+                If(
+                    IsBlank(searchBarRequest.Text) && dropdownDateFilter.Selected.Value = "This Month",
+                    With(
+                        {
+                            StartDate:
+                            Date(
+                                Year(
+                                    Today()
+                                    ),
+                                Month(
+                                    Today()
+                                    ),
+                                1
+                            ),
+                            EndDate: 
+                            Date(
+                                Year(
+                                    Today()
+                                ),
+                                Month(
+                                    Today()
+                                ) 
+                                +1,
+                                1
+                            )
+                            -1
+                        },
+            
+                        Filter(
+                            VisitorRequest,
+                            'Visitor Start Date' >= StartDate,
+                            'Visit Start Date' <= EndDate
+                        )
+                    ),
+            
+                    If(
+                        IsBlank(searchBarRequest.Test) && dropdownDateFilter.Selected.Value = "Next Month",
+                        
+            
+            
+                    If(
+                        IsBlank(searchBarRequest.Text) && dropdownDateFilter.Selected.Value = "Next Quarter",
+                        With(
+                            {
+                                StartDate: 
+                                Date(
+                                    Year(
+                                        Today()
+                                    ),
+                                    Month(
+                                        Today()
+                                    )
+                                    +3,
+                                    Day(
+                                        Today()
+                                    )
+                                ) 
+                                -1
+                            },
+            
+                            Filter(
+                                VisitorRequest,
+                                'Visit Start Date' >= StartDate,
+                                'Visit Start Date' <= EndDate
+                            )
+                        ),
+            
+                        Search(
+                            VisitRequest,
+                            searchBarRequest.Text,"LastName")
+                                )
+                        )
+                    )
+            ),
+            
+            "LastName",
+            Ascending
+            ) 
+                            
         Layout: =Layout.Vertical
         TemplatePadding: =0
         TemplateSize: =123
@@ -3304,4 +3391,35 @@ screenRequest As screen:
             X: =200
             Y: =565
             ZIndex: =7
+
+    searchBarRequest As text:
+        BorderStyle: =BorderStyle.None
+        Default: =""
+        Height: =57
+        HintText: ="Search Last Names"
+        Size: =20
+        Width: =1074
+        X: =165
+        Y: =114
+        ZIndex: =6
+
+    searchIconRequest As icon.Search:
+        Color: =RGBA(153, 153, 153, 1)
+        Height: =57
+        Icon: =Icon.Search
+        Width: =39
+        X: =126
+        Y: =114
+        ZIndex: =7
+
+    dropdownDateFilter As dropdown:
+        AllowEmptySelection: =true
+        Default: ="All"
+        Height: =57
+        Items: =["All", "This Month", "Next Month", "Next Quarter"]
+        Size: =20
+        Width: =169
+        X: =1070
+        Y: =114
+        ZIndex: =8
 
