@@ -31,44 +31,31 @@ Screen1 As screen:
                 Y: =labelSecurity.Height
                 ZIndex: =1
 
-                "'Visit Start Date_DataCard3' As typedDataCard.textualViewCard":
+                DataCard1 As typedDataCard.blankCard:
                     BorderStyle: =BorderStyle.Solid
-                    DataField: ="VisitStartDate"
-                    Default: =ThisItem.'Visit Start Date'
-                    DisplayMode: =DisplayMode.View
-                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"VisitStartDate")
+                    DisplayMode: =DisplayMode.Edit
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =102
-                    Required: =false
-                    Width: =583
-                    X: =1
-                    Y: =1
+                    Height: =53
+                    Width: =1166
+                    X: =0
+                    Y: =0
                     ZIndex: =1
 
-                    DataCardKey43 As label:
-                        AutoHeight: =true
+                    Label2 As label:
                         FontWeight: =FontWeight.Bold
-                        Height: =34
-                        Size: =20
-                        Text: =Parent.DisplayName
-                        Width: =Parent.Width - 60
-                        Wrap: =false
-                        X: =30
-                        Y: =10
+                        Height: =85
+                        Size: =22
+                        Text: ="Event and Sponsor Information"
+                        Width: =498
+                        X: =40
+                        Y: =35
                         ZIndex: =1
 
-                    DataCardValue1 As label:
-                        AutoHeight: =true
-                        DisplayMode: =Parent.DisplayMode
-                        Height: =27
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =19
-                        Text: =Parent.Default
-                        Width: =Parent.Width - 60
-                        X: =60
-                        Y: =44
+                    Rectangle2 As rectangle:
+                        Fill: =RGBA(128, 128, 128, 1)
+                        Height: =28
+                        Width: =DataCard1.Width ///583
+                        Y: =97
                         ZIndex: =2
 
                 Title_DataCard4 As typedDataCard.textualViewCard:
@@ -112,6 +99,46 @@ Screen1 As screen:
                         Y: =DataCardKey69.Y + DataCardKey69.Height + 5
                         ZIndex: =2
 
+                "'Visit Start Date_DataCard3' As typedDataCard.textualViewCard":
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="VisitStartDate"
+                    Default: =ThisItem.'Visit Start Date'
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"VisitStartDate")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =102
+                    Required: =false
+                    Width: =583
+                    X: =1
+                    Y: =1
+                    ZIndex: =1
+
+                    DataCardKey43 As label:
+                        AutoHeight: =true
+                        FontWeight: =FontWeight.Bold
+                        Height: =34
+                        Size: =20
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue1 As label:
+                        AutoHeight: =true
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =27
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =19
+                        Text: =Parent.Default
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =62
+                        ZIndex: =2
+
                 "'Visit End Date_DataCard3' As typedDataCard.textualViewCard":
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="VisitEndDate"
@@ -150,60 +177,6 @@ Screen1 As screen:
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey44.Y + DataCardKey44.Height + 5
-                        ZIndex: =2
-
-                DataCard1 As typedDataCard.blankCard:
-                    BorderStyle: =BorderStyle.Solid
-                    DisplayMode: =DisplayMode.Edit
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =53
-                    Width: =1166
-                    X: =0
-                    Y: =0
-                    ZIndex: =1
-
-                    Label2 As label:
-                        FontWeight: =FontWeight.Bold
-                        Height: =85
-                        Size: =22
-                        Text: ="Event and Sponsor Information"
-                        Width: =498
-                        X: =40
-                        Y: =35
-                        ZIndex: =1
-
-                    Rectangle2 As rectangle:
-                        Fill: =RGBA(128, 128, 128, 1)
-                        Height: =28
-                        Width: =DataCard1.Width ///583
-                        Y: =97
-                        ZIndex: =2
-
-                DataCard2 As typedDataCard.blankCard:
-                    BorderStyle: =BorderStyle.Solid
-                    DisplayMode: =DisplayMode.Edit
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =125
-                    Width: =1166
-                    X: =0
-                    Y: =14
-                    ZIndex: =1
-
-                    Label2_3 As label:
-                        FontWeight: =FontWeight.Bold
-                        Height: =85
-                        Size: =22
-                        Text: ="Acknowledgement"
-                        Width: =498
-                        X: =40
-                        Y: =35
-                        ZIndex: =1
-
-                    Rectangle2_3 As rectangle:
-                        Fill: =RGBA(128, 128, 128, 1)
-                        Height: =28
-                        Width: =DataCard1.Width ///583
-                        Y: =97
                         ZIndex: =2
 
                 Sponsor_DataCard3 As typedDataCard.comboBoxViewCard:
@@ -1176,6 +1149,33 @@ Screen1 As screen:
                         Y: =DataCardKey58.Y
                         ZIndex: =4
 
+                DataCard2 As typedDataCard.blankCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =125
+                    Width: =1166
+                    X: =0
+                    Y: =14
+                    ZIndex: =1
+
+                    Label2_3 As label:
+                        FontWeight: =FontWeight.Bold
+                        Height: =85
+                        Size: =22
+                        Text: ="Acknowledgement"
+                        Width: =498
+                        X: =40
+                        Y: =35
+                        ZIndex: =1
+
+                    Rectangle2_3 As rectangle:
+                        Fill: =RGBA(128, 128, 128, 1)
+                        Height: =28
+                        Width: =DataCard1.Width ///583
+                        Y: =97
+                        ZIndex: =2
+
                 Acknowledgement_DataCard2 As typedDataCard.toggleViewCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Acknowledgement"
@@ -1183,7 +1183,7 @@ Screen1 As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"Acknowledgement")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =200
+                    Height: =102
                     Required: =true
                     Width: =1166
                     X: =0
@@ -1228,6 +1228,16 @@ Screen1 As screen:
                         Y: =102
                         ZIndex: =2
 
+                    Label2_4 As label:
+                        FontWeight: =FontWeight.Bold
+                        Height: =85
+                        Size: =24
+                        Text: ="Approval Status"
+                        Width: =498
+                        X: =40
+                        Y: =40
+                        ZIndex: =3
+
                 DataCard5 As typedDataCard.blankCard:
                     BorderStyle: =BorderStyle.Solid
                     DisplayMode: =DisplayMode.Edit
@@ -1240,12 +1250,10 @@ Screen1 As screen:
 
                     Button2_10 As button:
                         DisplayMode: |-
-                            =If(
+                            =/*If(
                                 varIsSecurity = true,
                                 DisplayMode.Edit,
-                                DisplayMode.Disabled)
-                                
-                               /* If(SharePointIntegration.Selected.Approved.Email = Office365Users.MyProfileV2().Mail, DisplayMode.Edit, DisplayMode.Disabled)*/ 
+                                DisplayMode.Disabled)*/
                         Fill: =RGBA(54, 176, 75, 1)
                         Height: =62
                         OnSelect: |+
@@ -1269,9 +1277,9 @@ Screen1 As screen:
                                         NotificationType.Success
                                     );
                                    Office365Outlook.SendEmailV2(
-                                    varSelectedVisitors.Sponsor.Email,
-                                    varSelectedVisitors.'First Name' & " " & varSelectedVisitors.'Last Name' & " Visitor Request Status Update",
-                                    "Greetings " & varSelectedVisitors.Sponsor.DisplayName & "," & "<br> Your visitor " & varSelectedVisitors.'First Name' & " " & varSelectedVisitors.'Last Name' & "'s" & " visitor request has been approved. Thank you!");
+                                    formData.Sponsor.Email,
+                                    formData.'First Name' & " " & formData.'Last Name' & " Visitor Request Status Update",
+                                    "Greetings " & formData.Sponsor.DisplayName & "," & "<br> Your visitor " & formData.'First Name' & " " & formData.'Last Name' & "'s" & " visitor request has been approved. Thank you!");
                                     Notify(
                                         First(Errors(VisitorRequest)).Message,
                                         NotificationType.Error
@@ -1407,14 +1415,14 @@ Screen1 As screen:
                                     If(
                                         ComboBox1_3.Selected.Value = "Other",
                                         Office365Outlook.SendEmailV2(
-                                            varSelectedVisitors.Sponsor.Email,
-                                            varSelectedVisitors.'First Name' & " " & varSelectedVisitors.'Last Name' & " Visitor Request Status Update",
-                                            "Greetings " & varSelectedVisitors.Sponsor.DisplayName & "," & "<br> Your visitor " & varSelectedVisitors.'First Name' & " " & varSelectedVisitors.'Last Name' & "'s" & " visitor request has been denied because of," & " " & txt_Denied_3.Text & ". Thank you!"
+                                            formData.Sponsor.Email,
+                                            formData.'First Name' & " " & formData.'Last Name' & " Visitor Request Status Update",
+                                            "Greetings " & formData.Sponsor.DisplayName & "," & "<br> Your visitor " & formData.'First Name' & " " & formData.'Last Name' & "'s" & " visitor request has been denied because of," & " " & txt_Denied_3.Text & ". Thank you!"
                                         ),
                                         Office365Outlook.SendEmailV2(
-                                            varSelectedVisitors.Sponsor.Email,
-                                            varSelectedVisitors.'First Name' & " " & varSelectedVisitors.'Last Name' & " Visitor Request Status Update",
-                                            "Greetings " & varSelectedVisitors.Sponsor.DisplayName & "," & "<br> Your visitor " & varSelectedVisitors.'First Name' & " " & varSelectedVisitors.'Last Name' & "'s" & " visitor request has been denied because of," & " " & ComboBox1_3.Selected.Value & ". Thank you!"
+                                            formData.Sponsor.Email,
+                                            formData.'First Name' & " " & formData.'Last Name' & " Visitor Request Status Update",
+                                            "Greetings " & formData.Sponsor.DisplayName & "," & "<br> Your visitor " & formData.'First Name' & " " & formData.'Last Name' & "'s" & " visitor request has been denied because of," & " " & ComboBox1_3.Selected.Value & ". Thank you!"
                                         )
                                     );
                                     Notify(

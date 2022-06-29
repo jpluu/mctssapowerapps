@@ -11,91 +11,8 @@ screenRequest As screen:
         Y: =103
         ZIndex: =1
 
-    searchIconRequest As icon.Search:
-        Color: =RGBA(153, 153, 153, 1)
-        Height: =57
-        Icon: =Icon.Search
-        Width: =39
-        X: =126
-        Y: =103
-        ZIndex: =2
-
-    ddDateFilter As dropdown:
-        AllowEmptySelection: =true
-        Default: ="All"
-        Height: =57
-        Items: =["All", "This Month", "Next Month", "Next Quarter"]
-        Size: =20
-        Width: =193
-        X: =1026
-        Y: =103
-        ZIndex: =3
-
-    buttonDenied As button:
-        Color: =RGBA(0, 0, 0, 1)
-        Fill: =Red
-        FontWeight: =FontWeight.Bold
-        Height: =46
-        HoverColor: =RGBA(0, 0, 0, 1)
-        HoverFill: =ColorFade(RGBA(255, 0, 0, 100), -20%)
-        OnSelect: |
-            =Set(VarStatus, "Denied")
-        Size: =18
-        Text: ="Denied"
-        Width: =200
-        X: =566
-        Y: =181
-        ZIndex: =4
-
-    buttonApproved As button:
-        Color: =RGBA(0, 0, 0, 1)
-        Fill: =PaleGreen
-        FontWeight: =FontWeight.Bold
-        Height: =46
-        HoverColor: =RGBA(0, 0, 0, 1)
-        HoverFill: =ColorFade(RGBA(152, 251, 152, 100), -20%)
-        OnSelect: =Set(VarStatus, "Approved")
-        Size: =18
-        Text: ="Approved"
-        Width: =200
-        X: =816
-        Y: =181
-        ZIndex: =5
-
-    buttonPending As button:
-        Color: =RGBA(0, 0, 0, 1)
-        Fill: =PaleGoldenRod
-        FontWeight: =FontWeight.Bold
-        Height: =46
-        HoverColor: =RGBA(0, 0, 0, 1)
-        HoverFill: =ColorFade(RGBA(238, 232, 170, 100), -20%)  
-        OnSelect: =Set(VarStatus, "Pending")
-        Size: =18
-        Text: ="Pending"
-        Width: =200
-        X: =316
-        Y: =181
-        ZIndex: =6
-
-    buttonNewRequest As icon.CancelBadge:
-        AutoDisableOnSelect: =false
-        Height: =150
-        Icon: =Icon.CancelBadge
-        OnSelect: |-
-            =Set(formData, Defaults(VisitorRequest));
-            Set(isModalRequest, true);
-            Set(isEventPage, true)
-        PaddingBottom: =10
-        PaddingLeft: =10
-        PaddingTop: =10
-        Rotation: =45
-        Width: =150
-        X: =1216
-        Y: =618
-        ZIndex: =7
-
     "galleryRequests As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
-        Height: =489
+        Height: =505
         Items: |
             =SortByColumns(
                 If( 
@@ -193,11 +110,169 @@ screenRequest As screen:
             )
             
         TemplatePadding: =0
-        TemplateSize: =123
+        TemplateSize: =126
         Width: =App.Width - 2 * buttonNewRequest.Width
         X: =150
-        Y: =257
-        ZIndex: =8
+        Y: =243
+        ZIndex: =1
+
+        Title1 As label:
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: |-
+                =If(
+                    IsEmpty(galleryRequests),
+                    "",
+                    ThisItem.'Last Name' & ", " & ThisItem.'First Name'
+                )
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 104
+            X: =32
+            Y: =16
+            ZIndex: =1
+
+        Subtitle1 As label:
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.'Visit Start Date'
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 104
+            X: =32
+            Y: =Title1.Y + Title1.Height + 2
+            ZIndex: =2
+
+        Body1 As label:
+            Height: =Self.Size * 4
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Approved.Value
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 104
+            X: =32
+            Y: =Subtitle1.Y + Subtitle1.Height + 4
+            ZIndex: =3
+
+        NextArrow1 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Height: =60
+            Icon: =Icon.Information
+            OnSelect: |-
+                =Select(Parent); 
+                Set(formData, galleryRequests.Selected);
+                Navigate(Screen1);
+                 
+                    
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="View item details"
+            Width: =60
+            X: =Parent.TemplateWidth - Self.Width - 5
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =4
+
+        Separator1 As rectangle:
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =5
+
+    searchIconRequest As icon.Search:
+        Color: =RGBA(153, 153, 153, 1)
+        Height: =57
+        Icon: =Icon.Search
+        Width: =39
+        X: =126
+        Y: =103
+        ZIndex: =2
+
+    ddDateFilter As dropdown:
+        AllowEmptySelection: =true
+        Default: ="All"
+        Height: =57
+        Items: =["All", "This Month", "Next Month", "Next Quarter"]
+        Size: =20
+        Width: =193
+        X: =1026
+        Y: =103
+        ZIndex: =3
+
+    buttonDenied As button:
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =Red
+        FontWeight: =FontWeight.Bold
+        Height: =46
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =ColorFade(RGBA(255, 0, 0, 100), -20%)
+        OnSelect: |
+            =Set(VarStatus, "Denied")
+        Size: =18
+        Text: ="Denied"
+        Width: =200
+        X: =566
+        Y: =181
+        ZIndex: =4
+
+    buttonApproved As button:
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =PaleGreen
+        FontWeight: =FontWeight.Bold
+        Height: =46
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =ColorFade(RGBA(152, 251, 152, 100), -20%)
+        OnSelect: =Set(VarStatus, "Approved")
+        Size: =18
+        Text: ="Approved"
+        Width: =200
+        X: =816
+        Y: =181
+        ZIndex: =5
+
+    buttonPending As button:
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =PaleGoldenRod
+        FontWeight: =FontWeight.Bold
+        Height: =46
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =ColorFade(RGBA(238, 232, 170, 100), -20%)  
+        OnSelect: =Set(VarStatus, "Pending")
+        Size: =18
+        Text: ="Pending"
+        Width: =200
+        X: =316
+        Y: =181
+        ZIndex: =6
+
+    buttonNewRequest As icon.CancelBadge:
+        AutoDisableOnSelect: =false
+        Height: =150
+        Icon: =Icon.CancelBadge
+        OnSelect: |-
+            =Set(formData, Defaults(VisitorRequest));
+            Set(isModalRequest, true);
+            Set(isEventPage, true)
+        PaddingBottom: =10
+        PaddingLeft: =10
+        PaddingTop: =10
+        Rotation: =45
+        Width: =150
+        X: =1216
+        Y: =618
+        ZIndex: =7
 
     compHeaderRequest As Header:
         ZIndex: =9
