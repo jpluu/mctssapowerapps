@@ -27,6 +27,7 @@ screenPre As screen:
         Set(formData, Defaults(VisitorRequest));
         Set(isLongTerm, false);
         Set(isEditing, false); // bool | control for editing request
+        Set(progressBar, 0); // int (0-5) | control for inputCurrentStep
         
         // End Pre-Load
         Set(isLoaded, true)
