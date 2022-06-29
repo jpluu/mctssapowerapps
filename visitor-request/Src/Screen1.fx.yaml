@@ -14,40 +14,86 @@ Screen1 As screen:
             Width: =1366
             ZIndex: =1
 
-        formSecurity As formViewer:
-            DataSource: =VisitorRequest
+        pageSecurity As groupContainer:
             Fill: =RGBA(153, 153, 153, 1)
-            Height: =Parent.Height - 2 * Self.Y
-            NumberOfColumns: =2
-            Width: =Parent.Width - 2 * Self.X
+            Height: =App.Height - 2 * pageSecurity.Y
+            Width: =App.Width - 2 * pageSecurity.X
             X: =modalX
-            Y: |
-                =modalY
-            ZIndex: =2
+            Y: =modalY
+            ZIndex: =4
 
-            DataCard1 As typedDataCard.blankCard:
-                BorderStyle: =BorderStyle.Solid
-                DisplayMode: =DisplayMode.Edit
-                Fill: =RGBA(0, 0, 0, 0)
-                Height: =100
-                Width: =583
-                X: =0
-                Y: =0
+            formSecurity As formViewer:
+                DataSource: =VisitorRequest
+                Height: =Parent.Height - labelSecurity.Height
+                Item: =formData
+                NumberOfColumns: =2
+                Width: =Parent.Width
+                Y: =labelSecurity.Height
                 ZIndex: =1
 
-                Button2 As button:
-                    DisplayMode: =If(isSecurity, DisplayMode.Edit, DisplayMode.Disabled)
-                    Text: ="Button"
-                    X: =368
-                    Y: =24
+                dcHeader As typedDataCard.blankCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =40
+                    Width: =1166
+                    X: =0
+                    Y: =0
                     ZIndex: =1
 
-                Label1 As label:
-                    Text: |-
-                        ="Security Test
-                        "
-                    Width: =323
-                    X: =23
-                    Y: =24
-                    ZIndex: =2
+                    label_dcHeader As label:
+                        Align: =Align.Center
+                        Fill: =RGBA(255, 255, 255, 1)
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: ="Event Information"
+                        Width: =Parent.Width
+                        ZIndex: =1
+
+                Title_DataCard4 As typedDataCard.textualViewCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Title"
+                    Default: =ThisItem.Title
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"Title")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =40
+                    Required: =true
+                    Width: =1166
+                    X: =0
+                    Y: =1
+                    ZIndex: =1
+
+                    DataCardKey69 As label:
+                        AutoHeight: =true
+                        Height: =34
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue64 As label:
+                        AutoHeight: =true
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =27
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Default
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey69.Y + DataCardKey69.Height + 5
+                        ZIndex: =2
+
+            labelSecurity As label:
+                Align: =Align.Center
+                FontWeight: =FontWeight.Bold
+                Height: =64
+                Size: =24
+                Text: ="Request Approval Page"
+                Width: =Parent.Width
+                ZIndex: =2
 
