@@ -2165,19 +2165,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "screenRequest.dropdownDateFilter.AccessibleLabel"
+                  "fullyQualifiedName": "screenRequest.dropDownDateFilter.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "screenRequest.dropdownDateFilter.AccessibleLabel",
+                  "fullyQualifiedName": "screenRequest.dropDownDateFilter.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "screenRequest",
-                "type": "screenRequest.dropdownDateFilter"
+                "type": "screenRequest.dropDownDateFilter"
               }
             }
           ],

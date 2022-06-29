@@ -3,7 +3,7 @@ Screen1 As screen:
 
     modalSecurity As groupContainer:
         Height: =768
-        Width: =1366
+        Width: =App.Width
         ZIndex: =1
 
         modalFloatSecurity As button:
