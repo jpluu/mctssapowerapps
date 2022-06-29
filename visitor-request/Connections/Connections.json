@@ -86,5 +86,30 @@
     "dependencies": {},
     "dependents": [],
     "id": "8a4b6060-0c76-4743-acd4-c7c31205c369"
+  },
+  "dd808c08-e4fa-4f05-9452-2ef6940db4f8": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1578/1.0.1578.2813/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline"
+    },
+    "datasets": {
+      "https://vzwr0.sharepoint.com/sites/MCTSSA.Megalodon": {
+        "dataSources": {
+          "Security": {
+            "tableName": "64e8eaed-f75f-4cb4-82c7-f30ad045e35b"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Security"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "dd808c08-e4fa-4f05-9452-2ef6940db4f8"
   }
 }
