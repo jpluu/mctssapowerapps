@@ -18,7 +18,7 @@ screenRequest As screen:
         ZIndex: =1
 
     "galleryTemp As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
-        Height: =511
+        Height: =489
         Items: |-
             =SortByColumns(
                 If( 
@@ -3540,7 +3540,7 @@ screenRequest As screen:
         Size: =18
         Text: ="Approved"
         Width: =200
-        X: =766
+        X: =816
         Y: =181
         ZIndex: =10
 
@@ -3555,7 +3555,7 @@ screenRequest As screen:
         Size: =18
         Text: ="Pending"
         Width: =200
-        X: =366
+        X: =316
         Y: =181
         ZIndex: =11
 
