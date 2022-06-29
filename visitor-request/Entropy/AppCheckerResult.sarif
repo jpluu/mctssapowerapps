@@ -2768,36 +2768,6 @@
           },
           "ruleId": "app-UnusedVariables",
           "ruleIndex": 8
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.isSecurity"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.isSecurity",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "isSecurity",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 8
         }
       ],
       "tool": {
