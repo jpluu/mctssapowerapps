@@ -3293,3 +3293,26 @@ screenRequest As screen:
     Header_1 As Header:
         ZIndex: =5
 
+    componentProgressBar_1 As componentProgressBar:
+        inputCurrentStep: |-
+            =If(
+                isEventPage,
+                1,
+                isVisitorPage,
+                2,
+                isLongTerm && isLongTermPage,
+                3,
+                isLongTerm && isReviewPage,
+                4,
+                 isReviewPage,
+                3,
+                isLongTerm && isAcknowPage,
+                5,
+                isAcknowPage,
+                4
+            )
+        Width: =786
+        X: =324
+        Y: =567
+        ZIndex: =6
+

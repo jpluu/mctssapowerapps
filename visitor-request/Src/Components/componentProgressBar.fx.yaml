@@ -242,7 +242,7 @@ componentProgressBar As CanvasComponent:
     collectionA As groupContainer.manualLayoutContainer:
         Height: =Parent.Height
         Visible: |-
-            =If (isLongTerm, true, false)
+            =If (isLongTerm, true)
             
             
             /*If (DateDiff(DataCardValue27, DataCardValue28, Days) >= 90 Or DataCardValue57.Selected.Value = "Five Days"= true, true, false)*/
