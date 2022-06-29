@@ -31,33 +31,6 @@ Screen1 As screen:
                 Y: =labelSecurity.Height
                 ZIndex: =1
 
-                DataCard2 As typedDataCard.blankCard:
-                    BorderStyle: =BorderStyle.Solid
-                    DisplayMode: =DisplayMode.Edit
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =125
-                    Width: =1166
-                    X: =0
-                    Y: =14
-                    ZIndex: =1
-
-                    Label2_3 As label:
-                        FontWeight: =FontWeight.Bold
-                        Height: =85
-                        Size: =22
-                        Text: ="Acknowledgement"
-                        Width: =498
-                        X: =40
-                        Y: =35
-                        ZIndex: =1
-
-                    Rectangle2_3 As rectangle:
-                        Fill: =RGBA(128, 128, 128, 1)
-                        Height: =28
-                        Width: =DataCard1.Width ///583
-                        Y: =97
-                        ZIndex: =2
-
                 DataCard1 As typedDataCard.blankCard:
                     BorderStyle: =BorderStyle.Solid
                     DisplayMode: =DisplayMode.Edit
@@ -1176,6 +1149,33 @@ Screen1 As screen:
                         Y: =DataCardKey58.Y
                         ZIndex: =4
 
+                DataCard2 As typedDataCard.blankCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =125
+                    Width: =1166
+                    X: =0
+                    Y: =14
+                    ZIndex: =1
+
+                    Label2_3 As label:
+                        FontWeight: =FontWeight.Bold
+                        Height: =85
+                        Size: =22
+                        Text: ="Acknowledgement"
+                        Width: =498
+                        X: =40
+                        Y: =35
+                        ZIndex: =1
+
+                    Rectangle2_3 As rectangle:
+                        Fill: =RGBA(128, 128, 128, 1)
+                        Height: =28
+                        Width: =DataCard1.Width ///583
+                        Y: =97
+                        ZIndex: =2
+
                 Acknowledgement_DataCard2 As typedDataCard.toggleViewCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Acknowledgement"
@@ -1183,9 +1183,9 @@ Screen1 As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"Acknowledgement")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
+                    Height: =200
                     Required: =true
-                    Width: =583
+                    Width: =1166
                     X: =0
                     Y: =15
                     ZIndex: =1
@@ -1210,6 +1210,248 @@ Screen1 As screen:
                         X: =30
                         Y: =DataCardKey63.Y + DataCardKey63.Height + 5
                         ZIndex: =2
+
+                DataCard4 As typedDataCard.blankCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =125
+                    Width: =1166
+                    X: =0
+                    Y: =16
+                    ZIndex: =1
+
+                    Label2_4 As label:
+                        FontWeight: =FontWeight.Bold
+                        Height: =85
+                        Size: =24
+                        Text: ="Approval Status"
+                        Width: =498
+                        X: =40
+                        Y: =40
+                        ZIndex: =1
+
+                    Rectangle2_4 As rectangle:
+                        Fill: =RGBA(128, 128, 128, 1)
+                        Height: =28
+                        Width: =DataCard1.Width ///583
+                        Y: =102
+                        ZIndex: =2
+
+                DataCard5 As typedDataCard.blankCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =200
+                    Width: =583
+                    X: =0
+                    Y: =17
+                    ZIndex: =1
+
+                    Button2_10 As button:
+                        DisplayMode: |-
+                            =If(
+                                varIsSecurity = true,
+                                DisplayMode.Edit,
+                                DisplayMode.Disabled)
+                                
+                               /* If(SharePointIntegration.Selected.Approved.Email = Office365Users.MyProfileV2().Mail, DisplayMode.Edit, DisplayMode.Disabled)*/ 
+                        Fill: =RGBA(54, 176, 75, 1)
+                        Height: =62
+                        OnSelect: |+
+                            =
+                            
+                                If(
+                                    Patch(
+                                VisitorRequest,
+                                LookUp(
+                                    VisitorRequest,
+                                    Title = ThisItem.Title
+                                ),
+                                {
+                                    Approved: {Value: "Approved"}
+                                }
+                            
+                            );
+                                    IsEmpty(Errors(VisitorRequest)),
+                                    Notify(
+                                        "Success",
+                                        NotificationType.Success
+                                    );
+                                   Office365Outlook.SendEmailV2(
+                                    varSelectedVisitors.Sponsor.Email,
+                                    varSelectedVisitors.'First Name' & " " & varSelectedVisitors.'Last Name' & " Visitor Request Status Update",
+                                    "Greetings " & varSelectedVisitors.Sponsor.DisplayName & "," & "<br> Your visitor " & varSelectedVisitors.'First Name' & " " & varSelectedVisitors.'Last Name' & "'s" & " visitor request has been approved. Thank you!");
+                                    Notify(
+                                        First(Errors(VisitorRequest)).Message,
+                                        NotificationType.Error
+                                    );
+                                   
+                                    Set(
+                                boolSecurityModal,
+                                false
+                            )
+                                )
+                            
+                        Size: =24
+                        Text: ="Approved"
+                        Visible: |-
+                            =true
+                            /*If(
+                                varIsSecurity = true,
+                                true,
+                                false)
+                            
+                            if currentuser.email = email
+                            
+                            person. email */
+                        Width: =218
+                        X: =177
+                        Y: =73
+                        ZIndex: =1
+
+                DataCard7 As typedDataCard.blankCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =248
+                    Width: =583
+                    X: =1
+                    Y: =17
+                    ZIndex: =1
+
+                    txt_Denied_3 As text:
+                        Default: =""
+                        Height: =35
+                        HintText: ="Denial Reason"
+                        Visible: |
+                            =!ComboBox1_3.Visible
+                        Width: =218
+                        X: =197
+                        Y: =134
+                        ZIndex: =1
+
+                    Icon2_3 As icon.Cancel:
+                        Color: =RGBA(0, 0, 0, 1)
+                        Height: =35
+                        Icon: =Icon.Cancel
+                        OnSelect: |-
+                            =Reset(ComboBox1_3);
+                            Reset(txt_Denied_3);
+                        Visible: =!ComboBox1_3.Visible 
+                        Width: =18
+                        X: =278
+                        Y: =134
+                        ZIndex: =2
+
+                    ComboBox1_3 As combobox:
+                        DisplayFields: =["Value"]
+                        Height: =35
+                        InputTextPlaceholder: |-
+                            ="Reasons for Denial
+                            "
+                        Items: |-
+                            =Ungroup(
+                                Table
+                                ({DropdownOptions: Choices(VisitorRequest.'Denied Reason')}, 
+                                {DropdownOptions: ["Other"]}
+                                ), 
+                                "DropdownOptions"
+                                ) 
+                        SearchFields: =["Value"]
+                        SearchItems: |-
+                            =Search(Ungroup(
+                                Table
+                                ({DropdownOptions: Choices(VisitorRequest.'Denied Reason')}, 
+                                {DropdownOptions: ["Other"]}
+                                ), 
+                                "DropdownOptions"
+                                ) ,ComboBox1_3.SearchText,"Value")
+                        SelectMultiple: =false
+                        Visible: =Self.Selected.Value<>"Other"
+                        Width: =218
+                        X: =197
+                        Y: =134
+                        ZIndex: =3
+
+                    Button2_11 As button:
+                        BorderColor: =RGBA(184, 0, 0, 1)
+                        DisplayMode: |-
+                            =/*If(
+                                varIsSecurity = true,
+                                DisplayMode.Edit,
+                                DisplayMode.Disabled)
+                            */
+                                
+                        Fill: =RGBA(184, 0, 0, 1)
+                        Height: =62
+                        OnSelect: |-
+                            =If(
+                                Not(IsBlank(ComboBox1_3.Selected.Value)),
+                                If(
+                                    Patch(
+                                        VisitorRequest,
+                                        LookUp(
+                                            VisitorRequest,
+                                            Title = ThisItem.Title
+                                        ),
+                                        {Approved: {Value: "Denied"}}
+                                    );
+                                    Patch(
+                                        VisitorRequest,
+                                        LookUp(
+                                            VisitorRequest,
+                                            Title = ThisItem.Title
+                                        ),
+                                        If(
+                                            ComboBox1_3.Selected.Value = "Other",
+                                            {'Denied Reason': {Value: txt_Denied_3.Text}},
+                                            {'Denied Reason': ComboBox1_3.Selected}
+                                        )
+                                    );
+                                    IsEmpty(Errors(VisitorRequest)),
+                                    Notify(
+                                        "Success",
+                                        NotificationType.Success
+                                    );
+                                    If(
+                                        ComboBox1_3.Selected.Value = "Other",
+                                        Office365Outlook.SendEmailV2(
+                                            varSelectedVisitors.Sponsor.Email,
+                                            varSelectedVisitors.'First Name' & " " & varSelectedVisitors.'Last Name' & " Visitor Request Status Update",
+                                            "Greetings " & varSelectedVisitors.Sponsor.DisplayName & "," & "<br> Your visitor " & varSelectedVisitors.'First Name' & " " & varSelectedVisitors.'Last Name' & "'s" & " visitor request has been denied because of," & " " & txt_Denied_3.Text & ". Thank you!"
+                                        ),
+                                        Office365Outlook.SendEmailV2(
+                                            varSelectedVisitors.Sponsor.Email,
+                                            varSelectedVisitors.'First Name' & " " & varSelectedVisitors.'Last Name' & " Visitor Request Status Update",
+                                            "Greetings " & varSelectedVisitors.Sponsor.DisplayName & "," & "<br> Your visitor " & varSelectedVisitors.'First Name' & " " & varSelectedVisitors.'Last Name' & "'s" & " visitor request has been denied because of," & " " & ComboBox1_3.Selected.Value & ". Thank you!"
+                                        )
+                                    );
+                                    Notify(
+                                        First(Errors(VisitorRequest)).Message,
+                                        NotificationType.Error
+                                    );
+                                    Set(
+                                        boolRequestModal,
+                                        false
+                                    )
+                                )
+                            )
+                        Size: =24
+                        Text: ="Denied"
+                        Visible: |-
+                            = true /* If(varIsSecurity = true,
+                                true,
+                                false)*/
+                                
+                                 /*If(
+                                varIsSecurity = true,
+                                true,
+                                false)*/
+                        Width: =218
+                        X: =197
+                        Y: =60
+                        ZIndex: =4
 
             labelSecurity As label:
                 Align: =Align.Center
