@@ -2165,19 +2165,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "screenRequest.dropDownDateFilter.AccessibleLabel"
+                  "fullyQualifiedName": "screenRequest.dropdownDateFilter.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "screenRequest.dropDownDateFilter.AccessibleLabel",
+                  "fullyQualifiedName": "screenRequest.dropdownDateFilter.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "screenRequest",
-                "type": "screenRequest.dropDownDateFilter"
+                "type": "screenRequest.dropdownDateFilter"
               }
             }
           ],
@@ -2309,36 +2309,6 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 6
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.isSecurity"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.isSecurity",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "isSecurity",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 8
         },
         {
           "locations": [
