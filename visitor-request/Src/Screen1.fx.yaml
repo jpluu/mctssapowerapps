@@ -67,7 +67,10 @@ Screen1 As screen:
 
                     DataCardKey69 As label:
                         AutoHeight: =true
+                        Color: =RGBA(9, 33, 98, 1)
+                        FontWeight: =FontWeight.Bold
                         Height: =34
+                        Size: =20
                         Text: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         Wrap: =false
@@ -82,6 +85,7 @@ Screen1 As screen:
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
+                        Size: =19
                         Text: =Parent.Default
                         Width: =Parent.Width - 60
                         X: =30
@@ -95,7 +99,7 @@ Screen1 As screen:
                     DisplayMode: =DisplayMode.View
                     DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"VisitStartDate")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =40
+                    Height: =102
                     Required: =false
                     Width: =583
                     X: =1
@@ -104,7 +108,9 @@ Screen1 As screen:
 
                     DataCardKey43 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Bold
                         Height: =34
+                        Size: =20
                         Text: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         Wrap: =false
@@ -119,47 +125,11 @@ Screen1 As screen:
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
+                        Size: =19
                         Text: =Parent.Default
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey43.Y + DataCardKey43.Height + 5
-                        ZIndex: =2
-
-                "'Visit End Date_DataCard3' As typedDataCard.textualViewCard":
-                    BorderStyle: =BorderStyle.Solid
-                    DataField: ="VisitEndDate"
-                    Default: =ThisItem.'Visit End Date'
-                    DisplayMode: =DisplayMode.View
-                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"VisitEndDate")
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =40
-                    Required: =false
-                    Width: =583
-                    X: =0
-                    Y: =2
-                    ZIndex: =1
-
-                    DataCardKey44 As label:
-                        AutoHeight: =true
-                        Height: =34
-                        Text: =Parent.DisplayName
-                        Width: =Parent.Width - 60
-                        Wrap: =false
-                        X: =30
-                        Y: =10
-                        ZIndex: =1
-
-                    DataCardValue16 As label:
-                        AutoHeight: =true
-                        DisplayMode: =Parent.DisplayMode
-                        Height: =27
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Text: =Parent.Default
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =DataCardKey44.Y + DataCardKey44.Height + 5
                         ZIndex: =2
 
                 Sponsor_DataCard3 As typedDataCard.comboBoxViewCard:
@@ -179,7 +149,9 @@ Screen1 As screen:
 
                     DataCardKey45 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Bold
                         Height: =34
+                        Size: =20
                         Text: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         Wrap: =false
@@ -198,6 +170,7 @@ Screen1 As screen:
                         SearchFields: =["DisplayName"]
                         SearchItems: =Choices(VisitorRequest.Sponsor,DataCardValue40.SearchText)
                         SelectMultiple: =false
+                        Size: =19
                         Template: =ListItemTemplate.Person
                         Width: =Parent.Width - 60
                         X: =30
@@ -245,7 +218,9 @@ Screen1 As screen:
 
                     DataCardKey46 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Bold
                         Height: =34
+                        Size: =20
                         Text: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         Wrap: =false
@@ -260,6 +235,7 @@ Screen1 As screen:
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
+                        Size: =19
                         Text: =Parent.Default
                         Width: =Parent.Width - 60
                         X: =30
@@ -283,7 +259,9 @@ Screen1 As screen:
 
                     DataCardKey47 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Bold
                         Height: =34
+                        Size: =20
                         Text: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         Wrap: =false
@@ -302,6 +280,7 @@ Screen1 As screen:
                         SearchFields: =["DisplayName"]
                         SearchItems: =Choices(VisitorRequest.AlternateSponsor,DataCardValue42.SearchText)
                         SelectMultiple: =false
+                        Size: =19
                         Template: =ListItemTemplate.Person
                         Width: =Parent.Width - 60
                         X: =30
@@ -349,7 +328,9 @@ Screen1 As screen:
 
                     DataCardKey48 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Bold
                         Height: =34
+                        Size: =20
                         Text: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         Wrap: =false
@@ -364,6 +345,7 @@ Screen1 As screen:
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
+                        Size: =19
                         Text: =Parent.Default
                         Width: =Parent.Width - 60
                         X: =30
@@ -386,7 +368,9 @@ Screen1 As screen:
 
                     DataCardKey49 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Bold
                         Height: =34
+                        Size: =20
                         Text: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         Wrap: =false
@@ -401,6 +385,7 @@ Screen1 As screen:
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
+                        Size: =19
                         Text: =Parent.Default
                         Width: =Parent.Width - 60
                         X: =30
@@ -423,7 +408,9 @@ Screen1 As screen:
 
                     DataCardKey50 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Bold
                         Height: =34
+                        Size: =20
                         Text: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         Wrap: =false
@@ -438,6 +425,7 @@ Screen1 As screen:
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
+                        Size: =19
                         Text: =Parent.Default
                         Width: =Parent.Width - 60
                         X: =30
@@ -461,7 +449,9 @@ Screen1 As screen:
 
                     DataCardKey51 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Bold
                         Height: =34
+                        Size: =20
                         Text: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         Wrap: =false
@@ -480,6 +470,7 @@ Screen1 As screen:
                         SearchFields: =["Value"]
                         SearchItems: =Choices(VisitorRequest.Rank_x002f_Grade,DataCardValue46.SearchText)
                         SelectMultiple: =false
+                        Size: =19
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey51.Y + DataCardKey51.Height + 5
@@ -526,7 +517,9 @@ Screen1 As screen:
 
                     DataCardKey52 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Bold
                         Height: =34
+                        Size: =20
                         Text: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         Wrap: =false
@@ -541,6 +534,7 @@ Screen1 As screen:
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
+                        Size: =19
                         Text: =Parent.Default
                         Width: =Parent.Width - 60
                         X: =30
@@ -563,7 +557,9 @@ Screen1 As screen:
 
                     DataCardKey53 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Bold
                         Height: =34
+                        Size: =20
                         Text: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         Wrap: =false
@@ -578,6 +574,7 @@ Screen1 As screen:
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
+                        Size: =19
                         Text: =Parent.Default
                         Width: =Parent.Width - 60
                         X: =30
@@ -601,7 +598,9 @@ Screen1 As screen:
 
                     DataCardKey54 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Bold
                         Height: =34
+                        Size: =20
                         Text: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         Wrap: =false
@@ -620,6 +619,7 @@ Screen1 As screen:
                         SearchFields: =["Value"]
                         SearchItems: =Choices(VisitorRequest.DaysaWeekWorkingatMCTSSA,DataCardValue49.SearchText)
                         SelectMultiple: =false
+                        Size: =19
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey54.Y + DataCardKey54.Height + 5
@@ -667,7 +667,9 @@ Screen1 As screen:
 
                     DataCardKey55 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Bold
                         Height: =34
+                        Size: =20
                         Text: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         Wrap: =false
@@ -686,6 +688,7 @@ Screen1 As screen:
                         SearchFields: =["Value"]
                         SearchItems: =Choices(VisitorRequest.TypeofVisit,DataCardValue50.SearchText)
                         SelectMultiple: =false
+                        Size: =19
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey55.Y + DataCardKey55.Height + 5
@@ -732,7 +735,9 @@ Screen1 As screen:
 
                     DataCardKey56 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Bold
                         Height: =34
+                        Size: =20
                         Text: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         Wrap: =false
@@ -744,6 +749,7 @@ Screen1 As screen:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         Default: =Parent.Default
                         DisplayMode: =Parent.DisplayMode
+                        Size: =19
                         X: =30
                         Y: =DataCardKey56.Y + DataCardKey56.Height + 5
                         ZIndex: =2
@@ -764,7 +770,9 @@ Screen1 As screen:
 
                     DataCardKey57 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Bold
                         Height: =34
+                        Size: =20
                         Text: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         Wrap: =false
@@ -779,6 +787,7 @@ Screen1 As screen:
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
+                        Size: =19
                         Text: =Parent.Default
                         Width: =Parent.Width - 60
                         X: =30
@@ -801,7 +810,9 @@ Screen1 As screen:
 
                     DataCardKey59 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Bold
                         Height: =34
+                        Size: =20
                         Text: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         Wrap: =false
@@ -816,6 +827,7 @@ Screen1 As screen:
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
+                        Size: =19
                         Text: =Parent.Default
                         Width: =Parent.Width - 60
                         X: =30
@@ -838,7 +850,9 @@ Screen1 As screen:
 
                     DataCardKey60 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Bold
                         Height: =34
+                        Size: =20
                         Text: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         Wrap: =false
@@ -853,6 +867,7 @@ Screen1 As screen:
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
+                        Size: =19
                         Text: =Parent.Default
                         Width: =Parent.Width - 60
                         X: =30
@@ -875,7 +890,9 @@ Screen1 As screen:
 
                     DataCardKey61 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Bold
                         Height: =34
+                        Size: =20
                         Text: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         Wrap: =false
@@ -887,6 +904,7 @@ Screen1 As screen:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         Default: =Parent.Default
                         DisplayMode: =Parent.DisplayMode
+                        Size: =19
                         X: =30
                         Y: =DataCardKey61.Y + DataCardKey61.Height + 5
                         ZIndex: =2
@@ -908,7 +926,9 @@ Screen1 As screen:
 
                     DataCardKey62 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Bold
                         Height: =34
+                        Size: =20
                         Text: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         Wrap: =false
@@ -927,6 +947,7 @@ Screen1 As screen:
                         SearchFields: =["Value"]
                         SearchItems: =Choices(VisitorRequest.AccessControlPoints,DataCardValue57.SearchText)
                         SelectMultiple: =false
+                        Size: =19
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey62.Y + DataCardKey62.Height + 5
@@ -974,7 +995,9 @@ Screen1 As screen:
 
                     DataCardKey58 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Bold
                         Height: =34
+                        Size: =20
                         Text: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         Wrap: =false
@@ -993,6 +1016,7 @@ Screen1 As screen:
                         SearchFields: =["DisplayName"]
                         SearchItems: =Choices(VisitorRequest.AssignedtoSection,DataCardValue53.SearchText)
                         SelectMultiple: =false
+                        Size: =19
                         Template: =ListItemTemplate.Person
                         Width: =Parent.Width - 60
                         X: =30
@@ -1040,7 +1064,9 @@ Screen1 As screen:
 
                     DataCardKey63 As label:
                         AutoHeight: =true
+                        FontWeight: =FontWeight.Bold
                         Height: =34
+                        Size: =20
                         Text: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         Wrap: =false
@@ -1052,8 +1078,49 @@ Screen1 As screen:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         Default: =Parent.Default
                         DisplayMode: =Parent.DisplayMode
+                        Size: =19
                         X: =30
                         Y: =DataCardKey63.Y + DataCardKey63.Height + 5
+                        ZIndex: =2
+
+                "'Visit End Date_DataCard3' As typedDataCard.textualViewCard":
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="VisitEndDate"
+                    Default: =ThisItem.'Visit End Date'
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"VisitEndDate")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =40
+                    Required: =false
+                    Width: =583
+                    X: =0
+                    Y: =2
+                    ZIndex: =1
+
+                    DataCardKey44 As label:
+                        AutoHeight: =true
+                        FontWeight: =FontWeight.Bold
+                        Height: =34
+                        Size: =20
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue16 As label:
+                        AutoHeight: =true
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =27
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =19
+                        Text: =Parent.Default
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey44.Y + DataCardKey44.Height + 5
                         ZIndex: =2
 
             labelSecurity As label:
