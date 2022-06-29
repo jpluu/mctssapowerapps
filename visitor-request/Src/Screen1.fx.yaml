@@ -1,0 +1,22 @@
+Screen1 As screen:
+
+    modalSecurity As groupContainer:
+        Height: =768
+        Visible: =isModalRequest
+        Width: =1366
+        ZIndex: =1
+
+        modalFloatSecurity As button:
+            Color: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(128, 128, 128, 0.5)
+            Height: =App.Height
+            HoverFill: =ColorFade(Self.Fill, 20%)
+            OnSelect: =Set(isModalRequest, false)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =""
+            Width: =App.Width
+            ZIndex: =1
+

@@ -103,7 +103,7 @@ screenRequest As screen:
         Width: =1366
         ZIndex: =4
 
-        modalFloat As button:
+        modalFloatRequest As button:
             Color: =RGBA(0, 0, 0, 0)
             Fill: =RGBA(128, 128, 128, 0.5)
             Height: =App.Height
@@ -3289,6 +3289,26 @@ screenRequest As screen:
                     "
                 Width: =Parent.Width
                 ZIndex: =4
+
+        pbRequest As componentProgressBar:
+            inputCurrentStep: |-
+                =If(
+                    isEventPage,
+                    1,
+                    isVisitorPage,
+                    2,
+                    isLongTermPage,
+                    3,
+                    isReviewPage,
+                    4,
+                    isAcknowPage,
+                    5,
+                    0
+                )
+            Width: =pageEvent.Width - 2 * nextEvent.Width
+            X: =200
+            Y: =565
+            ZIndex: =7
 
     Header_1 As Header:
         ZIndex: =5
