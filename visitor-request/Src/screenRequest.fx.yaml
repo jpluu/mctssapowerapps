@@ -3557,6 +3557,6 @@ screenRequest As screen:
                 )
             Width: =pageEvent.Width - 2 * nextEvent.Width
             X: =200
-            Y: =605
+            Y: =565
             ZIndex: =7
 
