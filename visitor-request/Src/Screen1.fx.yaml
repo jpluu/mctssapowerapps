@@ -9,7 +9,7 @@ Screen1 As screen:
         modalFloatSecurity As button:
             Color: =RGBA(0, 0, 0, 0)
             Fill: =RGBA(128, 128, 128, 0.5)
-            Height: =App.Height
+            Height: =App.Height - 2 * Self.Y
             HoverFill: =ColorFade(Self.Fill, 20%)
             OnSelect: =Set(isModalRequest, false)
             PaddingBottom: =0
@@ -17,6 +17,13 @@ Screen1 As screen:
             PaddingRight: =0
             PaddingTop: =0
             Text: =""
-            Width: =App.Width
+            Width: =App.Width - 2 * Self.X
+            X: =modalX
+            Y: =modalY
             ZIndex: =1
+
+    FormViewer1 As formViewer:
+        X: =40
+        Y: =40
+        ZIndex: =2
 

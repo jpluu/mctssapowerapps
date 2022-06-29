@@ -1,5 +1,22 @@
 screenRequest As screen:
 
+    buttonNewRequest As icon.CancelBadge:
+        AutoDisableOnSelect: =false
+        Height: =150
+        Icon: =Icon.CancelBadge
+        OnSelect: |-
+            =Set(formData, Defaults(VisitorRequest));
+            Set(isModalRequest, true);
+            Set(isEventPage, true)
+        PaddingBottom: =10
+        PaddingLeft: =10
+        PaddingTop: =10
+        Rotation: =45
+        Width: =150
+        X: =1216
+        Y: =618
+        ZIndex: =1
+
     "galleryTemp As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
         Height: =511
         Items: =VisitorRequest
@@ -9,7 +26,7 @@ screenRequest As screen:
         Width: =App.Width - 2 * buttonNewRequest.Width
         X: =150
         Y: =257
-        ZIndex: =1
+        ZIndex: =2
 
         Title2 As label:
             Height: =Self.Size * 1.8
@@ -80,28 +97,14 @@ screenRequest As screen:
             Y: =Parent.TemplateHeight - 1
             ZIndex: =5
 
-    buttonNewRequest As icon.CancelBadge:
-        AutoDisableOnSelect: =false
-        Height: =150
-        Icon: =Icon.CancelBadge
-        OnSelect: |-
-            =Set(formData, Defaults(VisitorRequest));
-            Set(isModalRequest, true);
-            Set(isEventPage, true)
-        PaddingBottom: =10
-        PaddingLeft: =10
-        PaddingTop: =10
-        Rotation: =45
-        Width: =150
-        X: =1216
-        Y: =618
-        ZIndex: =1
+    compHeaderRequest As Header:
+        ZIndex: =3
 
     modalRequest As groupContainer:
         Height: =768
         Visible: =isModalRequest
         Width: =1366
-        ZIndex: =4
+        ZIndex: =5
 
         modalFloatRequest As button:
             Color: =RGBA(0, 0, 0, 0)
@@ -3283,42 +3286,22 @@ screenRequest As screen:
                     1,
                     isVisitorPage,
                     2,
-                    isLongTermPage,
-                    3,
+                    isLongTerm,
+                    If(
+                        isLongTermPage,
+                        3,
+                        isReviewPage,
+                        4,
+                        isAcknowPage,
+                        5
+                    ),
                     isReviewPage,
-                    4,
+                    3,
                     isAcknowPage,
-                    5,
-                    0
+                    4
                 )
             Width: =pageEvent.Width - 2 * nextEvent.Width
             X: =200
             Y: =565
             ZIndex: =7
-
-    Header_1 As Header:
-        ZIndex: =5
-
-    componentProgressBar_1 As componentProgressBar:
-        inputCurrentStep: |-
-            =If(
-                isEventPage,
-                1,
-                isVisitorPage,
-                2,
-                isLongTerm && isLongTermPage,
-                3,
-                isLongTerm && isReviewPage,
-                4,
-                 isReviewPage,
-                3,
-                isLongTerm && isAcknowPage,
-                5,
-                isAcknowPage,
-                4
-            )
-        Width: =786
-        X: =324
-        Y: =567
-        ZIndex: =6
 
