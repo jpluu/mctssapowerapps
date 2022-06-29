@@ -31,24 +31,48 @@ Screen1 As screen:
                 Y: =labelSecurity.Height
                 ZIndex: =1
 
-                dcHeader As typedDataCard.blankCard:
+                DataCard1 As typedDataCard.blankCard:
                     BorderStyle: =BorderStyle.Solid
                     DisplayMode: =DisplayMode.Edit
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =40
-                    Width: =1166
+                    Height: =81
+                    Width: =583
                     X: =0
                     Y: =0
                     ZIndex: =1
 
-                    label_dcHeader As label:
-                        Align: =Align.Center
-                        Fill: =RGBA(255, 255, 255, 1)
-                        FontWeight: =FontWeight.Semibold
-                        Height: =Parent.Height
-                        Size: =16
-                        Text: ="Event Information"
-                        Width: =Parent.Width
+                    Label2 As label:
+                        FontWeight: =FontWeight.Bold
+                        Height: =85
+                        Size: =22
+                        Text: ="Event and Sponsor Information"
+                        Width: =498
+                        X: =40
+                        Y: =40
+                        ZIndex: =1
+
+                    Rectangle2 As rectangle:
+                        Fill: =RGBA(128, 128, 128, 1)
+                        Height: =28
+                        Width: =DataCard1.Width ///583
+                        Y: =97
+                        ZIndex: =2
+
+                DataCard2 As typedDataCard.blankCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =125
+                    Width: =583
+                    X: =1
+                    Y: =0
+                    ZIndex: =1
+
+                    Rectangle2_1 As rectangle:
+                        Fill: =RGBA(128, 128, 128, 1)
+                        Height: =28
+                        Width: =DataCard2.Width
+                        Y: =97
                         ZIndex: =1
 
                 Title_DataCard4 As typedDataCard.textualViewCard:
@@ -130,6 +154,46 @@ Screen1 As screen:
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey43.Y + DataCardKey43.Height + 5
+                        ZIndex: =2
+
+                "'Visit End Date_DataCard3' As typedDataCard.textualViewCard":
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="VisitEndDate"
+                    Default: =ThisItem.'Visit End Date'
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"VisitEndDate")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =40
+                    Required: =false
+                    Width: =583
+                    X: =0
+                    Y: =2
+                    ZIndex: =1
+
+                    DataCardKey44 As label:
+                        AutoHeight: =true
+                        FontWeight: =FontWeight.Bold
+                        Height: =34
+                        Size: =20
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue16 As label:
+                        AutoHeight: =true
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =27
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =19
+                        Text: =Parent.Default
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey44.Y + DataCardKey44.Height + 5
                         ZIndex: =2
 
                 Sponsor_DataCard3 As typedDataCard.comboBoxViewCard:
@@ -312,6 +376,26 @@ Screen1 As screen:
                         Y: =DataCardKey47.Y
                         ZIndex: =4
 
+                DataCard3 As typedDataCard.blankCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =200
+                    Width: =583
+                    X: =0
+                    Y: =4
+                    ZIndex: =1
+
+                DataCard4 As typedDataCard.blankCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =200
+                    Width: =583
+                    X: =1
+                    Y: =4
+                    ZIndex: =1
+
                 "'First Name_DataCard3' As typedDataCard.textualViewCard":
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="FirstName"
@@ -323,7 +407,7 @@ Screen1 As screen:
                     Required: =false
                     Width: =583
                     X: =0
-                    Y: =4
+                    Y: =5
                     ZIndex: =1
 
                     DataCardKey48 As label:
@@ -363,7 +447,7 @@ Screen1 As screen:
                     Required: =false
                     Width: =583
                     X: =1
-                    Y: =4
+                    Y: =5
                     ZIndex: =1
 
                     DataCardKey49 As label:
@@ -403,7 +487,7 @@ Screen1 As screen:
                     Required: =false
                     Width: =583
                     X: =0
-                    Y: =5
+                    Y: =6
                     ZIndex: =1
 
                     DataCardKey50 As label:
@@ -444,7 +528,7 @@ Screen1 As screen:
                     Update: =DataCardValue46.Selected
                     Width: =583
                     X: =1
-                    Y: =5
+                    Y: =6
                     ZIndex: =1
 
                     DataCardKey51 As label:
@@ -512,7 +596,7 @@ Screen1 As screen:
                     Required: =false
                     Width: =583
                     X: =0
-                    Y: =6
+                    Y: =7
                     ZIndex: =1
 
                     DataCardKey52 As label:
@@ -552,7 +636,7 @@ Screen1 As screen:
                     Required: =false
                     Width: =583
                     X: =1
-                    Y: =6
+                    Y: =7
                     ZIndex: =1
 
                     DataCardKey53 As label:
@@ -593,7 +677,7 @@ Screen1 As screen:
                     Update: =DataCardValue49.Selected
                     Width: =583
                     X: =0
-                    Y: =7
+                    Y: =8
                     ZIndex: =1
 
                     DataCardKey54 As label:
@@ -662,7 +746,7 @@ Screen1 As screen:
                     Update: =DataCardValue50.Selected
                     Width: =583
                     X: =1
-                    Y: =7
+                    Y: =8
                     ZIndex: =1
 
                     DataCardKey55 As label:
@@ -730,7 +814,7 @@ Screen1 As screen:
                     Required: =false
                     Width: =583
                     X: =0
-                    Y: =8
+                    Y: =9
                     ZIndex: =1
 
                     DataCardKey56 As label:
@@ -754,6 +838,36 @@ Screen1 As screen:
                         Y: =DataCardKey56.Y + DataCardKey56.Height + 5
                         ZIndex: =2
 
+                DataCard5 As typedDataCard.blankCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =200
+                    Width: =583
+                    X: =1
+                    Y: =9
+                    ZIndex: =1
+
+                DataCard6 As typedDataCard.blankCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =200
+                    Width: =583
+                    X: =0
+                    Y: =10
+                    ZIndex: =1
+
+                DataCard7 As typedDataCard.blankCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =200
+                    Width: =583
+                    X: =1
+                    Y: =10
+                    ZIndex: =1
+
                 "'Contract Number_DataCard2' As typedDataCard.textualViewCard":
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="ContractNumber"
@@ -764,8 +878,8 @@ Screen1 As screen:
                     Height: =40
                     Required: =false
                     Width: =583
-                    X: =1
-                    Y: =8
+                    X: =0
+                    Y: =11
                     ZIndex: =1
 
                     DataCardKey57 As label:
@@ -804,8 +918,8 @@ Screen1 As screen:
                     Height: =40
                     Required: =false
                     Width: =583
-                    X: =0
-                    Y: =9
+                    X: =1
+                    Y: =11
                     ZIndex: =1
 
                     DataCardKey59 As label:
@@ -844,8 +958,8 @@ Screen1 As screen:
                     Height: =40
                     Required: =false
                     Width: =583
-                    X: =1
-                    Y: =9
+                    X: =0
+                    Y: =12
                     ZIndex: =1
 
                     DataCardKey60 As label:
@@ -884,8 +998,8 @@ Screen1 As screen:
                     Height: =50
                     Required: =false
                     Width: =583
-                    X: =0
-                    Y: =10
+                    X: =1
+                    Y: =12
                     ZIndex: =1
 
                     DataCardKey61 As label:
@@ -920,8 +1034,8 @@ Screen1 As screen:
                     Required: =false
                     Update: =DataCardValue57.Selected
                     Width: =583
-                    X: =1
-                    Y: =10
+                    X: =0
+                    Y: =13
                     ZIndex: =1
 
                     DataCardKey62 As label:
@@ -989,8 +1103,8 @@ Screen1 As screen:
                     Required: =false
                     Update: =DataCardValue53.Selected
                     Width: =583
-                    X: =0
-                    Y: =11
+                    X: =1
+                    Y: =13
                     ZIndex: =1
 
                     DataCardKey58 As label:
@@ -1048,6 +1162,45 @@ Screen1 As screen:
                         Y: =DataCardKey58.Y
                         ZIndex: =4
 
+                DataCard8 As typedDataCard.blankCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =200
+                    Width: =583
+                    X: =0
+                    Y: =14
+                    ZIndex: =1
+
+                    Label2_4 As label:
+                        FontWeight: =FontWeight.Bold
+                        Height: =85
+                        Size: =22
+                        Text: ="Acknowledgement"
+                        Width: =498
+                        Y: =40
+                        ZIndex: =1
+
+                DataCard9 As typedDataCard.blankCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =200
+                    Width: =583
+                    X: =1
+                    Y: =14
+                    ZIndex: =1
+
+                DataCard10 As typedDataCard.blankCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =200
+                    Width: =583
+                    X: =0
+                    Y: =16
+                    ZIndex: =1
+
                 Acknowledgement_DataCard2 As typedDataCard.toggleViewCard:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Acknowledgement"
@@ -1059,7 +1212,7 @@ Screen1 As screen:
                     Required: =true
                     Width: =583
                     X: =1
-                    Y: =11
+                    Y: =16
                     ZIndex: =1
 
                     DataCardKey63 As label:
@@ -1083,45 +1236,25 @@ Screen1 As screen:
                         Y: =DataCardKey63.Y + DataCardKey63.Height + 5
                         ZIndex: =2
 
-                "'Visit End Date_DataCard3' As typedDataCard.textualViewCard":
+                dcHeader As typedDataCard.blankCard:
                     BorderStyle: =BorderStyle.Solid
-                    DataField: ="VisitEndDate"
-                    Default: =ThisItem.'Visit End Date'
-                    DisplayMode: =DisplayMode.View
-                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"VisitEndDate")
+                    DisplayMode: =DisplayMode.Edit
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =40
-                    Required: =false
-                    Width: =583
+                    Width: =1166
                     X: =0
-                    Y: =2
+                    Y: =15
                     ZIndex: =1
 
-                    DataCardKey44 As label:
-                        AutoHeight: =true
-                        FontWeight: =FontWeight.Bold
-                        Height: =34
-                        Size: =20
-                        Text: =Parent.DisplayName
-                        Width: =Parent.Width - 60
-                        Wrap: =false
-                        X: =30
-                        Y: =10
+                    label_dcHeader As label:
+                        Align: =Align.Center
+                        Fill: =RGBA(255, 255, 255, 1)
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: ="Event Information"
+                        Width: =Parent.Width
                         ZIndex: =1
-
-                    DataCardValue16 As label:
-                        AutoHeight: =true
-                        DisplayMode: =Parent.DisplayMode
-                        Height: =27
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =19
-                        Text: =Parent.Default
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =DataCardKey44.Y + DataCardKey44.Height + 5
-                        ZIndex: =2
 
             labelSecurity As label:
                 Align: =Align.Center
