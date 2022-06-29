@@ -2193,17 +2193,17 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.isEditing"
+                  "fullyQualifiedName": "App.modalLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "App.isEditing",
+                  "fullyQualifiedName": "App.modalLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "isEditing",
+                "member": "modalLabel",
                 "module": "App",
                 "type": "App"
               }
@@ -2223,17 +2223,17 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.modalLabel"
+                  "fullyQualifiedName": "App.isEditing"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "App.modalLabel",
+                  "fullyQualifiedName": "App.isEditing",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "modalLabel",
+                "member": "isEditing",
                 "module": "App",
                 "type": "App"
               }

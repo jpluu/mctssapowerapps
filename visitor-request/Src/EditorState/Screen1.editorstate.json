@@ -1811,7 +1811,7 @@
       "LayoutName": "vertical",
       "MetaDataIDKey": "",
       "Name": "formSecurity",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2305,7 +2305,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "labelSecurity",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3258,7 +3258,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Title_DataCard4",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3526,7 +3526,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Visit Start Date_DataCard3",
-      "ParentIndex": 1,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
