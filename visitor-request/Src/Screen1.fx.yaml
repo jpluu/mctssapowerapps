@@ -51,43 +51,6 @@ Screen1 As screen:
                         Width: =Parent.Width
                         ZIndex: =1
 
-                Title_DataCard4 As typedDataCard.textualViewCard:
-                    BorderStyle: =BorderStyle.Solid
-                    DataField: ="Title"
-                    Default: =ThisItem.Title
-                    DisplayMode: =DisplayMode.View
-                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"Title")
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =40
-                    Required: =true
-                    Width: =1166
-                    X: =0
-                    Y: =1
-                    ZIndex: =1
-
-                    DataCardKey69 As label:
-                        AutoHeight: =true
-                        Height: =34
-                        Text: =Parent.DisplayName
-                        Width: =Parent.Width - 60
-                        Wrap: =false
-                        X: =30
-                        Y: =10
-                        ZIndex: =1
-
-                    DataCardValue64 As label:
-                        AutoHeight: =true
-                        DisplayMode: =Parent.DisplayMode
-                        Height: =27
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Text: =Parent.Default
-                        Width: =Parent.Width - 60
-                        X: =30
-                        Y: =DataCardKey69.Y + DataCardKey69.Height + 5
-                        ZIndex: =2
-
                 "'Visit Start Date_DataCard3' As typedDataCard.textualViewCard":
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="VisitStartDate"
@@ -123,6 +86,43 @@ Screen1 As screen:
                         Width: =Parent.Width - 60
                         X: =30
                         Y: =DataCardKey43.Y + DataCardKey43.Height + 5
+                        ZIndex: =2
+
+                Title_DataCard4 As typedDataCard.textualViewCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Title"
+                    Default: =ThisItem.Title
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"Title")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =40
+                    Required: =true
+                    Width: =1166
+                    X: =0
+                    Y: =1
+                    ZIndex: =1
+
+                    DataCardKey69 As label:
+                        AutoHeight: =true
+                        Height: =34
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue64 As label:
+                        AutoHeight: =true
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =27
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Default
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey69.Y + DataCardKey69.Height + 5
                         ZIndex: =2
 
                 "'Visit End Date_DataCard3' As typedDataCard.textualViewCard":

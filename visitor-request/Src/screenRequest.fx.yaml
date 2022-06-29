@@ -333,6 +333,7 @@ screenRequest As screen:
                 Set(formData, currentRequest);
                 Set(isModalRequest, true);
                 Set(isEventPage, true);
+                Navigate(Screen1);
             PaddingBottom: =10
             PaddingLeft: =10
             PaddingRight: =10
