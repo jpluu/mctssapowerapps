@@ -171,13 +171,19 @@ screenRequest As screen:
                 =Select(Parent); 
                 Set(formData, galleryRequests.Selected);
                 If(
-                     DateDiff(
+                    DateDiff(
                         formData.'Visit Start Date',
                         formData.'Visit End Date',
                         Days
                     ) >= 90 && formData.'Days a Week Working at MCTSSA'.Value = "Five Days",
-                    Set(isLongTerm, true),
-                    Set(isLongTerm, false)
+                    Set(
+                        isLongTerm,
+                        true
+                    ),
+                    Set(
+                        isLongTerm,
+                        false
+                    )
                 );
                 Navigate(Screen1);
                  

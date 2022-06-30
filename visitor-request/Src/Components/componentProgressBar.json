@@ -46,7 +46,7 @@
             "Name": "Circle2_5",
             "Parent": "collectionESI",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 363,
+            "PublishOrderIndex": 364,
             "Rules": [
               {
                 "Category": "Design",
@@ -211,7 +211,7 @@
             "Name": "iconESI_1",
             "Parent": "collectionESI",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 364,
+            "PublishOrderIndex": 365,
             "Rules": [
               {
                 "Category": "Design",
@@ -450,7 +450,7 @@
             "Name": "rectangleNewEventNameStatusBar_5",
             "Parent": "collectionESI",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 365,
+            "PublishOrderIndex": 366,
             "Rules": [
               {
                 "Category": "Design",
@@ -665,7 +665,7 @@
             "Name": "labelNewEventName_6",
             "Parent": "collectionESI",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 366,
+            "PublishOrderIndex": 367,
             "Rules": [
               {
                 "Category": "Data",
@@ -965,7 +965,7 @@
         "Name": "collectionESI",
         "Parent": "componentProgressBar",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 362,
+        "PublishOrderIndex": 363,
         "Rules": [
           {
             "Category": "Design",
@@ -1128,7 +1128,7 @@
             "Name": "Circle2_6",
             "Parent": "collectionVI",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 368,
+            "PublishOrderIndex": 369,
             "Rules": [
               {
                 "Category": "Design",
@@ -1286,7 +1286,7 @@
             "Name": "iconVI_1",
             "Parent": "collectionVI",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 369,
+            "PublishOrderIndex": 370,
             "Rules": [
               {
                 "Category": "Design",
@@ -1525,7 +1525,7 @@
             "Name": "rectangleNewEventNameStatusBar_11",
             "Parent": "collectionVI",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 370,
+            "PublishOrderIndex": 371,
             "Rules": [
               {
                 "Category": "Design",
@@ -1747,7 +1747,7 @@
             "Name": "labelNewEventName_15",
             "Parent": "collectionVI",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 371,
+            "PublishOrderIndex": 372,
             "Rules": [
               {
                 "Category": "Data",
@@ -2040,7 +2040,7 @@
         "Name": "collectionVI",
         "Parent": "componentProgressBar",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 367,
+        "PublishOrderIndex": 368,
         "Rules": [
           {
             "Category": "Design",
@@ -2203,7 +2203,7 @@
             "Name": "Circle2_7",
             "Parent": "collectionLTAI/R",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 373,
+            "PublishOrderIndex": 374,
             "Rules": [
               {
                 "Category": "Design",
@@ -2354,7 +2354,7 @@
             "Name": "iconLTAI_1",
             "Parent": "collectionLTAI/R",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 374,
+            "PublishOrderIndex": 375,
             "Rules": [
               {
                 "Category": "Design",
@@ -2593,7 +2593,7 @@
             "Name": "rectangleNewEventNameStatusBar_12",
             "Parent": "collectionLTAI/R",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 375,
+            "PublishOrderIndex": 376,
             "Rules": [
               {
                 "Category": "Design",
@@ -2823,7 +2823,7 @@
             "Name": "labelNewEventName_17",
             "Parent": "collectionLTAI/R",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 376,
+            "PublishOrderIndex": 377,
             "Rules": [
               {
                 "Category": "Data",
@@ -3210,7 +3210,7 @@
             "Name": "labelNewEventName_18",
             "Parent": "collectionLTAI/R",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 377,
+            "PublishOrderIndex": 378,
             "Rules": [
               {
                 "Category": "Data",
@@ -3509,7 +3509,7 @@
         "Name": "collectionLTAI/R",
         "Parent": "componentProgressBar",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 372,
+        "PublishOrderIndex": 373,
         "Rules": [
           {
             "Category": "Design",
@@ -3672,7 +3672,7 @@
             "Name": "Circle2",
             "Parent": "collectionR",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 379,
+            "PublishOrderIndex": 380,
             "Rules": [
               {
                 "Category": "Design",
@@ -3837,7 +3837,7 @@
             "Name": "iconR_1",
             "Parent": "collectionR",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 380,
+            "PublishOrderIndex": 381,
             "Rules": [
               {
                 "Category": "Design",
@@ -4084,7 +4084,7 @@
             "Name": "rectangleNewEventNameStatusBar_13",
             "Parent": "collectionR",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 381,
+            "PublishOrderIndex": 382,
             "Rules": [
               {
                 "Category": "Design",
@@ -4320,7 +4320,7 @@
             "Name": "labelNewEventName_19",
             "Parent": "collectionR",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 382,
+            "PublishOrderIndex": 383,
             "Rules": [
               {
                 "Category": "Data",
@@ -4707,7 +4707,7 @@
             "Name": "labelNewEventName_20",
             "Parent": "collectionR",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 383,
+            "PublishOrderIndex": 384,
             "Rules": [
               {
                 "Category": "Data",
@@ -5006,7 +5006,7 @@
         "Name": "collectionR",
         "Parent": "componentProgressBar",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 378,
+        "PublishOrderIndex": 379,
         "Rules": [
           {
             "Category": "Design",
@@ -5169,7 +5169,7 @@
             "Name": "Circle2_9",
             "Parent": "collectionA",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 385,
+            "PublishOrderIndex": 386,
             "Rules": [
               {
                 "Category": "Design",
@@ -5327,7 +5327,7 @@
             "Name": "iconA_1",
             "Parent": "collectionA",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 386,
+            "PublishOrderIndex": 387,
             "Rules": [
               {
                 "Category": "Design",
@@ -5604,7 +5604,7 @@
             "Name": "labelNewEventName_21",
             "Parent": "collectionA",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 387,
+            "PublishOrderIndex": 388,
             "Rules": [
               {
                 "Category": "Data",
@@ -5912,7 +5912,7 @@
         "Name": "collectionA",
         "Parent": "componentProgressBar",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 384,
+        "PublishOrderIndex": 385,
         "Rules": [
           {
             "Category": "Design",
@@ -6070,7 +6070,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "637921958738227684",
+    "LastModifiedTimestamp": "637922081374760713",
     "Name": "componentProgressBar",
     "Rules": [
       {
@@ -6145,7 +6145,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "637921958738227684",
+  "LastModifiedTimestamp": "637922081374760713",
   "Name": "dbd607af812e46be9d29858798df077d",
   "OverridableProperties": {},
   "TemplateOriginalName": "0a840945548b4850ac694ae82473f8ab",

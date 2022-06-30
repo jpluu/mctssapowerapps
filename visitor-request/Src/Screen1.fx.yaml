@@ -1,8 +1,18 @@
 Screen1 As screen:
-    OnVisible: =Set(isSecurity, If(CountRows(Security) > 0, true, false))
+    OnVisible: |+
+        =Set(
+            isSecurity,
+            If(
+                CountRows(Security) > 0,
+                true,
+                false
+            )
+        );
+        
 
     modalSecurity As groupContainer:
         Height: =768
+        Visible: =isSecurity
         Width: =App.Width
         ZIndex: =1
 
@@ -865,7 +875,7 @@ Screen1 As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =40
                     Required: =false
-                    Visible: =true
+                    Visible: =isLongTerm
                     Width: =583
                     X: =0
                     Y: =11
@@ -906,7 +916,7 @@ Screen1 As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =40
                     Required: =false
-                    Visible: =true
+                    Visible: =isLongTerm
                     Width: =583
                     X: =1
                     Y: =11
@@ -947,7 +957,7 @@ Screen1 As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =40
                     Required: =false
-                    Visible: =true
+                    Visible: =isLongTerm
                     Width: =583
                     X: =0
                     Y: =12
@@ -988,7 +998,7 @@ Screen1 As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
                     Required: =false
-                    Visible: =true
+                    Visible: =isLongTerm
                     Width: =583
                     X: =1
                     Y: =12
@@ -1025,7 +1035,7 @@ Screen1 As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue57.Selected
-                    Visible: =true
+                    Visible: =isLongTerm
                     Width: =583
                     X: =0
                     Y: =13
@@ -1095,7 +1105,7 @@ Screen1 As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue53.Selected
-                    Visible: =true
+                    Visible: =isLongTerm
                     Width: =583
                     X: =1
                     Y: =13
