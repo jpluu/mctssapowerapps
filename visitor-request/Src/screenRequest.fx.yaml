@@ -185,7 +185,9 @@ screenRequest As screen:
                         false
                     )
                 );
-                Navigate(Screen1);
+                If(isSecurity,
+                Navigate(Screen1),
+                Set(isModalRequest, true))
                  
                     
             PaddingBottom: =10
