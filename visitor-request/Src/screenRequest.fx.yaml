@@ -110,7 +110,7 @@ screenRequest As screen:
             )
             
         TemplatePadding: =0
-        TemplateSize: =126
+        TemplateSize: =94
         Width: =App.Width - 2 * buttonNewRequest.Width
         X: =150
         Y: =243
@@ -123,6 +123,7 @@ screenRequest As screen:
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
+            Size: =17
             Text: |-
                 =If(
                     IsEmpty(galleryRequests),
@@ -142,25 +143,27 @@ screenRequest As screen:
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
+            Size: =14
             Text: =ThisItem.'Visit Start Date'
             VerticalAlign: =VerticalAlign.Top
             Width: =Parent.TemplateWidth - 104
             X: =32
-            Y: =Title1.Y + Title1.Height + 2
+            Y: =Title1.Y + Title1.Height + 1
             ZIndex: =2
 
         Body1 As label:
-            Height: =Self.Size * 4
+            Height: =34
             OnSelect: =Select(Parent)
             PaddingBottom: =0
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
+            Size: =14
             Text: =ThisItem.Approved.Value
             VerticalAlign: =VerticalAlign.Top
             Width: =Parent.TemplateWidth - 104
             X: =32
-            Y: =Subtitle1.Y + Subtitle1.Height + 4
+            Y: =Subtitle1.Y + Subtitle1.Height 
             ZIndex: =3
 
         NextArrow1 As icon.ChevronRight:
