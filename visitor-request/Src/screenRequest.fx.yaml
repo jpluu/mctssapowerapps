@@ -207,7 +207,7 @@ screenRequest As screen:
         Items: =["All", "This Month", "Next Month", "Next Quarter"]
         Size: =20
         Width: =193
-        X: =1026
+        X: =1046
         Y: =103
         ZIndex: =3
 
