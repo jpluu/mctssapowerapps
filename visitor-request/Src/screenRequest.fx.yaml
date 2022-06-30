@@ -89,7 +89,7 @@ screenRequest As screen:
                                 Search(
                                     VisitorRequest,
                                     searchBarRequest.Text,
-                                    "LastName"
+                                    "LastName","FirstName","Title"
                                 )
                             )
                         )
