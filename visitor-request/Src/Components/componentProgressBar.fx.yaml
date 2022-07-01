@@ -30,11 +30,11 @@ componentProgressBar As CanvasComponent:
             FontWeight: =FontWeight.Bold
             Height: =29
             OnSelect: |-
-                =    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
-                    Set(isEventPage, true)
-                    
-                    /*Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
-                    Set(isEventPage, true)*/
+                = Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
+                        Set(
+                        isEventPage, 
+                        true
+                        )
             PaddingLeft: =0
             Size: =10
             Text: ="Event and Sponsor Information"
@@ -46,11 +46,11 @@ componentProgressBar As CanvasComponent:
             Fill: =If(componentProgressBar.inputCurrentStep >= 1, Green, Black)
             Height: =66
             OnSelect: |-
-                =    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
-                    Set(isEventPage, true)
-                    
-                    /*Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
-                    Set(isEventPage, true)*/
+                = Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
+                        Set(
+                        isEventPage, 
+                        true
+                        )
             Width: =68
             X: =60
             ZIndex: =3
@@ -60,11 +60,11 @@ componentProgressBar As CanvasComponent:
             Height: =53
             Icon: =Icon.Information
             OnSelect: |-
-                =    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
-                    Set(isEventPage, true)
-                    
-                    /*Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
-                    Set(isEventPage, true)*/
+                = Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
+                        Set(
+                        isEventPage, 
+                        true
+                        )
             Width: =44
             X: =73
             Y: =8
