@@ -31,7 +31,15 @@
               "Width",
               "Height",
               "ZIndex",
-              "BorderThickness"
+              "BorderThickness",
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "false",
+                "InvariantPropertyName": "OnSelect",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
+              }
             ],
             "ControlUniqueId": "5",
             "HasDynamicProperties": false,
@@ -131,6 +139,12 @@
                 "InvariantScript": "0",
                 "Property": "BorderThickness",
                 "RuleProviderType": "Unknown"
+              },
+              {
+                "Category": "Behavior",
+                "InvariantScript": "Set(isEventPage, true)",
+                "Property": "OnSelect",
+                "RuleProviderType": "Unknown"
               }
             ],
             "StyleName": "defaultCircleStyle",
@@ -196,7 +210,15 @@
               "FocusedBorderColor",
               "ZIndex",
               "BorderThickness",
-              "FocusedBorderThickness"
+              "FocusedBorderThickness",
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "false",
+                "InvariantPropertyName": "OnSelect",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
+              }
             ],
             "ControlUniqueId": "6",
             "HasDynamicProperties": false,
@@ -349,6 +371,12 @@
                 "Category": "Design",
                 "InvariantScript": "ColorFade(Self.Color, -20%)",
                 "Property": "PressedColor",
+                "RuleProviderType": "Unknown"
+              },
+              {
+                "Category": "Behavior",
+                "InvariantScript": "Set(isEventPage, true)",
+                "Property": "OnSelect",
                 "RuleProviderType": "Unknown"
               }
             ],
@@ -650,6 +678,14 @@
                 "InvariantPropertyName": "PaddingLeft",
                 "IsLockable": false,
                 "NameMapSourceSchema": "?"
+              },
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "false",
+                "InvariantPropertyName": "OnSelect",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
               }
             ],
             "ControlUniqueId": "8",
@@ -900,6 +936,12 @@
                 "InvariantScript": "Self.Color",
                 "Property": "PressedColor",
                 "RuleProviderType": "Unknown"
+              },
+              {
+                "Category": "Behavior",
+                "InvariantScript": "Set(isEventPage, true)",
+                "Property": "OnSelect",
+                "RuleProviderType": "Unknown"
               }
             ],
             "StyleName": "defaultLabelStyle",
@@ -1113,7 +1155,15 @@
               "Width",
               "Height",
               "ZIndex",
-              "BorderThickness"
+              "BorderThickness",
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "false",
+                "InvariantPropertyName": "OnSelect",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
+              }
             ],
             "ControlUniqueId": "10",
             "HasDynamicProperties": false,
@@ -1213,6 +1263,12 @@
                 "InvariantScript": "0",
                 "Property": "BorderThickness",
                 "RuleProviderType": "Unknown"
+              },
+              {
+                "Category": "Behavior",
+                "InvariantScript": "If(\r\n    formEvent.Valid,\r\n    Set(isEventPage, false);\r\n    Set(isVisitorPage, true),\r\n    Notify(\"Form Page Not Complete!\", NotificationType.Warning)\r\n)",
+                "Property": "OnSelect",
+                "RuleProviderType": "Unknown"
               }
             ],
             "StyleName": "defaultCircleStyle",
@@ -1271,7 +1327,15 @@
               "FocusedBorderColor",
               "ZIndex",
               "BorderThickness",
-              "FocusedBorderThickness"
+              "FocusedBorderThickness",
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "false",
+                "InvariantPropertyName": "OnSelect",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
+              }
             ],
             "ControlUniqueId": "11",
             "HasDynamicProperties": false,
@@ -1424,6 +1488,12 @@
                 "Category": "Design",
                 "InvariantScript": "ColorFade(Self.Color, -20%)",
                 "Property": "PressedColor",
+                "RuleProviderType": "Unknown"
+              },
+              {
+                "Category": "Behavior",
+                "InvariantScript": "If(\r\n    formEvent.Valid,\r\n    Set(isEventPage, false);\r\n    Set(isVisitorPage, true),\r\n    Notify(\"Form Page Not Complete!\", NotificationType.Warning)\r\n)",
+                "Property": "OnSelect",
                 "RuleProviderType": "Unknown"
               }
             ],
@@ -1732,6 +1802,14 @@
                 "InvariantPropertyName": "PaddingLeft",
                 "IsLockable": false,
                 "NameMapSourceSchema": "?"
+              },
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "false",
+                "InvariantPropertyName": "OnSelect",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
               }
             ],
             "ControlUniqueId": "13",
@@ -1982,6 +2060,12 @@
                 "InvariantScript": "Self.Color",
                 "Property": "PressedColor",
                 "RuleProviderType": "Unknown"
+              },
+              {
+                "Category": "Behavior",
+                "InvariantScript": "If(\r\n    formEvent.Valid,\r\n    Set(isEventPage, false);\r\n    Set(isVisitorPage, true),\r\n    Notify(\"Form Page Not Complete!\", NotificationType.Warning)\r\n)",
+                "Property": "OnSelect",
+                "RuleProviderType": "Unknown"
               }
             ],
             "StyleName": "defaultLabelStyle",
@@ -2188,7 +2272,15 @@
               "Width",
               "Height",
               "ZIndex",
-              "BorderThickness"
+              "BorderThickness",
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "false",
+                "InvariantPropertyName": "OnSelect",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
+              }
             ],
             "ControlUniqueId": "15",
             "HasDynamicProperties": false,
@@ -2288,6 +2380,12 @@
                 "InvariantScript": "0",
                 "Property": "BorderThickness",
                 "RuleProviderType": "Unknown"
+              },
+              {
+                "Category": "Behavior",
+                "InvariantScript": "Set(\r\n    isVisitorPage,\r\n    false\r\n);\r\nIf(\r\n    formVisitor.Valid,\r\n    If(\r\n        isLongTerm,\r\n        Set(\r\n            isLongTermPage,\r\n            true\r\n        ),\r\n        Set(\r\n            isReviewPage,\r\n            true\r\n        )\r\n    ),\r\n    Notify(\r\n        \"Required Fields Not Completly Filled\",\r\n        NotificationType.Warning\r\n    )\r\n)",
+                "Property": "OnSelect",
+                "RuleProviderType": "Unknown"
               }
             ],
             "StyleName": "defaultCircleStyle",
@@ -2339,7 +2437,15 @@
               "FocusedBorderColor",
               "ZIndex",
               "BorderThickness",
-              "FocusedBorderThickness"
+              "FocusedBorderThickness",
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "false",
+                "InvariantPropertyName": "OnSelect",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
+              }
             ],
             "ControlUniqueId": "16",
             "HasDynamicProperties": false,
@@ -2492,6 +2598,12 @@
                 "Category": "Design",
                 "InvariantScript": "ColorFade(Self.Color, -20%)",
                 "Property": "PressedColor",
+                "RuleProviderType": "Unknown"
+              },
+              {
+                "Category": "Behavior",
+                "InvariantScript": "Set(\r\n    isVisitorPage,\r\n    false\r\n);\r\nIf(\r\n    formVisitor.Valid,\r\n    If(\r\n        isLongTerm,\r\n        Set(\r\n            isLongTermPage,\r\n            true\r\n        ),\r\n        Set(\r\n            isReviewPage,\r\n            true\r\n        )\r\n    ),\r\n    Notify(\r\n        \"Required Fields Not Completly Filled\",\r\n        NotificationType.Warning\r\n    )\r\n)",
+                "Property": "OnSelect",
                 "RuleProviderType": "Unknown"
               }
             ],
@@ -2808,6 +2920,14 @@
                 "InvariantPropertyName": "Visible",
                 "IsLockable": false,
                 "NameMapSourceSchema": "?"
+              },
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "false",
+                "InvariantPropertyName": "OnSelect",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
               }
             ],
             "ControlUniqueId": "18",
@@ -3064,6 +3184,12 @@
                 "InvariantScript": "If (isLongTerm, true, false)\r\n/*If (DateDiff(DataCardValue27, DataCardValue28, Days) >= 90 Or DataCardValue57.Selected.Value = \"Five Days\"= true, true, false)*/",
                 "Property": "Visible",
                 "RuleProviderType": "Unknown"
+              },
+              {
+                "Category": "Behavior",
+                "InvariantScript": "Set(\r\n    isVisitorPage,\r\n    false\r\n);\r\nIf(\r\n    formVisitor.Valid,\r\n    If(\r\n        isLongTerm,\r\n        Set(\r\n            isLongTermPage,\r\n            true\r\n        ),\r\n        Set(\r\n            isReviewPage,\r\n            true\r\n        )\r\n    ),\r\n    Notify(\r\n        \"Required Fields Not Completly Filled\",\r\n        NotificationType.Warning\r\n    )\r\n)",
+                "Property": "OnSelect",
+                "RuleProviderType": "Unknown"
               }
             ],
             "StyleName": "defaultLabelStyle",
@@ -3195,6 +3321,14 @@
                 "InvariantPropertyName": "Visible",
                 "IsLockable": false,
                 "NameMapSourceSchema": "?"
+              },
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "false",
+                "InvariantPropertyName": "OnSelect",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
               }
             ],
             "ControlUniqueId": "19",
@@ -3286,7 +3420,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "201",
+                "InvariantScript": "189",
                 "Property": "Width",
                 "RuleProviderType": "Unknown"
               },
@@ -3450,6 +3584,12 @@
                 "Category": "Design",
                 "InvariantScript": "If (isLongTerm, false, true)\r\n\r\n/*If (DateDiff(DataCardValue27, DataCardValue28, Days) >= 90 Or DataCardValue57.Selected.Value = \"Five Days\"= true, false, true)*/",
                 "Property": "Visible",
+                "RuleProviderType": "Unknown"
+              },
+              {
+                "Category": "Behavior",
+                "InvariantScript": "Set(\r\n    isVisitorPage,\r\n    false\r\n);\r\nIf(\r\n    formVisitor.Valid,\r\n    If(\r\n        isLongTerm,\r\n        Set(\r\n            isLongTermPage,\r\n            true\r\n        ),\r\n        Set(\r\n            isReviewPage,\r\n            true\r\n        )\r\n    ),\r\n    Notify(\r\n        \"Required Fields Not Completly Filled\",\r\n        NotificationType.Warning\r\n    )\r\n)",
+                "Property": "OnSelect",
                 "RuleProviderType": "Unknown"
               }
             ],
@@ -3657,7 +3797,15 @@
               "Width",
               "Height",
               "ZIndex",
-              "BorderThickness"
+              "BorderThickness",
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "false",
+                "InvariantPropertyName": "OnSelect",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
+              }
             ],
             "ControlUniqueId": "21",
             "HasDynamicProperties": false,
@@ -3757,6 +3905,12 @@
                 "InvariantScript": "Self.Fill",
                 "Property": "DisabledFill",
                 "RuleProviderType": "Unknown"
+              },
+              {
+                "Category": "Behavior",
+                "InvariantScript": " If(\r\n        isLongTerm,\r\n        Set(\r\n    isLongTermPage,\r\n    false),\r\n     Set(\r\n    isReviewPage,\r\n    false)\r\n);\r\nIf(\r\n    formVisitor.Valid,\r\n    If(\r\n        isLongTerm,\r\n        Set(\r\n            isReviewPage,\r\n            true\r\n        ),\r\n        Set(\r\n            isAcknowPage,\r\n            true\r\n        )\r\n    ),\r\n    Notify(\r\n        \"Required Fields Not Completly Filled\",\r\n        NotificationType.Warning\r\n    )\r\n)",
+                "Property": "OnSelect",
+                "RuleProviderType": "Unknown"
               }
             ],
             "StyleName": "defaultCircleStyle",
@@ -3822,7 +3976,15 @@
               "FocusedBorderColor",
               "ZIndex",
               "BorderThickness",
-              "FocusedBorderThickness"
+              "FocusedBorderThickness",
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "false",
+                "InvariantPropertyName": "OnSelect",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
+              }
             ],
             "ControlUniqueId": "22",
             "HasDynamicProperties": false,
@@ -3975,6 +4137,12 @@
                 "Category": "Design",
                 "InvariantScript": "ColorFade(Self.Color, -20%)",
                 "Property": "PressedColor",
+                "RuleProviderType": "Unknown"
+              },
+              {
+                "Category": "Behavior",
+                "InvariantScript": " If(\r\n        isLongTerm,\r\n        Set(\r\n    isLongTermPage,\r\n    false),\r\n     Set(\r\n    isReviewPage,\r\n    false)\r\n);\r\nIf(\r\n    formLongTerm.Valid,\r\n    If(\r\n        isLongTerm,\r\n        Set(\r\n            isReviewPage,\r\n            true\r\n        ),\r\n        Set(\r\n            isAcknowPage,\r\n            true\r\n        )\r\n    ),\r\n    Notify(\r\n        \"Required Fields Not Completly Filled\",\r\n        NotificationType.Warning\r\n    )\r\n)",
+                "Property": "OnSelect",
                 "RuleProviderType": "Unknown"
               }
             ],
@@ -4305,6 +4473,14 @@
                 "InvariantPropertyName": "Visible",
                 "IsLockable": false,
                 "NameMapSourceSchema": "?"
+              },
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "false",
+                "InvariantPropertyName": "OnSelect",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
               }
             ],
             "ControlUniqueId": "24",
@@ -4561,6 +4737,12 @@
                 "InvariantScript": "If (isLongTerm, true, false)\r\n\r\n/*If (DateDiff(DataCardValue27, DataCardValue28, Days) >= 90 Or DataCardValue57.Selected.Value = \"Five Days\"= true, true, false) */",
                 "Property": "Visible",
                 "RuleProviderType": "Unknown"
+              },
+              {
+                "Category": "Behavior",
+                "InvariantScript": " If(\r\n        isLongTerm,\r\n        Set(\r\n    isLongTermPage,\r\n    false),\r\n     Set(\r\n    isReviewPage,\r\n    false)\r\n);\r\nIf(\r\n    formVisitor.Valid,\r\n    If(\r\n        isLongTerm,\r\n        Set(\r\n            isReviewPage,\r\n            true\r\n        ),\r\n        Set(\r\n            isAcknowPage,\r\n            true\r\n        )\r\n    ),\r\n    Notify(\r\n        \"Required Fields Not Completly Filled\",\r\n        NotificationType.Warning\r\n    )\r\n)",
+                "Property": "OnSelect",
+                "RuleProviderType": "Unknown"
               }
             ],
             "StyleName": "defaultLabelStyle",
@@ -4690,6 +4872,14 @@
                 "AutoRuleBindingEnabled": false,
                 "AutoRuleBindingString": "true",
                 "InvariantPropertyName": "Visible",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
+              },
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "false",
+                "InvariantPropertyName": "OnSelect",
                 "IsLockable": false,
                 "NameMapSourceSchema": "?"
               }
@@ -4948,6 +5138,12 @@
                 "InvariantScript": "If (isLongTerm, false, true)\r\n\r\n/*If (DateDiff(DataCardValue27, DataCardValue28, Days) >= 90 Or DataCardValue57.Selected.Value = \"Five Days\"= true, false, true)*/",
                 "Property": "Visible",
                 "RuleProviderType": "Unknown"
+              },
+              {
+                "Category": "Behavior",
+                "InvariantScript": " If(\r\n        isLongTerm,\r\n        Set(\r\n    isLongTermPage,\r\n    false),\r\n     Set(\r\n    isReviewPage,\r\n    false)\r\n);\r\nIf(\r\n    formVisitor.Valid,\r\n    If(\r\n        isLongTerm,\r\n        Set(\r\n            isReviewPage,\r\n            true\r\n        ),\r\n        Set(\r\n            isAcknowPage,\r\n            true\r\n        )\r\n    ),\r\n    Notify(\r\n        \"Required Fields Not Completly Filled\",\r\n        NotificationType.Warning\r\n    )\r\n)",
+                "Property": "OnSelect",
+                "RuleProviderType": "Unknown"
               }
             ],
             "StyleName": "defaultLabelStyle",
@@ -5154,7 +5350,15 @@
               "Width",
               "Height",
               "ZIndex",
-              "BorderThickness"
+              "BorderThickness",
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "false",
+                "InvariantPropertyName": "OnSelect",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
+              }
             ],
             "ControlUniqueId": "27",
             "HasDynamicProperties": false,
@@ -5254,6 +5458,12 @@
                 "InvariantScript": "0",
                 "Property": "BorderThickness",
                 "RuleProviderType": "Unknown"
+              },
+              {
+                "Category": "Behavior",
+                "InvariantScript": "If(\r\n        isLongTerm,\r\n        Set(\r\n            isReviewPage,\r\n            false\r\n        ),\r\n        Set(\r\n            isAcknowPage,\r\n            false\r\n        )\r\n);\r\nIf(\r\n    formReview.Valid,\r\n       \r\n        Set(\r\n            isAcknowPage,\r\n            true\r\n    ),\r\n    Notify(\r\n        \"Required Fields Not Completly Filled\",\r\n        NotificationType.Warning\r\n    )\r\n)",
+                "Property": "OnSelect",
+                "RuleProviderType": "Unknown"
               }
             ],
             "StyleName": "defaultCircleStyle",
@@ -5312,7 +5522,15 @@
               "FocusedBorderColor",
               "ZIndex",
               "BorderThickness",
-              "FocusedBorderThickness"
+              "FocusedBorderThickness",
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "false",
+                "InvariantPropertyName": "OnSelect",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
+              }
             ],
             "ControlUniqueId": "28",
             "HasDynamicProperties": false,
@@ -5466,6 +5684,12 @@
                 "InvariantScript": "2",
                 "Property": "FocusedBorderThickness",
                 "RuleProviderType": "Unknown"
+              },
+              {
+                "Category": "Behavior",
+                "InvariantScript": "If(\r\n        isLongTerm,\r\n        Set(\r\n            isReviewPage,\r\n            false\r\n        ),\r\n        Set(\r\n            isAcknowPage,\r\n            false\r\n        )\r\n);\r\nIf(\r\n    formReview.Valid,\r\n       \r\n        Set(\r\n            isAcknowPage,\r\n            true\r\n    ),\r\n    Notify(\r\n        \"Required Fields Not Completly Filled\",\r\n        NotificationType.Warning\r\n    )\r\n)",
+                "Property": "OnSelect",
+                "RuleProviderType": "Unknown"
               }
             ],
             "StyleName": "defaultIconStyle",
@@ -5587,6 +5811,14 @@
                 "AutoRuleBindingEnabled": false,
                 "AutoRuleBindingString": "",
                 "InvariantPropertyName": "PaddingLeft",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
+              },
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "false",
+                "InvariantPropertyName": "OnSelect",
                 "IsLockable": false,
                 "NameMapSourceSchema": "?"
               }
@@ -5839,6 +6071,12 @@
                 "InvariantScript": "Self.Color",
                 "Property": "PressedColor",
                 "RuleProviderType": "Unknown"
+              },
+              {
+                "Category": "Behavior",
+                "InvariantScript": "If(\r\n        isLongTerm,\r\n        Set(\r\n            isReviewPage,\r\n            false\r\n        ),\r\n        Set(\r\n            isAcknowPage,\r\n            false\r\n        )\r\n);\r\nIf(\r\n    formReview.Valid,\r\n       \r\n        Set(\r\n            isAcknowPage,\r\n            true\r\n    ),\r\n    Notify(\r\n        \"Required Fields Not Completly Filled\",\r\n        NotificationType.Warning\r\n    )\r\n)",
+                "Property": "OnSelect",
+                "RuleProviderType": "Unknown"
               }
             ],
             "StyleName": "defaultLabelStyle",
@@ -6070,7 +6308,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "637922452172030076",
+    "LastModifiedTimestamp": "637922501153680055",
     "Name": "componentProgressBar",
     "Rules": [
       {
@@ -6145,7 +6383,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "637922452172030076",
+  "LastModifiedTimestamp": "637922501153680055",
   "Name": "dbd607af812e46be9d29858798df077d",
   "OverridableProperties": {},
   "TemplateOriginalName": "0a840945548b4850ac694ae82473f8ab",
