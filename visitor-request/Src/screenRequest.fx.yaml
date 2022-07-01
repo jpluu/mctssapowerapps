@@ -12,7 +12,7 @@ screenRequest As screen:
         ZIndex: =1
 
     "galleryRequests As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
-        Height: =505
+        Height: =471
         Items: |
             =SortByColumns(
                 If( 
@@ -113,7 +113,7 @@ screenRequest As screen:
         TemplateSize: =94
         Width: =App.Width - 2 * buttonNewRequest.Width
         X: =150
-        Y: =243
+        Y: =253
         ZIndex: =1
 
         Title1 As label:
@@ -133,7 +133,7 @@ screenRequest As screen:
             VerticalAlign: =VerticalAlign.Top
             Width: =Parent.TemplateWidth - 104
             X: =32
-            Y: =16
+            Y: =8
             ZIndex: =1
 
         Subtitle1 As label:
@@ -143,7 +143,7 @@ screenRequest As screen:
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
-            Size: =14
+            Size: =13
             Text: =ThisItem.'Visit Start Date'
             VerticalAlign: =VerticalAlign.Top
             Width: =Parent.TemplateWidth - 104
@@ -158,7 +158,7 @@ screenRequest As screen:
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
-            Size: =14
+            Size: =13
             Text: =ThisItem.Approved.Value
             VerticalAlign: =VerticalAlign.Top
             Width: =Parent.TemplateWidth - 104
