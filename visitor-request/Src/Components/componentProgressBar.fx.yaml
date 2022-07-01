@@ -97,7 +97,7 @@ componentProgressBar As CanvasComponent:
                 = /*Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);*/
                     If(
                         formEvent.Valid,
-                        Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                         Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
                         Set(
                         isVisitorPage, 
                         true
@@ -133,10 +133,10 @@ componentProgressBar As CanvasComponent:
             Fill: =If(componentProgressBar.inputCurrentStep >= 2, Green, Black)
             Height: =66
             OnSelect: |-
-                = /*Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);*/
+                = /*Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);*/
                     If(
                         formEvent.Valid,
-                        Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                          Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
                         Set(
                         isVisitorPage, 
                         true
@@ -169,10 +169,10 @@ componentProgressBar As CanvasComponent:
             Height: =53
             Icon: =Icon.Person
             OnSelect: |-
-                = /*Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);*/
+                = /*Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);*/
                     If(
                         formEvent.Valid,
-                        Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                        Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
                         Set(
                         isVisitorPage, 
                         true
