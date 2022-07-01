@@ -225,7 +225,37 @@ componentProgressBar As CanvasComponent:
             FontWeight: =FontWeight.Bold
             Height: =27
             OnSelect: |-
-                =  /*  Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                =If(
+                    formVisitor.Valid,
+                    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
+                    If(
+                        isLongTerm,
+                        Set(
+                            isLongTermPage,
+                            true
+                        ),
+                        Set(
+                            isReviewPage,
+                            true
+                        )
+                    ),
+                    Notify(
+                        "Required Fields Not Completly Filled",
+                        NotificationType.Warning
+                    )
+                )
+                     /* If(
+                        formVisitor.Valid,
+                        Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
+                        Set(
+                        isVisitorPage, 
+                        true
+                        ),
+                        Notify("Form Page Not Complete!", NotificationType.Warning)
+                    )  
+                  */
+                  
+                  /*  Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
                     
                     Set(
                     isVisitorPage,
@@ -263,7 +293,37 @@ componentProgressBar As CanvasComponent:
             Fill: =If(componentProgressBar.inputCurrentStep >= 3, Green, Black)
             Height: =66
             OnSelect: |-
-                =  /*  Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                =If(
+                    formVisitor.Valid,
+                    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
+                    If(
+                        isLongTerm,
+                        Set(
+                            isLongTermPage,
+                            true
+                        ),
+                        Set(
+                            isReviewPage,
+                            true
+                        )
+                    ),
+                    Notify(
+                        "Required Fields Not Completly Filled",
+                        NotificationType.Warning
+                    )
+                )
+                     /* If(
+                        formVisitor.Valid,
+                        Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
+                        Set(
+                        isVisitorPage, 
+                        true
+                        ),
+                        Notify("Form Page Not Complete!", NotificationType.Warning)
+                    )  
+                  */
+                  
+                  /*  Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
                     
                     Set(
                     isVisitorPage,
@@ -299,7 +359,37 @@ componentProgressBar As CanvasComponent:
             FontWeight: =FontWeight.Bold
             Height: =27
             OnSelect: |-
-                =  /*  Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                =If(
+                    formVisitor.Valid,
+                    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
+                    If(
+                        isLongTerm,
+                        Set(
+                            isLongTermPage,
+                            true
+                        ),
+                        Set(
+                            isReviewPage,
+                            true
+                        )
+                    ),
+                    Notify(
+                        "Required Fields Not Completly Filled",
+                        NotificationType.Warning
+                    )
+                )
+                     /* If(
+                        formVisitor.Valid,
+                        Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
+                        Set(
+                        isVisitorPage, 
+                        true
+                        ),
+                        Notify("Form Page Not Complete!", NotificationType.Warning)
+                    )  
+                  */
+                  
+                  /*  Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
                     
                     Set(
                     isVisitorPage,
@@ -339,7 +429,37 @@ componentProgressBar As CanvasComponent:
             Height: =53
             Icon: =Icon.Clock
             OnSelect: |-
-                =  /*  Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                =If(
+                    formVisitor.Valid,
+                    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
+                    If(
+                        isLongTerm,
+                        Set(
+                            isLongTermPage,
+                            true
+                        ),
+                        Set(
+                            isReviewPage,
+                            true
+                        )
+                    ),
+                    Notify(
+                        "Required Fields Not Completly Filled",
+                        NotificationType.Warning
+                    )
+                )
+                     /* If(
+                        formVisitor.Valid,
+                        Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
+                        Set(
+                        isVisitorPage, 
+                        true
+                        ),
+                        Notify("Form Page Not Complete!", NotificationType.Warning)
+                    )  
+                  */
+                  
+                  /*  Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
                     
                     Set(
                     isVisitorPage,
