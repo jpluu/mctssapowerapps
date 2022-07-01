@@ -30,7 +30,10 @@ componentProgressBar As CanvasComponent:
             FontWeight: =FontWeight.Bold
             Height: =29
             OnSelect: |-
-                =    /*Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                =    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                    Set(isEventPage, true)
+                    
+                    /*Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
                     Set(isEventPage, true)*/
             PaddingLeft: =0
             Size: =10
@@ -43,7 +46,10 @@ componentProgressBar As CanvasComponent:
             Fill: =If(componentProgressBar.inputCurrentStep >= 1, Green, Black)
             Height: =66
             OnSelect: |-
-                =    /*Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                =    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                    Set(isEventPage, true)
+                    
+                    /*Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
                     Set(isEventPage, true)*/
             Width: =68
             X: =60
@@ -54,7 +60,10 @@ componentProgressBar As CanvasComponent:
             Height: =53
             Icon: =Icon.Information
             OnSelect: |-
-                =    /*Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                =    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                    Set(isEventPage, true)
+                    
+                    /*Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
                     Set(isEventPage, true)*/
             Width: =44
             X: =73
@@ -85,7 +94,20 @@ componentProgressBar As CanvasComponent:
             FontWeight: =FontWeight.Bold
             Height: =27
             OnSelect: |-
-                = /*   Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                = Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                    If(
+                        formEvent.Valid,
+                        Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                        Set(
+                        isVisitorPage, 
+                        true
+                        ),
+                        Notify("Form Page Not Complete!", NotificationType.Warning)
+                    )
+                    
+                    
+                    
+                    /*   Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
                     If(
                     formEvent.Valid,
                     Set(isEventPage, false);
@@ -104,7 +126,20 @@ componentProgressBar As CanvasComponent:
             Fill: =If(componentProgressBar.inputCurrentStep >= 2, Green, Black)
             Height: =66
             OnSelect: |-
-                = /*   Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                = Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                    If(
+                        formEvent.Valid,
+                        Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                        Set(
+                        isVisitorPage, 
+                        true
+                        ),
+                        Notify("Form Page Not Complete!", NotificationType.Warning)
+                    )
+                    
+                    
+                    
+                    /*   Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
                     If(
                     formEvent.Valid,
                     Set(isEventPage, false);
@@ -120,7 +155,20 @@ componentProgressBar As CanvasComponent:
             Height: =53
             Icon: =Icon.Person
             OnSelect: |-
-                = /*   Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                = Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                    If(
+                        formEvent.Valid,
+                        Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                        Set(
+                        isVisitorPage, 
+                        true
+                        ),
+                        Notify("Form Page Not Complete!", NotificationType.Warning)
+                    )
+                    
+                    
+                    
+                    /*   Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
                     If(
                     formEvent.Valid,
                     Set(isEventPage, false);
