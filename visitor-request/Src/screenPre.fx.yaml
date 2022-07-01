@@ -1,5 +1,5 @@
 screenPre As screen:
-    OnVisible: |-
+    OnVisible: |+
         =// Global Variables
         Set(isLoaded, false); // bool | trigger for timer
         
@@ -32,6 +32,7 @@ screenPre As screen:
         
         // End Pre-Load
         Set(isLoaded, true)
+        
 
     Group1 As group:
         Height: =5

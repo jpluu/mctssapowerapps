@@ -29,7 +29,9 @@ componentProgressBar As CanvasComponent:
             DisplayMode: =DisplayMode.View
             FontWeight: =FontWeight.Bold
             Height: =29
-            OnSelect: =Set(isEventPage, true)
+            OnSelect: |-
+                =    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                    Set(isEventPage, true)
             PaddingLeft: =0
             Size: =10
             Text: ="Event and Sponsor Information"
@@ -40,7 +42,9 @@ componentProgressBar As CanvasComponent:
         Circle2_5 As circle:
             Fill: =If(componentProgressBar.inputCurrentStep >= 1, Green, Black)
             Height: =66
-            OnSelect: =Set(isEventPage, true)
+            OnSelect: |-
+                =    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                    Set(isEventPage, true)
             Width: =68
             X: =60
             ZIndex: =3
@@ -49,7 +53,9 @@ componentProgressBar As CanvasComponent:
             Color: =RGBA(255, 255, 255, 1)
             Height: =53
             Icon: =Icon.Information
-            OnSelect: =Set(isEventPage, true)
+            OnSelect: |-
+                =    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                    Set(isEventPage, true)
             Width: =44
             X: =73
             Y: =8
@@ -79,7 +85,8 @@ componentProgressBar As CanvasComponent:
             FontWeight: =FontWeight.Bold
             Height: =27
             OnSelect: |-
-                =If(
+                =    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                    If(
                     formEvent.Valid,
                     Set(isEventPage, false);
                     Set(isVisitorPage, true),
@@ -97,7 +104,8 @@ componentProgressBar As CanvasComponent:
             Fill: =If(componentProgressBar.inputCurrentStep >= 2, Green, Black)
             Height: =66
             OnSelect: |-
-                =If(
+                =    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                    If(
                     formEvent.Valid,
                     Set(isEventPage, false);
                     Set(isVisitorPage, true),
@@ -112,7 +120,8 @@ componentProgressBar As CanvasComponent:
             Height: =53
             Icon: =Icon.Person
             OnSelect: |-
-                =If(
+                =    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                    If(
                     formEvent.Valid,
                     Set(isEventPage, false);
                     Set(isVisitorPage, true),
@@ -147,7 +156,9 @@ componentProgressBar As CanvasComponent:
             FontWeight: =FontWeight.Bold
             Height: =27
             OnSelect: |-
-                =Set(
+                =    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                    
+                    Set(
                     isVisitorPage,
                     false
                 );
@@ -183,7 +194,9 @@ componentProgressBar As CanvasComponent:
             Fill: =If(componentProgressBar.inputCurrentStep >= 3, Green, Black)
             Height: =66
             OnSelect: |-
-                =Set(
+                =    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                    
+                    Set(
                     isVisitorPage,
                     false
                 );
@@ -217,7 +230,9 @@ componentProgressBar As CanvasComponent:
             FontWeight: =FontWeight.Bold
             Height: =27
             OnSelect: |-
-                =Set(
+                =    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                    
+                    Set(
                     isVisitorPage,
                     false
                 );
@@ -255,7 +270,9 @@ componentProgressBar As CanvasComponent:
             Height: =53
             Icon: =Icon.Clock
             OnSelect: |-
-                =Set(
+                =    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                    
+                    Set(
                     isVisitorPage,
                     false
                 );
@@ -309,7 +326,46 @@ componentProgressBar As CanvasComponent:
             FontWeight: =FontWeight.Bold
             Height: =27
             OnSelect: |-
-                = If(
+                =    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                    
+                   
+                
+                If(
+                    isLongTerm,
+                    If(formLongTerm.Valid, 
+                    Set(
+                        isReviewPage,
+                        true
+                        )),
+                        If(formReview.Valid, 
+                    Set(
+                        isAcknowPage,
+                        true
+                        ))
+                )
+                
+                /*
+                If(
+                    formVisitor.Valid,
+                    If(
+                        isLongTerm,
+                        Set(
+                            isReviewPage,
+                            true
+                        ),
+                        Set(
+                            isAcknowPage,
+                            true
+                        )
+                    ),
+                    Notify(
+                        "Required Fields Not Completly Filled",
+                        NotificationType.Warning
+                    )
+                )
+                
+                */
+                 /*If(
                         isLongTerm,
                         Set(
                     isLongTermPage,
@@ -335,7 +391,7 @@ componentProgressBar As CanvasComponent:
                         "Required Fields Not Completly Filled",
                         NotificationType.Warning
                     )
-                )
+                )*/
             PaddingLeft: =0
             Size: =10
             Text: ="Review"
@@ -352,7 +408,46 @@ componentProgressBar As CanvasComponent:
             Fill: =If(componentProgressBar.inputCurrentStep >= 4, Green, Black)
             Height: =66
             OnSelect: |-
-                = If(
+                =    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                    
+                   
+                
+                If(
+                    isLongTerm,
+                    If(formLongTerm.Valid, 
+                    Set(
+                        isReviewPage,
+                        true
+                        )),
+                        If(formReview.Valid, 
+                    Set(
+                        isAcknowPage,
+                        true
+                        ))
+                )
+                
+                /*
+                If(
+                    formVisitor.Valid,
+                    If(
+                        isLongTerm,
+                        Set(
+                            isReviewPage,
+                            true
+                        ),
+                        Set(
+                            isAcknowPage,
+                            true
+                        )
+                    ),
+                    Notify(
+                        "Required Fields Not Completly Filled",
+                        NotificationType.Warning
+                    )
+                )
+                
+                */
+                 /*If(
                         isLongTerm,
                         Set(
                     isLongTermPage,
@@ -378,7 +473,7 @@ componentProgressBar As CanvasComponent:
                         "Required Fields Not Completly Filled",
                         NotificationType.Warning
                     )
-                )
+                )*/
             Width: =68
             X: =60
             ZIndex: =4
@@ -391,7 +486,46 @@ componentProgressBar As CanvasComponent:
             FontWeight: =FontWeight.Bold
             Height: =27
             OnSelect: |-
-                = If(
+                =    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                    
+                   
+                
+                If(
+                    isLongTerm,
+                    If(formLongTerm.Valid, 
+                    Set(
+                        isReviewPage,
+                        true
+                        )),
+                        If(formReview.Valid, 
+                    Set(
+                        isAcknowPage,
+                        true
+                        ))
+                )
+                
+                /*
+                If(
+                    formVisitor.Valid,
+                    If(
+                        isLongTerm,
+                        Set(
+                            isReviewPage,
+                            true
+                        ),
+                        Set(
+                            isAcknowPage,
+                            true
+                        )
+                    ),
+                    Notify(
+                        "Required Fields Not Completly Filled",
+                        NotificationType.Warning
+                    )
+                )
+                
+                */
+                 /*If(
                         isLongTerm,
                         Set(
                     isLongTermPage,
@@ -417,7 +551,7 @@ componentProgressBar As CanvasComponent:
                         "Required Fields Not Completly Filled",
                         NotificationType.Warning
                     )
-                )
+                )*/
             PaddingLeft: =0
             Size: =10
             Text: ="Acknowledge"
@@ -435,7 +569,24 @@ componentProgressBar As CanvasComponent:
             Height: =53
             Icon: =Icon.DockCheckProperties
             OnSelect: |-
-                = If(
+                =  Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                    
+                   
+                
+                If(
+                    isLongTerm,
+                    If(formLongTerm.Valid, 
+                    Set(
+                        isReviewPage,
+                        true
+                        )),
+                        If(formReview.Valid, 
+                    Set(
+                        isAcknowPage,
+                        true
+                        ))
+                )
+                /*If(
                         isLongTerm,
                         Set(
                     isLongTermPage,
@@ -461,7 +612,7 @@ componentProgressBar As CanvasComponent:
                         "Required Fields Not Completly Filled",
                         NotificationType.Warning
                     )
-                )
+                )*/
             Width: =48
             X: =72
             Y: =6
@@ -482,7 +633,19 @@ componentProgressBar As CanvasComponent:
             Fill: =If(componentProgressBar.inputCurrentStep >= 5, Green, Black)
             Height: =66
             OnSelect: |-
-                =If(
+                = Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                    
+                   
+                
+                If(
+                    isLongTerm,
+                    If(formLongTerm.Valid, 
+                    Set(
+                        isAcknowPage,
+                        true
+                        ))
+                )
+                /*If(
                         isLongTerm,
                         Set(
                             isReviewPage,
@@ -505,6 +668,7 @@ componentProgressBar As CanvasComponent:
                         NotificationType.Warning
                     )
                 )
+                */
             Width: =68
             X: =60
             ZIndex: =3
@@ -517,7 +681,19 @@ componentProgressBar As CanvasComponent:
             FontWeight: =FontWeight.Bold
             Height: =27
             OnSelect: |-
-                =If(
+                = Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                    
+                   
+                
+                If(
+                    isLongTerm,
+                    If(formLongTerm.Valid, 
+                    Set(
+                        isAcknowPage,
+                        true
+                        ))
+                )
+                /*If(
                         isLongTerm,
                         Set(
                             isReviewPage,
@@ -540,6 +716,7 @@ componentProgressBar As CanvasComponent:
                         NotificationType.Warning
                     )
                 )
+                */
             PaddingLeft: =0
             Size: =10
             Text: ="Acknowledge"
@@ -553,7 +730,19 @@ componentProgressBar As CanvasComponent:
             Height: =47
             Icon: =Icon.Check
             OnSelect: |-
-                =If(
+                = Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                    
+                   
+                
+                If(
+                    isLongTerm,
+                    If(formLongTerm.Valid, 
+                    Set(
+                        isAcknowPage,
+                        true
+                        ))
+                )
+                /*If(
                         isLongTerm,
                         Set(
                             isReviewPage,
@@ -576,6 +765,7 @@ componentProgressBar As CanvasComponent:
                         NotificationType.Warning
                     )
                 )
+                */
             Width: =42
             X: =73
             Y: =9

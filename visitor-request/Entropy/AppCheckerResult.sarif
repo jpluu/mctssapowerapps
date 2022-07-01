@@ -694,49 +694,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "componentProgressBar.collectionR.Circle2.AccessibleLabel"
+                  "fullyQualifiedName": "componentProgressBar.collectionR.labelNewEventName_19.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "componentProgressBar.collectionR.Circle2.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "componentProgressBar",
-                "type": "componentProgressBar.collectionR.Circle2"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "componentProgressBar.collectionR.Circle2.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "componentProgressBar.collectionR.Circle2.TabIndex",
+                  "fullyQualifiedName": "componentProgressBar.collectionR.labelNewEventName_19.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "componentProgressBar",
-                "type": "componentProgressBar.collectionR.Circle2"
+                "type": "componentProgressBar.collectionR.labelNewEventName_19"
               }
             }
           ],
@@ -748,6 +718,36 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "componentProgressBar.collectionR.labelNewEventName_19.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "componentProgressBar.collectionR.labelNewEventName_19.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "componentProgressBar",
+                "type": "componentProgressBar.collectionR.labelNewEventName_19"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 4
         },
         {
           "locations": [
@@ -814,19 +814,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "componentProgressBar.collectionR.labelNewEventName_19.FocusedBorderThickness"
+                  "fullyQualifiedName": "componentProgressBar.collectionR.Circle2.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "componentProgressBar.collectionR.labelNewEventName_19.FocusedBorderThickness",
+                  "fullyQualifiedName": "componentProgressBar.collectionR.Circle2.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "FocusedBorderThickness",
+                "member": "TabIndex",
                 "module": "componentProgressBar",
-                "type": "componentProgressBar.collectionR.labelNewEventName_19"
+                "type": "componentProgressBar.collectionR.Circle2"
               }
             }
           ],
@@ -836,27 +836,57 @@
           "properties": {
             "level": "Medium"
           },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 4
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 3
         },
         {
           "locations": [
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "componentProgressBar.collectionR.labelNewEventName_19.TabIndex"
+                  "fullyQualifiedName": "componentProgressBar.collectionR.Circle2.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "componentProgressBar.collectionR.labelNewEventName_19.TabIndex",
+                  "fullyQualifiedName": "componentProgressBar.collectionR.Circle2.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "componentProgressBar",
+                "type": "componentProgressBar.collectionR.Circle2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "componentProgressBar.collectionR.labelNewEventName_20.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "componentProgressBar.collectionR.labelNewEventName_20.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "componentProgressBar",
-                "type": "componentProgressBar.collectionR.labelNewEventName_19"
+                "type": "componentProgressBar.collectionR.labelNewEventName_20"
               }
             }
           ],
@@ -898,36 +928,6 @@
           },
           "ruleId": "acc-FocusBorderShouldBeVisible",
           "ruleIndex": 4
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "componentProgressBar.collectionR.labelNewEventName_20.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "componentProgressBar.collectionR.labelNewEventName_20.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "componentProgressBar",
-                "type": "componentProgressBar.collectionR.labelNewEventName_20"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 3
         },
         {
           "locations": [
@@ -3704,6 +3704,36 @@
               },
               "properties": {
                 "member": "isEditing",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.isReview"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.isReview",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "isReview",
                 "module": "App",
                 "type": "App"
               }
