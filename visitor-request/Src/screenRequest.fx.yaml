@@ -3492,7 +3492,7 @@ screenRequest As screen:
 
     galleryCheckBox As gallery.galleryHorizontal:
         BorderColor: =RGBA(0, 0, 0, 0)
-        Height: =54
+        Height: =55
         Items: =Choices(VisitorRequest.Approved) //["Pending", "Denied", "Approved", "All"] //
         ShowScrollbar: =false
         TemplateFill: |+
@@ -3513,7 +3513,7 @@ screenRequest As screen:
             )*/
             
         TemplateSize: =162
-        Width: =497
+        Width: =680
         X: =434
         Y: =159
         ZIndex: =11
