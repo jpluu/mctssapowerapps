@@ -2267,7 +2267,14 @@
               "BorderStyle",
               "FocusedBorderColor",
               "DisplayMode",
-              "X",
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "",
+                "InvariantPropertyName": "X",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
+              },
               "Y",
               "Width",
               "Height",
@@ -2347,7 +2354,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "60",
+                "InvariantScript": "57",
                 "Property": "X",
                 "RuleProviderType": "Unknown"
               },
@@ -2425,7 +2432,14 @@
               "PressedFill",
               "HoverFill",
               "DisplayMode",
-              "X",
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "",
+                "InvariantPropertyName": "X",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
+              },
               "Y",
               "Width",
               "Height",
@@ -2464,13 +2478,13 @@
             "Rules": [
               {
                 "Category": "Design",
-                "InvariantScript": "7",
+                "InvariantScript": "6",
                 "Property": "Y",
                 "RuleProviderType": "Unknown"
               },
               {
                 "Category": "Design",
-                "InvariantScript": "70",
+                "InvariantScript": "67",
                 "Property": "X",
                 "RuleProviderType": "Unknown"
               },
@@ -3019,7 +3033,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "201",
+                "InvariantScript": "189",
                 "Property": "Width",
                 "RuleProviderType": "Unknown"
               },
@@ -6308,7 +6322,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "637923174296796683",
+    "LastModifiedTimestamp": "637923177485276473",
     "Name": "componentProgressBar",
     "Rules": [
       {
@@ -6383,7 +6397,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "637923174296796683",
+  "LastModifiedTimestamp": "637923177485276473",
   "Name": "dbd607af812e46be9d29858798df077d",
   "OverridableProperties": {},
   "TemplateOriginalName": "0a840945548b4850ac694ae82473f8ab",

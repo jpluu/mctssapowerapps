@@ -285,7 +285,7 @@ componentProgressBar As CanvasComponent:
             Visible: |-
                 =If (isLongTerm, true, false)
                 /*If (DateDiff(DataCardValue27, DataCardValue28, Days) >= 90 Or DataCardValue57.Selected.Value = "Five Days"= true, true, false)*/
-            Width: =201
+            Width: =189
             Y: =73
             ZIndex: =2
 
@@ -348,7 +348,7 @@ componentProgressBar As CanvasComponent:
                     )
                 )*/
             Width: =68
-            X: =60
+            X: =57
             ZIndex: =3
 
         labelNewEventName_18 As label:
@@ -484,8 +484,8 @@ componentProgressBar As CanvasComponent:
                     )
                 )*/
             Width: =48
-            X: =70
-            Y: =7
+            X: =67
+            Y: =6
             ZIndex: =5
 
     collectionR As groupContainer.manualLayoutContainer:
