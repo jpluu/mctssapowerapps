@@ -27,6 +27,21 @@ screenRequest As screen:
             ),
             "LastName",
                 Ascending)
+                /*
+                SortByColumns(
+            Search(
+                Filter(
+                    VisitorRequest,
+                    IsBlank(ComboBox1_4.SelectedItems) || IsEmpty(ComboBox1_4.SelectedItems) || Approved.Value in ComboBox1_4.SelectedItems.Value
+                ),
+                searchBarRequest.Text,
+                "LastName",
+                "FirstName",
+                "Title"
+            ),
+            "LastName",
+                Ascending)
+                */
             
             
             /*SortByColumns(
@@ -243,6 +258,7 @@ screenRequest As screen:
         Height: =57
         Items: =["All", "This Month", "Next Month", "Next Quarter"]
         Size: =20
+        Visible: =false
         Width: =193
         X: =1046
         Y: =103
