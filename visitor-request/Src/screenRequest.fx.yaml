@@ -3491,6 +3491,7 @@ screenRequest As screen:
             ZIndex: =7
 
     galleryCheckBox As gallery.galleryHorizontal:
+        BorderColor: =RGBA(0, 0, 0, 0)
         Height: =54
         Items: =Choices(VisitorRequest.Approved) //["Pending", "Denied", "Approved", "All"] //
         ShowScrollbar: =false
@@ -3518,7 +3519,10 @@ screenRequest As screen:
         ZIndex: =11
 
         Checkbox4 As checkbox:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            CheckboxBorderColor: =RGBA(0, 0, 0, 0)
             Height: =40
+            HoverColor: =RGBA(0, 0, 0, 1)
             OnCheck: =Collect(colApprovedFilter,ThisItem)
             OnSelect: =Select(Parent)
             OnUncheck: =Remove(colApprovedFilter,ThisItem)
