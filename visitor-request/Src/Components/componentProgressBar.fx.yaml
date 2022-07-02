@@ -483,10 +483,79 @@ componentProgressBar As CanvasComponent:
                         NotificationType.Warning
                     )
                 )*/
+            Visible: =If (isLongTerm, true, false)
             Width: =48
             X: =67
             Y: =6
             ZIndex: =5
+
+        iconR_2 As icon.DockCheckProperties:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =53
+            Icon: =Icon.DockCheckProperties
+            OnSelect: |-
+                =If(
+                    formVisitor.Valid,
+                    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
+                    If(
+                        isLongTerm,
+                        Set(
+                            isLongTermPage,
+                            true
+                        ),
+                        Set(
+                            isReviewPage,
+                            true
+                        )
+                    ),
+                    Notify(
+                        "Required Fields Not Completly Filled",
+                        NotificationType.Warning
+                    )
+                )
+                     /* If(
+                        formVisitor.Valid,
+                        Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
+                        Set(
+                        isVisitorPage, 
+                        true
+                        ),
+                        Notify("Form Page Not Complete!", NotificationType.Warning)
+                    )  
+                  */
+                  
+                  /*  Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                    
+                    Set(
+                    isVisitorPage,
+                    false
+                );
+                If(
+                    formVisitor.Valid,
+                    If(
+                        isLongTerm,
+                        Set(
+                            isLongTermPage,
+                            true
+                        ),
+                        Set(
+                            isReviewPage,
+                            true
+                        )
+                    ),
+                    Notify(
+                        "Required Fields Not Completly Filled",
+                        NotificationType.Warning
+                    )
+                )*/
+            Visible: |-
+                =If (isLongTerm, false, true)
+                
+                /*If (DateDiff(DataCardValue27, DataCardValue28, Days) >= 90 Or DataCardValue57.Selected.Value = "Five Days"= true, false, true)*/
+            Width: =48
+            X: =67
+            Y: =6
+            ZIndex: =6
 
     collectionR As groupContainer.manualLayoutContainer:
         Height: =Parent.Height
@@ -716,10 +785,64 @@ componentProgressBar As CanvasComponent:
                     )
                 )*/
                 
+            Visible: =If (isLongTerm, true, false)
             Width: =48
             X: =72
             Y: =6
             ZIndex: =6
+
+        iconA_2 As icon.Check:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =47
+            Icon: =Icon.Check
+            OnSelect: |+
+                =If(
+                    formVisitor.Valid,
+                    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
+                    If(
+                        isLongTerm,
+                        Set(
+                            isReviewPage,
+                            true
+                        ),
+                        Set(
+                            isAcknowPage,
+                            true
+                        )
+                    ),
+                    Notify(
+                        "Required Fields Not Completly Filled",
+                        NotificationType.Warning
+                    )
+                )
+                /*If(
+                        isLongTerm, 
+                        If(formLongTerm.Valid,
+                    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false),
+                        Set(
+                            isReviewPage,
+                            true
+                        )),
+                          If(formReview.Valid,
+                    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false),
+                        Set(
+                            isAcknowPage,
+                            true
+                        )),
+                    Notify(
+                        "Required Fields Not Completly Filled",
+                        NotificationType.Warning
+                    )
+                )*/
+                
+            Visible: |-
+                =If (isLongTerm, false, true)
+                
+                /*If (DateDiff(DataCardValue27, DataCardValue28, Days) >= 90 Or DataCardValue57.Selected.Value = "Five Days"= true, false, true)*/
+            Width: =42
+            X: =73
+            Y: =12
+            ZIndex: =7
 
     collectionA As groupContainer.manualLayoutContainer:
         Height: =Parent.Height

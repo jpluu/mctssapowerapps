@@ -127,7 +127,7 @@
         "Name": "Round Header",
         "Parent": "Header",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 389,
+        "PublishOrderIndex": 391,
         "Rules": [
           {
             "Category": "Data",
@@ -460,7 +460,7 @@
         "Name": "Image1",
         "Parent": "Header",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 390,
+        "PublishOrderIndex": 392,
         "Rules": [
           {
             "Category": "Data",
