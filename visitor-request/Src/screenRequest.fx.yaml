@@ -280,8 +280,8 @@ screenRequest As screen:
             TabIndex: =0
             Tooltip: ="View item details"
             Width: =60
-            X: =Parent.TemplateWidth - Self.Width - 5
-            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            X: =986
+            Y: =14
             ZIndex: =4
 
         Separator1 As rectangle:
