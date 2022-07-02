@@ -1,18 +1,66 @@
 screenRequest As screen:
 
-    searchBarRequest As text:
-        BorderStyle: =BorderStyle.None
-        Default: =""
-        Height: =57
-        HintText: ="Search Last Names"
-        Size: =20
-        Width: =1074
-        X: =165
-        Y: =103
+    ComboBoxCheckBox As combobox:
+        DefaultSelectedItems: =colApprovedFilter.Value
+        DisplayFields: =["Value"]
+        Height: =35
+        InputTextPlaceholder: |-
+            ="Reasons for Denial
+            "
+        IsSearchable: =false
+        Items: =Choices(VisitorRequest.Approved)
+        NoSelectionText: ="All"
+        SearchFields: =["Value"]
+        SearchItems: =[]
+        Visible: =false
+        Width: =68
+        X: =1243
+        Y: =115
         ZIndex: =1
 
+    galleryCheckBox As gallery.galleryHorizontal:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Height: =55
+        Items: =Choices(VisitorRequest.Approved) //["Pending", "Denied", "Approved", "All"] //
+        ShowScrollbar: =false
+        TemplateFill: |+
+            =Switch(ThisItem.Value,
+            
+            "Approved", PaleGreen,
+            
+            "Pending", PaleGoldenRod, 
+            
+            "Denied", Red)
+            /*Switch(ThisItem.Value,
+            
+            "Approved", PaleGreen,
+            
+            "Pending", PaleGoldenRod, 
+            
+            "Denied", Red
+            )*/
+            
+        TemplateSize: =162
+        Width: =680
+        X: =416
+        Y: =160
+        ZIndex: =2
+
+        Checkbox4 As checkbox:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            CheckboxBorderColor: =RGBA(0, 0, 0, 0)
+            Height: =40
+            HoverColor: =RGBA(0, 0, 0, 1)
+            OnCheck: =Collect(colApprovedFilter,ThisItem)
+            OnSelect: =Select(Parent)
+            OnUncheck: =Remove(colApprovedFilter,ThisItem)
+            Size: =16
+            Text: =ThisItem.Value
+            Width: =162
+            ZIndex: =1
+
     "galleryRequests As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
-        Height: =514
+        Height: =522
         Items: |-
             =SortByColumns(
             Search(
@@ -145,7 +193,7 @@ screenRequest As screen:
         Width: =App.Width - 2 * buttonNewRequest.Width
         X: =150
         Y: =233
-        ZIndex: =1
+        ZIndex: =3
 
         Title1 As label:
             Height: =Self.Size * 1.8
@@ -243,6 +291,17 @@ screenRequest As screen:
             Y: =Parent.TemplateHeight - 1
             ZIndex: =5
 
+    searchBarRequest As text:
+        BorderStyle: =BorderStyle.None
+        Default: =""
+        Height: =57
+        HintText: ="Search Last Names"
+        Size: =20
+        Width: =1074
+        X: =165
+        Y: =103
+        ZIndex: =4
+
     searchIconRequest As icon.Search:
         Color: =RGBA(153, 153, 153, 1)
         Height: =57
@@ -250,7 +309,7 @@ screenRequest As screen:
         Width: =39
         X: =126
         Y: =103
-        ZIndex: =2
+        ZIndex: =5
 
     ddDateFilter As dropdown:
         AllowEmptySelection: =true
@@ -262,7 +321,7 @@ screenRequest As screen:
         Width: =193
         X: =1046
         Y: =103
-        ZIndex: =3
+        ZIndex: =6
 
     buttonNewRequest As icon.CancelBadge:
         AutoDisableOnSelect: =false
@@ -282,13 +341,13 @@ screenRequest As screen:
         ZIndex: =7
 
     compHeaderRequest As Header:
-        ZIndex: =9
+        ZIndex: =8
 
     modalRequest As groupContainer:
         Height: =768
         Visible: =isModalRequest
         Width: =1366
-        ZIndex: =10
+        ZIndex: =9
 
         modalFloatRequest As button:
             Color: =RGBA(0, 0, 0, 0)
@@ -3489,63 +3548,4 @@ screenRequest As screen:
             X: =backEvent.Width + modalX
             Y: =modalY + labelEvent.Height + formEvent.Height
             ZIndex: =7
-
-    galleryCheckBox As gallery.galleryHorizontal:
-        BorderColor: =RGBA(0, 0, 0, 0)
-        Height: =55
-        Items: =Choices(VisitorRequest.Approved) //["Pending", "Denied", "Approved", "All"] //
-        ShowScrollbar: =false
-        TemplateFill: |+
-            =Switch(ThisItem.Value,
-            
-            "Approved", PaleGreen,
-            
-            "Pending", PaleGoldenRod, 
-            
-            "Denied", Red)
-            /*Switch(ThisItem.Value,
-            
-            "Approved", PaleGreen,
-            
-            "Pending", PaleGoldenRod, 
-            
-            "Denied", Red
-            )*/
-            
-        TemplateSize: =162
-        Width: =680
-        X: =434
-        Y: =159
-        ZIndex: =11
-
-        Checkbox4 As checkbox:
-            BorderColor: =RGBA(0, 0, 0, 0)
-            CheckboxBorderColor: =RGBA(0, 0, 0, 0)
-            Height: =40
-            HoverColor: =RGBA(0, 0, 0, 1)
-            OnCheck: =Collect(colApprovedFilter,ThisItem)
-            OnSelect: =Select(Parent)
-            OnUncheck: =Remove(colApprovedFilter,ThisItem)
-            Size: =16
-            Text: =ThisItem.Value
-            Width: =162
-            ZIndex: =1
-
-    ComboBoxCheckBox As combobox:
-        DefaultSelectedItems: =colApprovedFilter.Value
-        DisplayFields: =["Value"]
-        Height: =35
-        InputTextPlaceholder: |-
-            ="Reasons for Denial
-            "
-        IsSearchable: =false
-        Items: =Choices(VisitorRequest.Approved)
-        NoSelectionText: ="All"
-        SearchFields: =["Value"]
-        SearchItems: =[]
-        Visible: =false
-        Width: =68
-        X: =1281
-        Y: =114
-        ZIndex: =12
 
