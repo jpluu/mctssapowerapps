@@ -12,13 +12,13 @@ screenRequest As screen:
         ZIndex: =1
 
     "galleryRequests As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
-        Height: =471
+        Height: =514
         Items: |-
             =SortByColumns(
             Search(
                 Filter(
                     VisitorRequest,
-                    IsBlank(ComboBox1_4.SelectedItems) || IsEmpty(ComboBox1_4.SelectedItems) || Approved.Value in ComboBox1_4.SelectedItems.Value
+                    IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value
                 ),
                 searchBarRequest.Text,
                 "LastName",
@@ -141,10 +141,10 @@ screenRequest As screen:
             )
             
         TemplatePadding: =0
-        TemplateSize: =94
+        TemplateSize: =87
         Width: =App.Width - 2 * buttonNewRequest.Width
         X: =150
-        Y: =253
+        Y: =233
         ZIndex: =1
 
         Title1 As label:
@@ -154,7 +154,7 @@ screenRequest As screen:
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
-            Size: =17
+            Size: =16
             Text: |-
                 =If(
                     IsEmpty(galleryRequests),
@@ -174,7 +174,7 @@ screenRequest As screen:
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
-            Size: =13
+            Size: =12
             Text: =ThisItem.'Visit Start Date'
             VerticalAlign: =VerticalAlign.Top
             Width: =Parent.TemplateWidth - 104
@@ -183,13 +183,13 @@ screenRequest As screen:
             ZIndex: =2
 
         Body1 As label:
-            Height: =34
+            Height: =17
             OnSelect: =Select(Parent)
             PaddingBottom: =0
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
-            Size: =13
+            Size: =12
             Text: =ThisItem.Approved.Value
             VerticalAlign: =VerticalAlign.Top
             Width: =Parent.TemplateWidth - 104
@@ -237,7 +237,7 @@ screenRequest As screen:
             ZIndex: =4
 
         Separator1 As rectangle:
-            Height: =1
+            Height: =0
             OnSelect: =Select(Parent)
             Width: =Parent.TemplateWidth
             Y: =Parent.TemplateHeight - 1
@@ -3514,7 +3514,7 @@ screenRequest As screen:
         TemplateSize: =162
         Width: =497
         X: =434
-        Y: =149
+        Y: =159
         ZIndex: =11
 
         Checkbox4 As checkbox:
@@ -3527,7 +3527,7 @@ screenRequest As screen:
             Width: =162
             ZIndex: =1
 
-    ComboBox1_4 As combobox:
+    ComboBoxCheckBox As combobox:
         DefaultSelectedItems: =colApprovedFilter.Value
         DisplayFields: =["Value"]
         Height: =35

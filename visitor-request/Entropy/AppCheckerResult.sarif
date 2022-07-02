@@ -24,7 +24,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 162,
+                  "charOffset": 172,
                   "snippet": {
                     "text": "in"
                   }
@@ -64,7 +64,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 144,
+                  "charOffset": 154,
                   "snippet": {
                     "text": "||"
                   }
@@ -3823,19 +3823,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "screenRequest.ComboBox1_4.AccessibleLabel"
+                  "fullyQualifiedName": "screenRequest.ComboBoxCheckBox.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "screenRequest.ComboBox1_4.AccessibleLabel",
+                  "fullyQualifiedName": "screenRequest.ComboBoxCheckBox.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "screenRequest",
-                "type": "screenRequest.ComboBox1_4"
+                "type": "screenRequest.ComboBoxCheckBox"
               }
             }
           ],
