@@ -183,7 +183,7 @@ screenRequest As screen:
             ZIndex: =2
 
         Body1 As label:
-            Height: =17
+            Height: =26
             OnSelect: =Select(Parent)
             PaddingBottom: =0
             PaddingLeft: =0
