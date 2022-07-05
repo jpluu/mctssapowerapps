@@ -3120,10 +3120,11 @@ screenRequest As screen:
 
                 buttonBulkSave As button:
                     OnSelect: |
-                        =ClearCollect(
+                        =/*ClearCollect(
                             collectionFormUpdates,
                             formVisitor.Updates
-                        );
+                        );*/
+                        Patch(formDataBulk, formVisitor.Updates);
                         Set(
                             isReset,
                             true
