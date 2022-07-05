@@ -404,7 +404,7 @@ screenRequest As screen:
         Height: =57
         HintText: ="Search?"
         Size: =20
-        Width: =1074
+        Width: =1054
         X: =165
         Y: =103
         ZIndex: =4
@@ -422,9 +422,10 @@ screenRequest As screen:
         AllowEmptySelection: =true
         Height: =57
         Items: =colTimeFilter
+        Reset: =true
         Size: =20
         Width: =193
-        X: =1046
+        X: =1026
         Y: =103
         ZIndex: =6
 
