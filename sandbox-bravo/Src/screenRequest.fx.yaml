@@ -1,4 +1,7 @@
 screenRequest As screen:
+    OnVisible: |-
+        =Set(StartHere, 2022/1/1);
+        Set(EndHere, 2022/12/31);
 
     ComboBoxCheckBox As combobox:
         DefaultSelectedItems: =colApprovedFilter.Value
@@ -176,7 +179,8 @@ screenRequest As screen:
                 "LastName",
                 Ascending
             )
-            */
+            /*,
+                    'Visit Start Date'>=Slider1.Value*/
         Layout: =Layout.Vertical
         TemplateFill: |+
             =Switch(ThisItem.Approved.Value,
@@ -3550,7 +3554,23 @@ screenRequest As screen:
             ZIndex: =7
 
     Slider1 As slider:
-        X: =1030
-        Y: =167
+        Default: =0
+        Max: |-
+            =DateDiff(StartHere, EndHere, Days)//Date(2022,12,31)
+            //DateDiff(Start, End, Days)
+        Min: |-
+            =dcStartDate
+            //StartHere//Start.Value
+        X: =982
+        Y: =120
         ZIndex: =10
+
+    Label4 As label:
+        Height: =38
+        Text: |-
+            ="Start Date:"& DateAdd(StartHere,ThisItem, Days)
+        Width: =261
+        X: =982
+        Y: =82
+        ZIndex: =11
 
