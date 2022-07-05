@@ -3163,19 +3163,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "screenRequest.modalRequest.pageVisitor.galleryBulkVisitors.AccessibleLabel"
+                  "fullyQualifiedName": "screenRequest.modalRequest.pageVisitor.containerBulk.galleryBulkVisitors.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "screenRequest.modalRequest.pageVisitor.galleryBulkVisitors.AccessibleLabel",
+                  "fullyQualifiedName": "screenRequest.modalRequest.pageVisitor.containerBulk.galleryBulkVisitors.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "screenRequest",
-                "type": "screenRequest.modalRequest.pageVisitor.galleryBulkVisitors"
+                "type": "screenRequest.modalRequest.pageVisitor.containerBulk.galleryBulkVisitors"
               }
             }
           ],
@@ -3193,19 +3193,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "screenRequest.modalRequest.pageVisitor.galleryBulkVisitors.TabIndex"
+                  "fullyQualifiedName": "screenRequest.modalRequest.pageVisitor.containerBulk.galleryBulkVisitors.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "screenRequest.modalRequest.pageVisitor.galleryBulkVisitors.TabIndex",
+                  "fullyQualifiedName": "screenRequest.modalRequest.pageVisitor.containerBulk.galleryBulkVisitors.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "screenRequest",
-                "type": "screenRequest.modalRequest.pageVisitor.galleryBulkVisitors"
+                "type": "screenRequest.modalRequest.pageVisitor.containerBulk.galleryBulkVisitors"
               }
             }
           ],
@@ -3223,139 +3223,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "screenRequest.modalRequest.pageVisitor.galleryBulkVisitors.containerBulkVisitors.iconBulkFN.FocusedBorderThickness"
+                  "fullyQualifiedName": "screenRequest.modalRequest.pageVisitor.containerBulk.galleryBulkVisitors.Icon1.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "screenRequest.modalRequest.pageVisitor.galleryBulkVisitors.containerBulkVisitors.iconBulkFN.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "screenRequest",
-                "type": "screenRequest.modalRequest.pageVisitor.galleryBulkVisitors.containerBulkVisitors.iconBulkFN"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 5
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "screenRequest.modalRequest.pageVisitor.galleryBulkVisitors.containerBulkVisitors.iconBulkFN.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "screenRequest.modalRequest.pageVisitor.galleryBulkVisitors.containerBulkVisitors.iconBulkFN.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "screenRequest",
-                "type": "screenRequest.modalRequest.pageVisitor.galleryBulkVisitors.containerBulkVisitors.iconBulkFN"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 4
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "screenRequest.modalRequest.pageVisitor.galleryBulkVisitors.containerBulkVisitors.iconBulkLN.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "screenRequest.modalRequest.pageVisitor.galleryBulkVisitors.containerBulkVisitors.iconBulkLN.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "screenRequest",
-                "type": "screenRequest.modalRequest.pageVisitor.galleryBulkVisitors.containerBulkVisitors.iconBulkLN"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 5
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "screenRequest.modalRequest.pageVisitor.galleryBulkVisitors.containerBulkVisitors.iconBulkLN.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "screenRequest.modalRequest.pageVisitor.galleryBulkVisitors.containerBulkVisitors.iconBulkLN.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "screenRequest",
-                "type": "screenRequest.modalRequest.pageVisitor.galleryBulkVisitors.containerBulkVisitors.iconBulkLN"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 4
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "screenRequest.modalRequest.pageVisitor.galleryBulkVisitors.containerBulkVisitors.iconBulkEdit.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "screenRequest.modalRequest.pageVisitor.galleryBulkVisitors.containerBulkVisitors.iconBulkEdit.AccessibleLabel",
+                  "fullyQualifiedName": "screenRequest.modalRequest.pageVisitor.containerBulk.galleryBulkVisitors.Icon1.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "screenRequest",
-                "type": "screenRequest.modalRequest.pageVisitor.galleryBulkVisitors.containerBulkVisitors.iconBulkEdit"
+                "type": "screenRequest.modalRequest.pageVisitor.containerBulk.galleryBulkVisitors.Icon1"
               }
             }
           ],
@@ -3373,19 +3253,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "screenRequest.modalRequest.pageVisitor.galleryBulkVisitors.containerBulkVisitors.iconBulkEdit.TabIndex"
+                  "fullyQualifiedName": "screenRequest.modalRequest.pageVisitor.containerBulk.galleryBulkVisitors.Icon1.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "screenRequest.modalRequest.pageVisitor.galleryBulkVisitors.containerBulkVisitors.iconBulkEdit.TabIndex",
+                  "fullyQualifiedName": "screenRequest.modalRequest.pageVisitor.containerBulk.galleryBulkVisitors.Icon1.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "screenRequest",
-                "type": "screenRequest.modalRequest.pageVisitor.galleryBulkVisitors.containerBulkVisitors.iconBulkEdit"
+                "type": "screenRequest.modalRequest.pageVisitor.containerBulk.galleryBulkVisitors.Icon1"
               }
             }
           ],
@@ -4183,36 +4063,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.isEditing"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.isEditing",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "isEditing",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 7
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "screenRequest"
                 }
               ],
@@ -4404,7 +4254,7 @@
                 ],
                 "level": "Medium",
                 "primaryCategory": "performance",
-                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"screenRequest\" is 312, which exceeds the maximum threshold recommended (300)."
+                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"screenRequest\" is 309, which exceeds the maximum threshold recommended (300)."
               }
             }
           ],
