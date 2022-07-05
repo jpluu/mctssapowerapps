@@ -3112,18 +3112,24 @@ screenRequest As screen:
 
             buttonBulkAdd As button:
                 OnSelect: |-
-                    =Set(
-                        isBulk,
-                        true
-                    );
-                    If(
+                    =If(
                         formVisitor.Valid,
+                        Set(
+                            isBulk,
+                            true
+                        );
                         Collect(
                             collectionFormUpdates,
                             formVisitor.Updates
                         );
-                        Set(isReset, true);
-                        Set(isReset, false),
+                        Set(
+                            isReset,
+                            true
+                        );
+                        Set(
+                            isReset,
+                            false
+                        ),
                         Notify(
                             "Visitor Info Request Not Complete...",
                             NotificationType.Warning
