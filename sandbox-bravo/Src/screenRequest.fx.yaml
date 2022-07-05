@@ -69,8 +69,7 @@ screenRequest As screen:
             Search(
                 Filter(
                     VisitorRequest,
-                    IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
-                    'Visit Start Date'>=Slider1.Value
+                    IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value
                 ),
                 searchBarRequest.Text,
                 "LastName",
@@ -180,7 +179,8 @@ screenRequest As screen:
                 "LastName",
                 Ascending
             )
-            */
+            /*,
+                    'Visit Start Date'>=Slider1.Value*/
         Layout: =Layout.Vertical
         TemplateFill: |+
             =Switch(ThisItem.Approved.Value,
