@@ -3111,7 +3111,8 @@ screenRequest As screen:
                         Height: =40
                         Icon: =Icon.Edit
                         OnSelect: |-
-                            =// Set(formData, formVisitor.Updates);
+                            =// 
+                            If(Not(isEditing), Set(formData, formVisitor.Updates), false);
                             Set(formDataBulk, ThisItem);
                             Set(isEditing, true)
                         Width: =40
@@ -3120,11 +3121,9 @@ screenRequest As screen:
 
                 buttonBulkSave As button:
                     OnSelect: |
-                        =/*ClearCollect(
-                            collectionFormUpdates,
-                            formVisitor.Updates
-                        );*/
+                        =
                         Patch(formDataBulk, formVisitor.Updates);
+                        Notify(formDataBulk.'Middle Name');
                         Set(
                             isReset,
                             true
