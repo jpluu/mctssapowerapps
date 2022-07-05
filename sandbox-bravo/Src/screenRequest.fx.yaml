@@ -321,7 +321,26 @@ screenRequest As screen:
         Height: =57
         Items: =["All", "This Month", "Next Month", "Next Quarter"]
         Size: =20
-        Visible: =false
+        Visible: |-
+            =ClearCollect(
+                colTimeFilter,
+                (
+                    DisplayName: "This Month",
+                      StartDate: DateAdd(
+                          Today(),
+            
+                                    Year(Today()),
+                                    Month(Today()),
+                                    1
+                                ),
+                                EndDate: Date(
+                                    Year(Today()),
+                                    Month(Today()) + 1,
+                                    1
+                                ) - 1
+                )
+            )
+                    
         Width: =193
         X: =1046
         Y: =103
@@ -3553,24 +3572,14 @@ screenRequest As screen:
             Y: =modalY + labelEvent.Height + formEvent.Height
             ZIndex: =7
 
-    Slider1 As slider:
-        Default: =0
-        Max: |-
-            =DateDiff(StartHere, EndHere, Days)//Date(2022,12,31)
-            //DateDiff(Start, End, Days)
-        Min: |-
-            =dcStartDate
-            //StartHere//Start.Value
-        X: =982
-        Y: =120
+    ddDateFilter_1 As dropdown:
+        AllowEmptySelection: =true
+        Default: ="All"
+        Height: =57
+        Items: =["All", "This Month", "Next Month", "Next Quarter"]
+        Size: =20
+        Width: =193
+        X: =1173
+        Y: =427
         ZIndex: =10
-
-    Label4 As label:
-        Height: =38
-        Text: |-
-            ="Start Date:"& DateAdd(StartHere,ThisItem, Days)
-        Width: =261
-        X: =982
-        Y: =82
-        ZIndex: =11
 
