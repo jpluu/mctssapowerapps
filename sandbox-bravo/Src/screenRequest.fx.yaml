@@ -2,7 +2,7 @@ screenRequest As screen:
     OnVisible: |-
         =ClearCollect(
             colTimeFilter,
-            {
+           /* {
                 DisplayName: "This Week",
                   StartDate: DateAdd(
                       Today(),
@@ -60,7 +60,7 @@ screenRequest As screen:
                           Days
                           )
             },
-        
+        */
             {
                 DisplayName: "This Month",
                 StartDate: Date(
@@ -73,7 +73,35 @@ screenRequest As screen:
                                 Month(Today()) + 1,
                                 1
                             ) - 1
-                        }
+                        },
+        
+                         {
+                DisplayName: "Next Month",
+                StartDate: Date(
+                                    Year(Today()),
+                                    Month(Today()) + 1,
+                                    1
+                                ),
+                                EndDate: Date(
+                                    Year(Today()),
+                                    Month(Today()) + 2,
+                                    1
+                                ) - 1
+                            },
+        
+                         {
+                DisplayName: "Next Quarter",
+                StartDate: Date(
+                                 Year(Today()),
+                                        Month(Today()),
+                                        Day(Today())
+                                    ),
+                                    EndDate: Date(
+                                        Year(Today()),
+                                        Month(Today()) + 3,
+                                        Day(Today())
+                                    ) - 1
+                                }
         
         )  
 
