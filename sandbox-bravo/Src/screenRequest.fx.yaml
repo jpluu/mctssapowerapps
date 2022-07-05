@@ -343,7 +343,7 @@ screenRequest As screen:
         BorderStyle: =BorderStyle.None
         Default: =""
         Height: =57
-        HintText: ="Search?"
+        HintText: ="Search"
         Size: =20
         Width: =1054
         X: =165
