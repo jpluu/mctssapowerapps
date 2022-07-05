@@ -3096,34 +3096,6 @@ screenRequest As screen:
                         =0
                     ZIndex: =1
 
-                    containerBulkVisitors As groupContainer:
-                        Height: =40
-                        Width: =340
-                        ZIndex: =4
-
-                        iconBulkFN As label:
-                            FontWeight: =FontWeight.Semibold
-                            Text: =ThisItem.'First Name'
-                            Width: =(Parent.Width - 40) / 2
-                            ZIndex: =1
-
-                        iconBulkLN As label:
-                            FontWeight: =FontWeight.Semibold
-                            Text: =ThisItem.'Last Name'
-                            Width: =(Parent.Width - 40) / 2
-                            X: =iconBulkFN.Width
-                            ZIndex: =2
-
-                        iconBulkEdit As icon.Edit:
-                            Height: =40
-                            Icon: =Icon.Edit
-                            OnSelect: |-
-                                =Set(isEditing, true);
-                                Set(formDataBulk, ThisItem);
-                            Width: =40
-                            X: =300
-                            ZIndex: =3
-
                 buttonBulkAdd As button:
                     DisplayMode: |-
                         =If(isEditing,
