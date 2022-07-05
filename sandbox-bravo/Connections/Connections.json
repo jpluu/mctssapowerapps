@@ -1,0 +1,118 @@
+{
+  "17ba9056-a80f-4186-8daa-c0ccc989b864": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1578/1.0.1578.2813/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://vzwr0.sharepoint.com/sites/MCTSSA.Megalodon": {
+        "dataSources": {
+          "VisitorRequest": {
+            "tableName": "b7cc7e2e-7e41-4c86-ae08-1a40c13af29c"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "VisitorRequest"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "17ba9056-a80f-4186-8daa-c0ccc989b864"
+  },
+  "550890c1-4cf8-4ce2-b7ed-dc900d503f31": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office 365 Users",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1573/1.0.1573.2770/office365users/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365users",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Users"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "550890c1-4cf8-4ce2-b7ed-dc900d503f31"
+  },
+  "886c7fe8-664d-4a54-b513-dd974ed45f29": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office 365 Groups",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1563/1.0.1563.2732/office365groups/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365groups",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Groups"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "886c7fe8-664d-4a54-b513-dd974ed45f29"
+  },
+  "8a4b6060-0c76-4743-acd4-c7c31205c369": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office 365 Outlook",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1580/1.0.1580.2838/office365/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Outlook"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "8a4b6060-0c76-4743-acd4-c7c31205c369"
+  },
+  "dd808c08-e4fa-4f05-9452-2ef6940db4f8": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1578/1.0.1578.2813/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://vzwr0.sharepoint.com/sites/MCTSSA.Megalodon": {
+        "dataSources": {
+          "Security": {
+            "tableName": "64e8eaed-f75f-4cb4-82c7-f30ad045e35b"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Security"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "dd808c08-e4fa-4f05-9452-2ef6940db4f8"
+  }
+}
