@@ -8,8 +8,6 @@ screenPre As screen:
         Set(currentUser365, Office365Users.UserProfile(currentUser.Email));
         Set(currentUserPhone, Office365Users.UserProfile(currentUser.Email).mobilePhone);
         
-        
-        
         // General Settings
         Set(modalX, 100);
         Set(modalY, 100);
@@ -22,6 +20,8 @@ screenPre As screen:
         Set(isLongTermPage, false);
         Set(isReviewPage, false);
         Set(isAcknowPage, false);
+        Set(isBulk, false);
+        Set(isReset, false);
         
         // Request Modal Variables
         Set(formData, Defaults(VisitorRequest));

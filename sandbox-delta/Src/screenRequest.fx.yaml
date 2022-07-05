@@ -2305,7 +2305,7 @@ screenRequest As screen:
                 DataSource: =VisitorRequest
                 Height: =Parent.Height - Self.Y - pbRequest.Height
                 Item: =formData
-                Width: =Parent.Width
+                Width: =If(isBulk, Parent.Width - galleryBulkVisitors.Width, Parent.Width)
                 Y: =labelVisitor.Height
                 ZIndex: =1
 
@@ -2346,6 +2346,7 @@ screenRequest As screen:
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
+                        Reset: =isReset
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
@@ -2408,12 +2409,14 @@ screenRequest As screen:
                         Default: =Parent.Default
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
+                        HintText: ="NMN"
                         MaxLength: =Parent.MaxLength
                         PaddingLeft: =5
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
+                        Reset: =isReset
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
@@ -2482,6 +2485,7 @@ screenRequest As screen:
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
+                        Reset: =isReset
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
@@ -3045,6 +3049,54 @@ screenRequest As screen:
                 Text: ="Visitor Information"
                 Width: =Parent.Width
                 ZIndex: =4
+
+            galleryBulkVisitors As gallery.galleryVertical:
+                Height: =Parent.Height - labelVisitor.Height - pbRequest.Height
+                Items: =collectionFormUpdates
+                Layout: =Layout.Vertical
+                TemplateSize: =40
+                Visible: =isBulk
+                Width: =350
+                X: |-
+                    =
+                    Parent.Width - 350
+                Y: =labelVisitor.Height
+                ZIndex: =5
+
+                Label1 As label:
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.'First Name'
+                    ZIndex: =1
+
+                Label3 As label:
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.'Last Name'
+                    X: =190
+                    ZIndex: =2
+
+            buttonBulkAdd As button:
+                OnSelect: |-
+                    =Set(
+                        isBulk,
+                        true
+                    );
+                    If(
+                        formVisitor.Valid,
+                        Collect(
+                            collectionFormUpdates,
+                            formVisitor.Updates
+                        );
+                        Set(isReset, true);
+                        Set(isReset, false),
+                        Notify(
+                            "Visitor Info Request Not Complete...",
+                            NotificationType.Warning
+                        )
+                    )
+                Text: ="Bulk Add"
+                X: =911
+                Y: =428
+                ZIndex: =6
 
         pageEvent As groupContainer:
             BorderThickness: =3
