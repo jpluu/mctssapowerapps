@@ -1879,6 +1879,14 @@ screenRequest As screen:
                 Width: =Parent.Width
                 ZIndex: =2
 
+        Icon1 As icon.Edit:
+            Height: =52
+            Icon: =Icon.Edit
+            Width: =54
+            X: =1178
+            Y: =110
+            ZIndex: =5
+
     modalRequest As groupContainer:
         Height: =768
         Visible: =isModalRequest
@@ -6484,13 +6492,6 @@ screenRequest As screen:
                 Text: ="Review"
                 Width: =Parent.Width
                 ZIndex: =4
-
-    Button1 As button:
-        OnSelect: =Navigate(Screen1)
-        Text: ="Button"
-        X: =1174
-        Y: =193
-        ZIndex: =11
 
     Label1 As label:
         Align: =Align.Center
