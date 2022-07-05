@@ -3549,3 +3549,8 @@ screenRequest As screen:
             Y: =modalY + labelEvent.Height + formEvent.Height
             ZIndex: =7
 
+    Slider1 As slider:
+        X: =1030
+        Y: =167
+        ZIndex: =10
+
