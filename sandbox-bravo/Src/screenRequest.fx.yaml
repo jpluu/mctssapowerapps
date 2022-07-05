@@ -1,7 +1,28 @@
 screenRequest As screen:
     OnVisible: |-
-        =Set(StartHere, 2022/1/1);
-        Set(EndHere, 2022/12/31);
+        =ClearCollect(
+            colTimeFilter,
+            {
+                DisplayName: "This Month",
+                  StartDate: DateAdd(
+                      Today(),
+                      1- Weekday (
+                          Today(),
+                          StartOfWeek.Monday
+                      ),
+                      Days
+                  ),
+                  EndDate: DateAdd(
+                      Today(),
+                      1 - Weekday(
+                          Today(),
+                          StartOfWeek.Monday
+                          ) +6,
+                          Days
+                          )
+            }
+        )
+                
 
     ComboBoxCheckBox As combobox:
         DefaultSelectedItems: =colApprovedFilter.Value
@@ -69,7 +90,8 @@ screenRequest As screen:
             Search(
                 Filter(
                     VisitorRequest,
-                    IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value
+                    IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
+                    'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selection.Selected.EndDate
                 ),
                 searchBarRequest.Text,
                 "LastName",
@@ -317,30 +339,9 @@ screenRequest As screen:
 
     ddDateFilter As dropdown:
         AllowEmptySelection: =true
-        Default: ="All"
         Height: =57
-        Items: =["All", "This Month", "Next Month", "Next Quarter"]
+        Items: =colTimeFilter
         Size: =20
-        Visible: |-
-            =ClearCollect(
-                colTimeFilter,
-                (
-                    DisplayName: "This Month",
-                      StartDate: DateAdd(
-                          Today(),
-            
-                                    Year(Today()),
-                                    Month(Today()),
-                                    1
-                                ),
-                                EndDate: Date(
-                                    Year(Today()),
-                                    Month(Today()) + 1,
-                                    1
-                                ) - 1
-                )
-            )
-                    
         Width: =193
         X: =1046
         Y: =103
