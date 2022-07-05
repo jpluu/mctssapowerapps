@@ -434,14 +434,35 @@ screenRequest As screen:
                 Icon: =Icon.NextArrow
                 OnSelect: |
                     =If(
+                        Not(isBulk),
                         Patch(
                             VisitorRequest,
                             formData,
                             formEvent.Updates,
                             formVisitor.Updates,
                             formAcknow.Updates
-                        );
-                        If(isLongTerm, Patch(VisitorRequest, formData, formLongTerm.Updates));
+                        ),
+                        If(
+                            Not(formVisitor.Valid) And Not(IsEmpty(collectionFormUpdates)),
+                            true,
+                            Collect(
+                                collectionFormUpdates,
+                                'formVisitor'.Updates
+                            );
+                            ForAll(
+                                collectionFormUpdates,
+                                Patch(
+                                    VisitorRequest,
+                                    formData,
+                                    formEvent.Updates,
+                                    formAcknow.Updates,
+                                    formLongTerm.Updates,
+                                    ThisRecord
+                                )
+                            )
+                        )
+                    );
+                    If(
                         IsEmpty(Errors(VisitorRequest)),
                         Notify(
                             "Success",
@@ -460,6 +481,8 @@ screenRequest As screen:
                             NotificationType.Error
                         )
                     );
+                    Set(isBulk, false);
+                    Clear(collectionFormUpdates);
                     ResetForm(formEvent);
                     ResetForm(formVisitor);
                     ResetForm(formLongTerm);
@@ -2989,7 +3012,7 @@ screenRequest As screen:
             nextVisitor As icon.NextArrow:
                 DisplayMode: |-
                     =If(
-                        formVisitor.Valid,
+                        formVisitor.Valid Or isBulk,
                         DisplayMode.Edit,
                         DisplayMode.Disabled
                     )
@@ -3001,7 +3024,7 @@ screenRequest As screen:
                         false
                     );
                     If(
-                        formVisitor.Valid,
+                        formVisitor.Valid Or isBulk,
                         If(
                             isLongTerm,
                             Set(
