@@ -1,0 +1,27 @@
+"'Visitor Log Screen' As screen":
+
+    coreVisitorLog As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =4
+
+        labelVisitorLog As label:
+            Align: =Align.Center
+            Height: =71
+            Size: =35
+            Text: ="Visitor Log"
+            Width: =1366
+            Y: =82
+            ZIndex: =1
+
+        headerVisitorLog As Header:
+            HomeVar: ='Home1 Screen'
+            ZIndex: =2
+
+        "sidenavVisitorLog As 'Hamburger Menu'":
+            MenuItems: =collectionHamburgerMenu
+            Width: =sidenavVisitorLog.MenuWidth
+            ZIndex: =3
+
