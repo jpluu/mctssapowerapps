@@ -20,13 +20,14 @@ screenPre As screen:
         Set(isLongTermPage, false);
         Set(isReviewPage, false);
         Set(isAcknowPage, false);
-        Set(isBulk, false);
-        Set(isReset, false);
+        
         
         // Request Modal Variables
         Set(formData, Defaults(VisitorRequest));
         Set(isLongTerm, false);
         Set(isEditing, false); // bool | control for editing request
+        Set(isBulk, false); // bool | control for bulk window
+        Set(isReset, false); // bool | control for reseting FN and LN for bulk
         
         
         

@@ -3086,16 +3086,29 @@ screenRequest As screen:
                 Y: =labelVisitor.Height
                 ZIndex: =5
 
-                Label1 As label:
-                    OnSelect: =Select(Parent)
-                    Text: =ThisItem.'First Name'
-                    ZIndex: =1
+                containerBulkVisitors As groupContainer:
+                    Height: =40
+                    Width: =340
+                    ZIndex: =4
 
-                Label3 As label:
-                    OnSelect: =Select(Parent)
-                    Text: =ThisItem.'Last Name'
-                    X: =190
-                    ZIndex: =2
+                    iconBulkFN As label:
+                        Text: =ThisItem.'First Name'
+                        Width: =(Parent.Width - 40) / 2
+                        ZIndex: =1
+
+                    iconBulkLN As label:
+                        Text: =ThisItem.'Last Name'
+                        Width: =(Parent.Width - 40) / 2
+                        X: =iconBulkFN.Width
+                        ZIndex: =2
+
+                    iconBulkEdit As icon.Edit:
+                        Height: =40
+                        Icon: =Icon.Edit
+                        OnSelect: =Set(isEditing, true);
+                        Width: =40
+                        X: =300
+                        ZIndex: =3
 
             buttonBulkAdd As button:
                 OnSelect: |-
