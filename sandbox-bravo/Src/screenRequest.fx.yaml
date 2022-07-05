@@ -408,7 +408,7 @@ screenRequest As screen:
 
     modalSecurity As groupContainer:
         Height: =768
-        Visible: =isSecurity
+        Visible: =isModalSecurity
         Width: =App.Width
         ZIndex: =9
 

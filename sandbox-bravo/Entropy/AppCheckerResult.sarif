@@ -5153,36 +5153,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.isModalSecurity"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.isModalSecurity",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "isModalSecurity",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 7
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "screenRequest"
                 }
               ],
