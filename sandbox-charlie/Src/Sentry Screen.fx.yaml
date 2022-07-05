@@ -1,0 +1,365 @@
+"'Sentry Screen' As screen":
+    Fill: =RGBA(0, 0, 0, 0)
+    OnVisible: =Set(boolSentryModal, false)
+
+    galleriesSentry As groupContainer:
+        Height: =580
+        Width: =1356
+        X: =10
+        Y: =110
+        ZIndex: =4
+
+        "galleryOnBase As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
+            Fill: =PaleGreen
+            Height: =500
+            Items: |-
+                =Filter(
+                    'Visitor Log',
+                    'Base Status'.Value = "On-Base"
+                )
+            Layout: =Layout.Vertical
+            OnSelect: =Set(varSelectedGallery, ThisItem)
+            TemplateFill: |-
+                =If(
+                    varSelectedGallery.ID = galleryOnBase.Selected.ID && ThisItem.IsSelected,
+                    RGBA(255, 255, 255, 0.75),
+                    PaleGreen
+                )
+            TemplatePadding: =0
+            TemplateSize: =Min(130, Self.Height - 60)
+            Width: =600
+            X: =716
+            Y: =40
+            ZIndex: =1
+
+            Title3 As label:
+                Height: =Self.Size * 1.8
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: |-
+                    =If(
+                        IsEmpty(galleryOnBase),
+                        "",
+                        ThisItem.'Last Name' & ", " & ThisItem.'First Name'
+                    )
+                VerticalAlign: =VerticalAlign.Top
+                Width: =Parent.TemplateWidth - 104
+                X: =32
+                Y: =16
+                ZIndex: =1
+
+            Subtitle2 As label:
+                Height: =Self.Size * 1.8
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =ThisItem.'Visit Start Date'
+                VerticalAlign: =VerticalAlign.Top
+                Width: =Parent.TemplateWidth - 104
+                X: =32
+                Y: =Title3.Y + Title3.Height + 2
+                ZIndex: =2
+
+            Body2 As label:
+                Height: =Self.Size * 4
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =ThisItem.'Visit End Date'
+                VerticalAlign: =VerticalAlign.Top
+                Width: =Parent.TemplateWidth - 104
+                X: =32
+                Y: =Subtitle2.Y + Subtitle2.Height + 4
+                ZIndex: =3
+
+            NextArrow3 As icon.ChevronRight:
+                AccessibleLabel: =Self.Tooltip
+                Height: =60
+                Icon: =Icon.Information
+                OnSelect: =Select(Parent);Set(varSelectedVisitor, galleryOnBase.Selected);Set(boolSentryModal, true)
+                PaddingBottom: =10
+                PaddingLeft: =10
+                PaddingRight: =10
+                PaddingTop: =10
+                TabIndex: =0
+                Tooltip: ="View item details"
+                Width: =60
+                X: =Parent.TemplateWidth - Self.Width - 5
+                Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                ZIndex: =4
+
+            Separator3 As rectangle:
+                Height: =1
+                OnSelect: =Select(Parent)
+                Width: =Parent.TemplateWidth
+                Y: =Parent.TemplateHeight - 1
+                ZIndex: =5
+
+        "galleryNotArrived As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
+            Fill: =PaleGoldenRod
+            Height: =500
+            Items: |-
+                =Filter(
+                    'Visitor Log',
+                    'Base Status'.Value = "Not Arrived",
+                    'Visit Start Date' <= DateAdd(Today(), 5, Days),
+                    'Visit Start Date' >= DateAdd(Today(), 0, Days)
+                    
+                    
+                    )
+            Layout: =Layout.Vertical
+            OnSelect: =Set(varSelectedGallery, ThisItem)
+            TemplateFill: |
+                =If(
+                    varSelectedGallery.ID = galleryNotArrived.Selected.ID && ThisItem.IsSelected,
+                    RGBA(255, 255, 255, 0.75),
+                    PaleGoldenRod
+                )
+            TemplatePadding: =0
+            TemplateSize: =Min(130, Self.Height - 60)
+            Width: =600
+            X: =40
+            Y: =40
+            ZIndex: =2
+
+            Title2 As label:
+                Height: =Self.Size * 1.8
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: |-
+                    =If(
+                        IsEmpty(galleryNotArrived),
+                        "",
+                        ThisItem.'Last Name' & ", " & ThisItem.'First Name'
+                    )
+                VerticalAlign: =VerticalAlign.Top
+                Width: =Parent.TemplateWidth - 104
+                X: =32
+                Y: =16
+                ZIndex: =1
+
+            Subtitle1 As label:
+                Height: =Self.Size * 1.8
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =ThisItem.'Visit Start Date'
+                VerticalAlign: =VerticalAlign.Top
+                Width: =Parent.TemplateWidth - 104
+                X: =32
+                Y: =Title2.Y + Title2.Height + 2
+                ZIndex: =2
+
+            Body1 As label:
+                Height: =Self.Size * 4
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =ThisItem.Sponsor.DisplayName
+                VerticalAlign: =VerticalAlign.Top
+                Width: =Parent.TemplateWidth - 104
+                X: =32
+                Y: =Subtitle1.Y + Subtitle1.Height + 4
+                ZIndex: =3
+
+            NextArrow2 As icon.ChevronRight:
+                AccessibleLabel: =Self.Tooltip
+                Height: =60
+                Icon: =Icon.Information
+                OnSelect: =Select(Parent);Set(varSelectedVisitor, galleryNotArrived.Selected);Set(boolSentryModal, true)
+                PaddingBottom: =10
+                PaddingLeft: =10
+                PaddingRight: =10
+                PaddingTop: =10
+                TabIndex: =0
+                Tooltip: ="View item details"
+                Width: =60
+                X: =Parent.TemplateWidth - Self.Width - 5
+                Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                ZIndex: =4
+
+            Separator2 As rectangle:
+                Height: =1
+                OnSelect: =Select(Parent)
+                Width: =Parent.TemplateWidth
+                Y: =Parent.TemplateHeight - 1
+                ZIndex: =5
+
+    coreSentry As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =4
+
+        labelSentry As label:
+            Align: =Align.Center
+            Height: =68
+            Size: =35
+            Text: ="Sentry"
+            Width: =1366
+            Y: =82
+            ZIndex: =1
+
+        headerSentry As Header:
+            HomeVar: ='Home Screen'
+            ZIndex: =2
+
+        "sidenavSentry As 'Hamburger Menu'":
+            MenuItems: =collectionHamburgerMenu
+            Width: =sidenavSentry.MenuWidth
+            ZIndex: =3
+
+    modalSentry As groupContainer:
+        Height: =768
+        Visible: =boolSentryModal
+        Width: =1366
+        ZIndex: =5
+
+        modalSentryExit As button:
+            Fill: =If(boolSentryModal, RGBA(179, 179, 179, 0.5), RGBA(255,255,255,0))
+            Height: =768
+            HoverFill: =ColorFade(RGBA(60, 60, 60, .5), -20%)
+            OnSelect: =Set(boolSentryModal, false)
+            Text: =""
+            Visible: =boolSentryModal
+            Width: =1366
+            ZIndex: =1
+
+        FormViewer1 As formViewer:
+            DataSource: ='Visitor Log'
+            Fill: =RGBA(255, 255, 255, 1)
+            Item: =varSelectedVisitor
+            Visible: =boolSentryModal
+            Width: =764
+            X: =299
+            Y: =150
+            ZIndex: =2
+
+            "'First Name_DataCard2' As typedDataCard.textualViewCard":
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="FirstName"
+                Default: =ThisItem.'First Name'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@'Visitor Log'],DataSourceInfo.DisplayName,"FirstName")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Required: =true
+                Width: =254
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+                DataCardKey32 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue32 As label:
+                    AutoHeight: =true
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =27
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Default
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey32.Y + DataCardKey32.Height + 5
+                    ZIndex: =2
+
+            "'Last Name_DataCard2' As typedDataCard.textualViewCard":
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="LastName"
+                Default: =ThisItem.'Last Name'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@'Visitor Log'],DataSourceInfo.DisplayName,"LastName")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Required: =true
+                Width: =254
+                X: =1
+                Y: =0
+                ZIndex: =1
+
+                DataCardKey33 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue33 As label:
+                    AutoHeight: =true
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =27
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Default
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey33.Y + DataCardKey33.Height + 5
+                    ZIndex: =2
+
+        buttonCheckInOut As button:
+            OnSelect: |-
+                =If(
+                    varSelectedVisitor.'Base Status'.Value = "Not Arrived",
+                    Patch(
+                        'Visitor Log',
+                        LookUp(
+                            'Visitor Log',
+                            Title = varSelectedVisitor.Title
+                        ),
+                        {'Base Status': {Value: "On-Base"}}
+                    );
+                    Office365Outlook.SendEmailV2(
+                        varSelectedVisitor.Sponsor.Email,
+                        "Your Visitor " & varSelectedVisitor.'First Name' & " " & varSelectedVisitor.'Last Name' & " has arrived!",
+                        "Greetings " & varSelectedVisitor.Sponsor.DisplayName & "<br> Your visitor " & varSelectedVisitor.'First Name' & " " & varSelectedVisitor.'Last Name' & " has arrived and is ready to be picked up at the sentry station."
+                    ),
+                    If(
+                        varSelectedVisitor.'Base Status'.Value = "On-Base",
+                        Patch(
+                            'Visitor Log',
+                            LookUp(
+                                'Visitor Log',
+                                Title = varSelectedVisitor.Title
+                            ),
+                            {'Base Status': {Value: "Checked-Out"}}
+                        ),
+                        false
+                    )
+                );
+                Set(
+                    boolSentryModal,
+                    false
+                )
+            Text: =If(varSelectedVisitor.'Base Status'.Value = "Not Arrived", "Check-in", If(varSelectedVisitor.'Base Status'.Value = "On-Base", "Check-out", false))
+            X: =603
+            Y: =587
+            ZIndex: =3
+

@@ -1,0 +1,17 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |-
+        =Set(varUserEmail, User().Email);
+        Set(
+            varIsSecurity,
+            !IsBlank(
+                LookUp(
+                   'App User List',
+                    And(
+                        User.Email = varUserEmail,
+                        Role.Value = "Security"
+                    )
+                )
+            )
+        );
+

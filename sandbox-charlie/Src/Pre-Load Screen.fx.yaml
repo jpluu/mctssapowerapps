@@ -1,0 +1,18 @@
+"'Pre-Load Screen' As screen":
+    OnVisible: |-
+        =// Global Vars
+        
+        //
+        Notify("Loading...");
+        Select(TOHome)
+
+    TOHome As button:
+        Color: =RGBA(0, 0, 0, 0)
+        DisplayMode: =DisplayMode.View
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =768
+        OnSelect: =Navigate('Home Screen')
+        Text: =""
+        Width: =1366
+        ZIndex: =1
+
