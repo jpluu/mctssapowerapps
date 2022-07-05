@@ -2327,7 +2327,9 @@ screenRequest As screen:
             formVisitor As form:
                 DataSource: =VisitorRequest
                 Height: =Parent.Height - Self.Y - pbRequest.Height
-                Item: =formData
+                Item: |-
+                    =If(isEditing,
+                    formDataBulk, formData)
                 Width: =If(isBulk, Parent.Width - galleryBulkVisitors.Width, Parent.Width)
                 Y: =labelVisitor.Height
                 ZIndex: =1
@@ -2343,7 +2345,7 @@ screenRequest As screen:
                     MaxLength: =DataSourceInfo([@VisitorRequest], DataSourceInfo.MaxLength, "FirstName")
                     Required: =true
                     Update: =DataCardValue8.Text
-                    Width: =388
+                    Width: =272
                     X: =0
                     Y: =0
                     ZIndex: =1
@@ -2412,7 +2414,7 @@ screenRequest As screen:
                     MaxLength: =DataSourceInfo([@VisitorRequest], DataSourceInfo.MaxLength, "MiddleName")
                     Required: =false
                     Update: =DataCardValue9.Text
-                    Width: =388
+                    Width: =272
                     X: =1
                     Y: =0
                     ZIndex: =1
@@ -2482,7 +2484,7 @@ screenRequest As screen:
                     MaxLength: =DataSourceInfo([@VisitorRequest], DataSourceInfo.MaxLength, "LastName")
                     Required: =true
                     Update: =DataCardValue10.Text
-                    Width: =388
+                    Width: =272
                     X: =2
                     Y: =0
                     ZIndex: =1
@@ -2551,7 +2553,7 @@ screenRequest As screen:
                     MaxLength: =DataSourceInfo([@VisitorRequest], DataSourceInfo.MaxLength, "Email")
                     Required: =false
                     Update: =DataCardValue19.Text
-                    Width: =388
+                    Width: =272
                     X: =0
                     Y: =1
                     ZIndex: =1
@@ -2619,7 +2621,7 @@ screenRequest As screen:
                     MaxLength: =DataSourceInfo([@VisitorRequest], DataSourceInfo.MaxLength, "Company_x002f_Organization")
                     Required: =true
                     Update: =DataCardValue12.Text
-                    Width: =388
+                    Width: =272
                     X: =1
                     Y: =1
                     ZIndex: =1
@@ -2687,7 +2689,7 @@ screenRequest As screen:
                     MaxLength: =DataSourceInfo([@VisitorRequest], DataSourceInfo.MaxLength, "Company_x002f_OrganizationPhoneN")
                     Required: =false
                     Update: =DataCardValue13.Text
-                    Width: =388
+                    Width: =272
                     X: =2
                     Y: =1
                     ZIndex: =1
@@ -2755,7 +2757,7 @@ screenRequest As screen:
                     Required: |
                         =true
                     Update: =DataCardValue11.Selected
-                    Width: =388
+                    Width: =272
                     X: =0
                     Y: =2
                     ZIndex: =1
@@ -2821,7 +2823,7 @@ screenRequest As screen:
                     Height: =50
                     Required: =false
                     Update: =DataCardValue14.Selected
-                    Width: =388
+                    Width: =272
                     X: =1
                     Y: =2
                     ZIndex: =1
@@ -2887,7 +2889,7 @@ screenRequest As screen:
                     Height: =50
                     Required: =false
                     Update: =dcDaysAWeek.Selected
-                    Width: =388
+                    Width: =272
                     X: =2
                     Y: =2
                     ZIndex: =1
@@ -2963,7 +2965,7 @@ screenRequest As screen:
                     Height: =50
                     Required: =false
                     Update: =checkAfterHours.Value
-                    Width: =388
+                    Width: =272
                     X: =0
                     Y: =3
                     ZIndex: =1
@@ -3073,52 +3075,91 @@ screenRequest As screen:
                 Width: =Parent.Width
                 ZIndex: =4
 
-            galleryBulkVisitors As gallery.galleryVertical:
+            containerBulk As groupContainer:
                 Height: =Parent.Height - labelVisitor.Height - pbRequest.Height
-                Items: =collectionFormUpdates
-                Layout: =Layout.Vertical
-                TemplateSize: =40
-                Visible: =isBulk
-                Width: =350
-                X: |-
-                    =
-                    Parent.Width - 350
+                Width: =Parent.Width - formVisitor.Width
+                X: =formVisitor.Width
                 Y: =labelVisitor.Height
-                ZIndex: =5
+                ZIndex: =7
 
-                containerBulkVisitors As groupContainer:
-                    Height: =40
-                    Width: =340
-                    ZIndex: =4
+                galleryBulkVisitors As gallery.galleryVertical:
+                    Height: =Parent.Height - labelVisitor.Height - pbRequest.Height
+                    Items: =collectionFormUpdates
+                    Layout: =Layout.Vertical
+                    TemplateSize: =40
+                    Visible: =isBulk
+                    Width: =350
+                    X: |-
+                        =
+                        Parent.Width - 350
+                    Y: |
+                        =0
+                    ZIndex: =1
 
-                    iconBulkFN As label:
-                        Text: =ThisItem.'First Name'
-                        Width: =(Parent.Width - 40) / 2
-                        ZIndex: =1
-
-                    iconBulkLN As label:
-                        Text: =ThisItem.'Last Name'
-                        Width: =(Parent.Width - 40) / 2
-                        X: =iconBulkFN.Width
-                        ZIndex: =2
-
-                    iconBulkEdit As icon.Edit:
+                    containerBulkVisitors As groupContainer:
                         Height: =40
-                        Icon: =Icon.Edit
-                        OnSelect: =Set(isEditing, true);
-                        Width: =40
-                        X: =300
-                        ZIndex: =3
+                        Width: =340
+                        ZIndex: =4
 
-            buttonBulkAdd As button:
-                OnSelect: |-
-                    =If(
-                        formVisitor.Valid,
-                        Set(
-                            isBulk,
-                            true
-                        );
-                        Collect(
+                        iconBulkFN As label:
+                            FontWeight: =FontWeight.Semibold
+                            Text: =ThisItem.'First Name'
+                            Width: =(Parent.Width - 40) / 2
+                            ZIndex: =1
+
+                        iconBulkLN As label:
+                            FontWeight: =FontWeight.Semibold
+                            Text: =ThisItem.'Last Name'
+                            Width: =(Parent.Width - 40) / 2
+                            X: =iconBulkFN.Width
+                            ZIndex: =2
+
+                        iconBulkEdit As icon.Edit:
+                            Height: =40
+                            Icon: =Icon.Edit
+                            OnSelect: |-
+                                =Set(isEditing, true);
+                                Set(formDataBulk, ThisItem);
+                            Width: =40
+                            X: =300
+                            ZIndex: =3
+
+                buttonBulkAdd As button:
+                    DisplayMode: |-
+                        =If(isEditing,
+                        DisplayMode.Disabled,DisplayMode.Edit)
+                    OnSelect: |-
+                        =If(
+                            formVisitor.Valid,
+                            Set(
+                                isBulk,
+                                true
+                            );
+                            Collect(
+                                collectionFormUpdates,
+                                formVisitor.Updates
+                            );
+                            Set(
+                                isReset,
+                                true
+                            );
+                            Set(
+                                isReset,
+                                false
+                            ),
+                            Notify(
+                                "Visitor Info Request Not Complete...",
+                                NotificationType.Warning
+                            )
+                        )
+                    Text: ="Bulk Add"
+                    X: =190
+                    Y: =364
+                    ZIndex: =2
+
+                buttonBulkSave As button:
+                    OnSelect: |
+                        =ClearCollect(
                             collectionFormUpdates,
                             formVisitor.Updates
                         );
@@ -3129,16 +3170,12 @@ screenRequest As screen:
                         Set(
                             isReset,
                             false
-                        ),
-                        Notify(
-                            "Visitor Info Request Not Complete...",
-                            NotificationType.Warning
-                        )
-                    )
-                Text: ="Bulk Add"
-                X: =911
-                Y: =428
-                ZIndex: =6
+                        );
+                        Set(isEditing, false)
+                    Text: ="Save"
+                    Visible: =isEditing
+                    Y: =364
+                    ZIndex: =3
 
         pageEvent As groupContainer:
             BorderThickness: =3
