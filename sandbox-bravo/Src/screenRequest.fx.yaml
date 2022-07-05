@@ -59,7 +59,21 @@ screenRequest As screen:
                           ) +12,
                           Days
                           )
-            }
+            },
+        
+            {
+                DisplayName: "This Month",
+                StartDate: Date(
+                                Year(Today()),
+                                Month(Today()),
+                                1
+                            ),
+                            EndDate: Date(
+                                Year(Today()),
+                                Month(Today()) + 1,
+                                1
+                            ) - 1
+                        }
         
         )  
 
