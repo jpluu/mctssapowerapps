@@ -30565,7 +30565,7 @@
         },
         {
           "Category": "Data",
-          "NameMap": "{\"Value\":\"Value\"}",
+          "NameMap": "{\"Value\":\"DisplayName\"}",
           "PropertyName": "Items",
           "RuleProviderType": "Unknown"
         },
