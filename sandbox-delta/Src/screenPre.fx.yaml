@@ -1,0 +1,77 @@
+screenPre As screen:
+    OnVisible: |+
+        =// Global Variables
+        Set(isLoaded, false); // bool | trigger for timer
+        
+        // User Data
+        Set(currentUser, User());
+        Set(currentUser365, Office365Users.UserProfile(currentUser.Email));
+        Set(currentUserPhone, Office365Users.UserProfile(currentUser.Email).mobilePhone);
+        
+        
+        
+        // General Settings
+        Set(modalX, 100);
+        Set(modalY, 100);
+        Set(modalLabel, 64);
+        
+        // Request Modal Page Variables
+        Set(isModalRequest, false); // bool | control for entire modal system
+        Set(isEventPage, false);
+        Set(isVisitorPage, false);
+        Set(isLongTermPage, false);
+        Set(isReviewPage, false);
+        Set(isAcknowPage, false);
+        
+        // Request Modal Variables
+        Set(formData, Defaults(VisitorRequest));
+        Set(isLongTerm, false);
+        Set(isEditing, false); // bool | control for editing request
+        
+        
+        
+        // End Pre-Load
+        Set(isLoaded, true)
+        
+
+    Group1 As group:
+        Height: =5
+        Width: =5
+        X: =60
+        Y: =60
+        ZIndex: =4
+
+        buttonPreScreen As button:
+            BorderThickness: =0
+            Color: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =768
+            HoverFill: =ColorFade(Self.Fill, -20%)
+            OnSelect: =Navigate(screenRequest)
+            PaddingBottom: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Text: =""
+            Width: =1366
+            ZIndex: =1
+
+        timer As timer:
+            AutoStart: =isLoaded
+            Duration: =2000
+            OnTimerEnd: =Select(buttonPreScreen)
+            Start: =isLoaded
+            Visible: =false
+            X: =603
+            Y: =728
+            ZIndex: =2
+
+        "'Loading Label' As label":
+            Text: ="Loading ..."
+            X: =40
+            Y: =40
+            ZIndex: =3
+

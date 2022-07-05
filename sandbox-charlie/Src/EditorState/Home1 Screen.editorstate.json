@@ -1,6 +1,6 @@
 {
   "ControlStates": {
-    "coreHome": {
+    "coreHome1": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
         "X",
@@ -18,23 +18,13 @@
       "IsLocked": false,
       "LayoutName": "",
       "MetaDataIDKey": "",
-      "Name": "coreHome",
+      "Name": "coreHome1",
       "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
           "Category": "Design",
-          "PropertyName": "ZIndex",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "Height",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "Width",
+          "PropertyName": "X",
           "RuleProviderType": "Unknown"
         },
         {
@@ -44,7 +34,17 @@
         },
         {
           "Category": "Design",
-          "PropertyName": "X",
+          "PropertyName": "Width",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Height",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "ZIndex",
           "RuleProviderType": "Unknown"
         }
       ],
@@ -140,7 +140,7 @@
       "StyleName": "",
       "Type": "ControlInfo"
     },
-    "Home Screen": {
+    "Home1 Screen": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
         "Fill",
@@ -168,18 +168,18 @@
       "IsLocked": false,
       "LayoutName": "",
       "MetaDataIDKey": "",
-      "Name": "Home Screen",
+      "Name": "Home1 Screen",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
           "Category": "Design",
-          "PropertyName": "Width",
+          "PropertyName": "Size",
           "RuleProviderType": "Unknown"
         },
         {
           "Category": "Design",
-          "PropertyName": "Height",
+          "PropertyName": "Fill",
           "RuleProviderType": "Unknown"
         },
         {
@@ -189,7 +189,17 @@
         },
         {
           "Category": "Design",
-          "PropertyName": "Fill",
+          "PropertyName": "Height",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Orientation",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Width",
           "RuleProviderType": "Unknown"
         },
         {
@@ -200,16 +210,6 @@
         {
           "Category": "Design",
           "PropertyName": "LoadingSpinnerColor",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "Size",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "Orientation",
           "RuleProviderType": "Unknown"
         },
         {
@@ -886,7 +886,7 @@
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "\"Button\"",
+          "AutoRuleBindingString": "",
           "InvariantPropertyName": "Text",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
@@ -1310,5 +1310,5 @@
       "Type": "ControlInfo"
     }
   },
-  "TopParentName": "Home Screen"
+  "TopParentName": "Home1 Screen"
 }

@@ -1,4 +1,4 @@
-"'Security Screen' As screen":
+"'Security Screen1' As screen":
     OnVisible: =Set(boolSecurityModal, false)
 
     galleriesSecurity As groupContainer:
@@ -572,7 +572,7 @@
             ZIndex: =1
 
         headerSecurity As Header:
-            HomeVar: ='Home Screen'
+            HomeVar: ='Home1 Screen'
             ZIndex: =2
 
         "sidenavSecurity As 'Hamburger Menu'":
@@ -580,7 +580,7 @@
             Width: =sidenavSecurity.MenuWidth
             ZIndex: =3
 
-    modalSecurity As groupContainer:
+    modalSecurity1 As groupContainer:
         Height: =768
         Visible: =boolSecurityModal
         Width: =1366
@@ -1821,7 +1821,7 @@
                                 Title = ThisItem.Title
                                 ),
                                  If(ComboBox1_1.Selected.Value = "Other",
-                                {DeniedReason: {Value: txt_Denied_1.Text}}, {DeniedReason:ComboBox1_1.Selected})
+                                {'Denied Reason': {Value: txt_Denied_1.Text}}, {'Denied Reason':ComboBox1_1.Selected})
                         
                         );
                             IsEmpty(Errors(VisitorRequest)),

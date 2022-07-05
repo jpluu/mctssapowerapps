@@ -17,7 +17,7 @@
             ZIndex: =1
 
         headerVisitorLog As Header:
-            HomeVar: ='Home Screen'
+            HomeVar: ='Home1 Screen'
             ZIndex: =2
 
         "sidenavVisitorLog As 'Hamburger Menu'":

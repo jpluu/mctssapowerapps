@@ -1,23 +1,23 @@
-"'Home Screen' As screen":
+"'Home1 Screen' As screen":
     OnVisible: |-
         =ClearCollect(
             collectionHamburgerMenu,
             Table(
                 {
                     Title: "Home",
-                    Screen: 'Home Screen',
+                    Screen: 'Home1 Screen',
                     Icon: Home,
                     MenuID: 1
                 },
                 {
                     Title: "Request",
-                    Screen: 'Request Screen',
+                    Screen: 'Request Screen1',
                     Icon: ColorPicker,
                     MenuID: 2
                 },
                 {
                     Title: "Security",
-                    Screen: 'Security Screen',
+                    Screen: 'Security Screen1',
                     Icon: Lock,
                     MenuID: 3
                 },
@@ -41,13 +41,13 @@
             Table(
                 {
                     Title: "Request",
-                    Screen: 'Request Screen',
+                    Screen: 'Request Screen1',
                     Icon: ColorPicker,
                     Description: "Start a new visitor request"
                 },
                 {
                     Title: "Security",
-                    Screen: 'Security Screen',
+                    Screen: 'Security Screen1',
                     Icon: Lock,
                     Description: "Visitor request status"
                 },
@@ -72,7 +72,7 @@
         RadiusTopRight: =25
         Size: =25
         Text: |-
-            ="Sentry
+            ="Visitor Log
             "
         Width: =400
         X: =966
@@ -82,7 +82,7 @@
     "'Security Button' As button":
         Fill: =RGBA(153, 153, 153, 1)
         Height: =550
-        OnSelect: =Navigate('Security Screen')
+        OnSelect: =Navigate('Security Screen1')
         RadiusBottomLeft: =25
         RadiusBottomRight: =25
         RadiusTopLeft: =25
@@ -99,18 +99,18 @@
     "'Request Button' As button":
         Fill: =RGBA(153, 153, 153, 1)
         Height: =558
-        OnSelect: =Navigate('Request Screen')
+        OnSelect: =Navigate('Request Screen1')
         RadiusBottomLeft: =25
         RadiusBottomRight: =25
         RadiusTopLeft: =25
         RadiusTopRight: =25
         Size: =25
-        Text: ="Request"
+        Text: ="Request a new visitor"
         Width: =400
         Y: =135
         ZIndex: =3
 
-    coreHome As group:
+    coreHome1 As group:
         Height: =5
         Width: =5
         X: =40
@@ -118,7 +118,7 @@
         ZIndex: =5
 
         headerHome As Header:
-            HomeVar: ='Home Screen'
+            HomeVar: ='Home1 Screen'
             ZIndex: =4
 
         "sidenavHome As 'Hamburger Menu'":

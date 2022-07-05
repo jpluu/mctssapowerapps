@@ -1,6 +1,6 @@
 App As appinfo:
     BackEnabled: =false
-    OnStart: |-
+    OnStart: |
         =Set(varUserEmail, User().Email);
         Set(
             varIsSecurity,

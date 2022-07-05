@@ -1,4 +1,4 @@
-"'Request Screen' As screen":
+"'Request Screen1' As screen":
     OnVisible: =Set(boolRequestModal, false)
 
     buttonNewRequest As button:
@@ -8,7 +8,7 @@
         Y: =563
         ZIndex: =4
 
-    modalRequest As groupContainer:
+    modalRequest1 As groupContainer:
         Height: =768
         Visible: =boolRequestModal
         Width: =1366
@@ -638,10 +638,13 @@
             "'Visitor Form' As form":
                 DataSource: =VisitorRequest
                 Fill: =RGBA(128, 128, 128, 1)
-                Height: =App.Height - 162
+                Height: =504
                 Item: =varFormData
                 NumberOfColumns: =2
-                Width: =1286
+                Width: |-
+                    =If(isMoar,
+                    (Parent.Width - 80) - Gallery3.Width,
+                    (Parent.Width - 80))
                 X: =40
                 Y: =40
                 ZIndex: =1
@@ -1243,6 +1246,40 @@
                         Y: =DataCardKey59.Y
                         ZIndex: =4
 
+            "Gallery3 As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
+                Fill: =RGBA(128, 128, 128, 1)
+                Height: =504
+                Items: =collectionFormData
+                Layout: =Layout.Vertical
+                TemplatePadding: =0
+                TemplateSize: =Min(96, Self.Height - 60)
+                Visible: =isMoar
+                Width: =412
+                X: =913
+                Y: =40
+                ZIndex: =1
+
+                Title1 As label:
+                    Height: =Self.Size * 1.8
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =ThisItem.'First Name' & " " & ThisItem.'Last Name'
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =Parent.TemplateWidth - 104
+                    X: =32
+                    Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                    ZIndex: =1
+
+                Separator1 As rectangle:
+                    Height: =1
+                    OnSelect: =Select(Parent)
+                    Width: =Parent.TemplateWidth
+                    Y: =Parent.TemplateHeight - 1
+                    ZIndex: =3
+
             "'V Next' As icon.NextArrow":
                 DisplayMode: =If('Visitor Form'.Valid, DisplayMode.Edit, DisplayMode.Disabled)
                 Height: =82
@@ -1329,6 +1366,35 @@
                 X: =40
                 Y: =564
                 ZIndex: =4
+
+            Button2 As button:
+                OnSelect: |-
+                    =If('Visitor Form'.Valid, 
+                    Collect(collectionFormData, 'Visitor Form'.Updates);
+                    ResetForm('Visitor Form');
+                    Set(isMoar, true),
+                    Notify("Visitor Info Request Not Complete...", NotificationType.Warning))
+                Text: |-
+                    ="MOAR PEOPLE
+                    "
+                X: =584
+                Y: =480
+                ZIndex: =5
+
+            Button3 As button:
+                OnSelect: |
+                    =Collect(collectionFormData, 'Visitor Form'.Updates);
+                    ForAll(collectionFormData, Patch(VisitorRequest, varFormData, 'Event and Sponsor Form'.Updates, ThisRecord, 'Acknowledgement Form'.Updates));
+                    Set(boolV, false);
+                    Set(boolRequestModal, false);
+                    ResetForm('Event and Sponsor Form');
+                    ResetForm('Visitor Form');
+                    ResetForm('Acknowledgement Form');
+                    Clear(collectionFormData)
+                Text: ="SEND ALL"
+                X: =772
+                Y: =480
+                ZIndex: =6
 
         containerESP As groupContainer:
             Height: =686
@@ -1573,7 +1639,7 @@
 
                     DataCardValue29 As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        DefaultSelectedItems: =Office365Users.MyProfileV2(
+                        DefaultSelectedItems: =
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
                         Items: =Choices([@VisitorRequest].Sponsor)
@@ -1826,7 +1892,36 @@
             Y: =628
             ZIndex: =6
 
-    coreRequest As group:
+    compNewEventProgress_4 As componentProgressBar:
+        inputCurrentStep: |-
+            =If(
+                boolESP,
+                1,
+                boolV,
+                2,
+                (DateDiff(
+                    DataCardValue27,
+                    DataCardValue28,
+                    Days
+                ) >= 90 || DataCardValue57.Selected.Value = "Five Days") && boolLT,
+                3,
+                (DateDiff(
+                    DataCardValue27,
+                    DataCardValue28,
+                    Days
+                ) >= 90 || DataCardValue57.Selected.Value = "Five Days") && boolA,
+                4,
+                (DateDiff(
+                    DataCardValue27,
+                    DataCardValue28,
+                    Days
+                ) < 90 || DataCardValue57.Selected.Value <> "Five Days") && boolA,
+                3
+            )
+        Width: =1366
+        ZIndex: =6
+
+    coreRequest1 As group:
         Height: =5
         Width: =5
         X: =40
@@ -1844,7 +1939,7 @@
 
         headerRequest As Header:
             Height: =82
-            HomeVar: ='Home Screen'
+            HomeVar: ='Home1 Screen'
             ZIndex: =2
 
         "sidenavRequest As 'Hamburger Menu'":

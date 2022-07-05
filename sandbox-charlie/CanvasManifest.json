@@ -7,7 +7,7 @@
   },
   "Properties": {
     "AppCreationSource": "AppFromScratch",
-    "AppDescription": "Sandbox for Sentry",
+    "AppDescription": "",
     "AppPreviewFlagsMap": {
       "aibuilderserviceenrollment": false,
       "allowmultiplescreensincanvaspages": false,
@@ -83,7 +83,7 @@
     "DocumentType": "App",
     "EnableInstrumentation": false,
     "FileID": "24de5031-0b88-41a0-9e2e-d76956a2a110",
-    "Id": "54058455-5b35-487a-8182-d1aef05232c4",
+    "Id": "1bd763d4-a53c-4263-98dc-34e72c8a1af5",
     "InstrumentationKey": "",
     "LocalDatabaseReferences": "{}",
     "Name": "Sandbox Charlie",
@@ -91,9 +91,9 @@
   },
   "PublishInfo": {
     "AppName": "Sandbox Charlie",
-    "BackgroundColor": "rgba(109, 49, 162, 1)",
+    "BackgroundColor": "RGBA(0,176,240,1)",
     "IconColor": "RGBA(255,255,255,1)",
-    "IconName": "Edit",
+    "IconName": "Calendar",
     "LogoFileName": "logo.jpg",
     "PublishDataLocally": false,
     "PublishResourcesLocally": false,
@@ -102,10 +102,16 @@
   },
   "ScreenOrder": [
     "Pre-Load Screen",
-    "Home Screen",
-    "Request Screen",
-    "Security Screen",
+    "Home1 Screen",
+    "Request Screen1",
+    "screenRequest",
+    "screenRequest_2",
+    "screenRequest_1",
+    "realonealternate",
+    "screenModalRequest",
+    "Security Screen1",
     "Sentry Screen",
-    "Visitor Log Screen"
+    "Visitor Log Screen",
+    "Screen1"
   ]
 }
