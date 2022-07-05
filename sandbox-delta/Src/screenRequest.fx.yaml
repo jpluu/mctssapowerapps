@@ -443,13 +443,15 @@ screenRequest As screen:
                             formAcknow.Updates
                         ),
                         If(
-                            Not(formVisitor.Valid) And Not(IsEmpty(collectionFormUpdates)),
+                            Not(formVisitor.Valid),
                             true,
                             Collect(
                                 collectionFormUpdates,
                                 'formVisitor'.Updates
-                            );
-                            ForAll(
+                            )
+                        )
+                    );
+                    ForAll(
                                 collectionFormUpdates,
                                 Patch(
                                     VisitorRequest,
@@ -459,9 +461,7 @@ screenRequest As screen:
                                     formLongTerm.Updates,
                                     ThisRecord
                                 )
-                            )
-                        )
-                    );
+                            );
                     If(
                         IsEmpty(Errors(VisitorRequest)),
                         Notify(
