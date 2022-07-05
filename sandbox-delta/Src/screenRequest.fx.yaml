@@ -447,7 +447,7 @@ screenRequest As screen:
                             true,
                             Collect(
                                 collectionFormUpdates,
-                                'formVisitor'.Updates
+                                formVisitor.Updates
                             )
                         )
                     );
