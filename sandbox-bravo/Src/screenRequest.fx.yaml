@@ -3,7 +3,7 @@ screenRequest As screen:
         =ClearCollect(
             colTimeFilter,
             {
-                DisplayName: "This Month",
+                DisplayName: "This Week",
                   StartDate: DateAdd(
                       Today(),
                       1- Weekday (
@@ -20,9 +20,48 @@ screenRequest As screen:
                           ) +6,
                           Days
                           )
+            },
+            {
+                DisplayName: "Last Week",
+            StartDate: DateAdd(
+                Today(),
+                      -6 - Weekday (
+                          Today(),
+                          StartOfWeek.Monday
+                      ),
+                      Days
+                  ),
+                  EndDate: DateAdd(
+                      Today(),
+                      -6 - Weekday(
+                          Today(),
+                          StartOfWeek.Monday
+                          ) +6,
+                          Days
+                          )
+            },
+        
+        {
+                DisplayName: "Last Pay Period",
+            StartDate: DateAdd(
+                Today(),
+                      -12 - Weekday (
+                          Today(),
+                          StartOfWeek.Monday
+                      ),
+                      Days
+                  ),
+                  EndDate: DateAdd(
+                      Today(),
+                      -12 - Weekday(
+                          Today(),
+                          StartOfWeek.Monday
+                          ) +12,
+                          Days
+                          )
             }
-        )
-                
+        
+        )  
 
     ComboBoxCheckBox As combobox:
         DefaultSelectedItems: =colApprovedFilter.Value
@@ -91,7 +130,7 @@ screenRequest As screen:
                 Filter(
                     VisitorRequest,
                     IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
-                    'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selection.Selected.EndDate
+                    'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate
                 ),
                 searchBarRequest.Text,
                 "LastName",
@@ -338,7 +377,6 @@ screenRequest As screen:
         ZIndex: =5
 
     ddDateFilter As dropdown:
-        AllowEmptySelection: =true
         Height: =57
         Items: =colTimeFilter
         Size: =20
