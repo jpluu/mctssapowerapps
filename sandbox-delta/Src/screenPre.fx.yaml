@@ -24,6 +24,7 @@ screenPre As screen:
         
         // Request Modal Variables
         Set(formData, Defaults(VisitorRequest));
+        Set(formDataBulk, Defaults(VisitorRequest));
         Set(isLongTerm, false);
         Set(isEditing, false); // bool | control for editing request
         Set(isBulk, false); // bool | control for bulk window
