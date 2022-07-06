@@ -8166,8 +8166,8 @@ screenRequest As screen:
 
     Button2 As button:
         OnSelect: |-
-            =
-            Set(isModalSecurity, true)
+            =Navigate(Screen1)
+            /*Set(isModalSecurity, true)*/
             //Set(isformR/S, true)
             
             /*Set(isModalRequest, true);
