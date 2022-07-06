@@ -274,6 +274,7 @@ Screen1 As screen:
                     InputTextPlaceholder: |-
                         ="Reasons for Denial
                         "
+                    IsSearchable: =false
                     Items: |-
                         =Ungroup(
                             Table
@@ -283,14 +284,7 @@ Screen1 As screen:
                             "DropdownOptions"
                             ) 
                     SearchFields: =["Value"]
-                    SearchItems: |-
-                        =Search(Ungroup(
-                            Table
-                            ({DropdownOptions: Choices(VisitorRequest.'Denied Reason')}, 
-                            {DropdownOptions: ["Other"]}
-                            ), 
-                            "DropdownOptions"
-                            ) ,ComboBox1_6.SearchText,"Value")
+                    SearchItems: =[]
                     SelectMultiple: =false
                     Visible: =Self.Selected.Value<>"Other"
                     Width: =218
@@ -607,10 +601,11 @@ Screen1 As screen:
                     DefaultSelectedItems: =Parent.Default
                     DisplayFields: =["DisplayName","Email","Picture"]
                     DisplayMode: =Parent.DisplayMode
+                    IsSearchable: =false
                     Items: =Choices([@VisitorRequest].Sponsor)
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     SearchFields: =["DisplayName"]
-                    SearchItems: =Choices(VisitorRequest.Sponsor,DataCardValue41.SearchText)
+                    SearchItems: =[]
                     SelectMultiple: =false
                     Template: =ListItemTemplate.Person
                     Tooltip: =Parent.DisplayName
@@ -742,10 +737,11 @@ Screen1 As screen:
                     DefaultSelectedItems: =Parent.Default
                     DisplayFields: =["DisplayName","Email","Picture"]
                     DisplayMode: =Parent.DisplayMode
+                    IsSearchable: =false
                     Items: =Choices([@VisitorRequest].AlternateSponsor)
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     SearchFields: =["DisplayName"]
-                    SearchItems: =Choices(VisitorRequest.AlternateSponsor,DataCardValue42.SearchText)
+                    SearchItems: =[]
                     SelectMultiple: =false
                     Template: =ListItemTemplate.Person
                     Tooltip: =Parent.DisplayName
@@ -1013,10 +1009,11 @@ Screen1 As screen:
                     DefaultSelectedItems: =Parent.Default
                     DisplayFields: =["Value"]
                     DisplayMode: =Parent.DisplayMode
+                    IsSearchable: =false
                     Items: =Choices([@VisitorRequest].Rank_x002f_Grade)
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     SearchFields: =["Value"]
-                    SearchItems: =Choices(VisitorRequest.Rank_x002f_Grade,DataCardValue44.SearchText)
+                    SearchItems: =[]
                     SelectMultiple: =false
                     Tooltip: =Parent.DisplayName
                     Width: =Parent.Width - 60
@@ -1215,10 +1212,11 @@ Screen1 As screen:
                     DefaultSelectedItems: =Parent.Default
                     DisplayFields: =["Value"]
                     DisplayMode: =Parent.DisplayMode
+                    IsSearchable: =false
                     Items: =Choices([@VisitorRequest].DaysaWeekWorkingatMCTSSA)
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     SearchFields: =["Value"]
-                    SearchItems: =Choices(VisitorRequest.DaysaWeekWorkingatMCTSSA,DataCardValue54.SearchText)
+                    SearchItems: =[]
                     SelectMultiple: =false
                     Tooltip: =Parent.DisplayName
                     Width: =Parent.Width - 60
@@ -1281,10 +1279,11 @@ Screen1 As screen:
                     DefaultSelectedItems: =Parent.Default
                     DisplayFields: =["Value"]
                     DisplayMode: =Parent.DisplayMode
+                    IsSearchable: =false
                     Items: =Choices([@VisitorRequest].TypeofVisit)
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     SearchFields: =["Value"]
-                    SearchItems: =Choices(VisitorRequest.TypeofVisit,DataCardValue57.SearchText)
+                    SearchItems: =[]
                     SelectMultiple: =false
                     Tooltip: =Parent.DisplayName
                     Width: =Parent.Width - 60
@@ -1669,10 +1668,11 @@ Screen1 As screen:
                     DefaultSelectedItems: =Parent.Default
                     DisplayFields: =["Value"]
                     DisplayMode: =Parent.DisplayMode
+                    IsSearchable: =false
                     Items: =Choices([@VisitorRequest].AccessControlPoints)
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     SearchFields: =["Value"]
-                    SearchItems: =Choices(VisitorRequest.AccessControlPoints,DataCardValue50.SearchText)
+                    SearchItems: =[]
                     SelectMultiple: =false
                     Tooltip: =Parent.DisplayName
                     Width: =Parent.Width - 60
@@ -1735,10 +1735,11 @@ Screen1 As screen:
                     DefaultSelectedItems: =Parent.Default
                     DisplayFields: =["DisplayName","Email","Picture"]
                     DisplayMode: =Parent.DisplayMode
+                    IsSearchable: =false
                     Items: =Choices([@VisitorRequest].AssignedtoSection)
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                     SearchFields: =["DisplayName"]
-                    SearchItems: =Choices(VisitorRequest.AssignedtoSection,DataCardValue53.SearchText)
+                    SearchItems: =[]
                     SelectMultiple: =false
                     Template: =ListItemTemplate.Person
                     Tooltip: =Parent.DisplayName
