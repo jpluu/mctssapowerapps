@@ -8179,3 +8179,15 @@ screenRequest As screen:
         Y: =176
         ZIndex: =12
 
+    Button2_1 As button:
+        OnSelect: |-
+            =Set(isModalSecurity, true)
+            //Set(isformR/S, true)
+            
+            /*Set(isModalRequest, true);
+            Set(isSecurity, false);
+            Set(isEventPage, true)*/
+        Text: ="security"
+        Y: =304
+        ZIndex: =13
+

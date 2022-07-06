@@ -18,12 +18,13 @@ Screen1 As screen:
 
         Form1 As form:
             DataSource: =VisitorRequest
-            Height: =648
+            DefaultMode: =FormMode.View
+            Height: =556
             Item: =formData
             NumberOfColumns: =2
             Width: =1200
             X: =40
-            Y: =40
+            Y: =132
             ZIndex: =1
 
             DataCard1 As typedDataCard.blankCard:
@@ -391,7 +392,9 @@ Screen1 As screen:
 
                 DataCardKey43 As label:
                     AutoHeight: =true
+                    FontWeight: =FontWeight.Semibold
                     Height: =34
+                    Size: =20
                     Text: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     Wrap: =false
@@ -410,6 +413,7 @@ Screen1 As screen:
                     RadiusBottomRight: =0
                     RadiusTopLeft: =0
                     RadiusTopRight: =0
+                    Size: =19
                     Tooltip: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     X: =30
@@ -458,7 +462,9 @@ Screen1 As screen:
 
                 DataCardKey44 As label:
                     AutoHeight: =true
+                    FontWeight: =FontWeight.Semibold
                     Height: =34
+                    Size: =20
                     Text: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     Wrap: =false
@@ -474,6 +480,7 @@ Screen1 As screen:
                     IsEditable: =true
                     PaddingBottom: =0
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    Size: =19
                     StartYear: =1899
                     Tooltip: =Parent.DisplayName
                     Width: =Parent.Width - 60
@@ -523,7 +530,9 @@ Screen1 As screen:
 
                 DataCardKey45 As label:
                     AutoHeight: =true
+                    FontWeight: =FontWeight.Semibold
                     Height: =34
+                    Size: =20
                     Text: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     Wrap: =false
@@ -539,6 +548,7 @@ Screen1 As screen:
                     IsEditable: =true
                     PaddingBottom: =0
                     PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    Size: =19
                     StartYear: =1899
                     Tooltip: =Parent.DisplayName
                     Width: =Parent.Width - 60
@@ -588,7 +598,9 @@ Screen1 As screen:
 
                 DataCardKey46 As label:
                     AutoHeight: =true
+                    FontWeight: =FontWeight.Semibold
                     Height: =34
+                    Size: =20
                     Text: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     Wrap: =false
@@ -607,6 +619,7 @@ Screen1 As screen:
                     SearchFields: =["DisplayName"]
                     SearchItems: =[]
                     SelectMultiple: =false
+                    Size: =19
                     Template: =ListItemTemplate.Person
                     Tooltip: =Parent.DisplayName
                     Width: =Parent.Width - 60
@@ -657,7 +670,9 @@ Screen1 As screen:
 
                 DataCardKey48 As label:
                     AutoHeight: =true
+                    FontWeight: =FontWeight.Semibold
                     Height: =34
+                    Size: =20
                     Text: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     Wrap: =false
@@ -676,6 +691,7 @@ Screen1 As screen:
                     RadiusBottomRight: =0
                     RadiusTopLeft: =0
                     RadiusTopRight: =0
+                    Size: =19
                     Tooltip: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     X: =30
@@ -724,7 +740,9 @@ Screen1 As screen:
 
                 DataCardKey47 As label:
                     AutoHeight: =true
+                    FontWeight: =FontWeight.Semibold
                     Height: =34
+                    Size: =20
                     Text: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     Wrap: =false
@@ -743,6 +761,7 @@ Screen1 As screen:
                     SearchFields: =["DisplayName"]
                     SearchItems: =[]
                     SelectMultiple: =false
+                    Size: =19
                     Template: =ListItemTemplate.Person
                     Tooltip: =Parent.DisplayName
                     Width: =Parent.Width - 60
@@ -793,7 +812,9 @@ Screen1 As screen:
 
                 DataCardKey50 As label:
                     AutoHeight: =true
+                    FontWeight: =FontWeight.Semibold
                     Height: =34
+                    Size: =20
                     Text: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     Wrap: =false
@@ -812,6 +833,7 @@ Screen1 As screen:
                     RadiusBottomRight: =0
                     RadiusTopLeft: =0
                     RadiusTopRight: =0
+                    Size: =19
                     Tooltip: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     X: =30
@@ -861,7 +883,9 @@ Screen1 As screen:
 
                 DataCardKey51 As label:
                     AutoHeight: =true
+                    FontWeight: =FontWeight.Semibold
                     Height: =34
+                    Size: =20
                     Text: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     Wrap: =false
@@ -880,6 +904,7 @@ Screen1 As screen:
                     RadiusBottomRight: =0
                     RadiusTopLeft: =0
                     RadiusTopRight: =0
+                    Size: =19
                     Tooltip: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     X: =30
@@ -929,7 +954,9 @@ Screen1 As screen:
 
                 DataCardKey52 As label:
                     AutoHeight: =true
+                    FontWeight: =FontWeight.Semibold
                     Height: =34
+                    Size: =20
                     Text: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     Wrap: =false
@@ -948,6 +975,7 @@ Screen1 As screen:
                     RadiusBottomRight: =0
                     RadiusTopLeft: =0
                     RadiusTopRight: =0
+                    Size: =19
                     Tooltip: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     X: =30
@@ -996,7 +1024,9 @@ Screen1 As screen:
 
                 DataCardKey49 As label:
                     AutoHeight: =true
+                    FontWeight: =FontWeight.Semibold
                     Height: =34
+                    Size: =20
                     Text: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     Wrap: =false
@@ -1015,6 +1045,7 @@ Screen1 As screen:
                     SearchFields: =["Value"]
                     SearchItems: =[]
                     SelectMultiple: =false
+                    Size: =19
                     Tooltip: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     X: =30
@@ -1064,7 +1095,9 @@ Screen1 As screen:
 
                 DataCardKey53 As label:
                     AutoHeight: =true
+                    FontWeight: =FontWeight.Semibold
                     Height: =34
+                    Size: =20
                     Text: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     Wrap: =false
@@ -1083,6 +1116,7 @@ Screen1 As screen:
                     RadiusBottomRight: =0
                     RadiusTopLeft: =0
                     RadiusTopRight: =0
+                    Size: =19
                     Tooltip: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     X: =30
@@ -1132,7 +1166,9 @@ Screen1 As screen:
 
                 DataCardKey56 As label:
                     AutoHeight: =true
+                    FontWeight: =FontWeight.Semibold
                     Height: =34
+                    Size: =20
                     Text: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     Wrap: =false
@@ -1151,6 +1187,7 @@ Screen1 As screen:
                     RadiusBottomRight: =0
                     RadiusTopLeft: =0
                     RadiusTopRight: =0
+                    Size: =19
                     Tooltip: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     X: =30
@@ -1199,7 +1236,9 @@ Screen1 As screen:
 
                 DataCardKey59 As label:
                     AutoHeight: =true
+                    FontWeight: =FontWeight.Semibold
                     Height: =34
+                    Size: =20
                     Text: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     Wrap: =false
@@ -1218,6 +1257,7 @@ Screen1 As screen:
                     SearchFields: =["Value"]
                     SearchItems: =[]
                     SelectMultiple: =false
+                    Size: =19
                     Tooltip: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     X: =30
@@ -1266,7 +1306,9 @@ Screen1 As screen:
 
                 DataCardKey62 As label:
                     AutoHeight: =true
+                    FontWeight: =FontWeight.Semibold
                     Height: =34
+                    Size: =20
                     Text: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     Wrap: =false
@@ -1285,6 +1327,7 @@ Screen1 As screen:
                     SearchFields: =["Value"]
                     SearchItems: =[]
                     SelectMultiple: =false
+                    Size: =19
                     Tooltip: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     X: =30
@@ -1333,7 +1376,9 @@ Screen1 As screen:
 
                 DataCardKey63 As label:
                     AutoHeight: =true
+                    FontWeight: =FontWeight.Semibold
                     Height: =34
+                    Size: =20
                     Text: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     Wrap: =false
@@ -1345,6 +1390,7 @@ Screen1 As screen:
                     BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                     Default: =Parent.Default
                     DisplayMode: =Parent.DisplayMode
+                    Size: =19
                     Tooltip: =Parent.DisplayName
                     X: =30
                     Y: =DataCardKey63.Y + DataCardKey63.Height + 5
@@ -1393,7 +1439,9 @@ Screen1 As screen:
 
                 DataCardKey57 As label:
                     AutoHeight: =true
+                    FontWeight: =FontWeight.Semibold
                     Height: =34
+                    Size: =20
                     Text: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     Wrap: =false
@@ -1412,6 +1460,7 @@ Screen1 As screen:
                     RadiusBottomRight: =0
                     RadiusTopLeft: =0
                     RadiusTopRight: =0
+                    Size: =19
                     Tooltip: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     X: =30
@@ -1461,7 +1510,9 @@ Screen1 As screen:
 
                 DataCardKey60 As label:
                     AutoHeight: =true
+                    FontWeight: =FontWeight.Semibold
                     Height: =34
+                    Size: =20
                     Text: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     Wrap: =false
@@ -1480,6 +1531,7 @@ Screen1 As screen:
                     RadiusBottomRight: =0
                     RadiusTopLeft: =0
                     RadiusTopRight: =0
+                    Size: =19
                     Tooltip: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     X: =30
@@ -1529,7 +1581,9 @@ Screen1 As screen:
 
                 DataCardKey61 As label:
                     AutoHeight: =true
+                    FontWeight: =FontWeight.Semibold
                     Height: =34
+                    Size: =20
                     Text: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     Wrap: =false
@@ -1548,6 +1602,7 @@ Screen1 As screen:
                     RadiusBottomRight: =0
                     RadiusTopLeft: =0
                     RadiusTopRight: =0
+                    Size: =19
                     Tooltip: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     X: =30
@@ -1596,7 +1651,9 @@ Screen1 As screen:
 
                 DataCardKey54 As label:
                     AutoHeight: =true
+                    FontWeight: =FontWeight.Semibold
                     Height: =34
+                    Size: =20
                     Text: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     Wrap: =false
@@ -1608,6 +1665,7 @@ Screen1 As screen:
                     BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                     Default: =Parent.Default
                     DisplayMode: =Parent.DisplayMode
+                    Size: =19
                     Tooltip: =Parent.DisplayName
                     X: =30
                     Y: =DataCardKey54.Y + DataCardKey54.Height + 5
@@ -1655,7 +1713,9 @@ Screen1 As screen:
 
                 DataCardKey55 As label:
                     AutoHeight: =true
+                    FontWeight: =FontWeight.Semibold
                     Height: =34
+                    Size: =20
                     Text: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     Wrap: =false
@@ -1674,6 +1734,7 @@ Screen1 As screen:
                     SearchFields: =["Value"]
                     SearchItems: =[]
                     SelectMultiple: =false
+                    Size: =19
                     Tooltip: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     X: =30
@@ -1722,7 +1783,9 @@ Screen1 As screen:
 
                 DataCardKey58 As label:
                     AutoHeight: =true
+                    FontWeight: =FontWeight.Semibold
                     Height: =34
+                    Size: =20
                     Text: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     Wrap: =false
@@ -1741,6 +1804,7 @@ Screen1 As screen:
                     SearchFields: =["DisplayName"]
                     SearchItems: =[]
                     SelectMultiple: =false
+                    Size: =19
                     Template: =ListItemTemplate.Person
                     Tooltip: =Parent.DisplayName
                     Width: =Parent.Width - 60
@@ -1790,7 +1854,9 @@ Screen1 As screen:
 
                 DataCardKey65 As label:
                     AutoHeight: =true
+                    FontWeight: =FontWeight.Semibold
                     Height: =34
+                    Size: =20
                     Text: =Parent.DisplayName
                     Width: =Parent.Width - 60
                     Wrap: =false
@@ -1802,6 +1868,7 @@ Screen1 As screen:
                     BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                     Default: =Parent.Default
                     DisplayMode: =Parent.DisplayMode
+                    Size: =19
                     Tooltip: =Parent.DisplayName
                     X: =30
                     Y: =DataCardKey65.Y + DataCardKey65.Height + 5
@@ -1831,4 +1898,95 @@ Screen1 As screen:
                     Wrap: =false
                     Y: =DataCardKey65.Y
                     ZIndex: =4
+
+        IconSave_2 As icon.Save:
+            Icon: =Icon.Save
+            OnSelect: |+
+                =SubmitForm(Form1);
+                ViewForm(Form1);
+                
+                /*Patch(
+                        VisitorRequest,
+                        formData,
+                        formReview.Updates);
+                    ViewForm(formReview);*/
+                        
+                       /* If(
+                    Patch(
+                        VisitorRequest,
+                        formData,
+                        formEvent.Updates,
+                        formVisitor.Updates,
+                        formAcknow.Updates,
+                        formReview.Updates
+                    );
+                    If(isLongTerm, Patch(VisitorRequest, formData, formLongTerm.Updates));
+                    IsEmpty(Errors(VisitorRequest)),
+                    Notify(
+                        "Success",
+                        NotificationType.Success
+                    );
+                    ViewForm(formReview);
+                )*/
+                /*If(
+                    Patch(
+                        VisitorRequest,
+                        formData,
+                        formEvent.Updates,
+                        formVisitor.Updates,
+                        formAcknow.Updates,
+                        formReview.Updates
+                    );
+                    If(isLongTerm, Patch(VisitorRequest, formData, formLongTerm.Updates));
+                    IsEmpty(Errors(VisitorRequest)),
+                    Notify(
+                        "Success",
+                        NotificationType.Success
+                    );
+                    Set(
+                        isAcknowPage,
+                        false
+                    );
+                    Set(
+                        isModalRequest,
+                        false
+                    ),
+                    Notify(
+                        First(Errors(VisitorRequest)).Message,
+                        NotificationType.Error
+                    )
+                );
+                ResetForm(formEvent);
+                ResetForm(formVisitor);
+                ResetForm(formLongTerm);
+                ResetForm(formAcknow);
+                ViewForm(formReview);
+                */
+                
+            Width: =52
+            X: =1065
+            Y: =63
+            ZIndex: =2
+
+        IconEdit_2 As icon.Edit:
+            Icon: =Icon.Edit
+            OnSelect: =EditForm(Form1)
+            Width: =52
+            X: =1141
+            Y: =63
+            ZIndex: =3
+
+        labelSecurity_2 As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Bold
+            Height: =64
+            Size: =24
+            Text: |-
+                =If(
+                    isModalSecurity, 
+                    "Request Approval Page",
+                    "Review")
+            Width: =Parent.Width
+            Y: =60
+            ZIndex: =4
 
