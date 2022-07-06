@@ -5189,7 +5189,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Button2",
-      "ParentIndex": 11,
+      "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6743,7 +6743,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "buttonNewRequest",
-      "ParentIndex": 13,
+      "ParentIndex": 11,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -9318,7 +9318,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ComboBoxCheckBox",
-      "ParentIndex": 9,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -75937,7 +75937,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ddDateFilter",
-      "ParentIndex": 6,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -100214,14 +100214,6 @@
           "InvariantPropertyName": "Item",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
-        },
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "true",
-          "InvariantPropertyName": "Visible",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
         }
       ],
       "HasDynamicProperties": false,
@@ -100295,11 +100287,6 @@
         {
           "Category": "Design",
           "PropertyName": "X",
-          "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "Visible",
           "RuleProviderType": "Unknown"
         }
       ],
@@ -100840,7 +100827,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "galleryCheckBox",
-      "ParentIndex": 10,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -101039,7 +101026,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "galleryRequests",
-      "ParentIndex": 12,
+      "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -102224,7 +102211,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label1",
-      "ParentIndex": 7,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -109807,14 +109794,7 @@
         "HoverFill",
         "DisplayMode",
         "X",
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "",
-          "InvariantPropertyName": "Y",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
+        "Y",
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,
@@ -111575,7 +111555,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "pageAcknow",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -111799,7 +111779,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "pageEvent",
-      "ParentIndex": 6,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -112023,7 +112003,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "pageLongTerm",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -112247,7 +112227,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "pageReview",
-      "ParentIndex": 3,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -112471,7 +112451,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "pageReview_1",
-      "ParentIndex": 1,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -112841,7 +112821,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "pageVisitor",
-      "ParentIndex": 5,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -115287,7 +115267,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "searchBarRequest",
-      "ParentIndex": 5,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -115533,7 +115513,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "searchIconRequest",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

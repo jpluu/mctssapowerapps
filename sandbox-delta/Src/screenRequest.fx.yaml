@@ -330,7 +330,8 @@ screenRequest As screen:
         OnSelect: |-
             =Set(formData, Defaults(VisitorRequest));
             Set(isModalRequest, true);
-            Set(isEventPage, true)
+            Set(isEventPage, true);
+            Set(isAdding, true)
         PaddingBottom: =10
         PaddingLeft: =10
         PaddingTop: =10
@@ -354,7 +355,13 @@ screenRequest As screen:
             Fill: =RGBA(128, 128, 128, 0.5)
             Height: =App.Height
             HoverFill: =ColorFade(Self.Fill, 20%)
-            OnSelect: =Set(isModalRequest, false)
+            OnSelect: |-
+                =Set(isModalRequest, false);
+                Set(isAdding, false);
+                ResetForm(formEvent);
+                ResetForm(formVisitor);
+                ResetForm(formLongTerm);
+                ResetForm(formAcknow);
             PaddingBottom: =0
             PaddingLeft: =0
             PaddingRight: =0
@@ -3421,8 +3428,28 @@ screenRequest As screen:
 
                     DataCardValue5 As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =Parent.Default
-                        DefaultSelectedItems: =currentUser365
+                        Default: |-
+                            =If(
+                                isAdding,
+                                {
+                                    '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                                    DisplayName: currentUser.FullName,
+                                    Claims: "i:0#.f|membership|" & Lower(currentUser.Email),
+                                    Email: currentUser.Email
+                                },
+                                Parent.Default
+                            )
+                        DefaultSelectedItems: |-
+                            =If(
+                                isAdding,
+                                {
+                                    '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                                    DisplayName: currentUser.FullName,
+                                    Claims: "i:0#.f|membership|" & Lower(currentUser.Email),
+                                    Email: currentUser.Email
+                                },
+                                Parent.Default
+                            )
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
                         Items: =Choices([@VisitorRequest].Sponsor)
@@ -3491,7 +3518,7 @@ screenRequest As screen:
 
                     DataCardValue6 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =currentUserPhone
+                        Default: =If(isAdding, currentUserPhone, Parent.Default)
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         MaxLength: =Parent.MaxLength
