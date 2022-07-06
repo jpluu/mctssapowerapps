@@ -4033,36 +4033,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.APPVER"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.APPVER",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "APPVER",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 7
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "App.modalLabel"
                 }
               ],
