@@ -3428,8 +3428,28 @@ screenRequest As screen:
 
                     DataCardValue5 As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =If(isAdding, currentUser365, Parent.Default)
-                        DefaultSelectedItems: =If(isAdding, currentUser365, Parent.Default)
+                        Default: |-
+                            =If(
+                                isAdding,
+                                {
+                                    '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                                    DisplayName: currentUser.FullName,
+                                    Claims: "i:0#.f|membership|" & Lower(currentUser.Email),
+                                    Email: currentUser.Email
+                                },
+                                Parent.Default
+                            )
+                        DefaultSelectedItems: |-
+                            =If(
+                                isAdding,
+                                {
+                                    '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                                    DisplayName: currentUser.FullName,
+                                    Claims: "i:0#.f|membership|" & Lower(currentUser.Email),
+                                    Email: currentUser.Email
+                                },
+                                Parent.Default
+                            )
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
                         Items: =Choices([@VisitorRequest].Sponsor)
