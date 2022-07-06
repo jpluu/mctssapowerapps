@@ -56,17 +56,6 @@ screenRequest As screen:
         
           
 
-    Label1 As label:
-        Align: =Align.Center
-        Color: =RGBA(149, 149, 149, 1)
-        Height: =57
-        Size: =20
-        Text: ="Start Date"
-        Visible: =IsBlank(ddDateFilter.Selected) 
-        X: =1026
-        Y: =103
-        ZIndex: =1
-
     ComboBoxCheckBox As combobox:
         DefaultSelectedItems: =colApprovedFilter.Value
         DisplayFields: =["Value"]
@@ -83,7 +72,7 @@ screenRequest As screen:
         Width: =68
         X: =1243
         Y: =115
-        ZIndex: =2
+        ZIndex: =1
 
     galleryCheckBox As gallery.galleryHorizontal:
         BorderColor: =RGBA(0, 0, 0, 0)
@@ -111,7 +100,7 @@ screenRequest As screen:
         Width: =680
         X: =416
         Y: =160
-        ZIndex: =3
+        ZIndex: =2
 
         Checkbox4 As checkbox:
             BorderColor: =RGBA(0, 0, 0, 0)
@@ -262,7 +251,7 @@ screenRequest As screen:
         Width: =App.Width - 2 * buttonNewRequest.Width
         X: =150
         Y: =233
-        ZIndex: =4
+        ZIndex: =3
 
         Title1 As label:
             Height: =Self.Size * 1.8
@@ -379,6 +368,17 @@ screenRequest As screen:
         Width: =1054
         X: =165
         Y: =103
+        ZIndex: =4
+
+    ddDateFilter As dropdown:
+        AllowEmptySelection: =true
+        Height: =57
+        Items: =colTimeFilter
+        Reset: =true
+        Size: =20
+        Width: =193
+        X: =1026
+        Y: =103
         ZIndex: =5
 
     searchIconRequest As icon.Search:
@@ -390,13 +390,13 @@ screenRequest As screen:
         Y: =103
         ZIndex: =6
 
-    ddDateFilter As dropdown:
-        AllowEmptySelection: =true
-        Height: =57
-        Items: =colTimeFilter
-        Reset: =true
+    Label1 As label:
+        Align: =Align.Center
+        Color: =RGBA(149, 149, 149, 1)
+        Height: =69
         Size: =20
-        Width: =193
+        Text: ="Start Date"
+        Visible: =IsBlank(ddDateFilter.Selected) 
         X: =1026
         Y: =103
         ZIndex: =7
