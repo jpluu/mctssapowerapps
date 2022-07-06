@@ -16,6 +16,20 @@ Screen1 As screen:
         Width: =App.Width
         ZIndex: =1
 
+        labelSecurity_2 As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Bold
+            Height: =64
+            Size: =24
+            Text: |-
+                =If(
+                    isModalSecurity, 
+                    "Request Approval Page",
+                    "Review")
+            Width: =Parent.Width
+            Y: =60
+            ZIndex: =1
+
         Form1 As form:
             DataSource: =VisitorRequest
             DefaultMode: =FormMode.View
@@ -25,7 +39,7 @@ Screen1 As screen:
             Width: =1200
             X: =40
             Y: =132
-            ZIndex: =1
+            ZIndex: =2
 
             DataCard1 As typedDataCard.blankCard:
                 BorderStyle: =BorderStyle.Solid
@@ -1966,7 +1980,7 @@ Screen1 As screen:
             Width: =52
             X: =1065
             Y: =63
-            ZIndex: =2
+            ZIndex: =3
 
         IconEdit_2 As icon.Edit:
             Icon: =Icon.Edit
@@ -1974,19 +1988,5 @@ Screen1 As screen:
             Width: =52
             X: =1141
             Y: =63
-            ZIndex: =3
-
-        labelSecurity_2 As label:
-            Align: =Align.Center
-            FontWeight: =FontWeight.Bold
-            Height: =64
-            Size: =24
-            Text: |-
-                =If(
-                    isModalSecurity, 
-                    "Request Approval Page",
-                    "Review")
-            Width: =Parent.Width
-            Y: =60
             ZIndex: =4
 

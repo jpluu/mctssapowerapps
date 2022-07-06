@@ -6435,13 +6435,14 @@ screenRequest As screen:
             IconSave As icon.Save:
                 Icon: =Icon.Save
                 OnSelect: |+
-                    =/*Patch(
+                    =Submit(FORM
+                        /*Patch(
                             VisitorRequest,
                             formData,
                             formReview.Updates);
                         ViewForm(formReview);*/
                             
-                            If(
+                       /*     If(
                         Patch(
                             VisitorRequest,
                             formData,
@@ -6457,7 +6458,7 @@ screenRequest As screen:
                             NotificationType.Success
                         );
                         ViewForm(formReview);
-                    )
+                    )*/
                     /*If(
                         Patch(
                             VisitorRequest,
