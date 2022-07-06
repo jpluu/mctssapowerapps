@@ -6351,20 +6351,7 @@ screenRequest As screen:
                             "Success",
                             NotificationType.Success
                         );
-                        Set(
-                            isAcknowPage,
-                            false
-                        );
-                        Set(
-                            isModalRequest,
-                            false
-                        ),
-                        Notify(
-                            First(Errors(VisitorRequest)).Message,
-                            NotificationType.Error
-                        )
-                    );
-                    
+                    )
                     /*If(
                         Patch(
                             VisitorRequest,
