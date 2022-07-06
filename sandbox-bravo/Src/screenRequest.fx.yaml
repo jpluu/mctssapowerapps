@@ -455,7 +455,7 @@ screenRequest As screen:
                 NumberOfColumns: =2
                 Width: =1166
                 Y: =64
-                ZIndex: =6
+                ZIndex: =1
 
                 DataCard1_1 As typedDataCard.blankCard:
                     BorderStyle: =BorderStyle.Solid
@@ -2370,6 +2370,19 @@ screenRequest As screen:
                         Y: =DataCardKey65_2.Y
                         ZIndex: =4
 
+            labelSecurity_4 As label:
+                Align: =Align.Center
+                FontWeight: =FontWeight.Bold
+                Height: =64
+                Size: =24
+                Text: |-
+                    =If(
+                        isModalSecurity, 
+                        "Request Approval Page",
+                        "Review")
+                Width: =Parent.Width
+                ZIndex: =2
+
             IconSave_4 As icon.Save:
                 Icon: =Icon.Save
                 OnSelect: |+
@@ -2435,30 +2448,15 @@ screenRequest As screen:
                     */
                     
                 Width: =52
-                X: =1065
-                Y: =83
-                ZIndex: =7
+                X: =1084
+                ZIndex: =3
 
             IconEdit_4 As icon.Edit:
                 Icon: =Icon.Edit
                 OnSelect: =EditForm(Form1_2)
                 Width: =52
-                X: =975
-                Y: =83
-                ZIndex: =8
-
-            labelSecurity_4 As label:
-                Align: =Align.Center
-                FontWeight: =FontWeight.Bold
-                Height: =64
-                Size: =24
-                Text: |-
-                    =If(
-                        isModalSecurity, 
-                        "Request Approval Page",
-                        "Review")
-                Width: =Parent.Width
-                ZIndex: =9
+                X: =1014
+                ZIndex: =4
 
     modalRequest As groupContainer:
         Height: =768
