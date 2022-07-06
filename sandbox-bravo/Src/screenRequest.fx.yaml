@@ -3397,7 +3397,8 @@ screenRequest As screen:
                             formData,
                             formEvent.Updates,
                             formVisitor.Updates,
-                            formAcknow.Updates
+                            formAcknow.Updates,
+                            formReview.Updates
                         );
                         If(isLongTerm, Patch(VisitorRequest, formData, formLongTerm.Updates));
                         IsEmpty(Errors(VisitorRequest)),
