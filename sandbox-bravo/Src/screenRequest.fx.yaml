@@ -325,10 +325,13 @@ screenRequest As screen:
                         false
                     )
                 );
-                If(isSecurity,
+                Set(isModalRequest, true);
+                Set(isEventPage, true)
+                
+                /*If(isSecurity,
                 Set(isModalSecurity, true),
                 Set(isModalRequest, true);
-                Set(isEventPage, true))
+                Set(isEventPage, true))*/
                 
                 
                 /*If(isSecurity,
@@ -2057,6 +2060,7 @@ screenRequest As screen:
 
             formReview As form:
                 DataSource: =formEvent.Updates
+                DefaultMode: =FormMode.View
                 Height: =Parent.Height - labelReview.Height - backReview.Height
                 Item: =Patch(formLongTerm.Updates, formVisitor.Updates, formEvent.Updates)
                 Width: =Parent.Width
