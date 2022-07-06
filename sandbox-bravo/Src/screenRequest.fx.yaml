@@ -2068,6 +2068,7 @@ screenRequest As screen:
                 Height: =Parent.Height - labelReview.Height - backReview.Height
                 Item: =formData
                 NumberOfColumns: =2
+                Visible: =false//isReviewPage
                 Width: =Parent.Width
                 Y: =labelSecurity_1.Height
                 ZIndex: =1
@@ -3512,7 +3513,6 @@ screenRequest As screen:
                 DefaultMode: =FormMode.View
                 Height: =Parent.Height - labelReview.Height - backReview.Height
                 Item: =Patch(formLongTerm.Updates, formVisitor.Updates, formEvent.Updates)
-                Visible: =false
                 Width: =Parent.Width
                 Y: =labelReview.Height
                 ZIndex: =2
@@ -7962,6 +7962,7 @@ screenRequest As screen:
         OnSelect: |-
             =
             Set(isModalSecurity, true)
+            //Set(isformR/S, true)
             
             /*Set(isModalRequest, true);
             Set(isSecurity, false);
