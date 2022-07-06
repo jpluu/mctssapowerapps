@@ -6435,7 +6435,7 @@ screenRequest As screen:
             IconSave As icon.Save:
                 Icon: =Icon.Save
                 OnSelect: |+
-                    =Submit(FORM
+                    =Submit(formReview)
                         /*Patch(
                             VisitorRequest,
                             formData,
