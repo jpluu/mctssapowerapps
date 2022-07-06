@@ -3516,6 +3516,7 @@ screenRequest As screen:
                     ResetForm(formVisitor);
                     ResetForm(formLongTerm);
                     ResetForm(formAcknow);
+                    ViewForm(formReview);
                     
                     
                 Width: =52
