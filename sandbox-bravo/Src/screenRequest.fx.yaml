@@ -3481,55 +3481,6 @@ screenRequest As screen:
             Y: =modalY
             ZIndex: =4
 
-            IconSave As icon.Save:
-                Icon: =Icon.Save
-                OnSelect: |+
-                    =If(
-                        Patch(
-                            VisitorRequest,
-                            formData,
-                            formEvent.Updates,
-                            formVisitor.Updates,
-                            formAcknow.Updates,
-                            formReview.Updates
-                        );
-                        If(isLongTerm, Patch(VisitorRequest, formData, formLongTerm.Updates));
-                        IsEmpty(Errors(VisitorRequest)),
-                        Notify(
-                            "Success",
-                            NotificationType.Success
-                        );
-                        Set(
-                            isAcknowPage,
-                            false
-                        );
-                        Set(
-                            isModalRequest,
-                            false
-                        ),
-                        Notify(
-                            First(Errors(VisitorRequest)).Message,
-                            NotificationType.Error
-                        )
-                    );
-                    ResetForm(formEvent);
-                    ResetForm(formVisitor);
-                    ResetForm(formLongTerm);
-                    ResetForm(formAcknow);
-                    ViewForm(formReview);
-                    
-                    
-                Width: =52
-                X: =1014
-                ZIndex: =1
-
-            IconEdit As icon.Edit:
-                Icon: =Icon.Edit
-                OnSelect: =EditForm(formReview)
-                Width: =52
-                X: =1090
-                ZIndex: =2
-
             formSecurity_2 As formViewer:
                 DataSource: =VisitorRequest
                 Height: =Parent.Height - labelReview.Height - backReview.Height
@@ -3540,7 +3491,7 @@ screenRequest As screen:
                 Visible: =false//isReviewPage
                 Width: =Parent.Width
                 Y: =labelSecurity_1.Height
-                ZIndex: =3
+                ZIndex: =1
 
                 DataCard1_2 As typedDataCard.blankCard:
                     BorderStyle: =BorderStyle.Solid
@@ -4985,7 +4936,7 @@ screenRequest As screen:
                 Item: =Patch(formLongTerm.Updates, formVisitor.Updates, formEvent.Updates)
                 Width: =Parent.Width
                 Y: =labelReview.Height
-                ZIndex: =4
+                ZIndex: =2
 
                 Title_DataCard2 As typedDataCard.textualEditCard:
                     BorderStyle: =BorderStyle.Solid
@@ -6325,7 +6276,7 @@ screenRequest As screen:
                 Width: =100
                 X: =1066
                 Y: =468
-                ZIndex: =5
+                ZIndex: =3
 
             backReview As icon.NextArrow:
                 Height: =100
@@ -6352,7 +6303,7 @@ screenRequest As screen:
                 PaddingTop: =10
                 Width: =100
                 Y: =468
-                ZIndex: =6
+                ZIndex: =4
 
             labelReview As label:
                 Align: =Align.Center
@@ -6363,6 +6314,55 @@ screenRequest As screen:
                 Size: =24
                 Text: ="Review"
                 Width: =Parent.Width
+                ZIndex: =5
+
+            IconSave As icon.Save:
+                Icon: =Icon.Save
+                OnSelect: |+
+                    =If(
+                        Patch(
+                            VisitorRequest,
+                            formData,
+                            formEvent.Updates,
+                            formVisitor.Updates,
+                            formAcknow.Updates,
+                            formReview.Updates
+                        );
+                        If(isLongTerm, Patch(VisitorRequest, formData, formLongTerm.Updates));
+                        IsEmpty(Errors(VisitorRequest)),
+                        Notify(
+                            "Success",
+                            NotificationType.Success
+                        );
+                        Set(
+                            isAcknowPage,
+                            false
+                        );
+                        Set(
+                            isModalRequest,
+                            false
+                        ),
+                        Notify(
+                            First(Errors(VisitorRequest)).Message,
+                            NotificationType.Error
+                        )
+                    );
+                    ResetForm(formEvent);
+                    ResetForm(formVisitor);
+                    ResetForm(formLongTerm);
+                    ResetForm(formAcknow);
+                    ViewForm(formReview);
+                    
+                    
+                Width: =52
+                X: =1014
+                ZIndex: =6
+
+            IconEdit As icon.Edit:
+                Icon: =Icon.Edit
+                OnSelect: =EditForm(formReview)
+                Width: =52
+                X: =1090
                 ZIndex: =7
 
         pageLongTerm As groupContainer:
