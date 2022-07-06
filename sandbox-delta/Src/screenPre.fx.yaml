@@ -105,12 +105,6 @@ screenPre As screen:
             true
         )
 
-    Label3 As label:
-        Text: ="Version " & APPVER
-        X: =1140
-        Y: =672
-        ZIndex: =4
-
     Group1 As group:
         Height: =5
         Width: =5
@@ -151,4 +145,10 @@ screenPre As screen:
             X: =40
             Y: =40
             ZIndex: =3
+
+    Label3 As label:
+        Text: ="Version " & APPVER
+        X: =1140
+        Y: =672
+        ZIndex: =4
 

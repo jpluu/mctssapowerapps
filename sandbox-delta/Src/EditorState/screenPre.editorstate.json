@@ -378,7 +378,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Group1",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -740,7 +740,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Loading Label",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1110,7 +1110,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "timer",
-      "ParentIndex": 3,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
