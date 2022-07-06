@@ -2586,6 +2586,7 @@ screenRequest As screen:
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
+                        Reset: =isReset
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
@@ -3021,7 +3022,7 @@ screenRequest As screen:
             nextVisitor As icon.NextArrow:
                 DisplayMode: |-
                     =If(
-                        formVisitor.Valid Or isBulk,
+                        (formVisitor.Valid Or isBulk) And Not(isEditing),
                         DisplayMode.Edit,
                         DisplayMode.Disabled
                     )
@@ -3060,6 +3061,7 @@ screenRequest As screen:
                 ZIndex: =2
 
             backVisitor As icon.NextArrow:
+                DisplayMode: =If(isEditing, DisplayMode.Disabled,DisplayMode.Edit)
                 Height: =100
                 Icon: =Icon.BackArrow
                 OnSelect: |-
@@ -3103,32 +3105,52 @@ screenRequest As screen:
                         =0
                     ZIndex: =1
 
-                    labelBulkFN As label:
-                        OnSelect: =Select(Parent)
-                        Text: =ThisItem.'First Name'
-                        ZIndex: =1
-
-                    labelBulkLN As label:
-                        OnSelect: =Select(Parent)
-                        Text: =ThisItem.'Last Name'
-                        X: =150
-                        ZIndex: =2
-
-                    Icon1 As icon.Edit:
+                    Container1 As groupContainer:
+                        Fill: |-
+                            =If(isEditing,
+                            If(ThisItem.IsSelected, RGBA(0,0,0,0.5),RGBA(0,0,0,0)),RGBA(0,0,0,0))
                         Height: =40
-                        Icon: =Icon.Edit
-                        OnSelect: |-
-                            =
-                            If(Not(isEditing), Set(formData, formVisitor.Updates), true);
-                            Set(formDataBulk, ThisItem);
-                            Set(isEditing, true)
-                        Width: =40
-                        X: =300
-                        ZIndex: =3
+                        Width: =340
+                        ZIndex: =4
+
+                        labelBulkFN As label:
+                            Text: =ThisItem.'First Name'
+                            X: =40
+                            ZIndex: =1
+
+                        labelBulkLN As label:
+                            Text: =ThisItem.'Last Name'
+                            X: =190
+                            ZIndex: =2
+
+                        Icon1 As icon.Edit:
+                            Height: =40
+                            Icon: =Icon.Edit
+                            OnSelect: |
+                                =If(
+                                    Not(isEditing),
+                                    Set(
+                                        formData,
+                                        formVisitor.Updates
+                                    ),
+                                    true
+                                );
+                                Set(
+                                    formDataBulk,
+                                    ThisItem
+                                );
+                                Set(
+                                    isEditing,
+                                    true
+                                );
+                            Width: =40
+                            X: =300
+                            ZIndex: =3
 
                 buttonBulkSave As button:
                     OnSelect: |-
                         =Patch(collectionFormUpdates, formDataBulk, formVisitor.Updates);
+                        Reset(galleryBulkVisitors);
                         Set(isEditing,false);
                     Text: ="Save"
                     Visible: =isEditing
