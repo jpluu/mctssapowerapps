@@ -4931,6 +4931,7 @@ screenRequest As screen:
                 ZIndex: =2
 
                 Title_DataCard2 As typedDataCard.textualEditCard:
+                    BorderColor: =If(ThisItem.Title <>DataCardValue23.Text, Orange, RGBA(0, 18, 107, 1))
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Title"
                     Default: =ThisItem.Title
@@ -6255,6 +6256,26 @@ screenRequest As screen:
                         Y: =DataCardKey42.Y
                         ZIndex: =4
 
+                DataCard1 As typedDataCard.blankCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =200
+                    Width: =1164
+                    X: =0
+                    Y: =8
+                    ZIndex: =1
+
+                    Label2 As label:
+                        Align: =Align.Center
+                        Height: =44
+                        Text: ="You Have Unsaved Changes"
+                        Visible: =formReview.Unsaved
+                        Width: =284
+                        X: =445
+                        Y: =57
+                        ZIndex: =1
+
             nextReview As icon.NextArrow:
                 Height: =100
                 Icon: =Icon.NextArrow
@@ -6288,7 +6309,11 @@ screenRequest As screen:
                             isVisitorPage,
                             true
                         )
-                    )
+                    );
+                    Patch(
+                            VisitorRequest,
+                            formData,
+                            formReview.Updates);
                 PaddingBottom: =10
                 PaddingLeft: =10
                 PaddingRight: =10
@@ -6339,12 +6364,41 @@ screenRequest As screen:
                             NotificationType.Error
                         )
                     );
+                    
+                    /*If(
+                        Patch(
+                            VisitorRequest,
+                            formData,
+                            formEvent.Updates,
+                            formVisitor.Updates,
+                            formAcknow.Updates,
+                            formReview.Updates
+                        );
+                        If(isLongTerm, Patch(VisitorRequest, formData, formLongTerm.Updates));
+                        IsEmpty(Errors(VisitorRequest)),
+                        Notify(
+                            "Success",
+                            NotificationType.Success
+                        );
+                        Set(
+                            isAcknowPage,
+                            false
+                        );
+                        Set(
+                            isModalRequest,
+                            false
+                        ),
+                        Notify(
+                            First(Errors(VisitorRequest)).Message,
+                            NotificationType.Error
+                        )
+                    );
                     ResetForm(formEvent);
                     ResetForm(formVisitor);
                     ResetForm(formLongTerm);
                     ResetForm(formAcknow);
                     ViewForm(formReview);
-                    
+                    */
                     
                 Width: =52
                 X: =1014
