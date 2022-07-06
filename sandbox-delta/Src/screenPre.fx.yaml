@@ -8,7 +8,7 @@ screenPre As screen:
             false
         );
         // === App Data ===
-        Set(APPVER, CountRows(PowerAppsforMakers.GetAppVersions(First(Filter(PowerAppsforMakers.GetApps().value,properties.displayName = "version")).name).value));
+        Set(APPVER, CountRows(PowerAppsforMakers.GetAppVersions("ea1c7f63-7c2d-4b46-bdd5-6f74ce21cb47").value));
         
         // === User Data === * next rev will combine all into single var
         Set(
@@ -104,6 +104,12 @@ screenPre As screen:
             isLoaded,
             true
         )
+
+    Label3 As label:
+        Text: ="Version " & APPVER
+        X: =1140
+        Y: =672
+        ZIndex: =4
 
     Group1 As group:
         Height: =5
