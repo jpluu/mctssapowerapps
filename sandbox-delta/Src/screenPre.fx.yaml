@@ -1,41 +1,107 @@
 screenPre As screen:
-    OnVisible: |+
+    OnVisible: |-
         =// Global Variables
-        Set(isLoaded, false); // bool | trigger for timer
-        
+        Set(
+            isLoaded,
+            false
+        );
+        // bool | trigger for timer
         // User Data
-        Set(currentUser, User());
-        Set(currentUser365, Office365Users.UserProfile(currentUser.Email));
-        Set(currentUserPhone, Office365Users.UserProfile(currentUser.Email).mobilePhone);
-        
+        Set(
+            currentUser,
+            User()
+        );
+        // Set(currentUser365, Office365Users.UserProfile(currentUser.Email));
+        Set(
+            currentUser365,
+            {
+                '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                DisplayName: currentUser.FullName,
+                Claims: "i:0#.f|membership|" & Lower(currentUser.Email),
+                Email: currentUser.Email
+            }
+        );
+        Set(
+            currentUserPhone,
+            Office365Users.UserProfile(currentUser.Email).mobilePhone
+        );
         // General Settings
-        Set(modalX, 100);
-        Set(modalY, 100);
-        Set(modalLabel, 64);
         
+        Set(
+            modalX,
+            100
+        );
+        Set(
+            modalY,
+            100
+        );
+        Set(
+            modalLabel,
+            64
+        );
         // Request Modal Page Variables
-        Set(isModalRequest, false); // bool | control for entire modal system
-        Set(isEventPage, false);
-        Set(isVisitorPage, false);
-        Set(isLongTermPage, false);
-        Set(isReviewPage, false);
-        Set(isAcknowPage, false);
-        
-        
+        Set(
+            isModalRequest,
+            false
+        );
+        // bool | control for entire modal system
+        Set(
+            isEventPage,
+            false
+        );
+        Set(
+            isVisitorPage,
+            false
+        );
+        Set(
+            isLongTermPage,
+            false
+        );
+        Set(
+            isReviewPage,
+            false
+        );
+        Set(
+            isAcknowPage,
+            false
+        );
         // Request Modal Variables
-        Set(formData, Defaults(VisitorRequest));
-        Set(formDataBulk, Defaults(VisitorRequest));
-        Set(isAdding, false);
-        Set(isLongTerm, false);
-        Set(isEditing, false); // bool | control for editing request
-        Set(isBulk, false); // bool | control for bulk window
-        Set(isReset, false); // bool | control for reseting FN and LN for bulk
-        
-        
-        
+        Set(
+            formData,
+            Defaults(VisitorRequest)
+        );
+        Set(
+            formDataBulk,
+            Defaults(VisitorRequest)
+        );
+        Set(
+            isAdding,
+            false
+        );
+        Set(
+            isLongTerm,
+            false
+        );
+        Set(
+            isEditing,
+            false
+        );
+        // bool | control for editing request
+        Set(
+            isBulk,
+            false
+        );
+        // bool | control for bulk window
+        Set(
+            isReset,
+            false
+        );
+        // bool | control for reseting FN and LN for bulk
         // End Pre-Load
-        Set(isLoaded, true)
-        
+        Set(
+            isLoaded,
+            true
+        )
 
     Group1 As group:
         Height: =5

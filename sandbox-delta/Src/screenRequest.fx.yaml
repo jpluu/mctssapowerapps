@@ -3363,7 +3363,7 @@ screenRequest As screen:
 
                     dcEndDate As datepicker:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        DefaultDate: =Today() + 7
+                        DefaultDate: =dcStartDate.SelectedDate + 7
                         DisplayMode: =Parent.DisplayMode
                         EndYear: =Year(Today())+100
                         IsEditable: =true
@@ -3431,23 +3431,13 @@ screenRequest As screen:
                         Default: |-
                             =If(
                                 isAdding,
-                                {
-                                    '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
-                                    DisplayName: currentUser.FullName,
-                                    Claims: "i:0#.f|membership|" & Lower(currentUser.Email),
-                                    Email: currentUser.Email
-                                },
+                                currentUser365,
                                 Parent.Default
                             )
                         DefaultSelectedItems: |-
                             =If(
                                 isAdding,
-                                {
-                                    '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
-                                    DisplayName: currentUser.FullName,
-                                    Claims: "i:0#.f|membership|" & Lower(currentUser.Email),
-                                    Email: currentUser.Email
-                                },
+                                currentUser365,
                                 Parent.Default
                             )
                         DisplayFields: =["DisplayName","Email","Picture"]
