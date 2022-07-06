@@ -127,7 +127,7 @@
         "Name": "Round Header",
         "Parent": "Header",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 31,
+        "PublishOrderIndex": 400,
         "Rules": [
           {
             "Category": "Data",
@@ -460,7 +460,7 @@
         "Name": "Image1",
         "Parent": "Header",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 32,
+        "PublishOrderIndex": 401,
         "Rules": [
           {
             "Category": "Data",
@@ -683,7 +683,7 @@
       "ZIndex",
       "HomeVar"
     ],
-    "LastModifiedTimestamp": "637927194489835078",
+    "LastModifiedTimestamp": "637927270149793567",
     "Name": "Header",
     "Rules": [
       {
@@ -758,7 +758,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "637927194489835078",
+  "LastModifiedTimestamp": "637927270149793567",
   "Name": "d5564032f2ee43308e8fdaf8819fb889",
   "OverridableProperties": {},
   "SourceLibraryId": "966df2cb-8987-4b6a-9412-2093f58685d8",
