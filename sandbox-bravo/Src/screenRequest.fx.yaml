@@ -6314,6 +6314,10 @@ screenRequest As screen:
                             VisitorRequest,
                             formData,
                             formReview.Updates);
+                    
+                    
+                    
+                            Refresh(VisitorRequest);//
                 PaddingBottom: =10
                 PaddingLeft: =10
                 PaddingRight: =10
@@ -6336,7 +6340,13 @@ screenRequest As screen:
             IconSave As icon.Save:
                 Icon: =Icon.Save
                 OnSelect: |+
-                    =If(
+                    =Patch(
+                            VisitorRequest,
+                            formData,
+                            formReview.Updates);
+                        ViewForm(formReview);
+                            
+                            /*If(
                         Patch(
                             VisitorRequest,
                             formData,
@@ -6352,7 +6362,7 @@ screenRequest As screen:
                             NotificationType.Success
                         );
                         ViewForm(formReview);
-                    )
+                    )*/
                     /*If(
                         Patch(
                             VisitorRequest,
@@ -7514,7 +7524,8 @@ screenRequest As screen:
                             "Required Fields Not Completly Filled",
                             NotificationType.Warning
                         )
-                    )
+                    );
+                    Refresh(VisitorRequest);
                 PaddingBottom: =10
                 PaddingLeft: =10
                 PaddingRight: =10
@@ -7529,7 +7540,9 @@ screenRequest As screen:
                 Icon: =Icon.BackArrow
                 OnSelect: |-
                     =Set(isVisitorPage, false);
-                    Set(isEventPage, true)
+                    Set(isEventPage, true);
+                    Refresh(VisitorRequest)
+                    //
                 PaddingBottom: =10
                 PaddingLeft: =10
                 PaddingRight: =10
