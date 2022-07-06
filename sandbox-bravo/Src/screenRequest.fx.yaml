@@ -3264,6 +3264,7 @@ screenRequest As screen:
                     DisplayMode: =DisplayMode.Edit
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =125
+                    Visible: =isSecurity
                     Width: =1166
                     X: =0
                     Y: =16
@@ -3291,6 +3292,7 @@ screenRequest As screen:
                     DisplayMode: =DisplayMode.Edit
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =200
+                    Visible: =isSecurity
                     Width: =583
                     X: =0
                     Y: =17
@@ -3364,6 +3366,7 @@ screenRequest As screen:
                     DisplayMode: =DisplayMode.Edit
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =248
+                    Visible: =isSecurity
                     Width: =583
                     X: =1
                     Y: =17
@@ -7957,10 +7960,13 @@ screenRequest As screen:
 
     Button2 As button:
         OnSelect: |-
-            =Set(isModalRequest, true);
+            =
+            Set(isModalSecurity, true)
+            
+            /*Set(isModalRequest, true);
             Set(isSecurity, false);
-            Set(isEventPage, true)
-        Text: ="Button"
+            Set(isEventPage, true)*/
+        Text: ="security"
         X: =16
         Y: =176
         ZIndex: =13
