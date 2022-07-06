@@ -6351,6 +6351,7 @@ screenRequest As screen:
                             "Success",
                             NotificationType.Success
                         );
+                        ViewForm(formReview);
                     )
                     /*If(
                         Patch(
