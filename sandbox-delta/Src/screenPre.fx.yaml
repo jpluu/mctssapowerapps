@@ -1,17 +1,20 @@
 screenPre As screen:
     OnVisible: |-
-        =// Global Variables
+        =// ~~~ Global Variables ~~~
+        // === Loading ===
+        // bool | trigger for timer
         Set(
             isLoaded,
             false
         );
-        // bool | trigger for timer
-        // User Data
+        // === App Data ===
+        Set(APPVER, CountRows(PowerAppsforMakers.GetAppVersions(First(Filter(PowerAppsforMakers.GetApps().value,properties.displayName = "version")).name).value));
+        
+        // === User Data === * next rev will combine all into single var
         Set(
             currentUser,
             User()
         );
-        // Set(currentUser365, Office365Users.UserProfile(currentUser.Email));
         Set(
             currentUser365,
             {
@@ -25,8 +28,7 @@ screenPre As screen:
             currentUserPhone,
             Office365Users.UserProfile(currentUser.Email).mobilePhone
         );
-        // General Settings
-        
+        // === Positional Settings ===
         Set(
             modalX,
             100
@@ -39,12 +41,12 @@ screenPre As screen:
             modalLabel,
             64
         );
-        // Request Modal Page Variables
+        // === Request Modal Page Variables ===
+        // bool | control for entire modal system
         Set(
             isModalRequest,
             false
         );
-        // bool | control for entire modal system
         Set(
             isEventPage,
             false
@@ -65,7 +67,7 @@ screenPre As screen:
             isAcknowPage,
             false
         );
-        // Request Modal Variables
+        // === Request Modal Variables ===
         Set(
             formData,
             Defaults(VisitorRequest)
@@ -82,22 +84,22 @@ screenPre As screen:
             isLongTerm,
             false
         );
+        // bool | control for editing request
         Set(
             isEditing,
             false
         );
-        // bool | control for editing request
+        // bool | control for bulk window
         Set(
             isBulk,
             false
         );
-        // bool | control for bulk window
+        // bool | control for reseting FN and LN for bulk
         Set(
             isReset,
             false
         );
-        // bool | control for reseting FN and LN for bulk
-        // End Pre-Load
+        // === End Pre-Load ===
         Set(
             isLoaded,
             true

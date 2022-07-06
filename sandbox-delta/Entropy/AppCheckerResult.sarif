@@ -4033,17 +4033,17 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.currentUser365"
+                  "fullyQualifiedName": "App.APPVER"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "App.currentUser365",
+                  "fullyQualifiedName": "App.APPVER",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "currentUser365",
+                "member": "APPVER",
                 "module": "App",
                 "type": "App"
               }
