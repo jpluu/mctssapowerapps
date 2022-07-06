@@ -459,16 +459,16 @@ screenRequest As screen:
                         )
                     );
                     ForAll(
-                                collectionFormUpdates,
-                                Patch(
-                                    VisitorRequest,
-                                    formData,
-                                    formEvent.Updates,
-                                    formAcknow.Updates,
-                                    formLongTerm.Updates,
-                                    ThisRecord
-                                )
-                            );
+                        collectionFormUpdates,
+                        Patch(
+                            VisitorRequest,
+                            formData,
+                            formEvent.Updates,
+                            formAcknow.Updates,
+                            formLongTerm.Updates,
+                            ThisRecord
+                        )
+                    );
                     If(
                         IsEmpty(Errors(VisitorRequest)),
                         Notify(
@@ -488,7 +488,10 @@ screenRequest As screen:
                             NotificationType.Error
                         )
                     );
-                    Set(isBulk, false);
+                    Set(
+                        isBulk,
+                        false
+                    );
                     Clear(collectionFormUpdates);
                     ResetForm(formEvent);
                     ResetForm(formVisitor);
