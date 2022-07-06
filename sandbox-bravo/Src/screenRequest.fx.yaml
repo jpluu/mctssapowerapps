@@ -3883,10 +3883,11 @@ screenRequest As screen:
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
                         Fill: =RGBA(0, 0, 0, 0)
+                        IsSearchable: =false
                         Items: =Choices([@VisitorRequest].AlternateSponsor)
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
-                        SearchItems: =Choices(VisitorRequest.AlternateSponsor,DataCardValue42_2.SearchText)
+                        SearchItems: =[]
                         SelectMultiple: =false
                         Size: =19
                         Template: =ListItemTemplate.Person
