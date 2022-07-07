@@ -545,7 +545,7 @@ screenRequest As screen:
             ZIndex: =3
 
             formReview As form:
-                DataSource: =formEvent.Updates
+                DataSource: =VisitorRequest
                 DefaultMode: =FormMode.View
                 Height: =Parent.Height - labelReview.Height - backReview.Height
                 Item: =Patch(formLongTerm.Updates, galleryBulkReview.Selected, formEvent.Updates)
@@ -3098,14 +3098,17 @@ screenRequest As screen:
                                 isReviewPage,
                                 true
                             )
-                        );
-                        Collect(
-                            collectionFormUpdates,
-                            formVisitor.Updates
                         ),
-                        Notify(
-                            "Required Fields Not Completly Filled",
-                            NotificationType.Warning
+                        If(
+                            isBulk,
+                            Collect(
+                                collectionFormUpdates,
+                                formVisitor.Updates
+                            ),
+                            Notify(
+                                "Required Fields Not Completly Filled",
+                                NotificationType.Warning
+                            )
                         )
                     )
                 PaddingBottom: =10
