@@ -448,65 +448,6 @@ screenRequest As screen:
             Y: =100
             ZIndex: =3
 
-            ComboBox1_9 As combobox:
-                ChevronFill: =RGBA(0, 0, 0, 1)
-                DisplayFields: =["Value"]
-                DisplayMode: |-
-                    =If(Form1_2.Unsaved,
-                        DisplayMode.Disabled,
-                        DisplayMode.Edit)
-                Height: =35
-                InputTextPlaceholder: |-
-                    ="Reasons for Denial
-                    "
-                Items: |-
-                    =Ungroup(
-                        Table
-                        ({DropdownOptions: Choices(VisitorRequest.'Denied Reason')}, 
-                        {DropdownOptions: ["Other"]}
-                        ), 
-                        "DropdownOptions"
-                        ) 
-                SearchFields: =["Value"]
-                SearchItems: |-
-                    =Search(Ungroup(
-                        Table
-                        ({DropdownOptions: Choices(VisitorRequest.'Denied Reason')}, 
-                        {DropdownOptions: ["Other"]}
-                        ), 
-                        "DropdownOptions"
-                        ) ,ComboBox1_9.SearchText,"Value")
-                SelectMultiple: =false
-                Visible: =Self.Selected.Value<>"Other"
-                Width: =218
-                X: =746
-                Y: =530
-                ZIndex: =1
-
-            txt_Denied_9 As text:
-                Default: =""
-                Height: =35
-                HintText: ="Denial Reason"
-                Visible: |
-                    =!ComboBox1_9.Visible
-                Width: =218
-                X: =746
-                Y: =530
-                ZIndex: =2
-
-            Icon2_9 As icon.Cancel:
-                Color: =RGBA(0, 0, 0, 1)
-                Height: =35
-                Icon: =Icon.Cancel
-                OnSelect: |-
-                    =Reset(ComboBox1_9);
-                    Reset(txt_Denied_9);
-                Visible: =!ComboBox1_9.Visible 
-                Width: =18
-                X: =937
-                Y: =530
-                ZIndex: =3
-
             Button2_23 As button:
                 BorderColor: =RGBA(184, 0, 0, 1)
                 Color: =RGBA(0, 0, 0, 1)
@@ -522,7 +463,8 @@ screenRequest As screen:
                     */
                         
                 Fill: =RGBA(184, 0, 0, 1)
-                Height: =49
+                FontWeight: =FontWeight.Bold
+                Height: =48
                 HoverFill: =ColorFade(RGBA(184, 0, 0, 100), -20%)
                 OnSelect: |-
                     =If(
@@ -576,7 +518,7 @@ screenRequest As screen:
                             )
                         )
                     )
-                Size: =24
+                Size: =20
                 Text: ="Denied"
                 Visible: |-
                     = true /* If(varIsSecurity = true,
@@ -587,9 +529,9 @@ screenRequest As screen:
                         varIsSecurity = true,
                         true,
                         false)*/
-                Width: =188
-                X: =761
-                Y: =469
+                Width: =193
+                X: =775
+                Y: =476
                 ZIndex: =4
 
             Button2_22 As button:
@@ -605,7 +547,8 @@ screenRequest As screen:
                         DisplayMode.Edit,
                         DisplayMode.Disabled)*/
                 Fill: =RGBA(54, 176, 75, 1)
-                Height: =49
+                FontWeight: =FontWeight.Bold
+                Height: =48
                 HoverFill: =RGBA(54, 176, 75, 1)
                 OnSelect: |+
                     =
@@ -643,7 +586,7 @@ screenRequest As screen:
                         )
                     
                 PressedColor: =ColorFade(RGBA(54, 176, 75, 100), -20%)
-                Size: =24
+                Size: =20
                 Text: ="Approved"
                 Visible: |-
                     =true
@@ -655,9 +598,9 @@ screenRequest As screen:
                     if currentuser.email = email
                     
                     person. email */
-                Width: =188
-                X: =274
-                Y: =481
+                Width: =193
+                X: =188
+                Y: =482
                 ZIndex: =5
 
             labelSecurity_4 As label:
@@ -2726,6 +2669,70 @@ screenRequest As screen:
                 Width: =52
                 X: =1014
                 ZIndex: =9
+
+            groupDeniedReason As group:
+                Height: =5
+                Width: =5
+                X: =40
+                Y: =40
+                ZIndex: =10
+
+                ComboBox1_9 As combobox:
+                    ChevronFill: =RGBA(0, 0, 0, 1)
+                    DisplayFields: =["Value"]
+                    DisplayMode: |-
+                        =If(Form1_2.Unsaved,
+                            DisplayMode.Disabled,
+                            DisplayMode.Edit)
+                    Height: =33
+                    InputTextPlaceholder: ="Denial Reason"
+                    Items: |-
+                        =Ungroup(
+                            Table
+                            ({DropdownOptions: Choices(VisitorRequest.'Denied Reason')}, 
+                            {DropdownOptions: ["Other"]}
+                            ), 
+                            "DropdownOptions"
+                            ) 
+                    SearchFields: =["Value"]
+                    SearchItems: |-
+                        =Search(Ungroup(
+                            Table
+                            ({DropdownOptions: Choices(VisitorRequest.'Denied Reason')}, 
+                            {DropdownOptions: ["Other"]}
+                            ), 
+                            "DropdownOptions"
+                            ) ,ComboBox1_9.SearchText,"Value")
+                    SelectMultiple: =false
+                    Visible: =Self.Selected.Value<>"Other"
+                    Width: =193
+                    X: =775
+                    Y: =533
+                    ZIndex: =1
+
+                txt_Denied_9 As text:
+                    Default: =""
+                    Height: =33
+                    HintText: ="Denial Reason"
+                    Visible: |
+                        =!ComboBox1_9.Visible
+                    Width: =190
+                    X: =775
+                    Y: =535
+                    ZIndex: =2
+
+                Icon2_9 As icon.Cancel:
+                    Color: =RGBA(0, 0, 0, 1)
+                    Height: =33
+                    Icon: =Icon.Cancel
+                    OnSelect: |-
+                        =Reset(ComboBox1_9);
+                        Reset(txt_Denied_9);
+                    Visible: =!ComboBox1_9.Visible 
+                    Width: =15
+                    X: =941
+                    Y: =535
+                    ZIndex: =3
 
     modalRequest As groupContainer:
         Height: =768
