@@ -96,6 +96,7 @@
                     PaddingRight: =0
                     PaddingTop: =0
                     Text: =Parent.Default
+                    Visible: =boolSentryModal
                     Width: =Parent.Width - 60
                     X: =30
                     Y: =DataCardKey33_2.Y + DataCardKey33_2.Height + 5
@@ -133,6 +134,7 @@
                     PaddingRight: =0
                     PaddingTop: =0
                     Text: =Parent.Default
+                    Visible: =boolSentryModal
                     Width: =Parent.Width - 60
                     X: =30
                     Y: =DataCardKey69_1.Y + DataCardKey69_1.Height + 5
@@ -174,6 +176,7 @@
                     SearchItems: =Choices('Visitor Log'.Sponsor,DataCardValue61_1.SearchText)
                     SelectMultiple: =false
                     Template: =ListItemTemplate.Person
+                    Visible: =boolSentryModal
                     Width: =Parent.Width - 60
                     X: =30
                     Y: =35
@@ -273,6 +276,7 @@
                     PaddingRight: =0
                     PaddingTop: =0
                     Text: =Parent.Default
+                    Visible: =boolSentryModal
                     Width: =Parent.Width - 60
                     X: =30
                     Y: =DataCardKey70_1.Y + DataCardKey70_1.Height + 5
@@ -306,6 +310,7 @@
                     BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                     Default: =Parent.Default
                     DisplayMode: =Parent.DisplayMode
+                    Visible: =boolSentryModal
                     X: =30
                     Y: =DataCardKey71_1.Y + DataCardKey71_1.Height + 5
                     ZIndex: =2
@@ -338,6 +343,7 @@
                     BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                     Default: =Parent.Default
                     DisplayMode: =Parent.DisplayMode
+                    Visible: =boolSentryModal
                     X: =30
                     Y: =DataCardKey72_1.Y + DataCardKey72_1.Height + 5
                     ZIndex: =2
@@ -370,6 +376,7 @@
                     BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                     Default: =Parent.Default
                     DisplayMode: =Parent.DisplayMode
+                    Visible: =boolSentryModal
                     X: =30
                     Y: =DataCardKey75_1.Y + DataCardKey75_1.Height + 5
                     ZIndex: =2
