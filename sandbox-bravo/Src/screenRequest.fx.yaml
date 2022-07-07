@@ -475,7 +475,7 @@ screenRequest As screen:
                     Notify("Request Approval Page Was Succesfully Saved.", NotificationType.Success);
                 Width: =1166
                 Y: =64
-                ZIndex: =2
+                ZIndex: =3
 
                 DataCard1_1 As typedDataCard.blankCard:
                     BorderStyle: =BorderStyle.Solid
@@ -2502,14 +2502,14 @@ screenRequest As screen:
                     
                 Width: =52
                 X: =1084
-                ZIndex: =3
+                ZIndex: =4
 
             IconEdit_4 As icon.Edit:
                 Icon: =Icon.Edit
                 OnSelect: =EditForm(Form1_2)
                 Width: =52
                 X: =1014
-                ZIndex: =4
+                ZIndex: =5
 
     modalRequest As groupContainer:
         Height: =768
