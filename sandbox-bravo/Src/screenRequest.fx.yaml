@@ -332,7 +332,8 @@ screenRequest As screen:
                 If(isSecurity,
                 Set(isModalSecurity, true),
                 Set(isModalRequest, true);
-                Set(isEventPage, true))
+                Set(isEventPage, true));
+                ViewForm(Form1_2)
                 
                 
                 /*If(isSecurity,
@@ -453,6 +454,12 @@ screenRequest As screen:
                 Height: =404
                 Item: =formData
                 NumberOfColumns: =2
+                OnFailure: |-
+                    =Notify("Error: Request Approval Page Was Not Saved.", NotificationType.Error);
+                OnSuccess: |
+                    =Set(formData, Form1_2.LastSubmit);
+                    ViewForm(Form1_2);
+                    Notify("Request Approval Page Was Succesfully Saved.", NotificationType.Success);
                 Width: =1166
                 Y: =64
                 ZIndex: =1
@@ -820,7 +827,7 @@ screenRequest As screen:
                         ZIndex: =4
 
                 Title_DataCard3_2 As typedDataCard.textualEditCard:
-                    BorderColor: =If(Form1_2.Mode = FormMode.Edit &&ThisItem.'Title'<> DataCardValue1_1.Text, Orange, RGBA(0, 18, 107, 1))
+                    BorderColor: =If(Form1_2.Mode = FormMode.Edit &&ThisItem.Title<> DataCardValue1_1.Text, Orange, RGBA(0, 18, 107, 1))
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Title"
                     Default: =ThisItem.Title
@@ -1250,6 +1257,7 @@ screenRequest As screen:
                         ZIndex: =4
 
                 "'First Name_DataCard3_1' As typedDataCard.textualEditCard":
+                    BorderColor: =If(Form1_2.Mode = FormMode.Edit &&ThisItem.Title<> DataCardValue45_1.Text, Orange, RGBA(0, 18, 107, 1))
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="FirstName"
                     Default: =ThisItem.'First Name'
@@ -1322,6 +1330,9 @@ screenRequest As screen:
                         ZIndex: =4
 
                 "'Middle Name_DataCard3_1' As typedDataCard.textualEditCard":
+                    BorderColor: |+
+                        =If(Form1_2.Mode = FormMode.Edit &&ThisItem.Title<> DataCardValue46_1.Text, Orange, RGBA(0, 18, 107, 1))
+                        
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="MiddleName"
                     Default: =ThisItem.'Middle Name'
@@ -1394,6 +1405,9 @@ screenRequest As screen:
                         ZIndex: =4
 
                 "'Last Name_DataCard3_1' As typedDataCard.textualEditCard":
+                    BorderColor: |+
+                        =If(Form1_2.Mode = FormMode.Edit &&ThisItem.Title<> DataCardValue47_1.Text, Orange, RGBA(0, 18, 107, 1))
+                        
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="LastName"
                     Default: =ThisItem.'Last Name'
@@ -1537,6 +1551,9 @@ screenRequest As screen:
                         ZIndex: =4
 
                 "'Company/Organization_DataCard3_1' As typedDataCard.textualEditCard":
+                    BorderColor: |+
+                        =If(Form1_2.Mode = FormMode.Edit &&ThisItem.Title<> DataCardValue48_1.Text, Orange, RGBA(0, 18, 107, 1))
+                        
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Company_x002f_Organization"
                     Default: =ThisItem.'Company/Organization'
@@ -1609,6 +1626,9 @@ screenRequest As screen:
                         ZIndex: =4
 
                 "'Company/Organization Phone Number_DataCard3_1' As typedDataCard.textualEditCard":
+                    BorderColor: |+
+                        =If(Form1_2.Mode = FormMode.Edit &&ThisItem.Title<> DataCardValue51_1.Text, Orange, RGBA(0, 18, 107, 1))
+                        
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Company_x002f_OrganizationPhoneN"
                     Default: =ThisItem.'Company/Organization Phone Number'
@@ -1885,6 +1905,9 @@ screenRequest As screen:
                         ZIndex: =4
 
                 "'Contract Number_DataCard2_1' As typedDataCard.textualEditCard":
+                    BorderColor: |+
+                        =If(Form1_2.Mode = FormMode.Edit &&ThisItem.Title<> DataCardValue52_1.Text, Orange, RGBA(0, 18, 107, 1))
+                        
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="ContractNumber"
                     Default: =ThisItem.'Contract Number'
@@ -1958,6 +1981,9 @@ screenRequest As screen:
                         ZIndex: =4
 
                 EDIP_DataCard3_1 As typedDataCard.textualEditCard:
+                    BorderColor: |+
+                        =If(Form1_2.Mode = FormMode.Edit &&ThisItem.Title<> DataCardValue55_1.Text, Orange, RGBA(0, 18, 107, 1))
+                        
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="EDIP"
                     Default: =ThisItem.EDIP
@@ -2031,6 +2057,9 @@ screenRequest As screen:
                         ZIndex: =4
 
                 Email_DataCard3_1 As typedDataCard.textualEditCard:
+                    BorderColor: |+
+                        =If(Form1_2.Mode = FormMode.Edit &&ThisItem.Title<> DataCardValue56_1.Text, Orange, RGBA(0, 18, 107, 1))
+                        
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Email"
                     Default: =ThisItem.Email
@@ -2391,8 +2420,9 @@ screenRequest As screen:
                 Icon: =Icon.Save
                 OnSelect: |+
                     =SubmitForm(Form1_2);
-                    Refresh(VisitorRequest);
-                    ViewForm(Form1_2);
+                    
+                    /*Refresh(VisitorRequest);
+                    ViewForm(Form1_2);*/
                     
                     
                     /*Patch(
