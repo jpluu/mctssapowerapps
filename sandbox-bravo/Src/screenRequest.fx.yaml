@@ -446,7 +446,219 @@ screenRequest As screen:
                 =1166
             X: =100
             Y: =100
-            ZIndex: =5
+            ZIndex: =3
+
+            ComboBox1_9 As combobox:
+                ChevronFill: =RGBA(0, 0, 0, 1)
+                DisplayFields: =["Value"]
+                DisplayMode: |-
+                    =If(Form1_2.Unsaved,
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit)
+                Height: =35
+                InputTextPlaceholder: |-
+                    ="Reasons for Denial
+                    "
+                Items: |-
+                    =Ungroup(
+                        Table
+                        ({DropdownOptions: Choices(VisitorRequest.'Denied Reason')}, 
+                        {DropdownOptions: ["Other"]}
+                        ), 
+                        "DropdownOptions"
+                        ) 
+                SearchFields: =["Value"]
+                SearchItems: |-
+                    =Search(Ungroup(
+                        Table
+                        ({DropdownOptions: Choices(VisitorRequest.'Denied Reason')}, 
+                        {DropdownOptions: ["Other"]}
+                        ), 
+                        "DropdownOptions"
+                        ) ,ComboBox1_9.SearchText,"Value")
+                SelectMultiple: =false
+                Visible: =Self.Selected.Value<>"Other"
+                Width: =218
+                X: =746
+                Y: =530
+                ZIndex: =1
+
+            txt_Denied_9 As text:
+                Default: =""
+                Height: =35
+                HintText: ="Denial Reason"
+                Visible: |
+                    =!ComboBox1_9.Visible
+                Width: =218
+                X: =746
+                Y: =530
+                ZIndex: =2
+
+            Icon2_9 As icon.Cancel:
+                Color: =RGBA(0, 0, 0, 1)
+                Height: =35
+                Icon: =Icon.Cancel
+                OnSelect: |-
+                    =Reset(ComboBox1_9);
+                    Reset(txt_Denied_9);
+                Visible: =!ComboBox1_9.Visible 
+                Width: =18
+                X: =937
+                Y: =530
+                ZIndex: =3
+
+            Button2_23 As button:
+                BorderColor: =RGBA(184, 0, 0, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisplayMode: |-
+                    =DisplayMode.Edit/*If(Form1_2.Unsaved,
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit)
+                        
+                        If(
+                        varIsSecurity = true,
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled)
+                    */
+                        
+                Fill: =RGBA(184, 0, 0, 1)
+                Height: =49
+                HoverFill: =ColorFade(RGBA(184, 0, 0, 100), -20%)
+                OnSelect: |-
+                    =If(
+                        Not(IsBlank(ComboBox1_9.Selected.Value)),
+                        If(
+                            Patch(
+                                VisitorRequest,
+                                LookUp(
+                                    VisitorRequest,
+                                    Title = formData.Title
+                                ),
+                                {Approved: {Value: "Denied"}}
+                            );
+                            Patch(
+                                VisitorRequest,
+                                LookUp(
+                                    VisitorRequest,
+                                    Title = ThisItem.Title
+                                ),
+                                If(
+                                    ComboBox1_9.Selected.Value = "Other",
+                                    {'Denied Reason': {Value: txt_Denied_9.Text}},
+                                    {'Denied Reason': ComboBox1_9.Selected}
+                                )
+                            );
+                            IsEmpty(Errors(VisitorRequest)),
+                            Notify(
+                                "Success",
+                                NotificationType.Success
+                            );
+                            If(
+                                ComboBox1_9.Selected.Value = "Other",
+                                Office365Outlook.SendEmailV2(
+                                    formData.Sponsor.Email,
+                                    formData.'First Name' & " " & formData.'Last Name' & " Visitor Request Status Update",
+                                    "Greetings " & formData.Sponsor.DisplayName & "," & "<br> Your visitor " & formData.'First Name' & " " & formData.'Last Name' & "'s" & " visitor request has been denied because of," & " " & txt_Denied_9.Text & ". Thank you!"
+                                ),
+                                Office365Outlook.SendEmailV2(
+                                    formData.Sponsor.Email,
+                                    formData.'First Name' & " " & formData.'Last Name' & " Visitor Request Status Update",
+                                    "Greetings " & formData.Sponsor.DisplayName & "," & "<br> Your visitor " & formData.'First Name' & " " & formData.'Last Name' & "'s" & " visitor request has been denied because of," & " " & ComboBox1_9.Selected.Value & ". Thank you!"
+                                )
+                            );
+                            Notify(
+                                First(Errors(VisitorRequest)).Message,
+                                NotificationType.Error
+                            );
+                            Set(
+                                isModalSecurity,
+                                false
+                            )
+                        )
+                    )
+                Size: =24
+                Text: ="Denied"
+                Visible: |-
+                    = true /* If(varIsSecurity = true,
+                        true,
+                        false)*/
+                        
+                         /*If(
+                        varIsSecurity = true,
+                        true,
+                        false)*/
+                Width: =188
+                X: =761
+                Y: =469
+                ZIndex: =4
+
+            Button2_22 As button:
+                Color: =RGBA(0, 0, 0, 1)
+                DisplayMode: |-
+                    =Parent.DisplayMode
+                    //DisplayMode.Edit
+                    //If(Form1_2.Unsaved,
+                      //  DisplayMode.Disabled,
+                        //DisplayMode.Edit)
+                        /*If(
+                        varIsSecurity = true,
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled)*/
+                Fill: =RGBA(54, 176, 75, 1)
+                Height: =49
+                HoverFill: =RGBA(54, 176, 75, 1)
+                OnSelect: |+
+                    =
+                    
+                        If(
+                            Patch(
+                        VisitorRequest,
+                        LookUp(
+                            VisitorRequest,
+                            Title = formData.Title
+                        ),
+                        {
+                            Approved: {Value: "Approved"}
+                        }
+                    
+                    );
+                            IsEmpty(Errors(VisitorRequest)),
+                            Notify(
+                                "Success",
+                                NotificationType.Success
+                            );
+                           Office365Outlook.SendEmailV2(
+                            formData.Sponsor.Email,
+                            formData.'First Name' & " " & formData.'Last Name' & " Visitor Request Status Update",
+                            "Greetings " & formData.Sponsor.DisplayName & "," & "<br> Your visitor " & formData.'First Name' & " " & formData.'Last Name' & "'s" & " visitor request has been approved. Thank you!");
+                            Notify(
+                                First(Errors(VisitorRequest)).Message,
+                                NotificationType.Error
+                            );
+                           
+                            Set(
+                        isModalSecurity,
+                        false
+                    )
+                        )
+                    
+                PressedColor: =ColorFade(RGBA(54, 176, 75, 100), -20%)
+                Size: =24
+                Text: ="Approved"
+                Visible: |-
+                    =true
+                    /*If(
+                        varIsSecurity = true,
+                        true,
+                        false)
+                    
+                    if currentuser.email = email
+                    
+                    person. email */
+                Width: =188
+                X: =274
+                Y: =481
+                ZIndex: =5
 
             labelSecurity_4 As label:
                 Align: =Align.Center
@@ -459,7 +671,7 @@ screenRequest As screen:
                         "Request Approval Page",
                         "Review")
                 Width: =Parent.Width
-                ZIndex: =1
+                ZIndex: =6
 
             Form1_2 As form:
                 DataSource: =VisitorRequest
@@ -475,7 +687,7 @@ screenRequest As screen:
                     Notify("Request Approval Page Was Succesfully Saved.", NotificationType.Success);
                 Width: =1166
                 Y: =64
-                ZIndex: =3
+                ZIndex: =7
 
                 DataCard1_1 As typedDataCard.blankCard:
                     BorderStyle: =BorderStyle.Solid
@@ -597,6 +809,7 @@ screenRequest As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: |
                         =130
+                    Visible: =false
                     Width: |
                         =App.Width
                     X: =0
@@ -623,9 +836,10 @@ screenRequest As screen:
 
                 DataCard8_2 As typedDataCard.blankCard:
                     BorderStyle: =BorderStyle.Solid
-                    DisplayMode: =DisplayMode.Edit
+                    DisplayMode: =Parent.DisplayMode
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =200
+                    Visible: =false
                     Width: =583
                     X: =0
                     Y: =17
@@ -634,7 +848,8 @@ screenRequest As screen:
                     Button2_21 As button:
                         Color: =RGBA(0, 0, 0, 1)
                         DisplayMode: |-
-                            =DisplayMode.Edit
+                            =Parent.DisplayMode
+                            //DisplayMode.Edit
                             //If(Form1_2.Unsaved,
                               //  DisplayMode.Disabled,
                                 //DisplayMode.Edit)
@@ -703,6 +918,7 @@ screenRequest As screen:
                     DisplayMode: =DisplayMode.Edit
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =200
+                    Visible: =false
                     Width: =583
                     X: =1
                     Y: =17
@@ -2502,14 +2718,14 @@ screenRequest As screen:
                     
                 Width: =52
                 X: =1084
-                ZIndex: =4
+                ZIndex: =8
 
             IconEdit_4 As icon.Edit:
                 Icon: =Icon.Edit
                 OnSelect: =EditForm(Form1_2)
                 Width: =52
                 X: =1014
-                ZIndex: =5
+                ZIndex: =9
 
     modalRequest As groupContainer:
         Height: =768
