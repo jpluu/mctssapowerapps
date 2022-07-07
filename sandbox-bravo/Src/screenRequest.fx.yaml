@@ -1113,6 +1113,10 @@ screenRequest As screen:
                         ZIndex: =4
 
                 "'Sponsor Phone Number_DataCard3_1' As typedDataCard.textualEditCard":
+                    BorderColor: |-
+                        =If(Form1_2.Mode = FormMode.Edit &&ThisItem.'Sponsor Phone Number'<>DataCardValue43_1.Text, Orange, RGBA(0, 18, 107, 1))
+                        
+                        //RGBA(0, 18, 107, 1)
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Phone_x0020_Number"
                     Default: =ThisItem.'Sponsor Phone Number'
@@ -1257,7 +1261,7 @@ screenRequest As screen:
                         ZIndex: =4
 
                 "'First Name_DataCard3_1' As typedDataCard.textualEditCard":
-                    BorderColor: =If(Form1_2.Mode = FormMode.Edit &&ThisItem.Title<> DataCardValue45_1.Text, Orange, RGBA(0, 18, 107, 1))
+                    BorderColor: =If(Form1_2.Mode = FormMode.Edit &&ThisItem.FirstName<> DataCardValue45_1.Text, Orange, RGBA(0, 18, 107, 1))
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="FirstName"
                     Default: =ThisItem.'First Name'
@@ -1331,7 +1335,7 @@ screenRequest As screen:
 
                 "'Middle Name_DataCard3_1' As typedDataCard.textualEditCard":
                     BorderColor: |+
-                        =If(Form1_2.Mode = FormMode.Edit &&ThisItem.Title<> DataCardValue46_1.Text, Orange, RGBA(0, 18, 107, 1))
+                        =If(Form1_2.Mode = FormMode.Edit &&ThisItem.MiddleName<> DataCardValue46_1.Text, Orange, RGBA(0, 18, 107, 1))
                         
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="MiddleName"
@@ -1406,7 +1410,7 @@ screenRequest As screen:
 
                 "'Last Name_DataCard3_1' As typedDataCard.textualEditCard":
                     BorderColor: |+
-                        =If(Form1_2.Mode = FormMode.Edit &&ThisItem.Title<> DataCardValue47_1.Text, Orange, RGBA(0, 18, 107, 1))
+                        =If(Form1_2.Mode = FormMode.Edit &&ThisItem.LastName<> DataCardValue47_1.Text, Orange, RGBA(0, 18, 107, 1))
                         
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="LastName"
@@ -1552,7 +1556,7 @@ screenRequest As screen:
 
                 "'Company/Organization_DataCard3_1' As typedDataCard.textualEditCard":
                     BorderColor: |+
-                        =If(Form1_2.Mode = FormMode.Edit &&ThisItem.Title<> DataCardValue48_1.Text, Orange, RGBA(0, 18, 107, 1))
+                        =If(Form1_2.Mode = FormMode.Edit &&ThisItem.'Company/Organization'<> DataCardValue48_1.Text, Orange, RGBA(0, 18, 107, 1))
                         
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Company_x002f_Organization"
@@ -1627,7 +1631,7 @@ screenRequest As screen:
 
                 "'Company/Organization Phone Number_DataCard3_1' As typedDataCard.textualEditCard":
                     BorderColor: |+
-                        =If(Form1_2.Mode = FormMode.Edit &&ThisItem.Title<> DataCardValue51_1.Text, Orange, RGBA(0, 18, 107, 1))
+                        =If(Form1_2.Mode = FormMode.Edit &&ThisItem.'Company/Organization Phone Number'<> DataCardValue51_1.Text, Orange, RGBA(0, 18, 107, 1))
                         
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Company_x002f_OrganizationPhoneN"
