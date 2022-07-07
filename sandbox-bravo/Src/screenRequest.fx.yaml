@@ -468,6 +468,59 @@ screenRequest As screen:
                 HoverFill: =ColorFade(RGBA(184, 0, 0, 100), -20%)
                 OnSelect: |-
                     =If(
+                        If(IsBlank(ComboBox1_9.Selected.Value, Notify("Request Approval Page Was Succesfully Saved.", NotificationType.Success),
+                        If(
+                            Patch(
+                                VisitorRequest,
+                                LookUp(
+                                    VisitorRequest,
+                                    Title = formData.Title
+                                ),
+                                {Approved: {Value: "Denied"}}
+                            );
+                            Patch(
+                                VisitorRequest,
+                                LookUp(
+                                    VisitorRequest,
+                                    Title = formData.Title
+                                ),
+                                If(
+                                    ComboBox1_9.Selected.Value = "Other",
+                                    {'Denied Reason': {Value: txt_Denied_9.Text}},
+                                    {'Denied Reason': ComboBox1_9.Selected}
+                                )
+                            );
+                            IsEmpty(Errors(VisitorRequest)),
+                            Notify(
+                                "Success",
+                                NotificationType.Success
+                            );
+                            If(
+                                ComboBox1_9.Selected.Value = "Other",
+                                Office365Outlook.SendEmailV2(
+                                    formData.Sponsor.Email,
+                                    formData.'First Name' & " " & formData.'Last Name' & " Visitor Request Status Update",
+                                    "Greetings " & formData.Sponsor.DisplayName & "," & "<br> Your visitor " & formData.'First Name' & " " & formData.'Last Name' & "'s" & " visitor request has been denied because of," & " " & txt_Denied_9.Text & ". Thank you!"
+                                ),
+                                Office365Outlook.SendEmailV2(
+                                    formData.Sponsor.Email,
+                                    formData.'First Name' & " " & formData.'Last Name' & " Visitor Request Status Update",
+                                    "Greetings " & formData.Sponsor.DisplayName & "," & "<br> Your visitor " & formData.'First Name' & " " & formData.'Last Name' & "'s" & " visitor request has been denied because of," & " " & ComboBox1_9.Selected.Value & ". Thank you!"
+                                )
+                            );
+                            Notify(
+                                First(Errors(VisitorRequest)).Message,
+                                NotificationType.Error
+                            );
+                            Set(
+                                isModalSecurity,
+                                false
+                            )
+                        )
+                        )
+                    )
+                    
+                    /*If(
                         Not(IsBlank(ComboBox1_9.Selected.Value)),
                         If(
                             Patch(
@@ -517,7 +570,7 @@ screenRequest As screen:
                                 false
                             )
                         )
-                    )
+                    )*/
                 Size: =20
                 Text: ="Denied"
                 Visible: |-
@@ -2659,6 +2712,7 @@ screenRequest As screen:
                     ViewForm(formReview);
                     */
                     
+                Visible: =If(Form1_2.Mode = FormMode.Edit, true, false)
                 Width: =52
                 X: =1084
                 ZIndex: =8
@@ -2666,8 +2720,9 @@ screenRequest As screen:
             IconEdit_4 As icon.Edit:
                 Icon: =Icon.Edit
                 OnSelect: =EditForm(Form1_2)
+                Visible: =If(Form1_2.Mode = FormMode.Edit, false, true)
                 Width: =52
-                X: =1014
+                X: =1084
                 ZIndex: =9
 
             groupDeniedReason As group:
