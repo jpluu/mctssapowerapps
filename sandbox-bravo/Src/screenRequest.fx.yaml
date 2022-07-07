@@ -448,6 +448,19 @@ screenRequest As screen:
             Y: =100
             ZIndex: =5
 
+            labelSecurity_4 As label:
+                Align: =Align.Center
+                FontWeight: =FontWeight.Bold
+                Height: =64
+                Size: =24
+                Text: |-
+                    =If(
+                        isModalSecurity, 
+                        "Request Approval Page",
+                        "Review")
+                Width: =Parent.Width
+                ZIndex: =1
+
             Form1_2 As form:
                 DataSource: =VisitorRequest
                 DefaultMode: =FormMode.View
@@ -462,7 +475,7 @@ screenRequest As screen:
                     Notify("Request Approval Page Was Succesfully Saved.", NotificationType.Success);
                 Width: =1166
                 Y: =64
-                ZIndex: =1
+                ZIndex: =2
 
                 DataCard1_1 As typedDataCard.blankCard:
                     BorderStyle: =BorderStyle.Solid
@@ -719,6 +732,7 @@ screenRequest As screen:
                         ZIndex: =2
 
                     ComboBox1_8 As combobox:
+                        ChevronBackground: =RGBA(0, 0, 0, 1)
                         ChevronFill: =RGBA(56, 96, 178, 1)
                         DisplayFields: =["Value"]
                         DisplayMode: |-
@@ -2419,19 +2433,6 @@ screenRequest As screen:
                         Y: =DataCardKey65_2.Y
                         ZIndex: =4
 
-            labelSecurity_4 As label:
-                Align: =Align.Center
-                FontWeight: =FontWeight.Bold
-                Height: =64
-                Size: =24
-                Text: |-
-                    =If(
-                        isModalSecurity, 
-                        "Request Approval Page",
-                        "Review")
-                Width: =Parent.Width
-                ZIndex: =2
-
             IconSave_4 As icon.Save:
                 Icon: =Icon.Save
                 OnSelect: |+
@@ -4101,7 +4102,7 @@ screenRequest As screen:
                 NumberOfColumns: =2
                 Visible: =false//isReviewPage
                 Width: =Parent.Width
-                Y: =labelSecurity_1.Height
+                Y: =labelSecurity_4.Height
                 ZIndex: =1
 
                 DataCard2 As typedDataCard.blankCard:
@@ -6975,7 +6976,7 @@ screenRequest As screen:
             IconSave As icon.Save:
                 Icon: =Icon.Save
                 OnSelect: |+
-                    =Submit(formReview)
+                    =//Submit(formReview)
                         /*Patch(
                             VisitorRequest,
                             formData,
