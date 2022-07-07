@@ -548,8 +548,8 @@ screenRequest As screen:
                 DataSource: =formEvent.Updates
                 DefaultMode: =FormMode.View
                 Height: =Parent.Height - labelReview.Height - backReview.Height
-                Item: =Patch(formLongTerm.Updates, formVisitor.Updates, formEvent.Updates)
-                Width: =Parent.Width
+                Item: =Patch(formLongTerm.Updates, galleryBulkReview.Selected, formEvent.Updates)
+                Width: =If(isBulk, Parent.Width - galleryBulkReview.Width, Parent.Width)
                 Y: =labelReview.Height
                 ZIndex: =1
 
@@ -1931,6 +1931,56 @@ screenRequest As screen:
                 Width: =Parent.Width
                 ZIndex: =4
 
+            galleryBulkReview As gallery.galleryVertical:
+                Height: =Parent.Height - labelVisitor.Height - pbRequest.Height
+                Items: =collectionFormUpdates
+                Layout: =Layout.Vertical
+                TemplateSize: =40
+                Visible: =isBulk
+                Width: =350
+                X: |-
+                    =
+                    Parent.Width - 350
+                Y: =labelReview.Height
+                ZIndex: =6
+
+                Container1_1 As groupContainer:
+                    Fill: =If(ThisItem.IsSelected, RGBA(0,0,0,0.5),RGBA(0,0,0,0))
+                    Height: =40
+                    Width: =340
+                    ZIndex: =4
+
+                    labelBulkFN_1 As label:
+                        Text: =ThisItem.'First Name'
+                        X: =40
+                        ZIndex: =1
+
+                    labelBulkLN_1 As label:
+                        Text: =ThisItem.'Last Name'
+                        X: =190
+                        ZIndex: =2
+
+                    Icon1_1 As icon.Edit:
+                        Height: =40
+                        Icon: =Icon.Edit
+                        OnSelect: |+
+                            =If(
+                                Not(isEditing),
+                                Set(
+                                    formData,
+                                    formVisitor.Updates
+                                ),
+                                true
+                            );
+                            Set(
+                                formDataBulk,
+                                ThisItem
+                            );
+                            
+                        Width: =40
+                        X: =300
+                        ZIndex: =3
+
         pageLongTerm As groupContainer:
             BorderThickness: =3
             Fill: =RGBA(153, 153, 153, 1)
@@ -3048,6 +3098,10 @@ screenRequest As screen:
                                 isReviewPage,
                                 true
                             )
+                        );
+                        Collect(
+                            collectionFormUpdates,
+                            formVisitor.Updates
                         ),
                         Notify(
                             "Required Fields Not Completly Filled",
