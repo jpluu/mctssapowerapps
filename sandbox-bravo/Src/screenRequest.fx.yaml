@@ -540,7 +540,7 @@ screenRequest As screen:
                                 VisitorRequest,
                                 LookUp(
                                     VisitorRequest,
-                                    Title = ThisItem.Title
+                                    Title = formData.Title
                                 ),
                                 If(
                                     ComboBox1_9.Selected.Value = "Other",
