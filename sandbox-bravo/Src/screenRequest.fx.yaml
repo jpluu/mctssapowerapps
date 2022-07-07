@@ -820,6 +820,7 @@ screenRequest As screen:
                         ZIndex: =4
 
                 Title_DataCard3_2 As typedDataCard.textualEditCard:
+                    BorderColor: =If(ThisItem.Title<> DataCardValue1_1.Text, Orange, RGBA(0, 18, 107, 1))
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Title"
                     Default: =ThisItem.Title
@@ -892,6 +893,7 @@ screenRequest As screen:
                         ZIndex: =4
 
                 "'Visit Start Date_DataCard3_1' As typedDataCard.dateEditCard":
+                    BorderColor: =If(Form1_2.Mode = FormMode.Edit && ThisItem.'Visit Start Date' <>DataCardValue16_1.SelectedDate, Orange,  RGBA(0, 18, 107, 1))
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="VisitStartDate"
                     Default: =ThisItem.'Visit Start Date'
