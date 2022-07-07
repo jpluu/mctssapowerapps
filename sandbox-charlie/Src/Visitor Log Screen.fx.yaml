@@ -599,3 +599,19 @@
                 Y: =Parent.TemplateHeight - 1
                 ZIndex: =5
 
+        Button5_1 As button:
+            Height: =288
+            Text: ="Check-out"
+            Width: =384
+            X: =972
+            Y: =292
+            ZIndex: =4
+
+        Button5_2 As button:
+            Height: =288
+            Text: ="Check-in"
+            Width: =384
+            X: =972
+            Y: =4
+            ZIndex: =5
+
