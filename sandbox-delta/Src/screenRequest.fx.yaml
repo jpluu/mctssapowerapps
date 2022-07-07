@@ -3098,14 +3098,17 @@ screenRequest As screen:
                                 isReviewPage,
                                 true
                             )
-                        );
-                        Collect(
-                            collectionFormUpdates,
-                            formVisitor.Updates
                         ),
-                        Notify(
-                            "Required Fields Not Completly Filled",
-                            NotificationType.Warning
+                        If(
+                            isBulk,
+                            Collect(
+                                collectionFormUpdates,
+                                formVisitor.Updates
+                            ),
+                            Notify(
+                                "Required Fields Not Completly Filled",
+                                NotificationType.Warning
+                            )
                         )
                     )
                 PaddingBottom: =10
