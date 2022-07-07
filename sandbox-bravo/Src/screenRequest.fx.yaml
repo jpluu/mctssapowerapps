@@ -621,7 +621,10 @@ screenRequest As screen:
                     Button2_21 As button:
                         Color: =RGBA(0, 0, 0, 1)
                         DisplayMode: |-
-                            =/*If(
+                            =If(Form1_2.Unsaved,
+                                DisplayMode.Edit,
+                                DisplayMode.Disabled)
+                                /*If(
                                 varIsSecurity = true,
                                 DisplayMode.Edit,
                                 DisplayMode.Disabled)*/
@@ -716,7 +719,12 @@ screenRequest As screen:
                         ZIndex: =2
 
                     ComboBox1_8 As combobox:
+                        ChevronFill: =RGBA(56, 96, 178, 1)
                         DisplayFields: =["Value"]
+                        DisplayMode: |-
+                            =If(Form1_2.Unsaved,
+                                DisplayMode.Edit,
+                                DisplayMode.Disabled)
                         Height: =35
                         InputTextPlaceholder: |-
                             ="Reasons for Denial
@@ -749,7 +757,11 @@ screenRequest As screen:
                         BorderColor: =RGBA(184, 0, 0, 1)
                         Color: =RGBA(0, 0, 0, 1)
                         DisplayMode: |-
-                            =/*If(
+                            =If(Form1_2.Unsaved,
+                                DisplayMode.Edit,
+                                DisplayMode.Disabled)
+                                
+                                /*If(
                                 varIsSecurity = true,
                                 DisplayMode.Edit,
                                 DisplayMode.Disabled)
