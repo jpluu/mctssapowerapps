@@ -898,7 +898,7 @@ Screen3 As screen:
 
         "'Middle Name_DataCard3_2' As typedDataCard.textualEditCard":
             BorderColor: |+
-                =If(Form1_3.Mode = FormMode.Edit &&ThisItem.MiddleName<> DataCardValue46_2.Text, Orange, RGBA(0, 18, 107, 1))
+                =If(Form1_3.Mode = FormMode.Edit &&ThisItem.'Middle Name'<> DataCardValue46_2.Text, Orange, RGBA(0, 18, 107, 1))
                 
             BorderStyle: =BorderStyle.Solid
             DataField: ="MiddleName"
@@ -973,7 +973,7 @@ Screen3 As screen:
 
         "'Last Name_DataCard3_2' As typedDataCard.textualEditCard":
             BorderColor: |+
-                =If(Form1_3.Mode = FormMode.Edit &&ThisItem.LastName<> DataCardValue47_2.Text, Orange, RGBA(0, 18, 107, 1))
+                =If(Form1_3.Mode = FormMode.Edit &&ThisItem.'Last Name'<> DataCardValue47_2.Text, Orange, RGBA(0, 18, 107, 1))
                 
             BorderStyle: =BorderStyle.Solid
             DataField: ="LastName"
@@ -1080,7 +1080,7 @@ Screen3 As screen:
                 DisplayMode: =Parent.DisplayMode
                 Fill: =RGBA(0, 0, 0, 0)
                 IsSearchable: =false
-                Items: =Choices([@VisitorRequest].Rank_x002f_Grade)
+                Items: =Choices([@VisitorRequest].'Rank/Grade')
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 SearchFields: =["Value"]
                 SearchItems: =[]
@@ -1301,7 +1301,7 @@ Screen3 As screen:
                 DisplayMode: =Parent.DisplayMode
                 Fill: =RGBA(0, 0, 0, 0)
                 IsSearchable: =false
-                Items: =Choices([@VisitorRequest].DaysaWeekWorkingatMCTSSA)
+                Items: =Choices([@VisitorRequest].'Days a Week Working at MCTSSA')
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 SearchFields: =["Value"]
                 SearchItems: =[]
@@ -1372,7 +1372,7 @@ Screen3 As screen:
                 DisplayMode: =Parent.DisplayMode
                 Fill: =RGBA(0, 0, 0, 0)
                 IsSearchable: =false
-                Items: =Choices([@VisitorRequest].TypeofVisit)
+                Items: =Choices([@VisitorRequest].'Type of Visit')
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 SearchFields: =["Value"]
                 SearchItems: =[]
@@ -1797,7 +1797,7 @@ Screen3 As screen:
                 DisplayMode: =Parent.DisplayMode
                 Fill: =RGBA(0, 0, 0, 0)
                 IsSearchable: =false
-                Items: =Choices([@VisitorRequest].AccessControlPoints)
+                Items: =Choices([@VisitorRequest].'Access Control Points')
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 SearchFields: =["Value"]
                 SearchItems: =[]
@@ -1869,7 +1869,7 @@ Screen3 As screen:
                 DisplayMode: =Parent.DisplayMode
                 Fill: =RGBA(0, 0, 0, 0)
                 IsSearchable: =false
-                Items: =Choices([@VisitorRequest].AssignedtoSection)
+                Items: =Choices([@VisitorRequest].'Assigned to Section')
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 SearchFields: =["DisplayName"]
                 SearchItems: =[]
