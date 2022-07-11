@@ -471,7 +471,7 @@ screenRequest As screen:
                 HoverFill: =ColorFade(RGBA(184, 0, 0, 100), -20%)
                 OnSelect: |-
                     =If(
-                        IsBlank(ComboBox1_9.Selected.Value), Notify("Choose Or Enter A Reason For Denial.", NotificationType.Success),
+                        IsBlank(ComboBox1_9.Selected.Value), Notify("Choose Or Enter A Reason For Denial.", NotificationType.Error),
                         If(
                             Patch(
                                 VisitorRequest,
