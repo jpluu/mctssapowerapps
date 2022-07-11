@@ -1,22 +1,5 @@
 {
-  "31f7c90b-1d61-4a07-b3e0-bfed2adb2c62": {
-    "connectionParameters": {
-      "sku": "Enterprise"
-    },
-    "connectionRef": {
-      "displayName": "Office 365 Outlook",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1580/1.0.1580.2838/office365/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_office365"
-    },
-    "datasets": {},
-    "dataSources": [
-      "Office365Outlook"
-    ],
-    "dependencies": {},
-    "dependents": [],
-    "id": "31f7c90b-1d61-4a07-b3e0-bfed2adb2c62"
-  },
-  "859e6cac-acaf-49d8-b425-8ca150081270": {
+  "383c0c65-32c3-4643-96a7-4d98b37014e1": {
     "connectionParameters": {
       "sku": "Enterprise"
     },
@@ -31,9 +14,26 @@
     ],
     "dependencies": {},
     "dependents": [],
-    "id": "859e6cac-acaf-49d8-b425-8ca150081270"
+    "id": "383c0c65-32c3-4643-96a7-4d98b37014e1"
   },
-  "d4862819-a3d4-4be2-9945-6d502043846d": {
+  "40bd37f2-d7a7-48b1-ae45-a3001e1277d1": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "displayName": "Office 365 Outlook",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1580/1.0.1580.2838/office365/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365"
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Outlook"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "40bd37f2-d7a7-48b1-ae45-a3001e1277d1"
+  },
+  "8e10036d-6ce6-478b-bd6d-b371065c36f3": {
     "connectionParameters": {
       "sku": "Enterprise"
     },
@@ -60,9 +60,9 @@
     ],
     "dependencies": {},
     "dependents": [],
-    "id": "d4862819-a3d4-4be2-9945-6d502043846d"
+    "id": "8e10036d-6ce6-478b-bd6d-b371065c36f3"
   },
-  "dfc54262-25ce-421b-84ab-397173e313f4": {
+  "a386985f-a225-4687-a5b3-282c05287b6a": {
     "connectionParameters": {
       "sku": "Enterprise"
     },
@@ -77,6 +77,6 @@
     ],
     "dependencies": {},
     "dependents": [],
-    "id": "dfc54262-25ce-421b-84ab-397173e313f4"
+    "id": "a386985f-a225-4687-a5b3-282c05287b6a"
   }
 }
