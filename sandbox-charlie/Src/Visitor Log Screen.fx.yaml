@@ -617,7 +617,7 @@
 
         Button5_2 As button:
             Height: =216
-            OnSelect: =Set(checkedIn, true);Set(boolCheck, true)
+            OnSelect: =Set(checkedIn, true);Set(boolCheck, false)
             Text: ="Check-in"
             Visible: =(boolCheck)
             Width: =231
