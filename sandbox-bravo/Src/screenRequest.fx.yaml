@@ -518,7 +518,9 @@ screenRequest As screen:
                             Set(
                                 isModalSecurity,
                                 false
-                            )
+                            );
+                            Reset(ComboBox1_9);
+                            Reset(txt_Denied_9)
                         )
                     )
                     
@@ -639,7 +641,9 @@ screenRequest As screen:
                             Set(
                         isModalSecurity,
                         false
-                    )
+                    );
+                    Reset(ComboBox1_9);
+                    Reset(txt_Denied_9)
                         )
                     
                 PressedColor: =ColorFade(RGBA(54, 176, 75, 100), -20%)
@@ -2739,10 +2743,7 @@ screenRequest As screen:
                 ComboBox1_9 As combobox:
                     ChevronFill: =RGBA(0, 0, 0, 1)
                     DisplayFields: =["Value"]
-                    DisplayMode: |-
-                        =If(Form1_2.Unsaved,
-                            DisplayMode.Disabled,
-                            DisplayMode.Edit)
+                    DisplayMode: =If(Form1_2.Mode <> FormMode.Edit, DisplayMode.Edit, DisplayMode.Disabled)
                     Height: =33
                     InputTextPlaceholder: ="Denial Reason"
                     Items: |-
@@ -2772,6 +2773,7 @@ screenRequest As screen:
 
                 txt_Denied_9 As text:
                     Default: =""
+                    DisplayMode: =If(Form1_2.Mode <> FormMode.Edit, DisplayMode.Edit, DisplayMode.Disabled)
                     Height: =33
                     HintText: ="Denial Reason"
                     Size: =12
@@ -2784,6 +2786,7 @@ screenRequest As screen:
 
                 Icon2_9 As icon.Cancel:
                     Color: =RGBA(0, 0, 0, 1)
+                    DisplayMode: =If(Form1_2.Mode <> FormMode.Edit, DisplayMode.Edit, DisplayMode.Disabled)
                     Height: =33
                     Icon: =Icon.Cancel
                     OnSelect: |-
