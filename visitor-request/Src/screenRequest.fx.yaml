@@ -2043,7 +2043,7 @@ screenRequest As screen:
 
                 "'Contract Number_DataCard2_1' As typedDataCard.textualEditCard":
                     BorderColor: |+
-                        =If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Contract Number'<> DataCardValue52_1.Text, Orange, RGBA(0, 18, 107, 1))
+                        =If(IsBlank(ThisItem.'Contract Number'),RGBA(0, 18, 107, 1),If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Contract Number'<> DataCardValue52_1.Text, Orange, RGBA(0, 18, 107, 1)))
                         
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="ContractNumber"
@@ -2119,7 +2119,7 @@ screenRequest As screen:
 
                 EDIP_DataCard3_1 As typedDataCard.textualEditCard:
                     BorderColor: |+
-                        =If(formSecurity.Mode = FormMode.Edit &&ThisItem.EDIP<> DataCardValue55_1.Text, Orange, RGBA(0, 18, 107, 1))
+                        =If(IsBlank(ThisItem.EDIP),RGBA(0, 18, 107, 1), If(formSecurity.Mode = FormMode.Edit &&ThisItem.EDIP<> DataCardValue55_1.Text, Orange, RGBA(0, 18, 107, 1)))
                         
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="EDIP"
@@ -2195,7 +2195,7 @@ screenRequest As screen:
 
                 Email_DataCard3_1 As typedDataCard.textualEditCard:
                     BorderColor: |+
-                        =If(formSecurity.Mode = FormMode.Edit &&ThisItem.Email<> DataCardValue56_1.Text, Orange, RGBA(0, 18, 107, 1))
+                        =If(IsBlank(ThisItem.Email),RGBA(0, 18, 107, 1), If(formSecurity.Mode = FormMode.Edit &&ThisItem.Email<> DataCardValue56_1.Text, Orange, RGBA(0, 18, 107, 1)))
                         
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Email"
