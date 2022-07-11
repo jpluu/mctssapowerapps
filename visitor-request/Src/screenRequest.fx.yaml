@@ -6069,30 +6069,9 @@ screenRequest As screen:
                 Width: =Parent.Width
                 ZIndex: =4
 
-        pbRequest As componentProgressBar_2:
-            Height: =82
-            inputCurrentStep: |-
-                =If(
-                    isEventPage,
-                    1,
-                    isVisitorPage,
-                    2,
-                    isLongTerm,
-                    If(
-                        isLongTermPage,
-                        3,
-                        isReviewPage,
-                        4,
-                        isAcknowPage,
-                        5
-                    ),
-                    isReviewPage,
-                    3,
-                    isAcknowPage,
-                    4
-                )
-            Width: =877
-            X: =205
-            Y: =586
-            ZIndex: =7
+        pbRequest As componentProgressBar:
+            Width: =966
+            X: =200
+            Y: =565
+            ZIndex: =8
 
