@@ -2037,7 +2037,7 @@ Screen3 As screen:
             ViewForm(formReview);
             */
             
-        Visible: =If(Form1_2.Mode = FormMode.Edit, true, false)
+        Visible: =If(formSecurity.Mode = FormMode.Edit, true, false)
         Width: =52
         X: =1083
         Y: =99
@@ -2046,7 +2046,7 @@ Screen3 As screen:
     IconEdit_5 As icon.Edit:
         Icon: =Icon.Edit
         OnSelect: =EditForm(Form1_3)
-        Visible: =If(Form1_2.Mode = FormMode.Edit, false, true)
+        Visible: =If(formSecurity.Mode = FormMode.Edit, false, true)
         Width: =52
         X: =1083
         Y: =99
