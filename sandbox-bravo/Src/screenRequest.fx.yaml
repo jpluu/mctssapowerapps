@@ -105,6 +105,7 @@ screenRequest As screen:
         Checkbox4 As checkbox:
             BorderColor: =RGBA(0, 0, 0, 0)
             CheckboxBorderColor: =RGBA(0, 0, 0, 0)
+            FontWeight: =FontWeight.Semibold
             Height: =40
             HoverColor: =RGBA(0, 0, 0, 1)
             OnCheck: =Collect(colApprovedFilter,ThisItem)
@@ -2746,6 +2747,7 @@ screenRequest As screen:
                     DisplayMode: =If(Form1_2.Mode <> FormMode.Edit, DisplayMode.Edit, DisplayMode.Disabled)
                     Height: =33
                     InputTextPlaceholder: ="Denial Reason"
+                    IsSearchable: =false
                     Items: |-
                         =Ungroup(
                             Table
@@ -2755,14 +2757,7 @@ screenRequest As screen:
                             "DropdownOptions"
                             ) 
                     SearchFields: =["Value"]
-                    SearchItems: |-
-                        =Search(Ungroup(
-                            Table
-                            ({DropdownOptions: Choices(VisitorRequest.'Denied Reason')}, 
-                            {DropdownOptions: ["Other"]}
-                            ), 
-                            "DropdownOptions"
-                            ) ,ComboBox1_9.SearchText,"Value")
+                    SearchItems: =[]
                     SelectMultiple: =false
                     Size: =12
                     Visible: =Self.Selected.Value<>"Other"
