@@ -653,7 +653,7 @@ screenRequest As screen:
                 Visible: |-
                     =true
                     /*If(
-                        varIsSecurity = true,
+                        isSecurity = true,
                         true,
                         false)
                     
@@ -1287,7 +1287,7 @@ screenRequest As screen:
                         ZIndex: =4
 
                 Sponsor_DataCard3_1 As typedDataCard.comboBoxEditCard:
-                    BorderColor: =//If(Form1_2.Mode = FormMode.Edit && currentUser365.Value <> DataCardValue41_1.Selected.Value, Orange,  RGBA(0, 18, 107, 1))
+                    BorderColor: =If(Form1_2.Mode = FormMode.Edit && formData.Sponsor <> DataCardValue41_1.SelectedItems, Orange, RGBA(0, 18, 107, 1))
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Sponsor"
                     Default: =ThisItem.Sponsor
@@ -1731,6 +1731,7 @@ screenRequest As screen:
                         ZIndex: =4
 
                 "'Rank/Grade_DataCard3_1' As typedDataCard.comboBoxEditCard":
+                    BorderColor: =If(Form1_2.Mode = FormMode.Edit &&ThisItem.'Rank/Grade'.Value<> DataCardValue44_1.Selected.Value, Orange, RGBA(0, 18, 107, 1))
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Rank_x002f_Grade"
                     Default: =ThisItem.'Rank/Grade'
@@ -1952,6 +1953,7 @@ screenRequest As screen:
                         ZIndex: =4
 
                 "'Days a Week Working at MCTSSA_DataCard3_1' As typedDataCard.comboBoxEditCard":
+                    BorderColor: =If(Form1_2.Mode = FormMode.Edit &&ThisItem.'Days a Week Working at MCTSSA'.Value<> DataCardValue54_1.Selected.Value, Orange, RGBA(0, 18, 107, 1))
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="DaysaWeekWorkingatMCTSSA"
                     Default: =ThisItem.'Days a Week Working at MCTSSA'
@@ -2023,6 +2025,7 @@ screenRequest As screen:
                         ZIndex: =4
 
                 "'Type of Visit_DataCard3_1' As typedDataCard.comboBoxEditCard":
+                    BorderColor: =If(Form1_2.Mode = FormMode.Edit &&ThisItem.'Type of Visit'.Value<> DataCardValue57_1.Selected.Value, Orange, RGBA(0, 18, 107, 1))
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="TypeofVisit"
                     Default: =ThisItem.'Type of Visit'
@@ -2447,6 +2450,7 @@ screenRequest As screen:
                         ZIndex: =4
 
                 "'Access Control Points_DataCard3_1' As typedDataCard.comboBoxEditCard":
+                    BorderColor: =If(Form1_2.Mode = FormMode.Edit &&ThisItem.'Access Control Points'.Value<> DataCardValue50_1.Selected.Value, Orange, RGBA(0, 18, 107, 1))
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="AccessControlPoints"
                     Default: =ThisItem.'Access Control Points'
