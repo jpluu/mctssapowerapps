@@ -1,6 +1,6 @@
 {
   "ControlStates": {
-    "Circle2_10": {
+    "Circle2_11": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
         {
@@ -42,7 +42,7 @@
       "IsLocked": false,
       "LayoutName": "",
       "MetaDataIDKey": "",
-      "Name": "Circle2_10",
+      "Name": "Circle2_11",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -125,7 +125,7 @@
       "StyleName": "defaultCircleStyle",
       "Type": "ControlInfo"
     },
-    "Circle2_8": {
+    "Circle2_12": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
         {
@@ -167,7 +167,7 @@
       "IsLocked": false,
       "LayoutName": "",
       "MetaDataIDKey": "",
-      "Name": "Circle2_8",
+      "Name": "Circle2_12",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -250,7 +250,7 @@
       "StyleName": "defaultCircleStyle",
       "Type": "ControlInfo"
     },
-    "collectionESI_1": {
+    "collectionESI_2": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
         "BorderColor",
@@ -294,7 +294,7 @@
       "IsLocked": false,
       "LayoutName": "",
       "MetaDataIDKey": "",
-      "Name": "collectionESI_1",
+      "Name": "collectionESI_2",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -387,7 +387,7 @@
       "StyleName": "",
       "Type": "ControlInfo"
     },
-    "collectionLTAI/R_1": {
+    "collectionLTAI/R_2": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
         "BorderColor",
@@ -424,7 +424,7 @@
       "IsLocked": false,
       "LayoutName": "",
       "MetaDataIDKey": "",
-      "Name": "collectionLTAI/R_1",
+      "Name": "collectionLTAI/R_2",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -517,7 +517,7 @@
       "StyleName": "",
       "Type": "ControlInfo"
     },
-    "collectionVI_1": {
+    "collectionVI_2": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
         "BorderColor",
@@ -554,7 +554,7 @@
       "IsLocked": false,
       "LayoutName": "",
       "MetaDataIDKey": "",
-      "Name": "collectionVI_1",
+      "Name": "collectionVI_2",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -647,7 +647,7 @@
       "StyleName": "",
       "Type": "ControlInfo"
     },
-    "componentProgressBar_1": {
+    "componentProgressBar_2": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
         "Fill",
@@ -687,7 +687,7 @@
       "IsLocked": false,
       "LayoutName": "",
       "MetaDataIDKey": "",
-      "Name": "componentProgressBar_1",
+      "Name": "componentProgressBar_2",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -704,33 +704,33 @@
         {
           "Category": "Design",
           "PropertyName": "Height",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "System"
         },
         {
           "Category": "Design",
           "PropertyName": "Width",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "System"
         },
         {
           "Category": "Design",
           "PropertyName": "X",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "System"
         },
         {
           "Category": "Design",
           "PropertyName": "Y",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "System"
         },
         {
           "Category": "Design",
           "PropertyName": "ZIndex",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "System"
         }
       ],
       "StyleName": "",
       "Type": "ControlInfo"
     },
-    "iconESI_2": {
+    "iconESI_3": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
         "Icon",
@@ -795,7 +795,7 @@
       "IsLocked": false,
       "LayoutName": "",
       "MetaDataIDKey": "",
-      "Name": "iconESI_2",
+      "Name": "iconESI_3",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -923,7 +923,7 @@
       "StyleName": "defaultIconStyle",
       "Type": "ControlInfo"
     },
-    "iconVI_2": {
+    "iconVI_3": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
         "Icon",
@@ -981,7 +981,7 @@
       "IsLocked": false,
       "LayoutName": "",
       "MetaDataIDKey": "",
-      "Name": "iconVI_2",
+      "Name": "iconVI_3",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1109,7 +1109,7 @@
       "StyleName": "defaultIconStyle",
       "Type": "ControlInfo"
     },
-    "labelNewEventName_16": {
+    "labelNewEventName_22": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
         "Live",
@@ -1225,7 +1225,7 @@
       "IsLocked": false,
       "LayoutName": "",
       "MetaDataIDKey": "",
-      "Name": "labelNewEventName_16",
+      "Name": "labelNewEventName_22",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1433,7 +1433,7 @@
       "StyleName": "defaultLabelStyle",
       "Type": "ControlInfo"
     },
-    "labelNewEventName_7": {
+    "labelNewEventName_8": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
         "Live",
@@ -1542,7 +1542,7 @@
       "IsLocked": false,
       "LayoutName": "",
       "MetaDataIDKey": "",
-      "Name": "labelNewEventName_7",
+      "Name": "labelNewEventName_8",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1750,7 +1750,7 @@
       "StyleName": "defaultLabelStyle",
       "Type": "ControlInfo"
     },
-    "rectangleNewEventNameStatusBar_14": {
+    "rectangleNewEventNameStatusBar_15": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
         {
@@ -1827,7 +1827,7 @@
       "IsLocked": false,
       "LayoutName": "",
       "MetaDataIDKey": "",
-      "Name": "rectangleNewEventNameStatusBar_14",
+      "Name": "rectangleNewEventNameStatusBar_15",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1910,7 +1910,7 @@
       "StyleName": "defaultRectangleStyle",
       "Type": "ControlInfo"
     },
-    "rectangleNewEventNameStatusBar_6": {
+    "rectangleNewEventNameStatusBar_7": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
         {
@@ -1987,7 +1987,7 @@
       "IsLocked": false,
       "LayoutName": "",
       "MetaDataIDKey": "",
-      "Name": "rectangleNewEventNameStatusBar_6",
+      "Name": "rectangleNewEventNameStatusBar_7",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2071,5 +2071,5 @@
       "Type": "ControlInfo"
     }
   },
-  "TopParentName": "componentProgressBar_1"
+  "TopParentName": "componentProgressBar_2"
 }
