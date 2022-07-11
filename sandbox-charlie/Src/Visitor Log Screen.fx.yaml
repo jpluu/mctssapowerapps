@@ -496,40 +496,8 @@
             ZIndex: =3
 
         buttonCheckInOut_2 As button:
-            OnSelect: |-
-                =If(
-                    varSelectedVisitor.'Base Status'.Value = "Not Arrived",
-                    Patch(
-                        'Visitor Log',
-                        LookUp(
-                            'Visitor Log',
-                            Title = varSelectedVisitor.Title
-                        ),
-                        {'Base Status': {Value: "On-Base"}}
-                    );
-                    Office365Outlook.SendEmailV2(
-                        varSelectedVisitor.Sponsor.Email,
-                        "Your Visitor " & varSelectedVisitor.'First Name' & " " & varSelectedVisitor.'Last Name' & " has arrived!",
-                        "Greetings " & varSelectedVisitor.Sponsor.DisplayName & "<br> Your visitor " & varSelectedVisitor.'First Name' & " " & varSelectedVisitor.'Last Name' & " has arrived and is ready to be picked up at the sentry station."
-                    ),
-                    If(
-                        varSelectedVisitor.'Base Status'.Value = "On-Base",
-                        Patch(
-                            'Visitor Log',
-                            LookUp(
-                                'Visitor Log',
-                                Title = varSelectedVisitor.Title
-                            ),
-                            {'Base Status': {Value: "Checked-Out"}}
-                        ),
-                        false
-                    )
-                );
-                Set(
-                    boolSentryModal,
-                    false
-                )
-            Text: =If(varSelectedVisitor.'Base Status'.Value = "Not Arrived", "Check-in", If(varSelectedVisitor.'Base Status'.Value = "On-Base", "Check-out", false))
+            OnSelect: =
+            Text: ="Serial"
             X: =868
             Y: =628
             ZIndex: =4
