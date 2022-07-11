@@ -123,7 +123,8 @@ screenRequest As screen:
             Search(
                 Filter(
                     VisitorRequest,
-                    IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value
+                    IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
+                     IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate
                 ),
                 searchBarRequest.Text,
                 "LastName",
@@ -132,108 +133,6 @@ screenRequest As screen:
             ),
             "LastName",
                 Ascending)
-                /*
-                SortByColumns(
-            Search(
-                Filter(
-                    VisitorRequest,
-                    IsBlank(ComboBox1_4.SelectedItems) || IsEmpty(ComboBox1_4.SelectedItems) || Approved.Value in ComboBox1_4.SelectedItems.Value
-                ),
-                searchBarRequest.Text,
-                "LastName",
-                "FirstName",
-                "Title"
-            ),
-            "LastName",
-                Ascending)
-                */
-            
-            
-            /*SortByColumns(
-                If( 
-                    IsBlank(searchBarRequest.Text) && ddDateFilter.Selected.Value = "All",
-                        Filter(
-                        VisitorRequest,
-                        Approved.Value = VarStatus),
-                    If(
-                        IsBlank(searchBarRequest.Text) && ddDateFilter.Selected.Value = "This Month",
-                        With(
-                            {
-                                StartDate: Date(
-                                    Year(Today()),
-                                    Month(Today()),
-                                    1
-                                ),
-                                EndDate: Date(
-                                    Year(Today()),
-                                    Month(Today()) + 1,
-                                    1
-                                ) - 1
-                            },
-                            Filter(
-                                VisitorRequest,
-                                'Visit Start Date' >= StartDate,
-                                'Visit Start Date' <= EndDate,
-                                 Approved.Value = VarStatus
-                            )
-                        ),
-                        If(
-                            IsBlank(searchBarRequest.Text) && ddDateFilter.Selected.Value = "Next Month",
-                            With(
-                                {
-                                    StartDate: Date(
-                                        Year(Today()),
-                                        Month(Today()) + 1,
-                                        1
-                                    ),
-                                    EndDate: Date(
-                                        Year(Today()),
-                                        Month(Today()) + 2,
-                                        1
-                                    ) - 1
-                                },
-                                Filter(
-                                    VisitorRequest,
-                                    'Visit Start Date' >= StartDate,
-                                    'Visit Start Date' <= EndDate,
-                                     Approved.Value = VarStatus
-                                )
-                            ),
-                            If(
-                                IsBlank(searchBarRequest.Text) && ddDateFilter.Selected.Value = "Next Quarter",
-                                With(
-                                    {
-                                        StartDate: Date(
-                                            Year(Today()),
-                                            Month(Today()),
-                                            Day(Today())
-                                        ),
-                                        EndDate: Date(
-                                            Year(Today()),
-                                            Month(Today()) + 3,
-                                            Day(Today())
-                                        ) - 1
-                                    },
-                                    Filter(
-                                        VisitorRequest,
-                                        'Visit Start Date' >= StartDate,
-                                        'Visit Start Date' <= EndDate,
-                                         Approved.Value = VarStatus
-                                    )
-                                ),
-                                Search(
-                                    VisitorRequest,
-                                    searchBarRequest.Text,
-                                    "LastName","FirstName","Title"
-                                )
-                            )
-                        )
-                    )
-                ),
-                "LastName",
-                Ascending
-            )
-            */
         Layout: =Layout.Vertical
         TemplateFill: |+
             =Switch(ThisItem.Approved.Value,
@@ -328,7 +227,8 @@ screenRequest As screen:
                 Set(isModalSecurity, true),
                 Set(isModalRequest, true);
                 Set(isEventPage, true));
-                ViewForm(Form1_2)
+                
+                ViewForm(Form1_2);
                     
             PaddingBottom: =10
             PaddingLeft: =10
@@ -3665,7 +3565,7 @@ screenRequest As screen:
                 HoverFill: =ColorFade(RGBA(184, 0, 0, 100), -20%)
                 OnSelect: |-
                     =If(
-                        IsBlank(ComboBox1_9.Selected.Value), Notify("Choose Or Enter A Reason For Denial.", NotificationType.Success),
+                        IsBlank(ComboBox1_9.Selected.Value), Notify("Choose Or Enter A Reason For Denial.", NotificationType.Error),
                         If(
                             Patch(
                                 VisitorRequest,
