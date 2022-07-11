@@ -18,11 +18,11 @@
         FormViewer1_2 As formViewer:
             DataSource: ='Visitor Log'
             Fill: =RGBA(255, 255, 255, 1)
-            Height: =562
+            Height: =537
             Item: =varSelectedVisitor
-            Width: =536
-            X: =528
-            Y: =170
+            Width: =577
+            X: =525
+            Y: =151
             ZIndex: =2
 
             "'First Name_DataCard2_2' As typedDataCard.textualViewCard":
@@ -35,7 +35,7 @@
                 Height: =40
                 Required: =true
                 Visible: =boolSentryModal
-                Width: =182
+                Width: =192
                 X: =0
                 Y: =0
                 ZIndex: =1
@@ -73,7 +73,7 @@
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =40
                 Required: =true
-                Width: =182
+                Width: =192
                 X: =1
                 Y: =0
                 ZIndex: =1
@@ -111,7 +111,7 @@
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =40
                 Required: =false
-                Width: =182
+                Width: =192
                 X: =2
                 Y: =0
                 ZIndex: =1
@@ -150,7 +150,7 @@
                 Height: =50
                 Required: =true
                 Update: =DataCardValue61_1.Selected
-                Width: =182
+                Width: =192
                 X: =0
                 Y: =1
                 ZIndex: =1
@@ -216,7 +216,7 @@
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =40
                 Required: =true
-                Width: =182
+                Width: =192
                 X: =1
                 Y: =1
                 ZIndex: =1
@@ -239,6 +239,7 @@
                     PaddingRight: =0
                     PaddingTop: =0
                     Text: =Parent.Default
+                    Visible: =boolSentryModal
                     Width: =Parent.Width - 60
                     X: =30
                     Y: =DataCardKey68_1.Y + DataCardKey68_1.Height + 5
@@ -253,7 +254,7 @@
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =40
                 Required: =true
-                Width: =182
+                Width: =192
                 X: =2
                 Y: =1
                 ZIndex: =1
@@ -291,7 +292,7 @@
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
-                Width: =182
+                Width: =192
                 X: =0
                 Y: =2
                 ZIndex: =1
@@ -324,7 +325,7 @@
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
-                Width: =182
+                Width: =192
                 X: =1
                 Y: =2
                 ZIndex: =1
@@ -332,7 +333,7 @@
                 DataCardKey72_1 As label:
                     AutoHeight: =true
                     Height: =34
-                    Text: =Parent.DisplayName
+                    Text: ="Long Term?"
                     Width: =Parent.Width - 60
                     Wrap: =false
                     X: =30
@@ -357,7 +358,7 @@
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
                 Required: =false
-                Width: =182
+                Width: =192
                 X: =2
                 Y: =2
                 ZIndex: =1
@@ -390,7 +391,7 @@
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =40
                 Required: =true
-                Width: =182
+                Width: =192
                 X: =0
                 Y: =3
                 ZIndex: =1
@@ -427,7 +428,7 @@
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =40
                 Required: =true
-                Width: =182
+                Width: =192
                 X: =1
                 Y: =3
                 ZIndex: =1
@@ -490,9 +491,48 @@
                     false
                 )
             Text: =If(varSelectedVisitor.'Base Status'.Value = "Not Arrived", "Check-in", If(varSelectedVisitor.'Base Status'.Value = "On-Base", "Check-out", false))
-            X: =700
-            Y: =675
+            X: =672
+            Y: =628
             ZIndex: =3
+
+        buttonCheckInOut_2 As button:
+            OnSelect: |-
+                =If(
+                    varSelectedVisitor.'Base Status'.Value = "Not Arrived",
+                    Patch(
+                        'Visitor Log',
+                        LookUp(
+                            'Visitor Log',
+                            Title = varSelectedVisitor.Title
+                        ),
+                        {'Base Status': {Value: "On-Base"}}
+                    );
+                    Office365Outlook.SendEmailV2(
+                        varSelectedVisitor.Sponsor.Email,
+                        "Your Visitor " & varSelectedVisitor.'First Name' & " " & varSelectedVisitor.'Last Name' & " has arrived!",
+                        "Greetings " & varSelectedVisitor.Sponsor.DisplayName & "<br> Your visitor " & varSelectedVisitor.'First Name' & " " & varSelectedVisitor.'Last Name' & " has arrived and is ready to be picked up at the sentry station."
+                    ),
+                    If(
+                        varSelectedVisitor.'Base Status'.Value = "On-Base",
+                        Patch(
+                            'Visitor Log',
+                            LookUp(
+                                'Visitor Log',
+                                Title = varSelectedVisitor.Title
+                            ),
+                            {'Base Status': {Value: "Checked-Out"}}
+                        ),
+                        false
+                    )
+                );
+                Set(
+                    boolSentryModal,
+                    false
+                )
+            Text: =If(varSelectedVisitor.'Base Status'.Value = "Not Arrived", "Check-in", If(varSelectedVisitor.'Base Status'.Value = "On-Base", "Check-out", false))
+            X: =868
+            Y: =628
+            ZIndex: =4
 
     coreVisitorLog As group:
         Height: =5
@@ -542,7 +582,7 @@
             TemplateSize: =Min(130, Self.Height - 60)
             Width: =468
             X: =40
-            Y: =60
+            Y: =56
             ZIndex: =2
 
             Title2_1 As label:
@@ -600,18 +640,18 @@
                 ZIndex: =5
 
         Button5_1 As button:
-            Height: =288
+            Height: =196
             Text: ="Check-out"
-            Width: =384
-            X: =972
-            Y: =292
+            Width: =215
+            X: =1096
+            Y: =298
             ZIndex: =4
 
         Button5_2 As button:
-            Height: =288
+            Height: =196
             Text: ="Check-in"
-            Width: =384
-            X: =972
-            Y: =4
+            Width: =215
+            X: =1096
+            Y: =102
             ZIndex: =5
 
