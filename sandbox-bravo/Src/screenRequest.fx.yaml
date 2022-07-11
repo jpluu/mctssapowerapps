@@ -2597,7 +2597,7 @@ screenRequest As screen:
                     DisplayMode: =Parent.DisplayMode
                     DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"Acknowledgement")
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
+                    Height: =180
                     Required: =false
                     Update: =DataCardValue60_2.Value
                     Width: |
