@@ -3682,8 +3682,8 @@ screenRequest As screen:
                         true,
                         false)*/
                 Width: =193
-                X: =815
-                Y: =516
+                X: =775
+                Y: =476
                 ZIndex: =4
 
             buttonApproved As button:
@@ -3754,8 +3754,8 @@ screenRequest As screen:
                     
                     person. email */
                 Width: =193
-                X: =228
-                Y: =520
+                X: =188
+                Y: =483
                 ZIndex: =5
 
             labelSecurity As label:
@@ -3769,7 +3769,6 @@ screenRequest As screen:
                         "Request Approval Page",
                         "Review")
                 Width: =Parent.Width
-                Y: =40
                 ZIndex: =6
 
             formSecurity As form:
@@ -3785,7 +3784,7 @@ screenRequest As screen:
                     ViewForm(formSecurity);
                     Notify("Request Approval Page Was Succesfully Saved.", NotificationType.Success);
                 Width: =1166
-                Y: =104
+                Y: =64
                 ZIndex: =7
 
                 DataCard1_1 As typedDataCard.blankCard:
@@ -3793,7 +3792,7 @@ screenRequest As screen:
                     DisplayMode: =DisplayMode.Edit
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =88
-                    Width: =583
+                    Width: =1166
                     X: =0
                     Y: =0
                     ZIndex: =1
@@ -3821,9 +3820,9 @@ screenRequest As screen:
                     DisplayMode: =DisplayMode.Edit
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =130
-                    Width: =583
-                    X: =1
-                    Y: =3
+                    Width: =1166
+                    X: =0
+                    Y: =4
                     ZIndex: =1
 
                     Label2_26 As label:
@@ -3850,9 +3849,9 @@ screenRequest As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =130
                     Visible: =isLongTerm
-                    Width: =583
-                    X: =1
-                    Y: =8
+                    Width: =1166
+                    X: =0
+                    Y: =10
                     ZIndex: =1
 
                     Label2_25 As label:
@@ -3877,9 +3876,9 @@ screenRequest As screen:
                     DisplayMode: =DisplayMode.Edit
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =130
-                    Width: =583
+                    Width: =1166
                     X: =0
-                    Y: =9
+                    Y: =14
                     ZIndex: =1
 
                     Label2_24 As label:
@@ -3908,8 +3907,8 @@ screenRequest As screen:
                         =130
                     Visible: =false
                     Width: =583
-                    X: =0
-                    Y: =13
+                    X: =1
+                    Y: =15
                     ZIndex: =1
 
                     Label2_23 As label:
@@ -3937,8 +3936,8 @@ screenRequest As screen:
                     Height: =200
                     Visible: =false
                     Width: =583
-                    X: =1
-                    Y: =13
+                    X: =0
+                    Y: =16
                     ZIndex: =1
 
                     Button2_21 As button:
@@ -4016,8 +4015,8 @@ screenRequest As screen:
                     Height: =200
                     Visible: =false
                     Width: =583
-                    X: =0
-                    Y: =14
+                    X: =1
+                    Y: =16
                     ZIndex: =1
 
                     ComboBox1_8 As combobox:
@@ -4177,8 +4176,8 @@ screenRequest As screen:
                     Required: =true
                     Update: =DataCardValue1_1.Text
                     Width: =583
-                    X: =1
-                    Y: =0
+                    X: =0
+                    Y: =1
                     ZIndex: =2
 
                     DataCardKey43_1 As label:
@@ -4249,7 +4248,7 @@ screenRequest As screen:
                     Required: =false
                     Update: =DataCardValue16_1.SelectedDate
                     Width: =583
-                    X: =0
+                    X: =1
                     Y: =1
                     ZIndex: =2
 
@@ -4319,8 +4318,8 @@ screenRequest As screen:
                     Required: =false
                     Update: =DataCardValue40_1.SelectedDate
                     Width: =583
-                    X: =1
-                    Y: =1
+                    X: =0
+                    Y: =2
                     ZIndex: =2
 
                     DataCardKey45_1 As label:
@@ -4389,7 +4388,7 @@ screenRequest As screen:
                     Required: =false
                     Update: =DataCardValue41_1.Selected
                     Width: =583
-                    X: =0
+                    X: =1
                     Y: =2
                     ZIndex: =2
 
@@ -4466,8 +4465,8 @@ screenRequest As screen:
                     Required: =false
                     Update: =DataCardValue43_1.Text
                     Width: =583
-                    X: =1
-                    Y: =2
+                    X: =0
+                    Y: =3
                     ZIndex: =2
 
                     DataCardKey48_1 As label:
@@ -4537,7 +4536,7 @@ screenRequest As screen:
                     Required: =false
                     Update: =DataCardValue42_1.Selected
                     Width: =583
-                    X: =0
+                    X: =1
                     Y: =3
                     ZIndex: =2
 
@@ -4612,7 +4611,7 @@ screenRequest As screen:
                     Update: =DataCardValue45_1.Text
                     Width: =583
                     X: =0
-                    Y: =4
+                    Y: =5
                     ZIndex: =2
 
                     DataCardKey50_1 As label:
@@ -4687,7 +4686,7 @@ screenRequest As screen:
                     Update: =DataCardValue46_1.Text
                     Width: =583
                     X: =1
-                    Y: =4
+                    Y: =5
                     ZIndex: =2
 
                     DataCardKey51_1 As label:
@@ -4762,7 +4761,7 @@ screenRequest As screen:
                     Update: =DataCardValue47_1.Text
                     Width: =583
                     X: =0
-                    Y: =5
+                    Y: =6
                     ZIndex: =2
 
                     DataCardKey52_1 As label:
@@ -4833,7 +4832,7 @@ screenRequest As screen:
                     Update: =DataCardValue44_1.Selected
                     Width: =583
                     X: =1
-                    Y: =5
+                    Y: =6
                     ZIndex: =2
 
                     DataCardKey49_1 As label:
@@ -4908,7 +4907,7 @@ screenRequest As screen:
                     Update: =DataCardValue48_1.Text
                     Width: =583
                     X: =0
-                    Y: =6
+                    Y: =7
                     ZIndex: =2
 
                     DataCardKey53_1 As label:
@@ -4983,7 +4982,7 @@ screenRequest As screen:
                     Update: =DataCardValue51_1.Text
                     Width: =583
                     X: =1
-                    Y: =6
+                    Y: =7
                     ZIndex: =2
 
                     DataCardKey56_1 As label:
@@ -5054,7 +5053,7 @@ screenRequest As screen:
                     Update: =DataCardValue54_1.Selected
                     Width: =583
                     X: =0
-                    Y: =7
+                    Y: =8
                     ZIndex: =2
 
                     DataCardKey59_1 As label:
@@ -5125,7 +5124,7 @@ screenRequest As screen:
                     Update: =DataCardValue57_1.Selected
                     Width: =583
                     X: =1
-                    Y: =7
+                    Y: =8
                     ZIndex: =2
 
                     DataCardKey62_1 As label:
@@ -5194,9 +5193,9 @@ screenRequest As screen:
                     Height: =130
                     Required: =false
                     Update: =DataCardValue58_1.Value
-                    Width: =583
+                    Width: =1166
                     X: =0
-                    Y: =8
+                    Y: =9
                     ZIndex: =2
 
                     DataCardKey63_1 As label:
@@ -5262,8 +5261,8 @@ screenRequest As screen:
                     Update: =DataCardValue52_1.Text
                     Visible: =isLongTerm
                     Width: =583
-                    X: =1
-                    Y: =9
+                    X: =0
+                    Y: =11
                     ZIndex: =2
 
                     DataCardKey57_1 As label:
@@ -5338,8 +5337,8 @@ screenRequest As screen:
                     Update: =DataCardValue55_1.Text
                     Visible: =isLongTerm
                     Width: =583
-                    X: =0
-                    Y: =10
+                    X: =1
+                    Y: =11
                     ZIndex: =2
 
                     DataCardKey60_1 As label:
@@ -5414,8 +5413,8 @@ screenRequest As screen:
                     Update: =DataCardValue56_1.Text
                     Visible: =isLongTerm
                     Width: =583
-                    X: =1
-                    Y: =10
+                    X: =0
+                    Y: =12
                     ZIndex: =2
 
                     DataCardKey61_1 As label:
@@ -5486,8 +5485,8 @@ screenRequest As screen:
                     Update: =DataCardValue49_1.Value
                     Visible: =isLongTerm
                     Width: =583
-                    X: =0
-                    Y: =11
+                    X: =1
+                    Y: =12
                     ZIndex: =2
 
                     DataCardKey54_1 As label:
@@ -5549,8 +5548,8 @@ screenRequest As screen:
                     Update: =DataCardValue50_1.Selected
                     Visible: =isLongTerm
                     Width: =583
-                    X: =1
-                    Y: =11
+                    X: =0
+                    Y: =13
                     ZIndex: =2
 
                     DataCardKey55_1 As label:
@@ -5621,8 +5620,8 @@ screenRequest As screen:
                     Update: =DataCardValue53_1.Selected
                     Visible: =isLongTerm
                     Width: =583
-                    X: =0
-                    Y: =12
+                    X: =1
+                    Y: =13
                     ZIndex: =2
 
                     DataCardKey58_1 As label:
@@ -5693,8 +5692,8 @@ screenRequest As screen:
                     Required: =false
                     Update: =DataCardValue60_2.Value
                     Width: =583
-                    X: =1
-                    Y: =12
+                    X: =0
+                    Y: =15
                     ZIndex: =2
 
                     DataCardKey65_2 As label:
@@ -5852,8 +5851,8 @@ screenRequest As screen:
                     Size: =12
                     Visible: =Self.Selected.Value<>"Other"
                     Width: =193
-                    X: =815
-                    Y: =535
+                    X: =775
+                    Y: =533
                     ZIndex: =1
 
                 txt_Denied_9 As text:
@@ -5865,7 +5864,7 @@ screenRequest As screen:
                     Visible: |
                         =!ComboBox1_9.Visible
                     Width: =190
-                    X: =815
+                    X: =775
                     Y: =535
                     ZIndex: =2
 
@@ -5879,7 +5878,7 @@ screenRequest As screen:
                         Reset(txt_Denied_9);
                     Visible: =!ComboBox1_9.Visible 
                     Width: =15
-                    X: =981
+                    X: =941
                     Y: =535
                     ZIndex: =3
 
