@@ -334,7 +334,7 @@ screenRequest As screen:
                 Set(isModalSecurity, true),
                 Set(isModalRequest, true);
                 Set(isEventPage, true));
-                ViewForm(Form1_2)
+                ViewForm(formSecurity)
                 
                 
                 /*If(isSecurity,
@@ -454,7 +454,7 @@ screenRequest As screen:
                 Color: =RGBA(0, 0, 0, 1)
                 DisplayMode: |-
                     =
-                    If(Form1_2.Mode <> FormMode.Edit, DisplayMode.Edit, DisplayMode.Disabled)
+                    If(formSecurity.Mode <> FormMode.Edit, DisplayMode.Edit, DisplayMode.Disabled)
                     
                     /*If(Form1_2.Unsaved,
                         DisplayMode.Disabled,
@@ -596,7 +596,7 @@ screenRequest As screen:
             Button2_22 As button:
                 Color: =RGBA(0, 0, 0, 1)
                 DisplayMode: |-
-                    =If(Form1_2.Mode <> FormMode.Edit, DisplayMode.Edit, DisplayMode.Disabled)
+                    =If(formSecurity.Mode <> FormMode.Edit, DisplayMode.Edit, DisplayMode.Disabled)
                     
                     //DisplayMode.Edit
                     //If(Form1_2.Unsaved,
@@ -678,7 +678,7 @@ screenRequest As screen:
                 Width: =Parent.Width
                 ZIndex: =6
 
-            Form1_2 As form:
+            formSecurity As form:
                 DataSource: =VisitorRequest
                 DefaultMode: =FormMode.View
                 Height: =404
@@ -687,8 +687,8 @@ screenRequest As screen:
                 OnFailure: |-
                     =Notify("Error: Request Approval Page Was Not Saved.", NotificationType.Error);
                 OnSuccess: |
-                    =Set(formData, Form1_2.LastSubmit);
-                    ViewForm(Form1_2);
+                    =Set(formData, formSecurity.LastSubmit);
+                    ViewForm(formSecurity);
                     Notify("Request Approval Page Was Succesfully Saved.", NotificationType.Success);
                 Width: =1166
                 Y: =64
@@ -699,7 +699,7 @@ screenRequest As screen:
                     DisplayMode: =DisplayMode.Edit
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =88
-                    Width: =App.Width
+                    Width: =pageSecurity_3.Width
                     X: =0
                     Y: =0
                     ZIndex: =1
@@ -726,11 +726,11 @@ screenRequest As screen:
                     BorderStyle: =BorderStyle.Solid
                     DisplayMode: =DisplayMode.Edit
                     Fill: =RGBA(0, 0, 0, 0)
-                    Height: =130
-                    Width: |
-                        =App.Width
-                    X: =0
-                    Y: =4
+                    Height: |
+                        =130
+                    Width: =pageSecurity_3.Width
+                    X: =1
+                    Y: =3
                     ZIndex: =1
 
                     Label2_26 As label:
@@ -757,9 +757,10 @@ screenRequest As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =130
                     Visible: =isLongTerm
-                    Width: =1166
-                    X: =0
-                    Y: =10
+                    Width: |
+                        =pageSecurity_3.Width
+                    X: =1
+                    Y: =8
                     ZIndex: =1
 
                     Label2_25 As label:
@@ -784,10 +785,9 @@ screenRequest As screen:
                     DisplayMode: =DisplayMode.Edit
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =130
-                    Width: |
-                        =App.Width
+                    Width: =pageSecurity_3.Width
                     X: =0
-                    Y: =14
+                    Y: =12
                     ZIndex: =1
 
                     Label2_24 As label:
@@ -815,10 +815,9 @@ screenRequest As screen:
                     Height: |
                         =130
                     Visible: =false
-                    Width: |
-                        =App.Width
+                    Width: =583
                     X: =0
-                    Y: =16
+                    Y: =13
                     ZIndex: =1
 
                     Label2_23 As label:
@@ -846,8 +845,8 @@ screenRequest As screen:
                     Height: =200
                     Visible: =false
                     Width: =583
-                    X: =0
-                    Y: =17
+                    X: =1
+                    Y: =13
                     ZIndex: =1
 
                     Button2_21 As button:
@@ -925,15 +924,15 @@ screenRequest As screen:
                     Height: =200
                     Visible: =false
                     Width: =583
-                    X: =1
-                    Y: =17
+                    X: =0
+                    Y: =14
                     ZIndex: =1
 
                     ComboBox1_8 As combobox:
                         ChevronFill: =RGBA(0, 0, 0, 1)
                         DisplayFields: =["Value"]
                         DisplayMode: |-
-                            =If(Form1_2.Unsaved,
+                            =If(formSecurity.Unsaved,
                                 DisplayMode.Disabled,
                                 DisplayMode.Edit)
                         Height: =35
@@ -1074,7 +1073,7 @@ screenRequest As screen:
                         ZIndex: =4
 
                 Title_DataCard3_2 As typedDataCard.textualEditCard:
-                    BorderColor: =If(Form1_2.Mode = FormMode.Edit &&ThisItem.Title<> DataCardValue1_1.Text, Orange, RGBA(0, 18, 107, 1))
+                    BorderColor: =If(formSecurity.Mode = FormMode.Edit &&ThisItem.Title<> DataCardValue1_1.Text, Orange, RGBA(0, 18, 107, 1))
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Title"
                     Default: =ThisItem.Title
@@ -1086,8 +1085,8 @@ screenRequest As screen:
                     Required: =true
                     Update: =DataCardValue1_1.Text
                     Width: =583
-                    X: =0
-                    Y: =1
+                    X: =1
+                    Y: =0
                     ZIndex: =2
 
                     DataCardKey43_1 As label:
@@ -1147,7 +1146,7 @@ screenRequest As screen:
                         ZIndex: =4
 
                 "'Visit Start Date_DataCard3_1' As typedDataCard.dateEditCard":
-                    BorderColor: =If(Form1_2.Mode = FormMode.Edit && ThisItem.'Visit Start Date' <>DataCardValue16_1.SelectedDate, Orange,  RGBA(0, 18, 107, 1))
+                    BorderColor: =If(formSecurity.Mode = FormMode.Edit && ThisItem.'Visit Start Date' <>DataCardValue16_1.SelectedDate, Orange,  RGBA(0, 18, 107, 1))
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="VisitStartDate"
                     Default: =ThisItem.'Visit Start Date'
@@ -1158,7 +1157,7 @@ screenRequest As screen:
                     Required: =false
                     Update: =DataCardValue16_1.SelectedDate
                     Width: =583
-                    X: =1
+                    X: =0
                     Y: =1
                     ZIndex: =2
 
@@ -1217,7 +1216,7 @@ screenRequest As screen:
                         ZIndex: =4
 
                 "'Visit End Date_DataCard3_1' As typedDataCard.dateEditCard":
-                    BorderColor: =If(Form1_2.Mode = FormMode.Edit && ThisItem.'Visit End Date' <>DataCardValue40_1.SelectedDate, Orange,  RGBA(0, 18, 107, 1))
+                    BorderColor: =If(formSecurity.Mode = FormMode.Edit && ThisItem.'Visit End Date' <>DataCardValue40_1.SelectedDate, Orange,  RGBA(0, 18, 107, 1))
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="VisitEndDate"
                     Default: =ThisItem.'Visit End Date'
@@ -1228,8 +1227,8 @@ screenRequest As screen:
                     Required: =false
                     Update: =DataCardValue40_1.SelectedDate
                     Width: =583
-                    X: =0
-                    Y: =2
+                    X: =1
+                    Y: =1
                     ZIndex: =2
 
                     DataCardKey45_1 As label:
@@ -1287,7 +1286,7 @@ screenRequest As screen:
                         ZIndex: =4
 
                 Sponsor_DataCard3_1 As typedDataCard.comboBoxEditCard:
-                    BorderColor: =If(Form1_2.Mode = FormMode.Edit && formData.Sponsor <> DataCardValue41_1.SelectedItems, Orange, RGBA(0, 18, 107, 1))
+                    BorderColor: =If(formSecurity.Mode = FormMode.Edit && formData.Sponsor <> DataCardValue41_1.SelectedItems, Orange, RGBA(0, 18, 107, 1))
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Sponsor"
                     Default: =ThisItem.Sponsor
@@ -1298,7 +1297,7 @@ screenRequest As screen:
                     Required: =false
                     Update: =DataCardValue41_1.Selected
                     Width: =583
-                    X: =1
+                    X: =0
                     Y: =2
                     ZIndex: =2
 
@@ -1361,7 +1360,7 @@ screenRequest As screen:
 
                 "'Sponsor Phone Number_DataCard3_1' As typedDataCard.textualEditCard":
                     BorderColor: |-
-                        =If(Form1_2.Mode = FormMode.Edit &&ThisItem.'Sponsor Phone Number'<>DataCardValue43_1.Text, Orange, RGBA(0, 18, 107, 1))
+                        =If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Sponsor Phone Number'<>DataCardValue43_1.Text, Orange, RGBA(0, 18, 107, 1))
                         
                         //RGBA(0, 18, 107, 1)
                     BorderStyle: =BorderStyle.Solid
@@ -1375,8 +1374,8 @@ screenRequest As screen:
                     Required: =false
                     Update: =DataCardValue43_1.Text
                     Width: =583
-                    X: =0
-                    Y: =3
+                    X: =1
+                    Y: =2
                     ZIndex: =2
 
                     DataCardKey48_1 As label:
@@ -1446,7 +1445,7 @@ screenRequest As screen:
                     Required: =false
                     Update: =DataCardValue42_1.Selected
                     Width: =583
-                    X: =1
+                    X: =0
                     Y: =3
                     ZIndex: =2
 
@@ -1508,7 +1507,7 @@ screenRequest As screen:
                         ZIndex: =4
 
                 "'First Name_DataCard3_1' As typedDataCard.textualEditCard":
-                    BorderColor: =If(Form1_2.Mode = FormMode.Edit &&ThisItem.FirstName<> DataCardValue45_1.Text, Orange, RGBA(0, 18, 107, 1))
+                    BorderColor: =If(formSecurity.Mode = FormMode.Edit &&ThisItem.FirstName<> DataCardValue45_1.Text, Orange, RGBA(0, 18, 107, 1))
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="FirstName"
                     Default: =ThisItem.'First Name'
@@ -1521,7 +1520,7 @@ screenRequest As screen:
                     Update: =DataCardValue45_1.Text
                     Width: =583
                     X: =0
-                    Y: =5
+                    Y: =4
                     ZIndex: =2
 
                     DataCardKey50_1 As label:
@@ -1582,7 +1581,7 @@ screenRequest As screen:
 
                 "'Middle Name_DataCard3_1' As typedDataCard.textualEditCard":
                     BorderColor: |+
-                        =If(IsBlank(ThisItem.'Middle Name'), RGBA(0, 18, 107, 1), If(Form1_2.Mode = FormMode.Edit &&ThisItem.MiddleName<> DataCardValue46_1.Text, Orange, RGBA(0, 18, 107, 1)))
+                        =If(IsBlank(ThisItem.'Middle Name'), RGBA(0, 18, 107, 1), If(formSecurity.Mode = FormMode.Edit &&ThisItem.MiddleName<> DataCardValue46_1.Text, Orange, RGBA(0, 18, 107, 1)))
                         
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="MiddleName"
@@ -1596,7 +1595,7 @@ screenRequest As screen:
                     Update: =DataCardValue46_1.Text
                     Width: =583
                     X: =1
-                    Y: =5
+                    Y: =4
                     ZIndex: =2
 
                     DataCardKey51_1 As label:
@@ -1657,7 +1656,7 @@ screenRequest As screen:
 
                 "'Last Name_DataCard3_1' As typedDataCard.textualEditCard":
                     BorderColor: |+
-                        =If(Form1_2.Mode = FormMode.Edit &&ThisItem.LastName<> DataCardValue47_1.Text, Orange, RGBA(0, 18, 107, 1))
+                        =If(formSecurity.Mode = FormMode.Edit &&ThisItem.LastName<> DataCardValue47_1.Text, Orange, RGBA(0, 18, 107, 1))
                         
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="LastName"
@@ -1671,7 +1670,7 @@ screenRequest As screen:
                     Update: =DataCardValue47_1.Text
                     Width: =583
                     X: =0
-                    Y: =6
+                    Y: =5
                     ZIndex: =2
 
                     DataCardKey52_1 As label:
@@ -1731,7 +1730,7 @@ screenRequest As screen:
                         ZIndex: =4
 
                 "'Rank/Grade_DataCard3_1' As typedDataCard.comboBoxEditCard":
-                    BorderColor: =If(Form1_2.Mode = FormMode.Edit &&ThisItem.'Rank/Grade'.Value<> DataCardValue44_1.Selected.Value, Orange, RGBA(0, 18, 107, 1))
+                    BorderColor: =If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Rank/Grade'.Value<> DataCardValue44_1.Selected.Value, Orange, RGBA(0, 18, 107, 1))
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Rank_x002f_Grade"
                     Default: =ThisItem.'Rank/Grade'
@@ -1743,7 +1742,7 @@ screenRequest As screen:
                     Update: =DataCardValue44_1.Selected
                     Width: =583
                     X: =1
-                    Y: =6
+                    Y: =5
                     ZIndex: =2
 
                     DataCardKey49_1 As label:
@@ -1804,7 +1803,7 @@ screenRequest As screen:
 
                 "'Company/Organization_DataCard3_1' As typedDataCard.textualEditCard":
                     BorderColor: |+
-                        =If(Form1_2.Mode = FormMode.Edit &&ThisItem.'Company/Organization'<> DataCardValue48_1.Text, Orange, RGBA(0, 18, 107, 1))
+                        =If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Company/Organization'<> DataCardValue48_1.Text, Orange, RGBA(0, 18, 107, 1))
                         
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Company_x002f_Organization"
@@ -1818,7 +1817,7 @@ screenRequest As screen:
                     Update: =DataCardValue48_1.Text
                     Width: =583
                     X: =0
-                    Y: =7
+                    Y: =6
                     ZIndex: =2
 
                     DataCardKey53_1 As label:
@@ -1879,7 +1878,7 @@ screenRequest As screen:
 
                 "'Company/Organization Phone Number_DataCard3_1' As typedDataCard.textualEditCard":
                     BorderColor: |+
-                        =If(IsBlank(ThisItem.'Company/Organization Phone Number'), RGBA(0, 18, 107, 1), If(Form1_2.Mode = FormMode.Edit &&ThisItem.'Company/Organization Phone Number'<> DataCardValue51_1.Text, Orange, RGBA(0, 18, 107, 1)))
+                        =If(IsBlank(ThisItem.'Company/Organization Phone Number'), RGBA(0, 18, 107, 1), If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Company/Organization Phone Number'<> DataCardValue51_1.Text, Orange, RGBA(0, 18, 107, 1)))
                         
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Company_x002f_OrganizationPhoneN"
@@ -1893,7 +1892,7 @@ screenRequest As screen:
                     Update: =DataCardValue51_1.Text
                     Width: =583
                     X: =1
-                    Y: =7
+                    Y: =6
                     ZIndex: =2
 
                     DataCardKey56_1 As label:
@@ -1953,7 +1952,7 @@ screenRequest As screen:
                         ZIndex: =4
 
                 "'Days a Week Working at MCTSSA_DataCard3_1' As typedDataCard.comboBoxEditCard":
-                    BorderColor: =If(Form1_2.Mode = FormMode.Edit &&ThisItem.'Days a Week Working at MCTSSA'.Value<> DataCardValue54_1.Selected.Value, Orange, RGBA(0, 18, 107, 1))
+                    BorderColor: =If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Days a Week Working at MCTSSA'.Value<> DataCardValue54_1.Selected.Value, Orange, RGBA(0, 18, 107, 1))
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="DaysaWeekWorkingatMCTSSA"
                     Default: =ThisItem.'Days a Week Working at MCTSSA'
@@ -1965,7 +1964,7 @@ screenRequest As screen:
                     Update: =DataCardValue54_1.Selected
                     Width: =583
                     X: =0
-                    Y: =8
+                    Y: =7
                     ZIndex: =2
 
                     DataCardKey59_1 As label:
@@ -2025,7 +2024,7 @@ screenRequest As screen:
                         ZIndex: =4
 
                 "'Type of Visit_DataCard3_1' As typedDataCard.comboBoxEditCard":
-                    BorderColor: =If(Form1_2.Mode = FormMode.Edit &&ThisItem.'Type of Visit'.Value<> DataCardValue57_1.Selected.Value, Orange, RGBA(0, 18, 107, 1))
+                    BorderColor: =If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Type of Visit'.Value<> DataCardValue57_1.Selected.Value, Orange, RGBA(0, 18, 107, 1))
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="TypeofVisit"
                     Default: =ThisItem.'Type of Visit'
@@ -2037,7 +2036,7 @@ screenRequest As screen:
                     Update: =DataCardValue57_1.Selected
                     Width: =583
                     X: =1
-                    Y: =8
+                    Y: =7
                     ZIndex: =2
 
                     DataCardKey62_1 As label:
@@ -2097,7 +2096,7 @@ screenRequest As screen:
                         ZIndex: =4
 
                 "'After Hours Access Required_DataCard3_1' As typedDataCard.toggleEditCard":
-                    BorderColor: =If(Form1_2.Mode = FormMode.Edit &&ThisItem.'After Hours Access Required' <> DataCardValue58_1.Value, Orange, RGBA(0, 18, 107, 1))
+                    BorderColor: =If(formSecurity.Mode = FormMode.Edit &&ThisItem.'After Hours Access Required' <> DataCardValue58_1.Value, Orange, RGBA(0, 18, 107, 1))
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="After_x0020_Hours_x0020_Access_x"
                     Default: =ThisItem.'After Hours Access Required'
@@ -2109,7 +2108,7 @@ screenRequest As screen:
                     Update: =DataCardValue58_1.Value
                     Width: =583
                     X: =0
-                    Y: =9
+                    Y: =8
                     ZIndex: =2
 
                     DataCardKey63_1 As label:
@@ -2162,7 +2161,7 @@ screenRequest As screen:
                 "'Contract Number_DataCard2_1' As typedDataCard.textualEditCard":
                     BorderColor: |+
                         =
-                        If(IsBlank(ThisItem.'Contract Number'), RGBA(0, 18, 107, 1), If(Form1_2.Mode = FormMode.Edit &&ThisItem.'Contract Number'<> DataCardValue52_1.Text, Orange, RGBA(0, 18, 107, 1)))
+                        If(IsBlank(ThisItem.'Contract Number'), RGBA(0, 18, 107, 1), If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Contract Number'<> DataCardValue52_1.Text, Orange, RGBA(0, 18, 107, 1)))
                         
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="ContractNumber"
@@ -2177,7 +2176,7 @@ screenRequest As screen:
                     Visible: =isLongTerm
                     Width: =583
                     X: =0
-                    Y: =11
+                    Y: =9
                     ZIndex: =2
 
                     DataCardKey57_1 As label:
@@ -2238,7 +2237,7 @@ screenRequest As screen:
 
                 EDIP_DataCard3_1 As typedDataCard.textualEditCard:
                     BorderColor: |+
-                        =If(IsBlank(ThisItem.EDIP), RGBA(0, 18, 107, 1), If(Form1_2.Mode = FormMode.Edit &&ThisItem.EDIP<> DataCardValue55_1.Text, Orange, RGBA(0, 18, 107, 1)))
+                        =If(IsBlank(ThisItem.EDIP), RGBA(0, 18, 107, 1), If(formSecurity.Mode = FormMode.Edit &&ThisItem.EDIP<> DataCardValue55_1.Text, Orange, RGBA(0, 18, 107, 1)))
                         
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="EDIP"
@@ -2253,7 +2252,7 @@ screenRequest As screen:
                     Visible: =isLongTerm
                     Width: =583
                     X: =1
-                    Y: =11
+                    Y: =9
                     ZIndex: =2
 
                     DataCardKey60_1 As label:
@@ -2314,7 +2313,7 @@ screenRequest As screen:
 
                 Email_DataCard3_1 As typedDataCard.textualEditCard:
                     BorderColor: |+
-                        =If(IsBlank(ThisItem.Email), RGBA(0, 18, 107, 1), If(Form1_2.Mode = FormMode.Edit &&ThisItem.Email<> DataCardValue56_1.Text, Orange, RGBA(0, 18, 107, 1)))
+                        =If(IsBlank(ThisItem.Email), RGBA(0, 18, 107, 1), If(formSecurity.Mode = FormMode.Edit &&ThisItem.Email<> DataCardValue56_1.Text, Orange, RGBA(0, 18, 107, 1)))
                         
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Email"
@@ -2329,7 +2328,7 @@ screenRequest As screen:
                     Visible: =isLongTerm
                     Width: =583
                     X: =0
-                    Y: =12
+                    Y: =10
                     ZIndex: =2
 
                     DataCardKey61_1 As label:
@@ -2389,7 +2388,7 @@ screenRequest As screen:
                         ZIndex: =4
 
                 "'CAC Required?_DataCard3_1' As typedDataCard.toggleEditCard":
-                    BorderColor: =If(Form1_2.Mode = FormMode.Edit &&ThisItem.'CAC Required?' <> DataCardValue49_1.Value, Orange, RGBA(0, 18, 107, 1))
+                    BorderColor: =If(formSecurity.Mode = FormMode.Edit &&ThisItem.'CAC Required?' <> DataCardValue49_1.Value, Orange, RGBA(0, 18, 107, 1))
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="CACRequired_x003f_"
                     Default: =ThisItem.'CAC Required?'
@@ -2402,7 +2401,7 @@ screenRequest As screen:
                     Visible: =isLongTerm
                     Width: =583
                     X: =1
-                    Y: =12
+                    Y: =10
                     ZIndex: =2
 
                     DataCardKey54_1 As label:
@@ -2453,7 +2452,7 @@ screenRequest As screen:
                         ZIndex: =4
 
                 "'Access Control Points_DataCard3_1' As typedDataCard.comboBoxEditCard":
-                    BorderColor: =If(IsBlank(ThisItem.'Access Control Points'), RGBA(0, 18, 107, 1), If(Form1_2.Mode = FormMode.Edit &&ThisItem.'Access Control Points'.Value<> DataCardValue50_1.Selected.Value, Orange, RGBA(0, 18, 107, 1)))
+                    BorderColor: =If(IsBlank(ThisItem.'Access Control Points'), RGBA(0, 18, 107, 1), If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Access Control Points'.Value<> DataCardValue50_1.Selected.Value, Orange, RGBA(0, 18, 107, 1)))
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="AccessControlPoints"
                     Default: =ThisItem.'Access Control Points'
@@ -2466,7 +2465,7 @@ screenRequest As screen:
                     Visible: =isLongTerm
                     Width: =583
                     X: =0
-                    Y: =13
+                    Y: =11
                     ZIndex: =2
 
                     DataCardKey55_1 As label:
@@ -2539,7 +2538,7 @@ screenRequest As screen:
                     Visible: =isLongTerm
                     Width: =583
                     X: =1
-                    Y: =13
+                    Y: =11
                     ZIndex: =2
 
                     DataCardKey58_1 As label:
@@ -2600,7 +2599,7 @@ screenRequest As screen:
                         ZIndex: =4
 
                 Acknowledgement_DataCard2_1 As typedDataCard.toggleEditCard:
-                    BorderColor: =If(Form1_2.Mode = FormMode.Edit &&ThisItem.Acknowledgement <> DataCardValue60_2.Value, Orange, RGBA(0, 18, 107, 1))
+                    BorderColor: =If(formSecurity.Mode = FormMode.Edit &&ThisItem.Acknowledgement <> DataCardValue60_2.Value, Orange, RGBA(0, 18, 107, 1))
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Acknowledgement"
                     Default: =ThisItem.Acknowledgement
@@ -2610,9 +2609,9 @@ screenRequest As screen:
                     Height: =180
                     Required: =false
                     Update: =DataCardValue60_2.Value
-                    Width: =1166
-                    X: =0
-                    Y: =15
+                    Width: =583
+                    X: =1
+                    Y: =12
                     ZIndex: =2
 
                     DataCardKey65_2 As label:
@@ -2665,7 +2664,7 @@ screenRequest As screen:
             IconSave_4 As icon.Save:
                 Icon: =Icon.Save
                 OnSelect: |+
-                    =SubmitForm(Form1_2);
+                    =SubmitForm(formSecurity);
                     
                     /*Refresh(VisitorRequest);
                     ViewForm(Form1_2);*/
@@ -2729,15 +2728,15 @@ screenRequest As screen:
                     ViewForm(formReview);
                     */
                     
-                Visible: =If(Form1_2.Mode = FormMode.Edit, true, false)
+                Visible: =If(formSecurity.Mode = FormMode.Edit, true, false)
                 Width: =52
                 X: =1084
                 ZIndex: =8
 
             IconEdit_4 As icon.Edit:
                 Icon: =Icon.Edit
-                OnSelect: =EditForm(Form1_2)
-                Visible: =If(Form1_2.Mode = FormMode.Edit, false, true)
+                OnSelect: =EditForm(formSecurity)
+                Visible: =If(formSecurity.Mode = FormMode.Edit, false, true)
                 Width: =52
                 X: =1084
                 ZIndex: =9
@@ -2752,7 +2751,7 @@ screenRequest As screen:
                 ComboBox1_9 As combobox:
                     ChevronFill: =RGBA(0, 0, 0, 1)
                     DisplayFields: =["Value"]
-                    DisplayMode: =If(Form1_2.Mode <> FormMode.Edit, DisplayMode.Edit, DisplayMode.Disabled)
+                    DisplayMode: =If(formSecurity.Mode <> FormMode.Edit, DisplayMode.Edit, DisplayMode.Disabled)
                     Height: =33
                     InputTextPlaceholder: ="Denial Reason"
                     IsSearchable: =false
@@ -2776,7 +2775,7 @@ screenRequest As screen:
 
                 txt_Denied_9 As text:
                     Default: =""
-                    DisplayMode: =If(Form1_2.Mode <> FormMode.Edit, DisplayMode.Edit, DisplayMode.Disabled)
+                    DisplayMode: =If(formSecurity.Mode <> FormMode.Edit, DisplayMode.Edit, DisplayMode.Disabled)
                     Height: =33
                     HintText: ="Denial Reason"
                     Size: =12
@@ -2789,7 +2788,7 @@ screenRequest As screen:
 
                 Icon2_9 As icon.Cancel:
                     Color: =RGBA(0, 0, 0, 1)
-                    DisplayMode: =If(Form1_2.Mode <> FormMode.Edit, DisplayMode.Edit, DisplayMode.Disabled)
+                    DisplayMode: =If(formSecurity.Mode <> FormMode.Edit, DisplayMode.Edit, DisplayMode.Disabled)
                     Height: =33
                     Icon: =Icon.Cancel
                     OnSelect: |-
@@ -7524,7 +7523,8 @@ screenRequest As screen:
 
     Button2 As button:
         OnSelect: |-
-            =Navigate(Screen1)
+            =Set(isModalRequest, true);
+            Set(isEventPage, true)
             /*Set(isModalSecurity, true)*/
             //Set(isformR/S, true)
             
