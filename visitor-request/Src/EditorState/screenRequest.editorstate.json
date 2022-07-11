@@ -42722,14 +42722,7 @@
         "DisabledColor",
         "Font",
         "ZIndex",
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "",
-          "InvariantPropertyName": "BorderThickness",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
+        "BorderThickness",
         "FocusedBorderThickness",
         {
           "AFDDataSourceName": "",
@@ -46196,14 +46189,7 @@
         "DisabledColor",
         "Font",
         "ZIndex",
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "",
-          "InvariantPropertyName": "BorderThickness",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
+        "BorderThickness",
         "FocusedBorderThickness",
         {
           "AFDDataSourceName": "",
@@ -46741,14 +46727,7 @@
         "DisabledColor",
         "Font",
         "ZIndex",
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "",
-          "InvariantPropertyName": "BorderThickness",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
+        "BorderThickness",
         "FocusedBorderThickness",
         {
           "AFDDataSourceName": "",

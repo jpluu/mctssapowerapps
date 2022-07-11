@@ -1,22 +1,5 @@
 {
-  "82ef611f-0513-4002-9159-095595f6e67e": {
-    "connectionParameters": {
-      "sku": "Enterprise"
-    },
-    "connectionRef": {
-      "displayName": "Office 365 Groups",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1563/1.0.1563.2732/office365groups/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_office365groups"
-    },
-    "datasets": {},
-    "dataSources": [
-      "Office365Groups"
-    ],
-    "dependencies": {},
-    "dependents": [],
-    "id": "82ef611f-0513-4002-9159-095595f6e67e"
-  },
-  "918389e7-b434-4a7d-9035-382cab4cf092": {
+  "0171b1a0-4397-4997-96ff-b8f2c68f10aa": {
     "connectionParameters": {
       "sku": "Enterprise"
     },
@@ -38,14 +21,14 @@
       }
     },
     "dataSources": [
-      "Security",
-      "VisitorRequest"
+      "VisitorRequest",
+      "Security"
     ],
     "dependencies": {},
     "dependents": [],
-    "id": "918389e7-b434-4a7d-9035-382cab4cf092"
+    "id": "0171b1a0-4397-4997-96ff-b8f2c68f10aa"
   },
-  "d4662db8-168e-4c9a-8da7-2387a36bbdfb": {
+  "22a9b662-f9f6-4668-8618-0cb72d118462": {
     "connectionParameters": {
       "sku": "Enterprise"
     },
@@ -60,9 +43,26 @@
     ],
     "dependencies": {},
     "dependents": [],
-    "id": "d4662db8-168e-4c9a-8da7-2387a36bbdfb"
+    "id": "22a9b662-f9f6-4668-8618-0cb72d118462"
   },
-  "f940c7fb-9153-498d-b5e8-33978243b842": {
+  "2e4106d8-46b0-4649-8d7a-d5e67fee0a0f": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "displayName": "Office 365 Groups",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1563/1.0.1563.2732/office365groups/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365groups"
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Groups"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "2e4106d8-46b0-4649-8d7a-d5e67fee0a0f"
+  },
+  "ff903fc8-e644-4e8c-9692-6cf5da21e1d4": {
     "connectionParameters": {
       "sku": "Enterprise"
     },
@@ -77,6 +77,6 @@
     ],
     "dependencies": {},
     "dependents": [],
-    "id": "f940c7fb-9153-498d-b5e8-33978243b842"
+    "id": "ff903fc8-e644-4e8c-9692-6cf5da21e1d4"
   }
 }

@@ -771,7 +771,7 @@ screenRequest As screen:
                     ViewForm(formSecurity);
                     Notify("Request Approval Page Was Succesfully Saved.", NotificationType.Success);
                 Width: =1166
-                Y: =58
+                Y: =40
                 ZIndex: =10
 
             groupDeniedReason As group:
@@ -1302,7 +1302,7 @@ screenRequest As screen:
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
                         IsSearchable: =false
-                        Items: =Choices([@VisitorRequest].AlternateSponsor)
+                        Items: =Choices([@VisitorRequest].'Alternate Sponsor')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
                         SearchItems: =[]
@@ -1500,7 +1500,7 @@ screenRequest As screen:
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         IsSearchable: =false
-                        Items: =Choices([@VisitorRequest].DaysaWeekWorkingatMCTSSA)
+                        Items: =Choices([@VisitorRequest].'Days a Week Working at MCTSSA')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
                         SearchItems: =[]
@@ -1567,7 +1567,7 @@ screenRequest As screen:
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         IsSearchable: =false
-                        Items: =Choices([@VisitorRequest].Rank_x002f_Grade)
+                        Items: =Choices([@VisitorRequest].'Rank/Grade')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
                         SearchItems: =[]
@@ -1770,7 +1770,7 @@ screenRequest As screen:
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         IsSearchable: =false
-                        Items: =Choices([@VisitorRequest].TypeofVisit)
+                        Items: =Choices([@VisitorRequest].'Type of Visit')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
                         SearchItems: =[]
@@ -1964,7 +1964,7 @@ screenRequest As screen:
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
                         IsSearchable: =false
-                        Items: =Choices([@VisitorRequest].AssignedtoSection)
+                        Items: =Choices([@VisitorRequest].'Assigned to Section')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
                         SearchItems: =[]
@@ -2159,7 +2159,7 @@ screenRequest As screen:
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         IsSearchable: =false
-                        Items: =Choices([@VisitorRequest].AccessControlPoints)
+                        Items: =Choices([@VisitorRequest].'Access Control Points')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
                         SearchItems: =[]
@@ -2792,7 +2792,7 @@ screenRequest As screen:
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
                         IsSearchable: =false
-                        Items: =Choices([@VisitorRequest].AlternateSponsor)
+                        Items: =Choices([@VisitorRequest].'Alternate Sponsor')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
                         SearchItems: =[]
@@ -3064,7 +3064,7 @@ screenRequest As screen:
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         IsSearchable: =false
-                        Items: =Choices([@VisitorRequest].Rank_x002f_Grade)
+                        Items: =Choices([@VisitorRequest].'Rank/Grade')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
                         SearchItems: =[]
@@ -3267,7 +3267,7 @@ screenRequest As screen:
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         IsSearchable: =false
-                        Items: =Choices([@VisitorRequest].DaysaWeekWorkingatMCTSSA)
+                        Items: =Choices([@VisitorRequest].'Days a Week Working at MCTSSA')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
                         SearchItems: =[]
@@ -3334,7 +3334,7 @@ screenRequest As screen:
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         IsSearchable: =false
-                        Items: =Choices([@VisitorRequest].TypeofVisit)
+                        Items: =Choices([@VisitorRequest].'Type of Visit')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
                         SearchItems: =[]
@@ -3655,7 +3655,7 @@ screenRequest As screen:
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         IsSearchable: =false
-                        Items: =Choices([@VisitorRequest].AccessControlPoints)
+                        Items: =Choices([@VisitorRequest].'Access Control Points')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
                         SearchItems: =[]
@@ -3722,7 +3722,7 @@ screenRequest As screen:
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
                         IsSearchable: =false
-                        Items: =Choices([@VisitorRequest].AssignedtoSection)
+                        Items: =Choices([@VisitorRequest].'Assigned to Section')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
                         SearchItems: =[]
@@ -4015,7 +4015,7 @@ screenRequest As screen:
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
                         IsSearchable: =false
-                        Items: =Choices([@VisitorRequest].AssignedtoSection)
+                        Items: =Choices([@VisitorRequest].'Assigned to Section')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
                         SearchItems: =[]
@@ -4151,7 +4151,7 @@ screenRequest As screen:
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         IsSearchable: =false
-                        Items: =Choices([@VisitorRequest].AccessControlPoints)
+                        Items: =Choices([@VisitorRequest].'Access Control Points')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
                         SearchItems: =[]
@@ -4746,7 +4746,7 @@ screenRequest As screen:
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         IsSearchable: =false
-                        Items: =Choices([@VisitorRequest].Rank_x002f_Grade)
+                        Items: =Choices([@VisitorRequest].'Rank/Grade')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
                         SearchItems: =[]
@@ -4813,7 +4813,7 @@ screenRequest As screen:
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         IsSearchable: =false
-                        Items: =Choices([@VisitorRequest].TypeofVisit)
+                        Items: =Choices([@VisitorRequest].'Type of Visit')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
                         SearchItems: =[]
@@ -4880,7 +4880,7 @@ screenRequest As screen:
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         IsSearchable: =false
-                        Items: =Choices([@VisitorRequest].DaysaWeekWorkingatMCTSSA)
+                        Items: =Choices([@VisitorRequest].'Days a Week Working at MCTSSA')
                         OnChange: |-
                             =If(
                                  DateDiff(
@@ -5441,7 +5441,7 @@ screenRequest As screen:
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
                         IsSearchable: =false
-                        Items: =Choices([@VisitorRequest].AlternateSponsor)
+                        Items: =Choices([@VisitorRequest].'Alternate Sponsor')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
                         SearchItems: =[]
