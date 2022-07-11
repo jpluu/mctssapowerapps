@@ -6070,6 +6070,26 @@ screenRequest As screen:
                 ZIndex: =4
 
         pbRequest As componentProgressBar:
+            inputCurrentStep: |-
+                =If(
+                    isEventPage,
+                    1,
+                    isVisitorPage,
+                    2,
+                    isLongTerm,
+                    If(
+                        isLongTermPage,
+                        3,
+                        isReviewPage,
+                        4,
+                        isAcknowPage,
+                        5
+                    ),
+                    isReviewPage,
+                    3,
+                    isAcknowPage,
+                    4
+                )
             Width: =966
             X: =200
             Y: =565
