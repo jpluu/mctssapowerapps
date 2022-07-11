@@ -1,12 +1,12 @@
 {
   "ComponentAllowCustomization": true,
-  "ComponentChangedSinceFileImport": false,
+  "ComponentChangedSinceFileImport": true,
   "ComponentManifest": {
     "AllowAccessToGlobals": true,
     "AllowCustomization": true,
     "Description": "",
-    "Name": "componentProgressBar",
-    "TemplateGuid": "dbd607af812e46be9d29858798df077d"
+    "Name": "componentProgressBar_1",
+    "TemplateGuid": "b8ec650c738c4129b7bab31cb5af4fc5"
   },
   "ComponentType": "CanvasComponent",
   "CustomGroupControlTemplateName": "",
@@ -29,9 +29,9 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "637931581769293579",
-  "Name": "dbd607af812e46be9d29858798df077d",
+  "LastModifiedTimestamp": "637931484871515525",
+  "Name": "b8ec650c738c4129b7bab31cb5af4fc5",
   "OverridableProperties": {},
-  "TemplateOriginalName": "0a840945548b4850ac694ae82473f8ab",
+  "TemplateOriginalName": "dbd607af812e46be9d29858798df077d",
   "Version": "637819501604180409"
 }
