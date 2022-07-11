@@ -1479,7 +1479,7 @@ screenRequest As screen:
 
                 "'Middle Name_DataCard3_1' As typedDataCard.textualEditCard":
                     BorderColor: |+
-                        =If(IsBlank(ThisItem.MiddleName),RGBA(0, 18, 107, 1), If(formSecurity.Mode = FormMode.Edit &&ThisItem.MiddleName<> DataCardValue46_1.Text, Orange, RGBA(0, 18, 107, 1)))
+                        =If(IsBlank(DataCardValue46_1.Text),RGBA(0, 18, 107, 1), If(formSecurity.Mode = FormMode.Edit &&ThisItem.MiddleName<> DataCardValue46_1.Text, Orange, RGBA(0, 18, 107, 1)))
                         
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="MiddleName"
@@ -1776,7 +1776,7 @@ screenRequest As screen:
 
                 "'Company/Organization Phone Number_DataCard3_1' As typedDataCard.textualEditCard":
                     BorderColor: |+
-                        =If(IsBlank(ThisItem.'Company/Organization Phone Number'),RGBA(0, 18, 107, 1), If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Company/Organization Phone Number'<> DataCardValue51_1.Text, Orange, RGBA(0, 18, 107, 1)))
+                        =If(IsBlank(DataCardValue51_1.Text),RGBA(0, 18, 107, 1), If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Company/Organization Phone Number'<> DataCardValue51_1.Text, Orange, RGBA(0, 18, 107, 1)))
                         
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Company_x002f_OrganizationPhoneN"
@@ -2024,6 +2024,7 @@ screenRequest As screen:
 
                     DataCardValue58_1 As toggleSwitch:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        BorderThickness: =2
                         Default: =Parent.Default
                         DisplayMode: =Parent.DisplayMode
                         Size: =19
@@ -2058,11 +2059,9 @@ screenRequest As screen:
                         ZIndex: =4
 
                 "'Contract Number_DataCard2_1' As typedDataCard.textualEditCard":
-                    BorderColor: |
-                        =If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Contract Number'<> DataCardValue52_1.Text, Orange, If(IsBlank(ThisItem.'Contract Number'),RGBA(0, 18, 107, 1), RGBA(0, 18, 107, 1)))
+                    BorderColor: |+
+                        =If(IsBlank(DataCardValue52_1.Text),RGBA(0, 18, 107, 1), If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Contract Number'<> DataCardValue52_1.Text, Orange, RGBA(0, 18, 107, 1)))
                         
-                        /*If(IsBlank(ThisItem.'Contract Number'),RGBA(0, 18, 107, 1), If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Contract Number'<> DataCardValue52_1.Text, Orange, RGBA(0, 18, 107, 1)))
-                        */
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="ContractNumber"
                     Default: =ThisItem.'Contract Number'
@@ -2137,7 +2136,7 @@ screenRequest As screen:
 
                 EDIP_DataCard3_1 As typedDataCard.textualEditCard:
                     BorderColor: |+
-                        =If(IsBlank(ThisItem.EDIP),RGBA(0, 18, 107, 1), If(formSecurity.Mode = FormMode.Edit &&ThisItem.EDIP<> DataCardValue55_1.Text, Orange, RGBA(0, 18, 107, 1)))
+                        =If(IsBlank(DataCardValue55_1.Text),RGBA(0, 18, 107, 1), If(formSecurity.Mode = FormMode.Edit &&ThisItem.EDIP<> DataCardValue55_1.Text, Orange, RGBA(0, 18, 107, 1)))
                         
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="EDIP"
@@ -2213,7 +2212,7 @@ screenRequest As screen:
 
                 Email_DataCard3_1 As typedDataCard.textualEditCard:
                     BorderColor: |+
-                        =If(IsBlank(ThisItem.Email),RGBA(0, 18, 107, 1), If(formSecurity.Mode = FormMode.Edit &&ThisItem.Email<> DataCardValue56_1.Text, Orange, RGBA(0, 18, 107, 1)))
+                        =If(IsBlank(DataCardValue56_1.Text),RGBA(0, 18, 107, 1), If(formSecurity.Mode = FormMode.Edit &&ThisItem.Email<> DataCardValue56_1.Text, Orange, RGBA(0, 18, 107, 1)))
                         
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Email"
@@ -2320,6 +2319,7 @@ screenRequest As screen:
 
                     DataCardValue49_1 As toggleSwitch:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        BorderThickness: =2
                         Default: =Parent.Default
                         DisplayMode: =Parent.DisplayMode
                         Size: =19
@@ -2531,6 +2531,7 @@ screenRequest As screen:
 
                     DataCardValue60_2 As toggleSwitch:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        BorderThickness: =2
                         Default: =Parent.Default
                         DisplayMode: =Parent.DisplayMode
                         Size: =19
