@@ -452,7 +452,10 @@ screenRequest As screen:
                 BorderColor: =RGBA(184, 0, 0, 1)
                 Color: =RGBA(0, 0, 0, 1)
                 DisplayMode: |-
-                    =DisplayMode.Edit/*If(Form1_2.Unsaved,
+                    =
+                    If(Form1_2.Mode <> FormMode.Edit, DisplayMode.Edit, DisplayMode.Disabled)
+                    
+                    /*If(Form1_2.Unsaved,
                         DisplayMode.Disabled,
                         DisplayMode.Edit)
                         
@@ -468,7 +471,7 @@ screenRequest As screen:
                 HoverFill: =ColorFade(RGBA(184, 0, 0, 100), -20%)
                 OnSelect: |-
                     =If(
-                        If(IsBlank(ComboBox1_9.Selected.Value, Notify("Request Approval Page Was Succesfully Saved.", NotificationType.Success),
+                        IsBlank(ComboBox1_9.Selected.Value), Notify("Choose Or Enter A Reason For Denial.", NotificationType.Success),
                         If(
                             Patch(
                                 VisitorRequest,
@@ -517,8 +520,8 @@ screenRequest As screen:
                                 false
                             )
                         )
-                        )
                     )
+                    
                     
                     /*If(
                         Not(IsBlank(ComboBox1_9.Selected.Value)),
@@ -590,7 +593,8 @@ screenRequest As screen:
             Button2_22 As button:
                 Color: =RGBA(0, 0, 0, 1)
                 DisplayMode: |-
-                    =Parent.DisplayMode
+                    =If(Form1_2.Mode <> FormMode.Edit, DisplayMode.Edit, DisplayMode.Disabled)
+                    
                     //DisplayMode.Edit
                     //If(Form1_2.Unsaved,
                       //  DisplayMode.Disabled,
@@ -653,7 +657,7 @@ screenRequest As screen:
                     person. email */
                 Width: =193
                 X: =188
-                Y: =482
+                Y: =483
                 ZIndex: =5
 
             labelSecurity_4 As label:
@@ -2759,6 +2763,7 @@ screenRequest As screen:
                             "DropdownOptions"
                             ) ,ComboBox1_9.SearchText,"Value")
                     SelectMultiple: =false
+                    Size: =12
                     Visible: =Self.Selected.Value<>"Other"
                     Width: =193
                     X: =775
@@ -2769,6 +2774,7 @@ screenRequest As screen:
                     Default: =""
                     Height: =33
                     HintText: ="Denial Reason"
+                    Size: =12
                     Visible: |
                         =!ComboBox1_9.Visible
                     Width: =190
