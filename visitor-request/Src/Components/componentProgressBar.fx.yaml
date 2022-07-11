@@ -26,7 +26,7 @@ componentProgressBar As CanvasComponent:
             Align: =Align.Center
             BorderColor: =RGBA(89, 0, 0, 1)
             Color: =Black
-            DisplayMode: =DisplayMode.View
+            DisplayMode: =If(isEditing, DisplayMode.View, DisplayMode.Edit)//DisplayMode.View
             FontWeight: =FontWeight.Bold
             Height: =29
             OnSelect: |-
@@ -43,6 +43,7 @@ componentProgressBar As CanvasComponent:
             ZIndex: =2
 
         Circle2_5 As circle:
+            DisplayMode: =If(isEditing, DisplayMode.View, DisplayMode.Edit)
             Fill: =If(componentProgressBar.inputCurrentStep >= 1, Green, Black)
             Height: =66
             OnSelect: |-
@@ -57,6 +58,7 @@ componentProgressBar As CanvasComponent:
 
         iconESI_1 As icon.Information:
             Color: =RGBA(255, 255, 255, 1)
+            DisplayMode: =If(isEditing, DisplayMode.View, DisplayMode.Edit)
             Height: =53
             Icon: =Icon.Information
             OnSelect: |-
@@ -90,7 +92,6 @@ componentProgressBar As CanvasComponent:
             Align: =Align.Center
             BorderColor: =RGBA(89, 0, 0, 1)
             Color: =Black
-            DisplayMode: =DisplayMode.View
             FontWeight: =FontWeight.Bold
             Height: =27
             OnSelect: |-
@@ -253,7 +254,7 @@ componentProgressBar As CanvasComponent:
             Align: =Align.Center
             BorderColor: =RGBA(89, 0, 0, 1)
             Color: =Black
-            DisplayMode: =DisplayMode.View
+            DisplayMode: =If(isEditing, DisplayMode.View, DisplayMode.Edit)
             FontWeight: =FontWeight.Bold
             Height: =27
             OnSelect: |-
@@ -372,6 +373,7 @@ componentProgressBar As CanvasComponent:
             ZIndex: =2
 
         Circle2_7 As circle:
+            DisplayMode: =If(isEditing, DisplayMode.View, DisplayMode.Edit)
             Fill: =If(componentProgressBar.inputCurrentStep >= 3, Green, Black)
             Height: =66
             OnSelect: |-
@@ -487,7 +489,7 @@ componentProgressBar As CanvasComponent:
             Align: =Align.Center
             BorderColor: =RGBA(89, 0, 0, 1)
             Color: =Black
-            DisplayMode: =DisplayMode.View
+            DisplayMode: =If(isEditing, DisplayMode.View, DisplayMode.Edit)
             FontWeight: =FontWeight.Bold
             Height: =27
             OnSelect: |-
@@ -608,6 +610,7 @@ componentProgressBar As CanvasComponent:
 
         iconLTAI_1 As icon.Clock:
             Color: =RGBA(255, 255, 255, 1)
+            DisplayMode: =If(isEditing, DisplayMode.View, DisplayMode.Edit)
             Height: =53
             Icon: =Icon.Clock
             OnSelect: |-
@@ -723,6 +726,7 @@ componentProgressBar As CanvasComponent:
 
         iconR_2 As icon.DockCheckProperties:
             Color: =RGBA(255, 255, 255, 1)
+            DisplayMode: =If(isEditing, DisplayMode.View, DisplayMode.Edit)
             Height: =53
             Icon: =Icon.DockCheckProperties
             OnSelect: |-
@@ -862,7 +866,7 @@ componentProgressBar As CanvasComponent:
             Align: =Align.Center
             BorderColor: =RGBA(89, 0, 0, 1)
             Color: =Black
-            DisplayMode: =DisplayMode.View
+            DisplayMode: =If(isEditing, DisplayMode.View, DisplayMode.Edit)
             FontWeight: =FontWeight.Bold
             Height: =27
             OnSelect: |+
@@ -940,6 +944,7 @@ componentProgressBar As CanvasComponent:
             ZIndex: =3
 
         Circle2 As circle:
+            DisplayMode: =If(isEditing, DisplayMode.View, DisplayMode.Edit)
             Fill: =If(componentProgressBar.inputCurrentStep >= 4, Green, Black)
             Height: =66
             OnSelect: |+
@@ -1011,7 +1016,7 @@ componentProgressBar As CanvasComponent:
             Align: =Align.Center
             BorderColor: =RGBA(89, 0, 0, 1)
             Color: =Black
-            DisplayMode: =DisplayMode.View
+            DisplayMode: =If(isEditing, DisplayMode.View, DisplayMode.Edit)
             FontWeight: =FontWeight.Bold
             Height: =27
             OnSelect: |+
@@ -1090,6 +1095,7 @@ componentProgressBar As CanvasComponent:
 
         iconR_1 As icon.DockCheckProperties:
             Color: =RGBA(255, 255, 255, 1)
+            DisplayMode: =If(isEditing, DisplayMode.View, DisplayMode.Edit)
             Height: =53
             Icon: =Icon.DockCheckProperties
             OnSelect: |+
@@ -1162,6 +1168,7 @@ componentProgressBar As CanvasComponent:
 
         iconA_2 As icon.Check:
             Color: =RGBA(255, 255, 255, 1)
+            DisplayMode: =If(isEditing, DisplayMode.View, DisplayMode.Edit)
             Height: =47
             Icon: =Icon.Check
             OnSelect: |+
