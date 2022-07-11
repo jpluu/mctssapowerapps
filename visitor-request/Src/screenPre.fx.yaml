@@ -1,38 +1,115 @@
 screenPre As screen:
-    OnVisible: |+
-        =// Global Variables
-        Set(isLoaded, false); // bool | trigger for timer
+    OnVisible: |-
+        =// ~~~ Global Variables ~~~
+        // === Loading ===
+        // bool | trigger for timer
+        Set(
+            isLoaded,
+            false
+        );
+        // === App Data ===
+        Set(APPVER, CountRows(PowerAppsforMakers.GetAppVersions("ed2e4c66-70e6-421f-90bc-dcb8a2ee7c06").value));
         
-        // User Data
-        Set(currentUser, User());
-        Set(currentUser365, Office365Users.UserProfile(currentUser.Email));
-        Set(currentUserPhone, Office365Users.UserProfile(currentUser.Email).mobilePhone);
-        
-        
-        
-        // General Settings
-        Set(modalX, 100);
-        Set(modalY, 100);
-        Set(modalLabel, 64);
-        
-        // Request Modal Page Variables
-        Set(isModalRequest, false); // bool | control for entire modal system
-        Set(isEventPage, false);
-        Set(isVisitorPage, false);
-        Set(isLongTermPage, false);
-        Set(isReviewPage, false);
-        Set(isAcknowPage, false);
-        
-        // Request Modal Variables
-        Set(formData, Defaults(VisitorRequest));
-        Set(isLongTerm, false);
-        Set(isEditing, false); // bool | control for editing request
-        
-        
-        
-        // End Pre-Load
-        Set(isLoaded, true)
-        
+        // === User Data === * next rev will combine all into single var
+        Set(
+            currentUser,
+            User()
+        );
+        Set(
+            currentUser365,
+            {
+                '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                DisplayName: currentUser.FullName,
+                Claims: "i:0#.f|membership|" & Lower(currentUser.Email),
+                Email: currentUser.Email
+            }
+        );
+        Set(
+            currentUserPhone,
+            Office365Users.UserProfile(currentUser.Email).mobilePhone
+        );
+        // === Positional Settings ===
+        Set(
+            modalX,
+            100
+        );
+        Set(
+            modalY,
+            100
+        );
+        Set(
+            modalLabel,
+            64
+        );
+        // === Request Modal Page Variables ===
+        // bool | control for entire modal system
+        Set(
+            isModalRequest,
+            false
+        );
+        Set(
+            isEventPage,
+            false
+        );
+        Set(
+            isVisitorPage,
+            false
+        );
+        Set(
+            isLongTermPage,
+            false
+        );
+        Set(
+            isReviewPage,
+            false
+        );
+        Set(
+            isAcknowPage,
+            false
+        );
+        // === Request Modal Variables ===
+        Set(
+            formData,
+            Defaults(VisitorRequest)
+        );
+        Set(
+            formDataBulk,
+            Defaults(VisitorRequest)
+        );
+        Set(
+            isAdding,
+            false
+        );
+        Set(
+            isLongTerm,
+            false
+        );
+        // bool | control for editing request
+        Set(
+            isEditing,
+            false
+        );
+        // bool | control for bulk window
+        Set(
+            isBulk,
+            false
+        );
+        // bool | control for reseting FN and LN for bulk
+        Set(
+            isReset,
+            false
+        );
+        // === End Pre-Load ===
+        Set(
+            isLoaded,
+            true
+        )
+
+    Label2 As label:
+        Text: ="Version " & APPVER
+        X: =1060
+        Y: =602
+        ZIndex: =4
 
     Group1 As group:
         Height: =5
