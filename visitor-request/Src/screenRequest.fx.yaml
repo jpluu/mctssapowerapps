@@ -1615,6 +1615,7 @@ screenRequest As screen:
                         ZIndex: =4
 
                 "'Rank/Grade_DataCard3_1' As typedDataCard.comboBoxEditCard":
+                    BorderColor: =If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Rank/Grade'.Value<> DataCardValue44_1.Selected.Value, Orange, RGBA(0, 18, 107, 1))
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Rank_x002f_Grade"
                     Default: =ThisItem.'Rank/Grade'
@@ -1836,6 +1837,7 @@ screenRequest As screen:
                         ZIndex: =4
 
                 "'Days a Week Working at MCTSSA_DataCard3_1' As typedDataCard.comboBoxEditCard":
+                    BorderColor: =If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Days a Week Working at MCTSSA'.Value<> DataCardValue54_1.Selected.Value, Orange, RGBA(0, 18, 107, 1))
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="DaysaWeekWorkingatMCTSSA"
                     Default: =ThisItem.'Days a Week Working at MCTSSA'
@@ -1907,6 +1909,7 @@ screenRequest As screen:
                         ZIndex: =4
 
                 "'Type of Visit_DataCard3_1' As typedDataCard.comboBoxEditCard":
+                    BorderColor: =If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Type of Visit'.Value<> DataCardValue57_1.Selected.Value, Orange, RGBA(0, 18, 107, 1))
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="TypeofVisit"
                     Default: =ThisItem.'Type of Visit'
@@ -2042,9 +2045,11 @@ screenRequest As screen:
                         ZIndex: =4
 
                 "'Contract Number_DataCard2_1' As typedDataCard.textualEditCard":
-                    BorderColor: |+
-                        =If(IsBlank(ThisItem.'Contract Number'),RGBA(0, 18, 107, 1),If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Contract Number'<> DataCardValue52_1.Text, Orange, RGBA(0, 18, 107, 1)))
+                    BorderColor: |
+                        =If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Contract Number'<> DataCardValue52_1.Text, Orange, If(IsBlank(ThisItem.'Contract Number'),RGBA(0, 18, 107, 1), RGBA(0, 18, 107, 1)))
                         
+                        /*If(IsBlank(ThisItem.'Contract Number'),RGBA(0, 18, 107, 1), If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Contract Number'<> DataCardValue52_1.Text, Orange, RGBA(0, 18, 107, 1)))
+                        */
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="ContractNumber"
                     Default: =ThisItem.'Contract Number'
@@ -2336,6 +2341,7 @@ screenRequest As screen:
                         ZIndex: =4
 
                 "'Access Control Points_DataCard3_1' As typedDataCard.comboBoxEditCard":
+                    BorderColor: =If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Access Control Points'.Value<> DataCardValue50_1.Selected.Value, Orange, RGBA(0, 18, 107, 1))
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="AccessControlPoints"
                     Default: =ThisItem.'Access Control Points'
@@ -2408,6 +2414,7 @@ screenRequest As screen:
                         ZIndex: =4
 
                 "'Assigned to Section_DataCard3_1' As typedDataCard.comboBoxEditCard":
+                    BorderColor: =RGBA(0, 18, 107, 1) //If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Assigned to Section'<> DataCardValue53_1.Selected, Orange, RGBA(0, 18, 107, 1))
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="AssignedtoSection"
                     Default: =ThisItem.'Assigned to Section'
@@ -2482,7 +2489,7 @@ screenRequest As screen:
 
                 Acknowledgement_DataCard2_1 As typedDataCard.toggleEditCard:
                     BorderColor: |
-                        =If(formSecurity.Mode = FormMode.Edit && ThisItem.'Acknowledgement'<> DataCardValue60_2.Value, Orange, RGBA(0, 18, 107, 1))
+                        =If(formSecurity.Mode = FormMode.Edit && ThisItem.Acknowledgement<> DataCardValue60_2.Value, Orange, RGBA(0, 18, 107, 1))
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Acknowledgement"
                     Default: =ThisItem.Acknowledgement
