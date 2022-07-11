@@ -120,7 +120,7 @@
             "Name": "labelNewEventName",
             "Parent": "contNewEventName",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 603,
+            "PublishOrderIndex": 601,
             "Rules": [
               {
                 "Category": "Data",
@@ -455,7 +455,7 @@
             "Name": "rectangleNewEventNameStatusBar",
             "Parent": "contNewEventName",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 604,
+            "PublishOrderIndex": 602,
             "Rules": [
               {
                 "Category": "Design",
@@ -611,7 +611,7 @@
         "Name": "contNewEventName",
         "Parent": "compNewEventProgress",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 602,
+        "PublishOrderIndex": 600,
         "Rules": [
           {
             "Category": "Design",
@@ -848,7 +848,7 @@
             "Name": "labelNewEventName_1",
             "Parent": "contNewEventName_1",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 606,
+            "PublishOrderIndex": 604,
             "Rules": [
               {
                 "Category": "Data",
@@ -1183,7 +1183,7 @@
             "Name": "rectangleNewEventNameStatusBar_1",
             "Parent": "contNewEventName_1",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 607,
+            "PublishOrderIndex": 605,
             "Rules": [
               {
                 "Category": "Design",
@@ -1332,7 +1332,7 @@
         "Name": "contNewEventName_1",
         "Parent": "compNewEventProgress",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 605,
+        "PublishOrderIndex": 603,
         "Rules": [
           {
             "Category": "Design",
@@ -1570,7 +1570,7 @@
             "Name": "labelNewEventName_2",
             "Parent": "contNewEventName_2",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 609,
+            "PublishOrderIndex": 607,
             "Rules": [
               {
                 "Category": "Data",
@@ -1943,7 +1943,7 @@
             "Name": "labelNewEventName_3",
             "Parent": "contNewEventName_2",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 610,
+            "PublishOrderIndex": 608,
             "Rules": [
               {
                 "Category": "Data",
@@ -2292,7 +2292,7 @@
             "Name": "rectangleNewEventNameStatusBar_2",
             "Parent": "contNewEventName_2",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 611,
+            "PublishOrderIndex": 609,
             "Rules": [
               {
                 "Category": "Design",
@@ -2455,7 +2455,7 @@
         "Name": "contNewEventName_2",
         "Parent": "compNewEventProgress",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 608,
+        "PublishOrderIndex": 606,
         "Rules": [
           {
             "Category": "Design",
@@ -2698,7 +2698,7 @@
             "Name": "labelNewEventName_4",
             "Parent": "contNewEventName_3",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 613,
+            "PublishOrderIndex": 611,
             "Rules": [
               {
                 "Category": "Data",
@@ -3033,7 +3033,7 @@
             "Name": "rectangleNewEventNameStatusBar_4",
             "Parent": "contNewEventName_3",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 614,
+            "PublishOrderIndex": 612,
             "Rules": [
               {
                 "Category": "Design",
@@ -3197,7 +3197,7 @@
         "Name": "contNewEventName_3",
         "Parent": "compNewEventProgress",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 612,
+        "PublishOrderIndex": 610,
         "Rules": [
           {
             "Category": "Design",
@@ -3355,7 +3355,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "637931452425608846",
+    "LastModifiedTimestamp": "637927676306478430",
     "Name": "compNewEventProgress",
     "Rules": [
       {
@@ -3430,7 +3430,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "637931452425608846",
+  "LastModifiedTimestamp": "637927676306478430",
   "Name": "656ef128bd714085a4f38f8dbd6cdf11",
   "OverridableProperties": {},
   "TemplateOriginalName": "53a0a7d57f05468e9539eb69f0f59a70",
