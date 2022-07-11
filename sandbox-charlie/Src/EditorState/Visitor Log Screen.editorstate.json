@@ -323,7 +323,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateBrowseGalleryBody.ID%",
       "Name": "Body1_4",
-      "ParentIndex": 3,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1106,7 +1106,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "buttonCheckInOut_1",
-      "ParentIndex": 2,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1371,7 +1371,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "buttonCheckInOut_2",
-      "ParentIndex": 3,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -8396,11 +8396,6 @@
           "Category": "Design",
           "PropertyName": "ZIndex",
           "RuleProviderType": "Unknown"
-        },
-        {
-          "Category": "Design",
-          "PropertyName": "Visible",
-          "RuleProviderType": "Unknown"
         }
       ],
       "StyleName": "defaultTypedDataCardStyle",
@@ -8726,7 +8721,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "galleryNotArrived_1",
-      "ParentIndex": 2,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -10044,7 +10039,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateBrowseGallerySeparator1.ID%",
       "Name": "Separator2_1",
-      "ParentIndex": 4,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -10858,7 +10853,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateBrowseGallerySubtitle.ID%",
       "Name": "Subtitle1_4",
-      "ParentIndex": 2,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

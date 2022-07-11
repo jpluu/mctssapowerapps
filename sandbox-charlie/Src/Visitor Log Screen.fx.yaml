@@ -37,7 +37,7 @@
             Height: =520
             Items: ='Visitor Log'
             Layout: =Layout.Vertical
-            OnSelect: =Set(varSelectedGallery, ThisItem);Set(varSelectedVisitor, galleryNotArrived_1.Selected);Set(boolSentryModal, true);Set(boolCheck, false);
+            OnSelect: =Set(varSelectedGallery, ThisItem);Set(varSelectedVisitor, galleryNotArrived_1.Selected);Set(boolSentryModal, true);Set(boolCheck, false);Set(boolCheck, false)
             TemplateFill: |
                 =If(
                     varSelectedGallery.ID = galleryNotArrived_1.Selected.ID && ThisItem.IsSelected,
@@ -617,9 +617,9 @@
 
         Button5_2 As button:
             Height: =216
-            OnSelect: =Set(checkedIn, true)
+            OnSelect: =Set(checkedIn, true);Set(boolCheck, true)
             Text: ="Check-in"
-            Visible: =!(checkedIn)
+            Visible: =(boolCheck)
             Width: =231
             X: =1100
             Y: =168
@@ -627,7 +627,7 @@
 
         Button5_3 As button:
             Height: =216
-            OnSelect: =Set(checkedIn, false)
+            OnSelect: =Set(checkedIn, false); Set(boolCheck, true)
             Text: ="Check-out"
             Visible: =checkedIn
             Width: =231
