@@ -678,22 +678,6 @@ screenRequest As screen:
                 Width: =Parent.Width
                 ZIndex: =6
 
-            formSecurity As form:
-                DataSource: =VisitorRequest
-                DefaultMode: =FormMode.View
-                Height: =404
-                Item: =formData
-                NumberOfColumns: =2
-                OnFailure: |-
-                    =Notify("Error: Request Approval Page Was Not Saved.", NotificationType.Error);
-                OnSuccess: |
-                    =Set(formData, formSecurity.LastSubmit);
-                    ViewForm(formSecurity);
-                    Notify("Request Approval Page Was Succesfully Saved.", NotificationType.Success);
-                Width: =1166
-                Y: =64
-                ZIndex: =7
-
             IconSave_4 As icon.Save:
                 Icon: =Icon.Save
                 OnSelect: |+
@@ -773,6 +757,22 @@ screenRequest As screen:
                 Width: =52
                 X: =1084
                 ZIndex: =9
+
+            formSecurity As form:
+                DataSource: =VisitorRequest
+                DefaultMode: =FormMode.View
+                Height: =404
+                Item: =formData
+                NumberOfColumns: =2
+                OnFailure: |-
+                    =Notify("Error: Request Approval Page Was Not Saved.", NotificationType.Error);
+                OnSuccess: |
+                    =Set(formData, formSecurity.LastSubmit);
+                    ViewForm(formSecurity);
+                    Notify("Request Approval Page Was Succesfully Saved.", NotificationType.Success);
+                Width: =1166
+                Y: =58
+                ZIndex: =10
 
             groupDeniedReason As group:
                 Height: =5
