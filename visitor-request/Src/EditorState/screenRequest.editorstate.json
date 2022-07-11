@@ -372,7 +372,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Access Control Points_DataCard3_1",
-      "ParentIndex": 23,
+      "ParentIndex": 22,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -659,7 +659,14 @@
           "IsLockable": true,
           "NameMapSourceSchema": "?"
         },
-        "BorderColor",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "RGBA(0, 18, 107, 1)",
+          "InvariantPropertyName": "BorderColor",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "BorderStyle",
         "Fill",
         "X",
@@ -1107,7 +1114,14 @@
           "IsLockable": true,
           "NameMapSourceSchema": "?"
         },
-        "BorderColor",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "RGBA(0, 18, 107, 1)",
+          "InvariantPropertyName": "BorderColor",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "BorderStyle",
         "Fill",
         "X",
@@ -2016,7 +2030,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Assigned to Section_DataCard3_1",
-      "ParentIndex": 24,
+      "ParentIndex": 23,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5986,7 +6000,14 @@
           "IsLockable": true,
           "NameMapSourceSchema": "?"
         },
-        "BorderColor",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "RGBA(0, 18, 107, 1)",
+          "InvariantPropertyName": "BorderColor",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "BorderStyle",
         "Fill",
         "X",
@@ -6013,7 +6034,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "CAC Required?_DataCard3_1",
-      "ParentIndex": 22,
+      "ParentIndex": 21,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -9760,7 +9781,14 @@
           "IsLockable": true,
           "NameMapSourceSchema": "?"
         },
-        "BorderColor",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "If(formSecurity.Mode = FormMode.Edit &&ThisItem.Title<> DataCardValue52_1.Text, Orange, RGBA(0, 18, 107, 1))\r\n\r\n",
+          "InvariantPropertyName": "BorderColor",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "BorderStyle",
         "Fill",
         "X",
@@ -9787,7 +9815,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Contract Number_DataCard2_1",
-      "ParentIndex": 19,
+      "ParentIndex": 18,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -10170,7 +10198,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "DataCard5_1",
-      "ParentIndex": 18,
+      "ParentIndex": 24,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -50105,7 +50133,14 @@
           "IsLockable": true,
           "NameMapSourceSchema": "?"
         },
-        "BorderColor",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "If(formSecurity.Mode = FormMode.Edit &&ThisItem.Title<> DataCardValue55_1.Text, Orange, RGBA(0, 18, 107, 1))\r\n\r\n",
+          "InvariantPropertyName": "BorderColor",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "BorderStyle",
         "Fill",
         "X",
@@ -50132,7 +50167,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "EDIP_DataCard3_1",
-      "ParentIndex": 20,
+      "ParentIndex": 19,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -50598,7 +50633,14 @@
           "IsLockable": true,
           "NameMapSourceSchema": "?"
         },
-        "BorderColor",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "If(formSecurity.Mode = FormMode.Edit &&ThisItem.Title<> DataCardValue56_1.Text, Orange, RGBA(0, 18, 107, 1))\r\n\r\n",
+          "InvariantPropertyName": "BorderColor",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "BorderStyle",
         "Fill",
         "X",
@@ -50625,7 +50667,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Email_DataCard3_1",
-      "ParentIndex": 21,
+      "ParentIndex": 20,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

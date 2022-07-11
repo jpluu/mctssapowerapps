@@ -1466,7 +1466,7 @@ screenRequest As screen:
 
                 "'Middle Name_DataCard3_1' As typedDataCard.textualEditCard":
                     BorderColor: |+
-                        =If(formSecurity.Mode = FormMode.Edit &&ThisItem.MiddleName<> DataCardValue46_1.Text, Orange, RGBA(0, 18, 107, 1))
+                        =If(IsBlank(ThisItem.MiddleName),RGBA(0, 18, 107, 1), If(formSecurity.Mode = FormMode.Edit &&ThisItem.MiddleName<> DataCardValue46_1.Text, Orange, RGBA(0, 18, 107, 1)))
                         
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="MiddleName"
@@ -1762,7 +1762,7 @@ screenRequest As screen:
 
                 "'Company/Organization Phone Number_DataCard3_1' As typedDataCard.textualEditCard":
                     BorderColor: |+
-                        =If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Company/Organization Phone Number'<> DataCardValue51_1.Text, Orange, RGBA(0, 18, 107, 1))
+                        =If(IsBlank(ThisItem.'Company/Organization Phone Number'),RGBA(0, 18, 107, 1), If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Company/Organization Phone Number'<> DataCardValue51_1.Text, Orange, RGBA(0, 18, 107, 1)))
                         
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Company_x002f_OrganizationPhoneN"
@@ -1978,6 +1978,8 @@ screenRequest As screen:
                         ZIndex: =4
 
                 "'After Hours Access Required_DataCard3_1' As typedDataCard.toggleEditCard":
+                    BorderColor: |
+                        =If(formSecurity.Mode = FormMode.Edit && ThisItem.'After Hours Access Required'<> DataCardValue58_1.Value, Orange, RGBA(0, 18, 107, 1))
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="After_x0020_Hours_x0020_Access_x"
                     Default: =ThisItem.'After Hours Access Required'
@@ -2041,7 +2043,7 @@ screenRequest As screen:
 
                 "'Contract Number_DataCard2_1' As typedDataCard.textualEditCard":
                     BorderColor: |+
-                        =If(formSecurity.Mode = FormMode.Edit &&ThisItem.Title<> DataCardValue52_1.Text, Orange, RGBA(0, 18, 107, 1))
+                        =If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Contract Number'<> DataCardValue52_1.Text, Orange, RGBA(0, 18, 107, 1))
                         
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="ContractNumber"
@@ -2117,7 +2119,7 @@ screenRequest As screen:
 
                 EDIP_DataCard3_1 As typedDataCard.textualEditCard:
                     BorderColor: |+
-                        =If(formSecurity.Mode = FormMode.Edit &&ThisItem.Title<> DataCardValue55_1.Text, Orange, RGBA(0, 18, 107, 1))
+                        =If(formSecurity.Mode = FormMode.Edit &&ThisItem.EDIP<> DataCardValue55_1.Text, Orange, RGBA(0, 18, 107, 1))
                         
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="EDIP"
@@ -2193,7 +2195,7 @@ screenRequest As screen:
 
                 Email_DataCard3_1 As typedDataCard.textualEditCard:
                     BorderColor: |+
-                        =If(formSecurity.Mode = FormMode.Edit &&ThisItem.Title<> DataCardValue56_1.Text, Orange, RGBA(0, 18, 107, 1))
+                        =If(formSecurity.Mode = FormMode.Edit &&ThisItem.Email<> DataCardValue56_1.Text, Orange, RGBA(0, 18, 107, 1))
                         
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Email"
@@ -2268,6 +2270,9 @@ screenRequest As screen:
                         ZIndex: =4
 
                 "'CAC Required?_DataCard3_1' As typedDataCard.toggleEditCard":
+                    BorderColor: |+
+                        =If(formSecurity.Mode = FormMode.Edit && ThisItem.'CAC Required?'<> DataCardValue49_1.Value, Orange, RGBA(0, 18, 107, 1))
+                        
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="CACRequired_x003f_"
                     Default: =ThisItem.'CAC Required?'
@@ -2476,6 +2481,8 @@ screenRequest As screen:
                         ZIndex: =4
 
                 Acknowledgement_DataCard2_1 As typedDataCard.toggleEditCard:
+                    BorderColor: |
+                        =If(formSecurity.Mode = FormMode.Edit && ThisItem.'Acknowledgement'<> DataCardValue60_2.Value, Orange, RGBA(0, 18, 107, 1))
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Acknowledgement"
                     Default: =ThisItem.Acknowledgement
