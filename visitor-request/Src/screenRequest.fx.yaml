@@ -1,4 +1,60 @@
 screenRequest As screen:
+    OnVisible: |-
+        =ClearCollect(
+            colTimeFilter,
+            {
+                DisplayName: "This Month",
+                StartDate: Date(
+                                Year(Today()),
+                                Month(Today()),
+                                1
+                            ),
+                            EndDate: Date(
+                                Year(Today()),
+                                Month(Today()) + 1,
+                                1
+                            ) - 1
+                        },
+        
+                         {
+                DisplayName: "Next Month",
+                StartDate: Date(
+                                    Year(Today()),
+                                    Month(Today()) + 1,
+                                    1
+                                ),
+                                EndDate: Date(
+                                    Year(Today()),
+                                    Month(Today()) + 2,
+                                    1
+                                ) - 1
+                            },
+        
+                         {
+                DisplayName: "Next Quarter",
+                StartDate: Date(
+                                 Year(Today()),
+                                        Month(Today()),
+                                        Day(Today())
+                                    ),
+                                    EndDate: Date(
+                                        Year(Today()),
+                                        Month(Today()) + 3,
+                                        Day(Today())
+                                    ) - 1
+                                }
+        
+        );
+        Set(
+            isSecurity,
+            If(
+                CountRows(Security) > 0,
+                true,
+                false
+            )
+        );
+        
+          
 
     ComboBoxCheckBox As combobox:
         DefaultSelectedItems: =colApprovedFilter.Value
@@ -49,6 +105,7 @@ screenRequest As screen:
         Checkbox4 As checkbox:
             BorderColor: =RGBA(0, 0, 0, 0)
             CheckboxBorderColor: =RGBA(0, 0, 0, 0)
+            FontWeight: =FontWeight.Semibold
             Height: =40
             HoverColor: =RGBA(0, 0, 0, 1)
             OnCheck: =Collect(colApprovedFilter,ThisItem)
@@ -297,10 +354,21 @@ screenRequest As screen:
         Height: =57
         HintText: ="Search"
         Size: =20
-        Width: =1074
+        Width: =1054
         X: =165
         Y: =103
         ZIndex: =4
+
+    ddDateFilter As dropdown:
+        AllowEmptySelection: =true
+        Height: =57
+        Items: =colTimeFilter
+        Reset: =true
+        Size: =20
+        Width: =193
+        X: =1026
+        Y: =103
+        ZIndex: =5
 
     searchIconRequest As icon.Search:
         Color: =RGBA(153, 153, 153, 1)
@@ -309,19 +377,18 @@ screenRequest As screen:
         Width: =39
         X: =126
         Y: =103
-        ZIndex: =5
-
-    ddDateFilter As dropdown:
-        AllowEmptySelection: =true
-        Default: ="All"
-        Height: =57
-        Items: =["All", "This Month", "Next Month", "Next Quarter"]
-        Size: =20
-        Visible: =false
-        Width: =193
-        X: =1046
-        Y: =103
         ZIndex: =6
+
+    Label1 As label:
+        Align: =Align.Center
+        Color: =RGBA(149, 149, 149, 1)
+        Height: =57
+        Size: =20
+        Text: ="Start Date"
+        Visible: =IsBlank(ddDateFilter.Selected) 
+        X: =1026
+        Y: =103
+        ZIndex: =7
 
     buttonNewRequest As icon.CancelBadge:
         AutoDisableOnSelect: =false
@@ -338,16 +405,16 @@ screenRequest As screen:
         Width: =150
         X: =1216
         Y: =618
-        ZIndex: =7
+        ZIndex: =8
 
     compHeaderRequest As Header:
-        ZIndex: =8
+        ZIndex: =9
 
     modalRequest As groupContainer:
         Height: =768
         Visible: =isModalRequest
         Width: =1366
-        ZIndex: =9
+        ZIndex: =10
 
         modalFloatRequest As button:
             Color: =RGBA(0, 0, 0, 0)
@@ -3553,7 +3620,7 @@ screenRequest As screen:
         Height: =768
         Visible: =isModalSecurity
         Width: =App.Width
-        ZIndex: =10
+        ZIndex: =11
 
         modalFloatSecurity_1 As button:
             Fill: =RGBA(128, 128, 128, 0.5)
