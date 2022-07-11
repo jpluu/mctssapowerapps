@@ -21,7 +21,8 @@
       }
     },
     "dataSources": [
-      "VisitorRequest"
+      "VisitorRequest",
+      "Security"
     ],
     "dependencies": {},
     "dependents": [],

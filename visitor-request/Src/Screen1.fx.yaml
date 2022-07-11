@@ -10,7 +10,7 @@ Screen1 As screen:
         );
         
 
-    modalSecurity As groupContainer:
+    "'modalSecurity nope' As groupContainer":
         Height: =768
         Visible: =isSecurity
         Width: =App.Width
