@@ -1184,7 +1184,10 @@ screenRequest As screen:
                         ZIndex: =4
 
                 Sponsor_DataCard3_1 As typedDataCard.comboBoxEditCard:
-                    BorderColor: =//If(Form1_2.Mode = FormMode.Edit && currentUser365.Value <> DataCardValue41_1.Selected.Value, Orange,  RGBA(0, 18, 107, 1))
+                    BorderColor: |-
+                        =RGBA(0, 18, 107, 1)
+                        
+                        //If(Form1_2.Mode = FormMode.Edit && currentUser365.Value <> DataCardValue41_1.Selected.Value, Orange,  RGBA(0, 18, 107, 1))
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Sponsor"
                     Default: =ThisItem.Sponsor
@@ -1295,6 +1298,9 @@ screenRequest As screen:
                         DisplayMode: =Parent.DisplayMode
                         Fill: =RGBA(0, 0, 0, 0)
                         MaxLength: =Parent.MaxLength
+                        OnChange: |-
+                            =If(formSecurity.Mode = FormMode.Edit, Orange, RGBA(0, 18, 107, 1))
+                            //false//false
                         PaddingLeft: =5
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
@@ -1333,6 +1339,9 @@ screenRequest As screen:
                         ZIndex: =4
 
                 "'Alternate Sponsor_DataCard3_1' As typedDataCard.comboBoxEditCard":
+                    BorderColor: |-
+                        =RGBA(0, 18, 107, 1)/*If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Alternate Sponsor'<> DataCardValue53_1.Value, Orange, RGBA(0, 18, 107, 1))*/
+                        //RGBA(0, 18, 107, 1)
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="AlternateSponsor"
                     Default: =ThisItem.'Alternate Sponsor'
@@ -1367,6 +1376,9 @@ screenRequest As screen:
                         Fill: =RGBA(0, 0, 0, 0)
                         IsSearchable: =false
                         Items: =Choices([@VisitorRequest].AlternateSponsor)
+                        OnChange: |-
+                            =If(formSecurity.Mode = FormMode.Edit, Orange, RGBA(0, 18, 107, 1))
+                            //false//false
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
                         SearchItems: =[]
@@ -2427,7 +2439,10 @@ screenRequest As screen:
                         ZIndex: =4
 
                 "'Assigned to Section_DataCard3_1' As typedDataCard.comboBoxEditCard":
-                    BorderColor: =RGBA(0, 18, 107, 1) //If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Assigned to Section'<> DataCardValue53_1.Selected, Orange, RGBA(0, 18, 107, 1))
+                    BorderColor: |-
+                        =RGBA(0, 18, 107, 1)//If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Assigned to Section'.Value<> DataCardValue53_1.Selected.Value, Orange, RGBA(0, 18, 107, 1))
+                        
+                        //RGBA(0, 18, 107, 1) //If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Assigned to Section'<> DataCardValue53_1.Selected, Orange, RGBA(0, 18, 107, 1))
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="AssignedtoSection"
                     Default: =ThisItem.'Assigned to Section'
@@ -2463,6 +2478,9 @@ screenRequest As screen:
                         Fill: =RGBA(0, 0, 0, 0)
                         IsSearchable: =false
                         Items: =Choices([@VisitorRequest].AssignedtoSection)
+                        OnChange: |-
+                            =false /*If(formSecurity.Mode = FormMode.Edit, Orange, RGBA(0, 18, 107, 1))*/
+                            //false
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
                         SearchItems: =[]
