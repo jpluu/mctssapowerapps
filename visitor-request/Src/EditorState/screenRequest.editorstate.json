@@ -80079,7 +80079,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "pageAcknow",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -80303,7 +80303,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "pageEvent",
-      "ParentIndex": 6,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -80527,7 +80527,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "pageLongTerm",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -80751,7 +80751,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "pageReview",
-      "ParentIndex": 3,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -81134,7 +81134,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "pageVisitor",
-      "ParentIndex": 5,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -81307,7 +81307,7 @@
       },
       "MetaDataIDKey": "",
       "Name": "pbRequest",
-      "ParentIndex": 1,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
