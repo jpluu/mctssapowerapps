@@ -1,0 +1,209 @@
+componentProgressBar_1 As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =100
+    inputCurrentStep: =1
+    Width: =1500
+    X: =0
+    Y: =0
+    ZIndex: =2
+
+    collectionESI_1 As groupContainer.manualLayoutContainer:
+        Height: =Parent.Height
+        Width: =201
+        ZIndex: =2
+
+        rectangleNewEventNameStatusBar_6 As rectangle:
+            BorderColor: =RGBA(99, 139, 44, 1)
+            DisplayMode: =DisplayMode.View
+            Fill: =If(componentProgressBar_1.inputCurrentStep >= 2, Green, Black)
+            Height: =6
+            Width: =Parent.Width -125
+            X: =125
+            Y: =31
+            ZIndex: =1
+
+        labelNewEventName_7 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(89, 0, 0, 1)
+            Color: =Black
+            DisplayMode: =DisplayMode.View
+            FontWeight: =FontWeight.Bold
+            Height: =29
+            OnSelect: |-
+                = Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
+                        Set(
+                        isEventPage, 
+                        true
+                        )
+            PaddingLeft: =0
+            Size: =10
+            Text: ="Event and Sponsor Information"
+            Width: =201
+            Y: =71
+            ZIndex: =2
+
+        Circle2_8 As circle:
+            Fill: =If(componentProgressBar_1.inputCurrentStep >= 1, Green, Black)
+            Height: =66
+            OnSelect: |-
+                = Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
+                        Set(
+                        isEventPage, 
+                        true
+                        )
+            Width: =68
+            X: =60
+            ZIndex: =3
+
+        iconESI_2 As icon.Information:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =53
+            Icon: =Icon.Information
+            OnSelect: |-
+                = Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
+                        Set(
+                        isEventPage, 
+                        true
+                        )
+            Width: =44
+            X: =73
+            Y: =8
+            ZIndex: =4
+
+    collectionVI_1 As groupContainer.manualLayoutContainer:
+        Height: =Parent.Height
+        Width: =201
+        X: =140
+        ZIndex: =6
+
+        rectangleNewEventNameStatusBar_14 As rectangle:
+            BorderColor: =RGBA(99, 139, 44, 1)
+            DisplayMode: =DisplayMode.View
+            Fill: =If(componentProgressBar_1.inputCurrentStep >= 3, Green, Black)
+            Height: =6
+            Width: =Parent.Width -125
+            X: =125
+            Y: =31
+            ZIndex: =1
+
+        labelNewEventName_16 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(89, 0, 0, 1)
+            Color: =Black
+            DisplayMode: =DisplayMode.View
+            FontWeight: =FontWeight.Bold
+            Height: =27
+            OnSelect: |-
+                = /*Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);*/
+                    If(
+                        formEvent.Valid,
+                         Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
+                        Set(
+                        isVisitorPage, 
+                        true
+                        ),
+                        Notify("Form Page Not Complete!", NotificationType.Warning)
+                    )
+                    
+                   /*
+                If(
+                    formEvent.Valid,
+                    Set(isEventPage, false);
+                    Set(isVisitorPage, true),
+                    Notify("Form Page Not Complete!", NotificationType.Warning)
+                )
+                   */ 
+                    
+                    /*   Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                    If(
+                    formEvent.Valid,
+                    Set(isEventPage, false);
+                    Set(isVisitorPage, true),
+                    Notify("Form Page Not Complete!", NotificationType.Warning)
+                )*/
+            PaddingLeft: =0
+            Size: =10
+            Text: ="Visitor Information"
+            Width: =125
+            X: =35
+            Y: =73
+            ZIndex: =2
+
+        Circle2_10 As circle:
+            Fill: =If(componentProgressBar_1.inputCurrentStep >= 2, Green, Black)
+            Height: =66
+            OnSelect: |-
+                = /*Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);*/
+                    If(
+                        formEvent.Valid,
+                          Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
+                        Set(
+                        isVisitorPage, 
+                        true
+                        ),
+                        Notify("Form Page Not Complete!", NotificationType.Warning)
+                    )
+                    
+                   /*
+                If(
+                    formEvent.Valid,
+                    Set(isEventPage, false);
+                    Set(isVisitorPage, true),
+                    Notify("Form Page Not Complete!", NotificationType.Warning)
+                )
+                   */ 
+                    
+                    /*   Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                    If(
+                    formEvent.Valid,
+                    Set(isEventPage, false);
+                    Set(isVisitorPage, true),
+                    Notify("Form Page Not Complete!", NotificationType.Warning)
+                )*/
+            Width: =68
+            X: =60
+            ZIndex: =3
+
+        iconVI_2 As icon.Person:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =53
+            Icon: =Icon.Person
+            OnSelect: |-
+                = /*Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);*/
+                    If(
+                        formEvent.Valid,
+                        Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
+                        Set(
+                        isVisitorPage, 
+                        true
+                        ),
+                        Notify("Form Page Not Complete!", NotificationType.Warning)
+                    )
+                    
+                   /*
+                If(
+                    formEvent.Valid,
+                    Set(isEventPage, false);
+                    Set(isVisitorPage, true),
+                    Notify("Form Page Not Complete!", NotificationType.Warning)
+                )
+                   */ 
+                    
+                    /*   Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                    If(
+                    formEvent.Valid,
+                    Set(isEventPage, false);
+                    Set(isVisitorPage, true),
+                    Notify("Form Page Not Complete!", NotificationType.Warning)
+                )*/
+            Width: =50
+            X: =69
+            Y: =7
+            ZIndex: =4
+
+    "'collectionLTAI/R_1' As groupContainer.manualLayoutContainer":
+        Height: =Parent.Height
+        Width: =201
+        X: =280
+        ZIndex: =7
+

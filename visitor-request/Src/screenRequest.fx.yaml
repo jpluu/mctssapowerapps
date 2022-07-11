@@ -2687,7 +2687,13 @@ screenRequest As screen:
             Fill: =RGBA(128, 128, 128, 0.5)
             Height: =App.Height
             HoverFill: =ColorFade(Self.Fill, 20%)
-            OnSelect: =Set(isModalRequest, false)
+            OnSelect: |-
+                =Set(isModalRequest, false);
+                Set(isAdding, false);
+                ResetForm(formEvent);
+                ResetForm(formVisitor);
+                ResetForm(formLongTerm);
+                ResetForm(formAcknow);
             PaddingBottom: =0
             PaddingLeft: =0
             PaddingRight: =0
@@ -2767,14 +2773,35 @@ screenRequest As screen:
                 Icon: =Icon.NextArrow
                 OnSelect: |
                     =If(
+                        Not(isBulk),
                         Patch(
                             VisitorRequest,
                             formData,
                             formEvent.Updates,
                             formVisitor.Updates,
                             formAcknow.Updates
-                        );
-                        If(isLongTerm, Patch(VisitorRequest, formData, formLongTerm.Updates));
+                        ),
+                        If(
+                            Not(formVisitor.Valid),
+                            true,
+                            Collect(
+                                collectionFormUpdates,
+                                formVisitor.Updates
+                            )
+                        )
+                    );
+                    ForAll(
+                        collectionFormUpdates,
+                        Patch(
+                            VisitorRequest,
+                            formData,
+                            formEvent.Updates,
+                            formAcknow.Updates,
+                            formLongTerm.Updates,
+                            ThisRecord
+                        )
+                    );
+                    If(
                         IsEmpty(Errors(VisitorRequest)),
                         Notify(
                             "Success",
@@ -2793,6 +2820,11 @@ screenRequest As screen:
                             NotificationType.Error
                         )
                     );
+                    Set(
+                        isBulk,
+                        false
+                    );
+                    Clear(collectionFormUpdates);
                     ResetForm(formEvent);
                     ResetForm(formVisitor);
                     ResetForm(formLongTerm);
@@ -2845,11 +2877,11 @@ screenRequest As screen:
             ZIndex: =3
 
             formReview As form:
-                DataSource: =formEvent.Updates
+                DataSource: =VisitorRequest
                 DefaultMode: =FormMode.View
                 Height: =Parent.Height - labelReview.Height - backReview.Height
-                Item: =Patch(formLongTerm.Updates, formVisitor.Updates, formEvent.Updates)
-                Width: =Parent.Width
+                Item: =Patch(formLongTerm.Updates, galleryBulkReview.Selected, formEvent.Updates)
+                Width: =If(isBulk, Parent.Width - galleryBulkReview.Width, Parent.Width)
                 Y: =labelReview.Height
                 ZIndex: =1
 
@@ -4231,6 +4263,56 @@ screenRequest As screen:
                 Width: =Parent.Width
                 ZIndex: =4
 
+            galleryBulkReview As gallery.galleryVertical:
+                Height: =Parent.Height - labelVisitor.Height - pbRequest.Height
+                Items: =collectionFormUpdates
+                Layout: =Layout.Vertical
+                TemplateSize: =40
+                Visible: =isBulk
+                Width: =350
+                X: |-
+                    =
+                    Parent.Width - 350
+                Y: =labelReview.Height
+                ZIndex: =6
+
+                Container1_1 As groupContainer:
+                    Fill: =If(ThisItem.IsSelected, RGBA(0,0,0,0.5),RGBA(0,0,0,0))
+                    Height: =40
+                    Width: =340
+                    ZIndex: =4
+
+                    labelBulkFN_1 As label:
+                        Text: =ThisItem.'First Name'
+                        X: =40
+                        ZIndex: =1
+
+                    labelBulkLN_1 As label:
+                        Text: =ThisItem.'Last Name'
+                        X: =190
+                        ZIndex: =2
+
+                    Icon1_1 As icon.Edit:
+                        Height: =40
+                        Icon: =Icon.Edit
+                        OnSelect: |+
+                            =If(
+                                Not(isEditing),
+                                Set(
+                                    formData,
+                                    formVisitor.Updates
+                                ),
+                                true
+                            );
+                            Set(
+                                formDataBulk,
+                                ThisItem
+                            );
+                            
+                        Width: =40
+                        X: =300
+                        ZIndex: =3
+
         pageLongTerm As groupContainer:
             BorderThickness: =3
             Fill: =RGBA(153, 153, 153, 1)
@@ -4637,8 +4719,10 @@ screenRequest As screen:
             formVisitor As form:
                 DataSource: =VisitorRequest
                 Height: =Parent.Height - Self.Y - pbRequest.Height
-                Item: =formData
-                Width: =Parent.Width
+                Item: |-
+                    =If(isEditing,
+                    formDataBulk, formData)
+                Width: =If(isBulk, Parent.Width - galleryBulkVisitors.Width, Parent.Width)
                 Y: =labelVisitor.Height
                 ZIndex: =1
 
@@ -4679,6 +4763,7 @@ screenRequest As screen:
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
+                        Reset: =isReset
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
@@ -4741,12 +4826,14 @@ screenRequest As screen:
                         Default: =Parent.Default
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
+                        HintText: ="NMN"
                         MaxLength: =Parent.MaxLength
                         PaddingLeft: =5
                         RadiusBottomLeft: =0
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
+                        Reset: =isReset
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
@@ -4815,6 +4902,7 @@ screenRequest As screen:
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
+                        Reset: =isReset
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
@@ -4883,6 +4971,7 @@ screenRequest As screen:
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
+                        Reset: =isReset
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
@@ -5318,7 +5407,7 @@ screenRequest As screen:
             nextVisitor As icon.NextArrow:
                 DisplayMode: |-
                     =If(
-                        formVisitor.Valid,
+                        (formVisitor.Valid Or isBulk) And Not(isEditing),
                         DisplayMode.Edit,
                         DisplayMode.Disabled
                     )
@@ -5330,7 +5419,7 @@ screenRequest As screen:
                         false
                     );
                     If(
-                        formVisitor.Valid,
+                        formVisitor.Valid Or isBulk,
                         If(
                             isLongTerm,
                             Set(
@@ -5342,9 +5431,16 @@ screenRequest As screen:
                                 true
                             )
                         ),
-                        Notify(
-                            "Required Fields Not Completly Filled",
-                            NotificationType.Warning
+                        If(
+                            isBulk,
+                            Collect(
+                                collectionFormUpdates,
+                                formVisitor.Updates
+                            ),
+                            Notify(
+                                "Required Fields Not Completly Filled",
+                                NotificationType.Warning
+                            )
                         )
                     )
                 PaddingBottom: =10
@@ -5357,6 +5453,7 @@ screenRequest As screen:
                 ZIndex: =2
 
             backVisitor As icon.NextArrow:
+                DisplayMode: =If(isEditing, DisplayMode.Disabled,DisplayMode.Edit)
                 Height: =100
                 Icon: =Icon.BackArrow
                 OnSelect: |-
@@ -5378,6 +5475,112 @@ screenRequest As screen:
                 Text: ="Visitor Information"
                 Width: =Parent.Width
                 ZIndex: =4
+
+            containerBulk As groupContainer:
+                Height: =Parent.Height - labelVisitor.Height - pbRequest.Height
+                Width: =Parent.Width - formVisitor.Width
+                X: =formVisitor.Width
+                Y: =labelVisitor.Height
+                ZIndex: =7
+
+                galleryBulkVisitors As gallery.galleryVertical:
+                    Height: =Parent.Height - labelVisitor.Height - pbRequest.Height
+                    Items: =collectionFormUpdates
+                    Layout: =Layout.Vertical
+                    TemplateSize: =40
+                    Visible: =isBulk
+                    Width: =350
+                    X: |-
+                        =
+                        Parent.Width - 350
+                    Y: |
+                        =0
+                    ZIndex: =1
+
+                    Container1 As groupContainer:
+                        Fill: |-
+                            =If(isEditing,
+                            If(ThisItem.IsSelected, RGBA(0,0,0,0.5),RGBA(0,0,0,0)),RGBA(0,0,0,0))
+                        Height: =40
+                        Width: =340
+                        ZIndex: =4
+
+                        labelBulkFN As label:
+                            Text: =ThisItem.'First Name'
+                            X: =40
+                            ZIndex: =1
+
+                        labelBulkLN As label:
+                            Text: =ThisItem.'Last Name'
+                            X: =190
+                            ZIndex: =2
+
+                        Icon1 As icon.Edit:
+                            Height: =40
+                            Icon: =Icon.Edit
+                            OnSelect: |
+                                =If(
+                                    Not(isEditing),
+                                    Set(
+                                        formData,
+                                        formVisitor.Updates
+                                    ),
+                                    true
+                                );
+                                Set(
+                                    formDataBulk,
+                                    ThisItem
+                                );
+                                Set(
+                                    isEditing,
+                                    true
+                                );
+                            Width: =40
+                            X: =300
+                            ZIndex: =3
+
+                buttonBulkSave As button:
+                    OnSelect: |-
+                        =Patch(collectionFormUpdates, formDataBulk, formVisitor.Updates);
+                        Reset(galleryBulkVisitors);
+                        Set(isEditing,false);
+                    Text: ="Save"
+                    Visible: =isEditing
+                    Y: =364
+                    ZIndex: =3
+
+            buttonBulkAdd As button:
+                DisplayMode: |-
+                    =If(isEditing,
+                    DisplayMode.Disabled,DisplayMode.Edit)
+                OnSelect: |-
+                    =If(
+                        formVisitor.Valid,
+                        Set(
+                            isBulk,
+                            true
+                        );
+                        Collect(
+                            collectionFormUpdates,
+                            formVisitor.Updates
+                        );
+                        Set(
+                            isReset,
+                            true
+                        );
+                        Set(
+                            isReset,
+                            false
+                        ),
+                        Notify(
+                            "Visitor Info Request Not Complete...",
+                            NotificationType.Warning
+                        )
+                    )
+                Text: ="Bulk Add"
+                X: =987
+                Y: =428
+                ZIndex: =8
 
         pageEvent As groupContainer:
             BorderThickness: =3
@@ -5564,7 +5767,7 @@ screenRequest As screen:
 
                     dcEndDate As datepicker:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        DefaultDate: =Today() + 7
+                        DefaultDate: =dcStartDate.SelectedDate + 7
                         DisplayMode: =Parent.DisplayMode
                         EndYear: =Year(Today())+100
                         IsEditable: =true
@@ -5629,8 +5832,18 @@ screenRequest As screen:
 
                     DataCardValue5 As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =Parent.Default
-                        DefaultSelectedItems: =currentUser365
+                        Default: |-
+                            =If(
+                                isAdding,
+                                currentUser365,
+                                Parent.Default
+                            )
+                        DefaultSelectedItems: |-
+                            =If(
+                                isAdding,
+                                currentUser365,
+                                Parent.Default
+                            )
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
                         Items: =Choices([@VisitorRequest].Sponsor)
@@ -5699,7 +5912,7 @@ screenRequest As screen:
 
                     DataCardValue6 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Default: =currentUserPhone
+                        Default: =If(isAdding, currentUserPhone, Parent.Default)
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         MaxLength: =Parent.MaxLength
@@ -5856,7 +6069,8 @@ screenRequest As screen:
                 Width: =Parent.Width
                 ZIndex: =4
 
-        pbRequest As componentProgressBar:
+        pbRequest As componentProgressBar_2:
+            Height: =82
             inputCurrentStep: |-
                 =If(
                     isEventPage,
@@ -5877,8 +6091,8 @@ screenRequest As screen:
                     isAcknowPage,
                     4
                 )
-            Width: =pageEvent.Width - 2 * nextEvent.Width
-            X: =backEvent.Width + modalX
-            Y: =modalY + labelEvent.Height + formEvent.Height
+            Width: =877
+            X: =205
+            Y: =586
             ZIndex: =7
 
