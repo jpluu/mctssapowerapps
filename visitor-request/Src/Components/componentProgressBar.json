@@ -2280,7 +2280,14 @@
               "BorderColor",
               "BorderStyle",
               "FocusedBorderColor",
-              "DisplayMode",
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "DisplayMode.Edit",
+                "InvariantPropertyName": "DisplayMode",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
+              },
               {
                 "AFDDataSourceName": "",
                 "AutoRuleBindingEnabled": false,
@@ -2362,7 +2369,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "DisplayMode.Edit",
+                "InvariantScript": "If(isEditing, DisplayMode.View, DisplayMode.Edit)",
                 "Property": "DisplayMode",
                 "RuleProviderType": "Unknown"
               },
@@ -2445,7 +2452,14 @@
               "DisabledFill",
               "PressedFill",
               "HoverFill",
-              "DisplayMode",
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "DisplayMode.Edit",
+                "InvariantPropertyName": "DisplayMode",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
+              },
               {
                 "AFDDataSourceName": "",
                 "AutoRuleBindingEnabled": false,
@@ -2512,7 +2526,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "DisplayMode.Edit",
+                "InvariantScript": "If(isEditing, DisplayMode.View, DisplayMode.Edit)",
                 "Property": "DisplayMode",
                 "RuleProviderType": "Unknown"
               },
@@ -2685,7 +2699,14 @@
               "DisabledFill",
               "PressedFill",
               "HoverFill",
-              "DisplayMode",
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "DisplayMode.Edit",
+                "InvariantPropertyName": "DisplayMode",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
+              },
               {
                 "AFDDataSourceName": "",
                 "AutoRuleBindingEnabled": false,
@@ -2759,7 +2780,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "DisplayMode.Edit",
+                "InvariantScript": "If(isEditing, DisplayMode.View, DisplayMode.Edit)",
                 "Property": "DisplayMode",
                 "RuleProviderType": "Unknown"
               },
@@ -3284,7 +3305,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "DisplayMode.Edit",
+                "InvariantScript": "If(isEditing, DisplayMode.View, DisplayMode.Edit)",
                 "Property": "DisplayMode",
                 "RuleProviderType": "Unknown"
               },
@@ -3685,7 +3706,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "DisplayMode.Edit",
+                "InvariantScript": "If(isEditing, DisplayMode.View, DisplayMode.Edit)",
                 "Property": "DisplayMode",
                 "RuleProviderType": "Unknown"
               },
@@ -4080,7 +4101,14 @@
               "BorderColor",
               "BorderStyle",
               "FocusedBorderColor",
-              "DisplayMode",
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "DisplayMode.Edit",
+                "InvariantPropertyName": "DisplayMode",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
+              },
               "X",
               "Y",
               "Width",
@@ -4143,7 +4171,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "DisplayMode.Edit",
+                "InvariantScript": "If(isEditing, DisplayMode.View, DisplayMode.Edit)",
                 "Property": "DisplayMode",
                 "RuleProviderType": "Unknown"
               },
@@ -4238,7 +4266,14 @@
               "DisabledFill",
               "PressedFill",
               "HoverFill",
-              "DisplayMode",
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "DisplayMode.Edit",
+                "InvariantPropertyName": "DisplayMode",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
+              },
               {
                 "AFDDataSourceName": "",
                 "AutoRuleBindingEnabled": false,
@@ -4312,7 +4347,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "DisplayMode.Edit",
+                "InvariantScript": "If(isEditing, DisplayMode.View, DisplayMode.Edit)",
                 "Property": "DisplayMode",
                 "RuleProviderType": "Unknown"
               },
@@ -4485,7 +4520,14 @@
               "DisabledFill",
               "PressedFill",
               "HoverFill",
-              "DisplayMode",
+              {
+                "AFDDataSourceName": "",
+                "AutoRuleBindingEnabled": false,
+                "AutoRuleBindingString": "DisplayMode.Edit",
+                "InvariantPropertyName": "DisplayMode",
+                "IsLockable": false,
+                "NameMapSourceSchema": "?"
+              },
               {
                 "AFDDataSourceName": "",
                 "AutoRuleBindingEnabled": false,
@@ -4594,7 +4636,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "DisplayMode.Edit",
+                "InvariantScript": "If(isEditing, DisplayMode.View, DisplayMode.Edit)",
                 "Property": "DisplayMode",
                 "RuleProviderType": "Unknown"
               },
@@ -5091,7 +5133,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "DisplayMode.Edit",
+                "InvariantScript": "If(isEditing, DisplayMode.View, DisplayMode.Edit)",
                 "Property": "DisplayMode",
                 "RuleProviderType": "Unknown"
               },
@@ -5492,7 +5534,7 @@
               },
               {
                 "Category": "Design",
-                "InvariantScript": "DisplayMode.Edit",
+                "InvariantScript": "If(isEditing, DisplayMode.View, DisplayMode.Edit)",
                 "Property": "DisplayMode",
                 "RuleProviderType": "Unknown"
               },
@@ -6851,7 +6893,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "637931669660915964",
+    "LastModifiedTimestamp": "637931670885944971",
     "Name": "componentProgressBar",
     "Rules": [
       {
@@ -6926,7 +6968,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "637931669660915964",
+  "LastModifiedTimestamp": "637931670885944971",
   "Name": "dbd607af812e46be9d29858798df077d",
   "OverridableProperties": {},
   "TemplateOriginalName": "0a840945548b4850ac694ae82473f8ab",
