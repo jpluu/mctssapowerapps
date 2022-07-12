@@ -56,9 +56,9 @@ screenRequest As screen:
         Set(
             isSponsor,
             If(
-                CountRows(Security) > 0,
-                false,
-                true
+                CountRows(Security) = 0,
+                true,
+                false
             )
             );
         
@@ -128,11 +128,11 @@ screenRequest As screen:
         Height: =522
         Items: |-
             =SortByColumns(
-            If(isSponsor,
+            If(!isSponsor,
                 Search(
                 Filter(
                     VisitorRequest,
-                     Lower(Sponsor.Email) = Lower(currentUser.Email), IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
+                      IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
                      IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate
                 ),
                 searchBarRequest.Text,
@@ -143,7 +143,7 @@ screenRequest As screen:
                 Search(
                 Filter(
                     VisitorRequest,
-                    IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
+                    Lower(Sponsor.Email) = Lower(currentUser.Email), IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
                      IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate
                 ),
                 searchBarRequest.Text,
