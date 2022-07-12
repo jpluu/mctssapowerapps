@@ -120,6 +120,50 @@ screenRequest As screen:
         Height: =522
         Items: |-
             =SortByColumns(
+            If(isSecurity,
+                Search(
+                Filter(
+                    VisitorRequest,
+                    IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
+                     IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate
+                ),
+                searchBarRequest.Text,
+                "LastName",
+                "FirstName",
+                "Title"
+            ),
+            If(!isSecurity,
+                Search(
+                Filter(
+                    VisitorRequest,
+                    Lower(Sponsor.Email) = Lower(currentUser.Email), IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
+                     IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate
+                ),
+                searchBarRequest.Text,
+                "LastName",
+                "FirstName",
+                "Title"
+            ))),
+            "LastName",
+                Ascending)
+                
+                /*SortByColumns(
+            Search(
+                Filter(
+                    VisitorRequest,
+                    If(isSecurity, Lower(Sponsor.Email) = Lower(currentUser.Email), IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
+                     IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate)
+                ),
+                searchBarRequest.Text,
+                "LastName",
+                "FirstName",
+                "Title"
+            ),
+            "LastName",
+                Ascending)*/
+            
+                /*
+                SortByColumns(
             Search(
                 Filter(
                     VisitorRequest,
@@ -133,6 +177,7 @@ screenRequest As screen:
             ),
             "LastName",
                 Ascending)
+                */
             
                
                 
