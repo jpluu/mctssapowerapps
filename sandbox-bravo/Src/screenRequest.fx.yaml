@@ -53,14 +53,7 @@ screenRequest As screen:
                 false
             )
         );
-        Set(
-            isSponsor,
-            If(
-                CountRows(Security) <= 0,
-                true,
-                false
-            )
-            );
+        
         
           
 
