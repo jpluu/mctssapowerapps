@@ -568,10 +568,10 @@
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 2,
-                  "charOffset": 526,
+                  "charLength": 20,
+                  "charOffset": 725,
                   "snippet": {
-                    "text": "in"
+                    "text": "Lower(Sponsor.Email)"
                   }
                 }
               },
@@ -591,8 +591,8 @@
           "properties": {
             "level": "Medium"
           },
-          "ruleId": "app-SuggestRemoteExecutionHint-InOpRhs",
-          "ruleIndex": 3
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 4
         },
         {
           "locations": [
@@ -608,10 +608,10 @@
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 2,
-                  "charOffset": 508,
+                  "charLength": 1,
+                  "charOffset": 746,
                   "snippet": {
-                    "text": "||"
+                    "text": "="
                   }
                 }
               },
