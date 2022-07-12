@@ -132,7 +132,6 @@ screenRequest As screen:
                 "FirstName",
                 "Title"
             ),
-            If(!isSecurity,
                 Search(
                 Filter(
                     VisitorRequest,
@@ -143,7 +142,7 @@ screenRequest As screen:
                 "LastName",
                 "FirstName",
                 "Title"
-            ))),
+            )),
             "LastName",
                 Ascending)
                 

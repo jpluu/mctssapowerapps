@@ -569,7 +569,7 @@
                 },
                 "region": {
                   "charLength": 20,
-                  "charOffset": 551,
+                  "charOffset": 534,
                   "snippet": {
                     "text": "Lower(Sponsor.Email)"
                   }
@@ -609,7 +609,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 572,
+                  "charOffset": 555,
                   "snippet": {
                     "text": "="
                   }
