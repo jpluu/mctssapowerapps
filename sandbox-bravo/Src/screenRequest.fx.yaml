@@ -1377,7 +1377,10 @@ screenRequest As screen:
                         ZIndex: =4
 
                 Sponsor_DataCard3_1 As typedDataCard.comboBoxEditCard:
-                    BorderColor: =RGBA(0, 18, 107, 1)//If(formSecurity.Mode = FormMode.Edit && ThisItem.Sponsor <> DataCardValue41_1.Selected, Orange,  RGBA(0, 18, 107, 1))
+                    BorderColor: |
+                        =RGBA(0, 18, 107, 1)
+                        
+                        /*If(formSecurity.Mode = FormMode.Edit && ThisItem.Sponsor <> DataCardValue41_1.Selected, Orange,  */
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="Sponsor"
                     Default: =ThisItem.Sponsor
