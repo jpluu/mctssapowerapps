@@ -126,7 +126,7 @@ screenRequest As screen:
                     VisitorRequest,
                     IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
                      IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate,
-                    If(isSecurity, Lower(Sponsor.Email) = Lower(currentUser.Email))
+                    If(!isSecurity, Lower(Sponsor.Email) = Lower(currentUser.Email))
                 ),
                 searchBarRequest.Text,
                 "LastName",
