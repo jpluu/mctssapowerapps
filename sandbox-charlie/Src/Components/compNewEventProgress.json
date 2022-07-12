@@ -120,7 +120,7 @@
             "Name": "labelNewEventName",
             "Parent": "contNewEventName",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 6,
+            "PublishOrderIndex": 646,
             "Rules": [
               {
                 "Category": "Data",
@@ -455,7 +455,7 @@
             "Name": "rectangleNewEventNameStatusBar",
             "Parent": "contNewEventName",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 7,
+            "PublishOrderIndex": 647,
             "Rules": [
               {
                 "Category": "Design",
@@ -611,7 +611,7 @@
         "Name": "contNewEventName",
         "Parent": "compNewEventProgress",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 2,
+        "PublishOrderIndex": 645,
         "Rules": [
           {
             "Category": "Design",
@@ -848,7 +848,7 @@
             "Name": "labelNewEventName_1",
             "Parent": "contNewEventName_1",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 8,
+            "PublishOrderIndex": 649,
             "Rules": [
               {
                 "Category": "Data",
@@ -1183,7 +1183,7 @@
             "Name": "rectangleNewEventNameStatusBar_1",
             "Parent": "contNewEventName_1",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 9,
+            "PublishOrderIndex": 650,
             "Rules": [
               {
                 "Category": "Design",
@@ -1332,7 +1332,7 @@
         "Name": "contNewEventName_1",
         "Parent": "compNewEventProgress",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 3,
+        "PublishOrderIndex": 648,
         "Rules": [
           {
             "Category": "Design",
@@ -1570,7 +1570,7 @@
             "Name": "labelNewEventName_2",
             "Parent": "contNewEventName_2",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 10,
+            "PublishOrderIndex": 652,
             "Rules": [
               {
                 "Category": "Data",
@@ -1943,7 +1943,7 @@
             "Name": "labelNewEventName_3",
             "Parent": "contNewEventName_2",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 11,
+            "PublishOrderIndex": 653,
             "Rules": [
               {
                 "Category": "Data",
@@ -2292,7 +2292,7 @@
             "Name": "rectangleNewEventNameStatusBar_2",
             "Parent": "contNewEventName_2",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 12,
+            "PublishOrderIndex": 654,
             "Rules": [
               {
                 "Category": "Design",
@@ -2455,7 +2455,7 @@
         "Name": "contNewEventName_2",
         "Parent": "compNewEventProgress",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 4,
+        "PublishOrderIndex": 651,
         "Rules": [
           {
             "Category": "Design",
@@ -2698,7 +2698,7 @@
             "Name": "labelNewEventName_4",
             "Parent": "contNewEventName_3",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 13,
+            "PublishOrderIndex": 656,
             "Rules": [
               {
                 "Category": "Data",
@@ -3033,7 +3033,7 @@
             "Name": "rectangleNewEventNameStatusBar_4",
             "Parent": "contNewEventName_3",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 14,
+            "PublishOrderIndex": 657,
             "Rules": [
               {
                 "Category": "Design",
@@ -3197,7 +3197,7 @@
         "Name": "contNewEventName_3",
         "Parent": "compNewEventProgress",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 5,
+        "PublishOrderIndex": 655,
         "Rules": [
           {
             "Category": "Design",

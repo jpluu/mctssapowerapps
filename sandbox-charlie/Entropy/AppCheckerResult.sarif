@@ -4614,6 +4614,126 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Visitor Log Screen'.checkSentry.FormViewer1_2.Sponsor_DataCard1_2.DataCardValue61_2.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Visitor Log Screen'.checkSentry.FormViewer1_2.Sponsor_DataCard1_2.DataCardValue61_2.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Visitor Log Screen",
+                "type": "'Visitor Log Screen'.checkSentry.FormViewer1_2.Sponsor_DataCard1_2.DataCardValue61_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Visitor Log Screen'.checkSentry.FormViewer1_2.'After Hours Access Required_DataCard1_2'.DataCardValue71_2.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Visitor Log Screen'.checkSentry.FormViewer1_2.'After Hours Access Required_DataCard1_2'.DataCardValue71_2.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Visitor Log Screen",
+                "type": "'Visitor Log Screen'.checkSentry.FormViewer1_2.'After Hours Access Required_DataCard1_2'.DataCardValue71_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Visitor Log Screen'.checkSentry.FormViewer1_2.'Are You A Long-Term Visitor_DataCard1_2'.DataCardValue72_2.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Visitor Log Screen'.checkSentry.FormViewer1_2.'Are You A Long-Term Visitor_DataCard1_2'.DataCardValue72_2.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Visitor Log Screen",
+                "type": "'Visitor Log Screen'.checkSentry.FormViewer1_2.'Are You A Long-Term Visitor_DataCard1_2'.DataCardValue72_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Visitor Log Screen'.checkSentry.FormViewer1_2.'CAC Required?_DataCard1_2'.DataCardValue75_2.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Visitor Log Screen'.checkSentry.FormViewer1_2.'CAC Required?_DataCard1_2'.DataCardValue75_2.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Visitor Log Screen",
+                "type": "'Visitor Log Screen'.checkSentry.FormViewer1_2.'CAC Required?_DataCard1_2'.DataCardValue75_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App.boolRequestStatusModal"
                 }
               ],
@@ -4745,36 +4865,6 @@
               },
               "properties": {
                 "member": "boolCheckIn",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 9
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.boolCheckedIn"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.boolCheckedIn",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "boolCheckedIn",
                 "module": "App",
                 "type": "App"
               }

@@ -109,7 +109,7 @@
                 OnCheck: =Set(boolCheckIn, true)
                 OnSelect: =Select(Parent)
                 OnUncheck: =Set(boolCheckedIn, false);
-                Text: ="Option"
+                Text: ="Valid Check"
                 Width: =111
                 X: =350
                 Y: =40
@@ -204,7 +204,7 @@
 
     Button5_4 As button:
         Height: =89
-        OnSelect: =Set(checkedIn, true);Set(boolCheck, false)
+        OnSelect: =Set(checkedIn, false);Set(boolCheck, true)
         Text: ="Assign Serial Number"
         Width: =254
         X: =660
@@ -214,6 +214,7 @@
     FormViewer1_3 As formViewer:
         DataSource: ='Visitor Log'
         Fill: =RGBA(255, 255, 255, 1)
+        Height: =423
         Item: =varSelectedVisitor
         Width: =532
         X: =530
@@ -640,4 +641,490 @@
                 X: =30
                 Y: =DataCardKey74_1.Y + DataCardKey74_1.Height + 5
                 ZIndex: =2
+
+    checkSentry As groupContainer:
+        Height: =768
+        Visible: =boolCheckedIn
+        Width: =1366
+        ZIndex: =12
+
+        modalSentryExit_4 As button:
+            Fill: =If(boolSentryModal, RGBA(179, 179, 179, 0.5), RGBA(255,255,255,0))
+            Height: =768
+            HoverFill: =ColorFade(RGBA(60, 60, 60, .5), -20%)
+            OnSelect: =Set(boolSentryModal, false)
+            Text: =""
+            Visible: =boolSentryModal
+            Width: =1366
+            ZIndex: =1
+
+        FormViewer1_2 As formViewer:
+            DataSource: ='Visitor Log'
+            Fill: =RGBA(255, 255, 255, 1)
+            Item: =varSelectedVisitor
+            Visible: =boolSentryModal
+            Width: =764
+            X: =299
+            Y: =150
+            ZIndex: =2
+
+            "'First Name_DataCard2_3' As typedDataCard.textualViewCard":
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="FirstName"
+                Default: =ThisItem.'First Name'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@'Visitor Log'],DataSourceInfo.DisplayName,"FirstName")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Required: =true
+                Width: =254
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+                DataCardKey32_3 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue32_3 As label:
+                    AutoHeight: =true
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =27
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Default
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey32_3.Y + DataCardKey32_3.Height + 5
+                    ZIndex: =2
+
+            "'Last Name_DataCard2_3' As typedDataCard.textualViewCard":
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="LastName"
+                Default: =ThisItem.'Last Name'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@'Visitor Log'],DataSourceInfo.DisplayName,"LastName")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Required: =true
+                Width: =254
+                X: =1
+                Y: =0
+                ZIndex: =1
+
+                DataCardKey33_3 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue33_3 As label:
+                    AutoHeight: =true
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =27
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Default
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey33_3.Y + DataCardKey33_3.Height + 5
+                    ZIndex: =2
+
+            Email_DataCard4_2 As typedDataCard.textualViewCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Email"
+                Default: =ThisItem.Email
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@'Visitor Log'],DataSourceInfo.DisplayName,"Email")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Required: =false
+                Width: =254
+                X: =2
+                Y: =0
+                ZIndex: =1
+
+                DataCardKey69_2 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue69_2 As label:
+                    AutoHeight: =true
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =27
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Default
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey69_2.Y + DataCardKey69_2.Height + 5
+                    ZIndex: =2
+
+            Sponsor_DataCard1_2 As typedDataCard.comboBoxViewCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Sponsor"
+                Default: =ThisItem.Sponsor
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@'Visitor Log'],DataSourceInfo.DisplayName,"Sponsor")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =true
+                Update: =DataCardValue61_2.Selected
+                Width: =254
+                X: =0
+                Y: =1
+                ZIndex: =1
+
+                DataCardKey61_2 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue61_2 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    DefaultSelectedItems: =Parent.Default
+                    DisplayFields: =["DisplayName","Email","Picture"]
+                    DisplayMode: =Parent.DisplayMode
+                    Items: =Choices([@'Visitor Log'].Sponsor)
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    SearchFields: =["DisplayName"]
+                    SearchItems: =Choices('Visitor Log'.Sponsor,DataCardValue61_2.SearchText)
+                    SelectMultiple: =false
+                    Template: =ListItemTemplate.Person
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =35
+                    ZIndex: =2
+
+                ErrorMessage16_2 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue61_2.Y + DataCardValue61_2.Height
+                    ZIndex: =3
+
+                StarVisible16_2 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey61_2.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey61_2.Y
+                    ZIndex: =4
+
+            "'Sponsor Phone Number_DataCard1_2' As typedDataCard.textualViewCard":
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Phone_x0020_Number"
+                Default: =ThisItem.'Sponsor Phone Number'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@'Visitor Log'],DataSourceInfo.DisplayName,"Phone_x0020_Number")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Required: =true
+                Width: =254
+                X: =1
+                Y: =1
+                ZIndex: =1
+
+                DataCardKey68_2 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue68_2 As label:
+                    AutoHeight: =true
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =27
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Default
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey68_2.Y + DataCardKey68_2.Height + 5
+                    ZIndex: =2
+
+            "'Company/Organization_DataCard1_2' As typedDataCard.textualViewCard":
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Company_x002f_Organization"
+                Default: =ThisItem.'Company/Organization'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@'Visitor Log'],DataSourceInfo.DisplayName,"Company_x002f_Organization")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Required: =true
+                Width: =254
+                X: =2
+                Y: =1
+                ZIndex: =1
+
+                DataCardKey70_2 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue70_2 As label:
+                    AutoHeight: =true
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =27
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Default
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey70_2.Y + DataCardKey70_2.Height + 5
+                    ZIndex: =2
+
+            "'After Hours Access Required_DataCard1_2' As typedDataCard.toggleViewCard":
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="After_x0020_Hours_x0020_Access_x"
+                Default: =ThisItem.'After Hours Access Required'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@'Visitor Log'],DataSourceInfo.DisplayName,"After_x0020_Hours_x0020_Access_x")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Width: =254
+                X: =0
+                Y: =2
+                ZIndex: =1
+
+                DataCardKey71_2 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue71_2 As toggleSwitch:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =Parent.Default
+                    DisplayMode: =Parent.DisplayMode
+                    X: =30
+                    Y: =DataCardKey71_2.Y + DataCardKey71_2.Height + 5
+                    ZIndex: =2
+
+            "'Are You A Long-Term Visitor_DataCard1_2' As typedDataCard.toggleViewCard":
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="AreYouALong_x002d_TermVisitor"
+                Default: =ThisItem.'Are You A Long-Term Visitor'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@'Visitor Log'],DataSourceInfo.DisplayName,"AreYouALong_x002d_TermVisitor")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Width: =254
+                X: =1
+                Y: =2
+                ZIndex: =1
+
+                DataCardKey72_2 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue72_2 As toggleSwitch:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =Parent.Default
+                    DisplayMode: =Parent.DisplayMode
+                    X: =30
+                    Y: =DataCardKey72_2.Y + DataCardKey72_2.Height + 5
+                    ZIndex: =2
+
+            "'CAC Required?_DataCard1_2' As typedDataCard.toggleViewCard":
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="CACRequired_x003f_"
+                Default: =ThisItem.'CAC Required?'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@'Visitor Log'],DataSourceInfo.DisplayName,"CACRequired_x003f_")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Width: =254
+                X: =2
+                Y: =2
+                ZIndex: =1
+
+                DataCardKey75_2 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue75_2 As toggleSwitch:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =Parent.Default
+                    DisplayMode: =Parent.DisplayMode
+                    X: =30
+                    Y: =DataCardKey75_2.Y + DataCardKey75_2.Height + 5
+                    ZIndex: =2
+
+            "'Visit Start Date_DataCard1_2' As typedDataCard.textualViewCard":
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="VisitStartDate"
+                Default: =ThisItem.'Visit Start Date'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@'Visitor Log'],DataSourceInfo.DisplayName,"VisitStartDate")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Required: =true
+                Width: =254
+                X: =0
+                Y: =3
+                ZIndex: =1
+
+                DataCardKey73_2 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue73_2 As label:
+                    AutoHeight: =true
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =27
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Default
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey73_2.Y + DataCardKey73_2.Height + 5
+                    ZIndex: =2
+
+            "'Visit End Date_DataCard1_2' As typedDataCard.textualViewCard":
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="VisitEndDate"
+                Default: =ThisItem.'Visit End Date'
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@'Visitor Log'],DataSourceInfo.DisplayName,"VisitEndDate")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Required: =true
+                Width: =254
+                X: =1
+                Y: =3
+                ZIndex: =1
+
+                DataCardKey74_2 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue74_2 As label:
+                    AutoHeight: =true
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =27
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Default
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey74_2.Y + DataCardKey74_2.Height + 5
+                    ZIndex: =2
+
+        buttonCheckInOut_3 As button:
+            OnSelect: |-
+                =If(
+                    varSelectedVisitor.'Base Status'.Value = "Not Arrived",
+                    Patch(
+                        'Visitor Log',
+                        LookUp(
+                            'Visitor Log',
+                            Title = varSelectedVisitor.Title
+                        ),
+                        {'Base Status': {Value: "On-Base"}}
+                    );
+                    Office365Outlook.SendEmailV2(
+                        varSelectedVisitor.Sponsor.Email,
+                        "Your Visitor " & varSelectedVisitor.'First Name' & " " & varSelectedVisitor.'Last Name' & " has arrived!",
+                        "Greetings " & varSelectedVisitor.Sponsor.DisplayName & "<br> Your visitor " & varSelectedVisitor.'First Name' & " " & varSelectedVisitor.'Last Name' & " has arrived and is ready to be picked up at the sentry station."
+                    ),
+                    If(
+                        varSelectedVisitor.'Base Status'.Value = "On-Base",
+                        Patch(
+                            'Visitor Log',
+                            LookUp(
+                                'Visitor Log',
+                                Title = varSelectedVisitor.Title
+                            ),
+                            {'Base Status': {Value: "Checked-Out"}}
+                        ),
+                        false
+                    )
+                );
+                Set(
+                    boolSentryModal,
+                    false
+                )
+            Text: =If(varSelectedVisitor.'Base Status'.Value = "Not Arrived", "Check-in", If(varSelectedVisitor.'Base Status'.Value = "On-Base", "Check-out", false))
+            X: =603
+            Y: =587
+            ZIndex: =3
 
