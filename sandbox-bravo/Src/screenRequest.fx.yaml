@@ -119,13 +119,14 @@ screenRequest As screen:
     "galleryRequests As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
         Height: =522
         Items: |-
-            =SortByColumns(
+            =If(
+            isSecurity,
+            SortByColumns(
             Search(
                 Filter(
                     VisitorRequest,
                     IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
-                     IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate,
-                    isSecurity, Lower(Sponsor.Email) = Lower(currentUser.Email)
+                     IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate
                 ),
                 searchBarRequest.Text,
                 "LastName",
@@ -133,7 +134,24 @@ screenRequest As screen:
                 "Title"
             ),
             "LastName",
-                Ascending)
+                Ascending),
+                SortByColumns(
+            Search(
+                Filter(
+                    VisitorRequest,
+                    IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
+                     IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate,
+                      Lower(Sponsor.Email) = Lower(currentUser.Email)
+                ),
+                searchBarRequest.Text,
+                "LastName",
+                "FirstName",
+                "Title"
+            ),
+            "LastName",
+                Ascending))
+            
+               
                 
                 /*SortByColumns(
             Search(
