@@ -124,6 +124,32 @@ screenRequest As screen:
                 Search(
                 Filter(
                     VisitorRequest,
+                     IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
+                     IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate
+                ),
+                searchBarRequest.Text,
+                "LastName",
+                "FirstName",
+                "Title"
+            ),
+                Search(
+                Filter(
+                    VisitorRequest,
+                    Lower(Sponsor.Email) = Lower(currentUser.Email), IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
+                     IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate
+                ),
+                searchBarRequest.Text,
+                "LastName",
+                "FirstName",
+                "Title"
+            )),
+            "LastName",
+                Ascending)
+                /*SortByColumns(
+            If(!isSecurity,
+                Search(
+                Filter(
+                    VisitorRequest,
                      Lower(Sponsor.Email) = Lower(currentUser.Email), IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
                      IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate
                 ),
@@ -144,7 +170,7 @@ screenRequest As screen:
                 "Title"
             )),
             "LastName",
-                Ascending)
+                Ascending)*/
                 
                 /*SortByColumns(
             Search(
