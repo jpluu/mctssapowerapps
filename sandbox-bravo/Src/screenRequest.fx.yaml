@@ -121,6 +121,22 @@ screenRequest As screen:
         Height: =522
         Items: |-
             =SortByColumns(
+            Search(
+                Filter(
+                    VisitorRequest,
+                    IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
+                     IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate,
+                    If(isSecurity, Lower(Sponsor.Email) = Lower(currentUser.Email))
+                ),
+                searchBarRequest.Text,
+                "LastName",
+                "FirstName",
+                "Title"
+            ),
+            "LastName",
+                Ascending)
+                
+                /*SortByColumns(
             If(isSecurity,
                 Search(
                 Filter(
@@ -146,7 +162,7 @@ screenRequest As screen:
             )),
             "LastName",
                 Ascending)
-            
+            */
             
             
             

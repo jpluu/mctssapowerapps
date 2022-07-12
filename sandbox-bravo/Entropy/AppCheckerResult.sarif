@@ -64,7 +64,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 194,
+                  "charOffset": 172,
                   "snippet": {
                     "text": "in"
                   }
@@ -104,89 +104,9 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 176,
+                  "charOffset": 154,
                   "snippet": {
                     "text": "||"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Items",
-                "module": "screenRequest",
-                "type": "screenRequest.galleryRequests"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Filter"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "screenRequest.galleryRequests.Items"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "screenRequest.galleryRequests.Items",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 20,
-                  "charOffset": 536,
-                  "snippet": {
-                    "text": "Lower(Sponsor.Email)"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Items",
-                "module": "screenRequest",
-                "type": "screenRequest.galleryRequests"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Filter"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "screenRequest.galleryRequests.Items"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "screenRequest.galleryRequests.Items",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 1,
-                  "charOffset": 557,
-                  "snippet": {
-                    "text": "="
                   }
                 }
               },
