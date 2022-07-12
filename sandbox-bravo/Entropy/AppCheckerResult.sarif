@@ -489,7 +489,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 194,
+                  "charOffset": 193,
                   "snippet": {
                     "text": "in"
                   }
@@ -529,7 +529,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 176,
+                  "charOffset": 175,
                   "snippet": {
                     "text": "||"
                   }
@@ -569,7 +569,7 @@
                 },
                 "region": {
                   "charLength": 20,
-                  "charOffset": 536,
+                  "charOffset": 535,
                   "snippet": {
                     "text": "Lower(Sponsor.Email)"
                   }
@@ -609,7 +609,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 557,
+                  "charOffset": 556,
                   "snippet": {
                     "text": "="
                   }
