@@ -123,9 +123,10 @@ screenRequest As screen:
             Search(
                 Filter(
                     VisitorRequest,
-                    IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
-                     IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate,
-                    If(isSecurity = false, Lower(Sponsor.Email) = Lower(currentUser.Email))
+                    If(isSecurity,
+                    (IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
+                     IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate), (Lower(Sponsor.Email) = Lower(currentUser.Email))
+                   
                 ),
                 searchBarRequest.Text,
                 "LastName",
