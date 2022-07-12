@@ -56,7 +56,7 @@ screenRequest As screen:
         Set(
             isSponsor,
             If(
-                CountRows(Security) = 0,
+                CountRows(Security) <= 0,
                 true,
                 false
             )
