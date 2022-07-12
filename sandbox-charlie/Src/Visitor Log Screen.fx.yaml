@@ -110,9 +110,9 @@
                 OnCheck: =Set(boolCheckIn, true)
                 OnSelect: =Select(Parent)
                 OnUncheck: =Set(boolCheckedIn, false);
-                Text: ="Valid Check"
-                Width: =111
-                X: =350
+                Text: ="Checked-in"
+                Width: =151
+                X: =312
                 Y: =40
                 ZIndex: =6
 

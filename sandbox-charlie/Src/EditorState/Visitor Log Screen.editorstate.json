@@ -2172,7 +2172,14 @@
         "CheckmarkFill",
         "CheckboxBackgroundFill",
         "CheckboxBorderColor",
-        "Text",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "\"Valid Check\"",
+          "InvariantPropertyName": "Text",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "BorderColor",
         "DisabledBorderColor",
         "BorderStyle",
