@@ -124,7 +124,8 @@ screenRequest As screen:
                 Filter(
                     VisitorRequest,
                     IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
-                     IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate
+                     IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate,
+                    If(!isSecurity, Lower(Sponsor.Email) = Lower(currentUser.Email))
                 ),
                 searchBarRequest.Text,
                 "LastName",
@@ -580,7 +581,7 @@ screenRequest As screen:
                 Size: =20
                 Text: ="Denied"
                 Visible: |-
-                    = true /* If(varIsSecurity = true,
+                    = isSecurity /* If(varIsSecurity = true,
                         true,
                         false)*/
                         
@@ -651,7 +652,7 @@ screenRequest As screen:
                 Size: =20
                 Text: ="Approved"
                 Visible: |-
-                    =true
+                    =isSecurity
                     /*If(
                         isSecurity = true,
                         true,
@@ -800,7 +801,7 @@ screenRequest As screen:
                     SearchItems: =[]
                     SelectMultiple: =false
                     Size: =12
-                    Visible: =Self.Selected.Value<>"Other"
+                    Visible: =Self.Selected.Value<>"Other" && isSecurity
                     Width: =193
                     X: =775
                     Y: =533
@@ -813,7 +814,7 @@ screenRequest As screen:
                     HintText: ="Denial Reason"
                     Size: =12
                     Visible: |
-                        =!ComboBox1_9.Visible
+                        =!ComboBox1_9.Visible && isSecurity
                     Width: =190
                     X: =775
                     Y: =535
@@ -827,7 +828,7 @@ screenRequest As screen:
                     OnSelect: |-
                         =Reset(ComboBox1_9);
                         Reset(txt_Denied_9);
-                    Visible: =!ComboBox1_9.Visible 
+                    Visible: =!ComboBox1_9.Visible && isSecurity
                     Width: =15
                     X: =941
                     Y: =535

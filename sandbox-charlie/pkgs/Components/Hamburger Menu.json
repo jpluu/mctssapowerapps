@@ -99,7 +99,7 @@
         "Name": "Hamburger Icon",
         "Parent": "Hamburger Menu",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 686,
+        "PublishOrderIndex": 46,
         "Rules": [
           {
             "Category": "Design",
@@ -308,7 +308,7 @@
             "Name": "galleryTemplate1",
             "Parent": "Gallery Navigation Menu",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 688,
+            "PublishOrderIndex": 48,
             "Rules": [
               {
                 "Category": "Design",
@@ -433,7 +433,7 @@
             "Name": "Navigation Label",
             "Parent": "Gallery Navigation Menu",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 689,
+            "PublishOrderIndex": 49,
             "Rules": [
               {
                 "Category": "Data",
@@ -794,7 +794,7 @@
             "Name": "Navigation Icon",
             "Parent": "Gallery Navigation Menu",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 690,
+            "PublishOrderIndex": 50,
             "Rules": [
               {
                 "Category": "Design",
@@ -1065,7 +1065,7 @@
             "Name": "Navigation Rectangle",
             "Parent": "Gallery Navigation Menu",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 691,
+            "PublishOrderIndex": 51,
             "Rules": [
               {
                 "Category": "Data",
@@ -1417,7 +1417,7 @@
         "Name": "Gallery Navigation Menu",
         "Parent": "Hamburger Menu",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 687,
+        "PublishOrderIndex": 47,
         "Rules": [
           {
             "Category": "Data",
