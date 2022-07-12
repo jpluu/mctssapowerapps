@@ -123,7 +123,7 @@
 
     modalSentry_1 As groupContainer:
         Height: =768
-        Visible: =boolSentryModal
+        Visible: =modalSentry
         Width: =1366
         ZIndex: =6
 
