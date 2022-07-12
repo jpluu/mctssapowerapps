@@ -121,11 +121,13 @@ screenRequest As screen:
         Items: |-
             =SortByColumns(
             Search(
-                Filter(
+                If( isSecurity,
+                (Filter(
                     VisitorRequest,
                     IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
-                     IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate,
-                    If(!isSecurity, Lower(Sponsor.Email) = Lower(currentUser.Email))
+                     IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate)), (Filter(
+                    VisitorRequest, IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
+                     IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate, Lower(Sponsor.Email) = Lower(currentUser.Email)))
                 ),
                 searchBarRequest.Text,
                 "LastName",
@@ -237,6 +239,25 @@ screenRequest As screen:
             )
             /*,
                     'Visit Start Date'>=Slider1.Value*/
+            
+            
+                    /*
+                    SortByColumns(
+            Search(
+                Filter(
+                    VisitorRequest,
+                    IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
+                     IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate,
+                    If(!isSecurity, Lower(Sponsor.Email) = Lower(currentUser.Email))
+                ),
+                searchBarRequest.Text,
+                "LastName",
+                "FirstName",
+                "Title"
+            ),
+            "LastName",
+                Ascending)
+                */
         Layout: =Layout.Vertical
         TemplateFill: |+
             =Switch(ThisItem.Approved.Value,
