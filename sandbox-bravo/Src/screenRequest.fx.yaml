@@ -128,7 +128,7 @@ screenRequest As screen:
         Height: =522
         Items: |-
             =SortByColumns(
-            If(isSponsor,
+            If(isSecurity,
                 Search(
                 Filter(
                     VisitorRequest,
