@@ -121,13 +121,11 @@ screenRequest As screen:
         Items: |-
             =SortByColumns(
             Search(
-                If( isSecurity,
-                (Filter(
+                Filter(
                     VisitorRequest,
                     IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
-                     IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate)), (Filter(
-                    VisitorRequest, /*IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
-                     IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate,*/ Lower(Sponsor.Email) = Lower(currentUser.Email)))
+                     IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate,
+                    If(!isSecurity, Lower(Sponsor.Email) = Lower(currentUser.Email))
                 ),
                 searchBarRequest.Text,
                 "LastName",
