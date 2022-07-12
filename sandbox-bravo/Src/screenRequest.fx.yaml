@@ -123,10 +123,9 @@ screenRequest As screen:
             Search(
                 Filter(
                     VisitorRequest,
-                    If(isSecurity,
-                    (IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
-                     IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate), (Lower(Sponsor.Email) = Lower(currentUser.Email))
-                   
+                    IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
+                     IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate,
+                    If(isSecurity = false, Lower(Sponsor.Email) = Lower(currentUser.Email))
                 ),
                 searchBarRequest.Text,
                 "LastName",
@@ -135,6 +134,22 @@ screenRequest As screen:
             ),
             "LastName",
                 Ascending)
+                
+                /*SortByColumns(
+            Search(
+                Filter(
+                    VisitorRequest,
+                    IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
+                     IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate,
+                    If(isSecurity, Lower(Sponsor.Email) = Lower(currentUser.Email))
+                ),
+                searchBarRequest.Text,
+                "LastName",
+                "FirstName",
+                "Title"
+            ),
+            "LastName",
+                Ascending)*/
                 /*
                 SortByColumns(
             Search(
@@ -238,25 +253,6 @@ screenRequest As screen:
             )
             /*,
                     'Visit Start Date'>=Slider1.Value*/
-            
-            
-                    /*
-                    SortByColumns(
-            Search(
-                Filter(
-                    VisitorRequest,
-                    IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
-                     IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate,
-                    If(!isSecurity, Lower(Sponsor.Email) = Lower(currentUser.Email))
-                ),
-                searchBarRequest.Text,
-                "LastName",
-                "FirstName",
-                "Title"
-            ),
-            "LastName",
-                Ascending)
-                */
         Layout: =Layout.Vertical
         TemplateFill: |+
             =Switch(ThisItem.Approved.Value,
