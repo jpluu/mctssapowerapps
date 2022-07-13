@@ -2010,7 +2010,14 @@
           "IsLockable": true,
           "NameMapSourceSchema": "?"
         },
-        "BorderColor",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "RGBA(0, 18, 107, 1)/*If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Alternate Sponsor'<> DataCardValue53_1.Value, Orange, RGBA(0, 18, 107, 1))*/\r\n//RGBA(0, 18, 107, 1)",
+          "InvariantPropertyName": "BorderColor",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "BorderStyle",
         "Fill",
         "X",
@@ -4488,7 +4495,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Button2",
-      "ParentIndex": 9,
+      "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4745,7 +4752,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Button2_1",
-      "ParentIndex": 11,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -8863,7 +8870,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ComboBoxCheckBox",
-      "ParentIndex": 7,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -53363,7 +53370,14 @@
         "PaddingRight",
         "PaddingBottom",
         "PaddingLeft",
-        "IsSearchable",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "false",
+          "InvariantPropertyName": "IsSearchable",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "OnChange"
       ],
       "HasDynamicProperties": false,
@@ -62714,7 +62728,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ddDateFilter",
-      "ParentIndex": 5,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -89391,7 +89405,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "galleryCheckBox",
-      "ParentIndex": 8,
+      "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -89590,7 +89604,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "galleryRequests",
-      "ParentIndex": 10,
+      "ParentIndex": 11,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -91065,7 +91079,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label1",
-      "ParentIndex": 6,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -101752,7 +101766,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "searchBarRequest",
-      "ParentIndex": 4,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -101998,7 +102012,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "searchIconRequest",
-      "ParentIndex": 3,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
