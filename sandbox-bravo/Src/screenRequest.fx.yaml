@@ -426,6 +426,7 @@ screenRequest As screen:
                 If(isSecurity,
                 Set(isModalSecurity, true),
                 If(formData.Approved.Value<> "Approved",
+                Set(isModalSecurity, true),
                 Set(isModalRequest, true);
                 Set(isEventPage, true)));
                 ViewForm(formSecurity)
@@ -2848,7 +2849,7 @@ screenRequest As screen:
                     ViewForm(formReview);
                     */
                     
-                Visible: =If(formSecurity.Mode = FormMode.Edit, true, false)
+                Visible: =If(formSecurity.Mode = FormMode.View && isSecurity, false, true)
                 Width: =52
                 X: =1084
                 ZIndex: =8
@@ -2856,7 +2857,9 @@ screenRequest As screen:
             iconEdit As icon.Edit:
                 Icon: =Icon.Edit
                 OnSelect: =EditForm(formSecurity)
-                Visible: =If(formSecurity.Mode = FormMode.Edit, false, true)
+                Visible: |-
+                    =If(formSecurity.Mode = FormMode.View && isSecurity, true, false)
+                    //If(formSecurity.Mode = FormMode.Edit, false, true)
                 Width: =52
                 X: =1084
                 ZIndex: =9
