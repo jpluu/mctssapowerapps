@@ -1,79 +1,5 @@
 screenHome As screen:
 
-    "Gallery1 As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
-        Items: =VisitorRequest
-        Layout: =Layout.Vertical
-        TemplatePadding: =0
-        TemplateSize: =Min(168, Self.Height - 60)
-        X: =363
-        Y: =145
-        ZIndex: =1
-
-        Title2 As label:
-            Height: =Self.Size * 1.8
-            OnSelect: =Select(Parent)
-            PaddingBottom: =0
-            PaddingLeft: =0
-            PaddingRight: =0
-            PaddingTop: =0
-            Text: =ThisItem.'First Name'
-            VerticalAlign: =VerticalAlign.Top
-            Width: =Parent.TemplateWidth - 104
-            X: =32
-            Y: =16
-            ZIndex: =1
-
-        Subtitle2 As label:
-            Height: =Self.Size * 1.8
-            OnSelect: =Select(Parent)
-            PaddingBottom: =0
-            PaddingLeft: =0
-            PaddingRight: =0
-            PaddingTop: =0
-            Text: =ThisItem.'Visit Start Date'
-            VerticalAlign: =VerticalAlign.Top
-            Width: =Parent.TemplateWidth - 104
-            X: =32
-            Y: =Title2.Y + Title2.Height + 2
-            ZIndex: =2
-
-        Body1 As label:
-            Height: =Self.Size * 4
-            OnSelect: =Select(Parent)
-            PaddingBottom: =0
-            PaddingLeft: =0
-            PaddingRight: =0
-            PaddingTop: =0
-            Text: =ThisItem.'Last Name'
-            VerticalAlign: =VerticalAlign.Top
-            Width: =Parent.TemplateWidth - 104
-            X: =32
-            Y: =Subtitle2.Y + Subtitle2.Height + 4
-            ZIndex: =3
-
-        NextArrow2 As icon.ChevronRight:
-            AccessibleLabel: =Self.Tooltip
-            Height: =60
-            Icon: =Icon.ChevronRight
-            OnSelect: =Select(Parent)
-            PaddingBottom: =10
-            PaddingLeft: =10
-            PaddingRight: =10
-            PaddingTop: =10
-            TabIndex: =0
-            Tooltip: ="View item details"
-            Width: =60
-            X: =Parent.TemplateWidth - Self.Width - 5
-            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
-            ZIndex: =4
-
-        Separator2 As rectangle:
-            Height: =1
-            OnSelect: =Select(Parent)
-            Width: =Parent.TemplateWidth
-            Y: =Parent.TemplateHeight - 1
-            ZIndex: =5
-
     buttonRequest As icon.CancelBadge:
         Height: =150
         Icon: =Icon.CancelBadge
@@ -99,4 +25,162 @@ screenHome As screen:
         Width: =150
         Y: =618
         ZIndex: =2
+
+    "galleryRequests As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
+        Height: =522
+        Items: |-
+            =VisitorRequest/*SortByColumns(
+            If(isSecurity,
+                Search(
+                Filter(
+                    VisitorRequest,
+                      IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
+                     IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate
+                ),
+                searchBarRequest.Text,
+                "LastName",
+                "FirstName",
+                "Title"
+            ),
+                Search(
+                Filter(
+                    VisitorRequest,
+                    Lower(Sponsor.Email) = Lower(currentUser.Email), IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
+                     IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate
+                ),
+                searchBarRequest.Text,
+                "LastName",
+                "FirstName",
+                "Title"
+            )),
+            "LastName",
+                Ascending)
+            
+            */
+        Layout: =Layout.Vertical
+        TemplateFill: |+
+            =Switch(ThisItem.Approved.Value,
+            
+            "Approved", PaleGreen,
+            
+            "Pending", PaleGoldenRod, 
+            
+            "Denied", Red
+            )
+            
+        TemplatePadding: =0
+        TemplateSize: =87
+        Width: =1066//App.Width - 2 * buttonNewRequest.Width
+        X: =150
+        Y: =233
+        ZIndex: =3
+
+        Title1 As label:
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =16
+            Text: |-
+                =If(
+                    IsEmpty(galleryRequests),
+                    "",
+                    ThisItem.'Last Name' & ", " & ThisItem.'First Name'
+                )
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 104
+            X: =1
+            Y: =8
+            ZIndex: =1
+
+        Subtitle1 As label:
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =12
+            Text: =ThisItem.Title
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 104
+            X: =1
+            Y: =Title1.Y + Title1.Height + 1
+            ZIndex: =2
+
+        Body1 As label:
+            Height: =26
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =12
+            Text: |
+                =
+                If(
+                    ThisItem.Approved.Value <> "Denied",
+                    ThisItem.Approved.Value,
+                    ThisItem.Approved.Value & ": " & ThisItem.'Denied Reason'.Value
+                    )
+                    
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 104
+            X: =1
+            Y: =Subtitle1.Y + Subtitle1.Height 
+            ZIndex: =3
+
+        NextArrow1 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Height: =60
+            Icon: =Icon.Information
+            OnSelect: |-
+                =Select(Parent); 
+                /*Set(formData, galleryRequests.Selected);
+                If(
+                    DateDiff(
+                        formData.'Visit Start Date',
+                        formData.'Visit End Date',
+                        Days
+                    ) >= 90 && formData.'Days a Week Working at MCTSSA'.Value = "Five Days",
+                    Set(
+                        isLongTerm,
+                        true
+                    ),
+                    Set(
+                        isLongTerm,
+                        false
+                    )
+                );
+                
+                If(isSecurity,
+                Set(isModalSecurity, true),
+                If(formData.Approved.Value <> "Approved",
+                Set(isModalRequest, true);
+                Set(isEventPage, true),
+                Set(isModalSecurity, true)));
+                ViewForm(formSecurity)
+                
+                
+                */
+                    
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="View item details"
+            Width: =60
+            X: =986
+            Y: =14
+            ZIndex: =4
+
+        Separator1 As rectangle:
+            Height: =0
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =5
 

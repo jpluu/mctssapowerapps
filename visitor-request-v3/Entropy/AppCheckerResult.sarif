@@ -24,7 +24,7 @@
                 },
                 "region": {
                   "charLength": 19,
-                  "charOffset": 674,
+                  "charOffset": 701,
                   "snippet": {
                     "text": "CountRows(Security)"
                   }
@@ -114,49 +114,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "screenHome.Gallery1.AccessibleLabel"
+                  "fullyQualifiedName": "screenHome.galleryRequests.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "screenHome.Gallery1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "screenHome",
-                "type": "screenHome.Gallery1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "screenHome.Gallery1.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "screenHome.Gallery1.TabIndex",
+                  "fullyQualifiedName": "screenHome.galleryRequests.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "screenHome",
-                "type": "screenHome.Gallery1"
+                "type": "screenHome.galleryRequests"
               }
             }
           ],
@@ -168,6 +138,36 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "screenHome.galleryRequests.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "screenHome.galleryRequests.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "screenHome",
+                "type": "screenHome.galleryRequests"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 1
         },
         {
           "locations": [
