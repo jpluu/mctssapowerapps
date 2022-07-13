@@ -423,9 +423,9 @@ screenRequest As screen:
                 /*Set(isModalRequest, true);
                 Set(isEventPage, true)*/
                 
-                If(isSecurity,
+                If(!isSecurity,
                 Set(isModalSecurity, true),
-                If(formData.Approved.Value<> "Approved",
+                If(formData.Approved.Value <> "Approved",
                 Set(isModalRequest, true);
                 Set(isEventPage, true),
                 Set(isModalSecurity, true)));
