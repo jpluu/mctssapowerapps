@@ -390,7 +390,14 @@ screenRequest As screen:
             PaddingRight: =0
             PaddingTop: =0
             Size: =12
-            Text: =ThisItem.Approved.Value
+            Text: |
+                =
+                If(
+                    ThisItem.Approved.Value <> "Denied",
+                    ThisItem.Approved.Value,
+                    ThisItem.Approved.Value & ": " & ThisItem.'Denied Reason'.Value
+                    )
+                    
             VerticalAlign: =VerticalAlign.Top
             Width: =Parent.TemplateWidth - 104
             X: =32
