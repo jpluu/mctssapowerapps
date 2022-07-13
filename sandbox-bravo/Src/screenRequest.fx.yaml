@@ -2848,7 +2848,7 @@ screenRequest As screen:
                     ViewForm(formReview);
                     */
                     
-                Visible: =If(formSecurity.Mode = FormMode.View && isSecurity, false, true)
+                Visible: =If(formSecurity.Mode = FormMode.Edit && isSecurity, true, false)
                 Width: =52
                 X: =1084
                 ZIndex: =8
