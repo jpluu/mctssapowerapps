@@ -57,6 +57,35 @@ screenRequest As screen:
         
           
 
+    Button2 As button:
+        OnSelect: |-
+            =Set(isModalRequest, true);
+            Set(isEventPage, true)
+            /*Set(isModalSecurity, true)*/
+            //Set(isformR/S, true)
+            
+            /*Set(isModalRequest, true);
+            Set(isSecurity, false);
+            Set(isEventPage, true)*/
+        Text: ="security"
+        X: =16
+        Y: =176
+        ZIndex: =1
+
+    Button2_1 As button:
+        OnSelect: |-
+            =Set(isModalSecurity, true);
+            ViewForm(formSecurity)
+            //Set(isformR/S, true)
+            
+            /*Set(isModalRequest, true);
+            Set(isSecurity, false);
+            Set(isEventPage, true)*/
+        Text: ="security"
+        X: =16
+        Y: =75
+        ZIndex: =2
+
     ComboBoxCheckBox As combobox:
         DefaultSelectedItems: =colApprovedFilter.Value
         DisplayFields: =["Value"]
@@ -73,7 +102,7 @@ screenRequest As screen:
         Width: =68
         X: =1243
         Y: =115
-        ZIndex: =1
+        ZIndex: =3
 
     galleryCheckBox As gallery.galleryHorizontal:
         BorderColor: =RGBA(0, 0, 0, 0)
@@ -101,7 +130,7 @@ screenRequest As screen:
         Width: =680
         X: =416
         Y: =160
-        ZIndex: =2
+        ZIndex: =4
 
         Checkbox4 As checkbox:
             BorderColor: =RGBA(0, 0, 0, 0)
@@ -345,7 +374,7 @@ screenRequest As screen:
         Width: =App.Width - 2 * buttonNewRequest.Width
         X: =150
         Y: =233
-        ZIndex: =3
+        ZIndex: =5
 
         Title1 As label:
             Height: =Self.Size * 1.8
@@ -375,7 +404,8 @@ screenRequest As screen:
             PaddingRight: =0
             PaddingTop: =0
             Size: =12
-            Text: =ThisItem.'Visit Start Date'
+            Text: |
+                =ThisItem.'Visit Start Date' &" - " & ThisItem.'Visit End Date'
             VerticalAlign: =VerticalAlign.Top
             Width: =Parent.TemplateWidth - 104
             X: =32
@@ -472,7 +502,7 @@ screenRequest As screen:
         Width: =1054
         X: =165
         Y: =103
-        ZIndex: =4
+        ZIndex: =6
 
     ddDateFilter As dropdown:
         AllowEmptySelection: =true
@@ -483,7 +513,7 @@ screenRequest As screen:
         Width: =193
         X: =1026
         Y: =103
-        ZIndex: =5
+        ZIndex: =7
 
     searchIconRequest As icon.Search:
         Color: =RGBA(153, 153, 153, 1)
@@ -492,7 +522,7 @@ screenRequest As screen:
         Width: =39
         X: =126
         Y: =103
-        ZIndex: =6
+        ZIndex: =8
 
     Label1 As label:
         Align: =Align.Center
@@ -503,7 +533,7 @@ screenRequest As screen:
         Visible: =IsBlank(ddDateFilter.Selected) 
         X: =1026
         Y: =103
-        ZIndex: =7
+        ZIndex: =9
 
     buttonNewRequest As icon.CancelBadge:
         AutoDisableOnSelect: =false
@@ -520,16 +550,16 @@ screenRequest As screen:
         Width: =150
         X: =1216
         Y: =618
-        ZIndex: =8
+        ZIndex: =10
 
     compHeaderRequest As Header:
-        ZIndex: =9
+        ZIndex: =11
 
     modalSecurity As groupContainer:
         Height: =768
         Visible: =isModalSecurity
         Width: =App.Width
-        ZIndex: =10
+        ZIndex: =12
 
         modalFloatSecurity_1 As button:
             Fill: =RGBA(128, 128, 128, 0.5)
@@ -2167,12 +2197,12 @@ screenRequest As screen:
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
-                        Fill: =RGBA(0, 0, 0, 0)
                         IsSearchable: =false
                         Items: =Choices([@VisitorRequest].TypeofVisit)
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
                         SearchItems: =[]
+                        SelectionColor: =RGBA(0, 0, 0, 0)
                         SelectMultiple: =false
                         Size: =19
                         Tooltip: =Parent.DisplayName
@@ -2933,7 +2963,7 @@ screenRequest As screen:
         Height: =768
         Visible: =isModalRequest
         Width: =1366
-        ZIndex: =11
+        ZIndex: =13
 
         pageReview_1 As groupContainer:
             BorderThickness: =3
@@ -7649,33 +7679,4 @@ screenRequest As screen:
             X: =backEvent.Width + modalX
             Y: =modalY + labelEvent.Height + formEvent.Height
             ZIndex: =8
-
-    Button2 As button:
-        OnSelect: |-
-            =Set(isModalRequest, true);
-            Set(isEventPage, true)
-            /*Set(isModalSecurity, true)*/
-            //Set(isformR/S, true)
-            
-            /*Set(isModalRequest, true);
-            Set(isSecurity, false);
-            Set(isEventPage, true)*/
-        Text: ="security"
-        X: =16
-        Y: =176
-        ZIndex: =12
-
-    Button2_1 As button:
-        OnSelect: |-
-            =Set(isModalSecurity, true);
-            ViewForm(formSecurity)
-            //Set(isformR/S, true)
-            
-            /*Set(isModalRequest, true);
-            Set(isSecurity, false);
-            Set(isEventPage, true)*/
-        Text: ="security"
-        X: =16
-        Y: =75
-        ZIndex: =13
 

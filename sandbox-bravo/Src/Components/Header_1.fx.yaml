@@ -1,0 +1,34 @@
+Header_1 As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =82  
+    HomeVar: =App.ActiveScreen
+    Width: =App.Width
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    "'Round Header_1' As button":
+        DisplayMode: =DisplayMode.View
+        Fill: =RGBA(153, 153, 153, 1)
+        Height: =Parent.Height
+        RadiusBottomLeft: =50
+        RadiusBottomRight: =50
+        RadiusTopLeft: =50
+        RadiusTopRight: =50
+        Size: =36
+        Text: ="MCTSSA Visitor Request Portal"
+        Width: =Parent.Width
+        ZIndex: =1
+
+    Image1_1 As image:
+        Height: =82
+        Image: ='Marine Corps Tactical Systems Support Activity _MCTSSA'
+        OnSelect: =Navigate(Header_1.HomeVar)
+        PaddingBottom: =5
+        PaddingLeft: =5
+        PaddingRight: =5
+        PaddingTop: =5
+        Width: =82
+        X: =App.DesignWidth - 82
+        ZIndex: =2
+
