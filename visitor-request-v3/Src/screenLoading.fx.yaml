@@ -1,0 +1,218 @@
+screenLoading As screen:
+    OnVisible: |
+        =/* ~~~ Global Variables ~~~ */
+        /* === Loading === */
+        // isLoaded | bool | control for timer and preloading data (START)
+        Set(
+            isLoaded,
+            false
+        );
+        /* === App Data === */
+        // APPVER | number | gets app verison
+        Set(
+            APPVER,
+            CountRows(PowerAppsforMakers.GetAppVersions("9bea056e-aa6f-4de4-8a1c-c0acf5274911").value)
+        );
+        /* === User Data === */
+        // CURRENTUSER | 365User | 
+        Set(
+            CURRENTUSER,
+            {
+                '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                DisplayName: User().FullName,
+                Claims: "i:0#.f|membership|" & Lower(User().Email),
+                Email: User().Email
+            }
+        );
+        // isSecurity | bool
+        Set(
+            isSecurity,
+            (CountRows(Security) > 0)
+        );
+        /* === App Settings === */
+        // colorModal | color | color of the modal window, also used for bg blur
+        Set(
+            colorModal,
+            RGBA(
+                150,
+                150,
+                150,
+                0.5
+            )
+        );
+        // posModal | number | (x,y) pos of the top left corner
+        Set(
+            posModal,
+            128
+        );
+        // widthModal | number | modal width
+        Set(
+            widthModal,
+            App.Width - 2 * posModal
+        );
+        // heightModal | number | modal height
+        Set(
+            heightModal,
+            App.Height - 2 * posModal
+        );
+        /* === Home Screen === */
+        // collectionDateFilter | Date Range | date range for gallery filter dropdown
+        ClearCollect(
+            collectionDateFilter,
+            {
+                DisplayName: "This Month",
+                StartDate: Date(
+                                Year(Today()),
+                                Month(Today()),
+                                1
+                            ),
+                            EndDate: Date(
+                                Year(Today()),
+                                Month(Today()) + 1,
+                                1
+                            ) - 1
+                        },
+        
+                         {
+                DisplayName: "Next Month",
+                StartDate: Date(
+                                    Year(Today()),
+                                    Month(Today()) + 1,
+                                    1
+                                ),
+                                EndDate: Date(
+                                    Year(Today()),
+                                    Month(Today()) + 2,
+                                    1
+                                ) - 1
+                            },
+        
+                         {
+                DisplayName: "Next Quarter",
+                StartDate: Date(
+                                 Year(Today()),
+                                        Month(Today()),
+                                        Day(Today())
+                                    ),
+                                    EndDate: Date(
+                                        Year(Today()),
+                                        Month(Today()) + 3,
+                                        Day(Today())
+                                    ) - 1
+                                }
+        
+        );
+        /* === Request Navigation === */
+        // isPageEvent | bool
+        Set(
+            isPageEvent,
+            false
+        );
+        // isPageVisitor | bool
+        Set(
+            isPageVisitor,
+            false
+        );
+        // isPageLongTerm | bool
+        Set(
+            isPageLongTerm,
+            false
+        );
+        // isPageReview | bool
+        Set(
+            isPageReview,
+            false
+        );
+        // isPageAcknowledge | bool
+        Set(
+            isPageAcknowledge,
+            false
+        );
+        /* === Request Control === */
+        // bool | control for request modal container
+        Set(
+            isModalRequest,
+            false
+        );
+        // bool | control for bulk adds
+        Set(
+            isBulk,
+            false
+        );
+        /* === Request Data === */
+        /* === Security Control === */
+        // isModalSecurity | bool | control for security modal container
+        Set(
+            isModalSecurity,
+            false
+        );
+        /* === Security Data === */
+        /* === Loading === */
+        // isLoaded | bool | control for timer and preloading data (END)
+        Set(
+            isLoaded,
+            true
+        );
+
+    timerLoading As timer:
+        Duration: =4000
+        Fill: =RGBA(116, 116, 116, 1)
+        OnTimerEnd: =Select(buttonContinue);
+        Start: =isLoaded
+        Visible: =false
+        X: =1206
+        Y: =525
+        ZIndex: =1
+
+    VAR_isSecurity As button:
+        DisplayMode: =DisplayMode.View
+        Fill: =RGBA(116, 116, 116, 1)
+        Height: =64
+        Text: |-
+            ="isSecurity :: " & isSecurity
+        Width: =1366
+        Y: =576
+        ZIndex: =2
+
+    VAR_CURRENTUSER As button:
+        DisplayMode: =DisplayMode.View
+        Fill: =RGBA(153, 153, 153, 1)
+        Height: =64
+        PaddingBottom: =10
+        PaddingLeft: =10
+        PaddingRight: =10
+        PaddingTop: =10
+        Text: |-
+            ="User :: " & CURRENTUSER.DisplayName
+        Width: =1366
+        Y: =640
+        ZIndex: =3
+
+    VAR_APPVER As button:
+        DisplayMode: =DisplayMode.View
+        Fill: =RGBA(116, 116, 116, 1)
+        Height: =64
+        PaddingBottom: =10
+        PaddingLeft: =10
+        PaddingRight: =10
+        PaddingTop: =10
+        Text: ="version " & APPVER
+        Width: =1366
+        Y: =704
+        ZIndex: =4
+
+    buttonContinue As button:
+        DisplayMode: =If(isLoaded, DisplayMode.Edit, DisplayMode.View)
+        Fill: =If(isLoaded, RGBA(54, 176, 75, 1),RGBA(255, 0, 0, 0.85))
+        Height: =397
+        OnSelect: =Navigate(screenHome);
+        Text: =If(isLoaded, "Loaded! Continuing in " & RoundUp(4-timerLoading.Value/1000, 0) & " seconds....", "Loading....")
+        Width: =1101
+        X: =156
+        Y: =118
+        ZIndex: =5
+
+    headerLoading As Header:
+        HomeVar: =screenLoading
+        ZIndex: =6
+
