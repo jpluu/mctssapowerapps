@@ -423,7 +423,7 @@ screenRequest As screen:
                 /*Set(isModalRequest, true);
                 Set(isEventPage, true)*/
                 
-                If(!isSecurity,
+                If(isSecurity,
                 Set(isModalSecurity, true),
                 If(formData.Approved.Value <> "Approved",
                 Set(isModalRequest, true);
@@ -537,7 +537,6 @@ screenRequest As screen:
             Fill: =RGBA(153, 153, 153, 1)
             Height: |
                 =568
-            Visible: =isSecurity
             Width: |
                 =1166
             X: =40
