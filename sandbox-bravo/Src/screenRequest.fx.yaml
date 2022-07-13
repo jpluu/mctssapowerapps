@@ -428,7 +428,7 @@ screenRequest As screen:
                 If(formData.Approved.Value<> "Approved",
                 Set(isModalRequest, true);
                 Set(isEventPage, true),
-                Set(isModalSecurity, true));
+                Set(isModalSecurity, true)));
                 ViewForm(formSecurity)
                 
                 
