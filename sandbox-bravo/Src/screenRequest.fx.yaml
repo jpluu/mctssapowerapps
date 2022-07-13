@@ -674,7 +674,7 @@ screenRequest As screen:
                 Size: =20
                 Text: ="Denied"
                 Visible: |-
-                    = true /* If(varIsSecurity = true,
+                    = If( isSecurity, true, false) /* If(varIsSecurity = true,
                         true,
                         false)*/
                         
@@ -745,7 +745,7 @@ screenRequest As screen:
                 Size: =20
                 Text: ="Approved"
                 Visible: |-
-                    =true
+                    =If( isSecurity, true, false)
                     /*If(
                         varIsSecurity = true,
                         true,
@@ -2889,7 +2889,7 @@ screenRequest As screen:
                     SearchItems: =[]
                     SelectMultiple: =false
                     Size: =12
-                    Visible: =Self.Selected.Value<>"Other"
+                    Visible: =If(Self.Selected.Value<>"Other" && isSecurity, true)
                     Width: =193
                     X: =775
                     Y: =533
@@ -2902,7 +2902,7 @@ screenRequest As screen:
                     HintText: ="Denial Reason"
                     Size: =12
                     Visible: |
-                        =!ComboBox1_9.Visible
+                        =If(!ComboBox1_9.Visible && isSecurity, true)
                     Width: =190
                     X: =775
                     Y: =535
@@ -2916,7 +2916,7 @@ screenRequest As screen:
                     OnSelect: |-
                         =Reset(ComboBox1_9);
                         Reset(txt_Denied_9);
-                    Visible: =!ComboBox1_9.Visible 
+                    Visible: =If(!ComboBox1_9.Visible && isSecurity, true)
                     Width: =15
                     X: =941
                     Y: =535
