@@ -186,6 +186,7 @@
             ZIndex: =5
 
     Button5_3 As button:
+        Fill: =RGBA(255, 0, 0, 1)
         Height: =216
         OnSelect: =Set(checkedIn, false); Set(boolCheck, true)
         Text: ="Check-out"
@@ -195,8 +196,19 @@
         ZIndex: =8
 
     Button5_2 As button:
+        Fill: =RGBA(54, 176, 75, 1)
         Height: =216
-        OnSelect: =Set(checkedIn, true);Set(boolCheck, false)
+        OnSelect: |-
+            =If(
+                SelectedItem.BaseAccess.Value = "Checked-out",
+                Patch(
+                    'Visitor Log',
+                    LookUp(
+                        'Visitor Log',
+                        ID = SelectedItem.ID
+                    ),
+                    {'BaseAccess': {Value: "Checked-in"}}
+                );
         Text: ="Check-in"
         Width: =231
         X: =1072
