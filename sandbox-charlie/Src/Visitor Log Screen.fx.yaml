@@ -207,7 +207,7 @@
                         'Visitor Log',
                         ID = SelectedItem.ID
                     ),
-                    {'BaseAccess': {Value: "Checked-in"}}
+                    {BaseAccess: {Value: "Checked-in"}}
                 );
         Text: ="Check-in"
         Width: =231
