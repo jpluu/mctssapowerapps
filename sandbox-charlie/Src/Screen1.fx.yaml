@@ -175,10 +175,10 @@ Screen1 As screen:
                 Set(formData, galleryRequests_1.Selected);
                 If(
                     DateDiff(
-                        formData.'Visit Start Date',
-                        formData.'Visit End Date',
+                        formData.VisitStartDate,
+                        formData.VisitEndDate,
                         Days
-                    ) >= 90 && formData.'Days a Week Working at MCTSSA'.Value = "Five Days",
+                    ) >= 90 && formData.DaysaWeekWorkingatMCTSSA.Value = "Five Days",
                     Set(
                         isLongTerm,
                         true

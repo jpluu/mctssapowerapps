@@ -135,7 +135,7 @@
         buttonCheckInOut_1 As button:
             OnSelect: |-
                 =If(
-                    varSelectedVisitor.'Base Status'.Value = "Not Arrived",
+                    varSelectedVisitor.BaseStatus.Value = "Not Arrived",
                     Patch(
                         'Visitor Log',
                         LookUp(
@@ -150,7 +150,7 @@
                         "Greetings " & varSelectedVisitor.Sponsor.DisplayName & "<br> Your visitor " & varSelectedVisitor.'First Name' & " " & varSelectedVisitor.'Last Name' & " has arrived and is ready to be picked up at the sentry station."
                     ),
                     If(
-                        varSelectedVisitor.'Base Status'.Value = "On-Base",
+                        varSelectedVisitor.BaseStatus.Value = "On-Base",
                         Patch(
                             'Visitor Log',
                             LookUp(
@@ -166,7 +166,7 @@
                     boolSentryModal,
                     false
                 )
-            Text: =If(varSelectedVisitor.'Base Status'.Value = "Not Arrived", "Check-in", If(varSelectedVisitor.'Base Status'.Value = "On-Base", "Check-out", "Exit"))
+            Text: =If(varSelectedVisitor.BaseStatus.Value = "Not Arrived", "Check-in", If(varSelectedVisitor.BaseStatus.Value = "On-Base", "Check-out", "Exit"))
             X: =603
             Y: =587
             ZIndex: =3
