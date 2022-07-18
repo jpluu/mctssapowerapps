@@ -36,7 +36,7 @@ screenHome As screen:
             HintText: ="Search"
             PaddingLeft: =40
             Size: =15
-            Width: =galleryRequests_1.Width//320
+            Width: =galleryRequests.Width//320
             X: =150
             Y: =103
             ZIndex: =3
@@ -181,7 +181,45 @@ screenHome As screen:
             Y: =103
             ZIndex: =6
 
-        galleryRequests_1 As gallery.galleryVertical:
+        Button1 As button:
+            Height: =30
+            OnSelect: =Navigate(screenSecurity)
+            Text: ="Button"
+            Width: =110
+            X: =20
+            Y: =539
+            ZIndex: =8
+
+        Icon1 As icon.Reset:
+            Height: =27
+            Icon: =Icon.Reset
+            OnSelect: |-
+                =UpdateIf(collectionApproved, true, {Selected:false}); Reset(ddDateFilter); Reset(searchBarRequest)
+            Width: =33
+            X: =1168
+            Y: =164
+            ZIndex: =9
+
+        headerSecurity As Header_2:
+            HomeVar: =screenHome
+            ZIndex: =10
+
+        ddDateFilter As combobox:
+            DisplayFields: =["DisplayName"]
+            InputTextPlaceholder: ="Start Date"
+            Items: =collectionDateFilter
+            PaddingLeft: =10
+            Reset: =true
+            SearchFields: =["DisplayName"]
+            SearchItems: =Search(collectionDateFilter,ddDateFilter.SearchText,"DisplayName")
+            SelectMultiple: =false
+            Size: =15
+            Width: =150
+            X: =1066
+            Y: =103
+            ZIndex: =11
+
+        galleryRequests As gallery.galleryVertical:
             BorderColor: =RGBA(0, 0, 0, 0)
             Height: =568
             Items: |-
@@ -396,7 +434,7 @@ screenHome As screen:
                         'Visit Start Date'>=Slider1.Value*/
             Layout: =Layout.Vertical
             OnSelect: |-
-                =Set(formData, galleryRequests_1.Selected);
+                =Set(formData, galleryRequests.Selected);
                 If(
                     DateDiff(
                         formData.'Visit Start Date',
@@ -419,7 +457,8 @@ screenHome As screen:
                 Set(isModalRequest, true);
                 Set(isEventPage, true),
                 Set(isModalSecurity, true)));
-                ViewForm(formSecurity)
+                ViewForm('formSecurity');
+                Set(varRecord, ThisItem)
                 
                 
                 
@@ -429,9 +468,14 @@ screenHome As screen:
             TabIndex: |
                 =-1
             TemplateFill: |-
-                =If(ThisItem.IsSelected, ColorFade(Gray, .45), LightGray) //LightGray
+                =If(ThisItem.ID = varRecord.ID, ColorFade(Gray, .45), LightGray) //LightGray
                 //c
-                /*Switch(ThisItem.Approved.Value,
+                /*
+                
+                
+                If(ThisItem.IsSelected, ColorFade(Gray, .45), LightGray)
+                
+                Switch(ThisItem.Approved.Value,
                 
                 "Approved", PaleGreen,
                 
@@ -448,7 +492,7 @@ screenHome As screen:
             WrapCount: =4
             X: =150
             Y: =200
-            ZIndex: =7
+            ZIndex: =12
 
             Rectangle2 As rectangle:
                 BorderColor: =RGBA(0, 0, 0, 1)
@@ -487,7 +531,7 @@ screenHome As screen:
                 Size: =14
                 Text: |-
                     =If(
-                        IsEmpty(galleryRequests_1),
+                        IsEmpty(galleryRequests),
                         "",
                         ThisItem.'Last Name' & ", " & ThisItem.'First Name'
                     )
@@ -562,42 +606,4 @@ screenHome As screen:
                 Width: =Parent.TemplateWidth
                 Y: =106
                 ZIndex: =8
-
-        Button1 As button:
-            Height: =30
-            OnSelect: =Navigate(screenSecurity)
-            Text: ="Button"
-            Width: =110
-            X: =20
-            Y: =539
-            ZIndex: =8
-
-        Icon1 As icon.Reset:
-            Height: =27
-            Icon: =Icon.Reset
-            OnSelect: |-
-                =UpdateIf(collectionApproved, true, {Selected:false}); Reset(ddDateFilter); Reset(searchBarRequest)
-            Width: =33
-            X: =1168
-            Y: =164
-            ZIndex: =9
-
-        headerSecurity As Header_2:
-            HomeVar: =screenHome
-            ZIndex: =10
-
-        ddDateFilter As combobox:
-            DisplayFields: =["DisplayName"]
-            InputTextPlaceholder: ="Start Date"
-            Items: =collectionDateFilter
-            PaddingLeft: =10
-            Reset: =true
-            SearchFields: =["DisplayName"]
-            SearchItems: =Search(collectionDateFilter,ddDateFilter.SearchText,"DisplayName")
-            SelectMultiple: =false
-            Size: =15
-            Width: =150
-            X: =1066
-            Y: =103
-            ZIndex: =11
 
