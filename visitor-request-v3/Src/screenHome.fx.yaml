@@ -67,7 +67,7 @@ screenHome As screen:
                     
                     Switch(Button6.Text,
                     
-                    "Approved", RGBA(0, 177, 106, 1),
+                    "Approved", RGBA(54, 176, 75, 100),
                     
                     "Pending", RGBA(255, 255, 126, 1), 
                     
@@ -148,7 +148,7 @@ screenHome As screen:
                 HoverFill: |-
                     =ColorFade(Switch(Button6.Text,
                     
-                    "Approved", RGBA(0, 177, 106, 1),
+                    "Approved", RGBA(54, 176, 75, 100),
                     
                     "Pending", RGBA(255, 255, 126, 1), 
                     
@@ -491,9 +491,9 @@ screenHome As screen:
                 Fill: |
                     =Switch(ThisItem.Approved.Value,
                     
-                    "Approved", RGBA(0, 177, 106, 1),
+                    "Approved", RGBA(54, 176, 75, 100) /*RGBA(0, 177, 106, 1)*/,
                     
-                    "Pending", RGBA(255, 255, 126, 1)/*RGBA(255, 255, 126, 1)*/, 
+                    "Pending", RGBA(255, 255, 126, 1),/*RGBA(255, 255, 126, 1)*/ 
                     
                     "Denied", RGBA(240, 52, 24, 1)
                     )
