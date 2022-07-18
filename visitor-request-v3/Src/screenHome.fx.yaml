@@ -1963,8 +1963,10 @@ screenHome As screen:
 
         Label6 As label:
             Align: =Align.Center
-            FontWeight: =FontWeight.Semibold
-            Size: =15
+            FontWeight: =FontWeight.Bold
+            Height: =100
+            PaddingLeft: =2
+            PaddingRight: =2
             Text: |
                 =
                 If(
@@ -1973,9 +1975,9 @@ screenHome As screen:
                     formData.Approved.Value & ": " & formData.'Denied Reason'.Value
                     )
                     
-            Visible: =!isSecurity 
-            Width: =300
-            X: =514
-            Y: =564
+            Visible: =true//!isSecurity 
+            Width: =237
+            X: =545
+            Y: =540
             ZIndex: =4
 
