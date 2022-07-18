@@ -457,7 +457,7 @@ screenHome As screen:
                 Set(isModalRequest, true);
                 Set(isEventPage, true),
                 Set(isModalSecurity, true)));
-                ViewForm('formSecurity');
+                //ViewForm('formSecurity');
                 Set(varRecord, ThisItem)
                 
                 

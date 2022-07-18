@@ -21,17 +21,1358 @@
             Width: =widthModal
             X: =posModal
             Y: =posModal
-            ZIndex: =4
+            ZIndex: =3
 
-            Label1_1 As label:
-                Text: ="Text"
-                X: =80
-                Y: =80
+            labelReview_1 As label:
+                Align: =Align.Center
+                FontWeight: =FontWeight.Bold
+                Height: =64
+                Size: =24
+                Text: |-
+                    ="Review Request:" & " " & formData.Title 
+                       
+                        
+                        
+                Width: =widthModal
                 ZIndex: =1
 
-            Label2_1 As label:
-                Text: ="Text"
-                X: =40
-                Y: =40
-                ZIndex: =2
+            iconEdit As icon.Edit:
+                Icon: =Icon.Edit
+                OnSelect: =EditForm(formSecurity)
+                Visible: =If(formSecurity.Mode = FormMode.View && isSecurity, true, false)
+                Width: =52
+                X: =1017
+                ZIndex: =4
+
+            iconSave As icon.Save:
+                Icon: =Icon.Save
+                OnSelect: =SubmitForm(formSecurity);
+                Visible: =If(formSecurity.Mode = FormMode.Edit && isSecurity, true, false)
+                Width: =52
+                X: =1017
+                ZIndex: =5
+
+            Button2 As button:
+                Color: =RGBA(0, 0, 0, 1)
+                DisplayMode: |
+                    =If(formSecurity.Mode <> FormMode.Edit, DisplayMode.Edit, DisplayMode.Disabled)
+                Fill: =RGBA(184, 0, 0, 1)
+                FontWeight: =FontWeight.Bold
+                HoverFill: =ColorFade(RGBA(184, 0, 0, 100), -20%)
+                OnSelect: |
+                    =If(
+                        IsBlank(ComboBox1.Selected.Value), Notify("Choose Or Enter A Reason For Denial.", NotificationType.Warning),
+                        If(
+                            Patch(
+                                VisitorRequest,
+                                LookUp(
+                                    VisitorRequest,
+                                    Title = formData.Title
+                                ),
+                                {Approved: {Value: "Denied"}}
+                            );
+                            Patch(
+                                VisitorRequest,
+                                LookUp(
+                                    VisitorRequest,
+                                    Title = formData.Title
+                                ),
+                                If(
+                                    ComboBox1.Selected.Value = "Other",
+                                    {'Denied Reason': {Value: textDenied.Text}},
+                                    {'Denied Reason': ComboBox1.Selected}
+                                )
+                            );
+                            IsEmpty(Errors(VisitorRequest)),
+                            Notify(
+                                "Success",
+                                NotificationType.Success
+                            );
+                            If(
+                                ComboBox1.Selected.Value = "Other",
+                                Office365Outlook.SendEmailV2(
+                                    formData.Sponsor.Email,
+                                    formData.'First Name' & " " & formData.'Last Name' & " Visitor Request Status Update",
+                                    "Greetings " & formData.Sponsor.DisplayName & "," & "<br> Your visitor " & formData.'First Name' & " " & formData.'Last Name' & "'s" & " visitor request has been denied because of," & " " & textDenied.Text & ". Thank you!"
+                                ),
+                                Office365Outlook.SendEmailV2(
+                                    formData.Sponsor.Email,
+                                    formData.'First Name' & " " & formData.'Last Name' & " Visitor Request Status Update",
+                                    "Greetings " & formData.Sponsor.DisplayName & "," & "<br> Your visitor " & formData.'First Name' & " " & formData.'Last Name' & "'s" & " visitor request has been denied because of," & " " & ComboBox1.Selected.Value & ". Thank you!"
+                                )
+                            );
+                            Notify(
+                                First(Errors(VisitorRequest)).Message,
+                                NotificationType.Error
+                            );
+                            Set(
+                                isModalSecurity,
+                                false
+                            );
+                            Reset(ComboBox1);
+                            Reset(textDenied)
+                        )
+                    )
+                Text: ="Denied"
+                Visible: =If( isSecurity, true, false)
+                X: =656
+                Y: =435
+                ZIndex: =6
+
+            Button3 As button:
+                Color: =RGBA(0, 0, 0, 1)
+                DisplayMode: =If(formSecurity.Mode <> FormMode.Edit, DisplayMode.Edit, DisplayMode.Disabled)
+                Fill: =RGBA(54, 176, 75, 1)
+                FontWeight: =FontWeight.Bold
+                HoverFill: =ColorFade(RGBA(54, 176, 75, 1), -20%)
+                OnSelect: |-
+                    =If(
+                        Patch(
+                            VisitorRequest,
+                            LookUp(
+                                VisitorRequest,
+                                Title = formData.Title
+                            ),
+                            {Approved: {Value: "Approved"}}
+                        );
+                        IsEmpty(Errors(VisitorRequest)),
+                        Notify(
+                            "Success",
+                            NotificationType.Success
+                        );
+                        Office365Outlook.SendEmailV2(
+                            formData.Sponsor.Email,
+                            formData.'First Name' & " " & formData.'Last Name' & " Visitor Request Status Update",
+                            "Greetings " & formData.Sponsor.DisplayName & "," & "<br> Your visitor " & formData.'First Name' & " " & formData.'Last Name' & "'s" & " visitor request has been approved. Thank you!"
+                        );
+                        Notify(
+                            First(Errors(VisitorRequest)).Message,
+                            NotificationType.Error
+                        );
+                        Set(
+                            isModalSecurity,
+                            false
+                        );
+                        Reset(ComboBox1);
+                        Reset(textDenied)
+                    )
+                Text: ="Approved"
+                Visible: =If( isSecurity, true, false)
+                X: =pageSecurity.X*2
+                Y: =435
+                ZIndex: =7
+
+            groupDenied As group:
+                Height: =5
+                Width: =5
+                X: =60
+                Y: =60
+                ZIndex: =11
+
+                ComboBox1 As combobox:
+                    DisplayFields: =["Value"]
+                    DisplayMode: =If(formSecurity.Mode <> FormMode.Edit, DisplayMode.Edit, DisplayMode.Disabled)
+                    Height: =23
+                    InputTextPlaceholder: ="Denied Reason"
+                    IsSearchable: =false
+                    Items: |-
+                        =Ungroup(
+                            Table
+                            ({DropdownOptions: Choices(VisitorRequest.'Denied Reason')}, 
+                            {DropdownOptions: ["Other"]}
+                            ), 
+                            "DropdownOptions"
+                            ) 
+                    NoSelectionText: ="Denied Reason"
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectMultiple: =false
+                    Size: =12
+                    Visible: =If(Self.Selected.Value<>"Other" && isSecurity, true)
+                    Width: =160
+                    X: =656
+                    Y: =485
+                    ZIndex: =8
+
+                textDenied As text:
+                    Default: =""
+                    DisplayMode: =If(formSecurity.Mode <> FormMode.Edit, DisplayMode.Edit, DisplayMode.Disabled)
+                    Height: =23
+                    HintText: ="Denied Reason"
+                    Size: =12
+                    Visible: |
+                        =If(!ComboBox1.Visible && isSecurity, true)
+                    Width: =160
+                    X: =656
+                    Y: =485
+                    ZIndex: =9
+
+                Icon3 As icon.Cancel:
+                    DisplayMode: =If(formSecurity.Mode <> FormMode.Edit, DisplayMode.Edit, DisplayMode.Disabled)
+                    Height: =14
+                    Icon: =Icon.Cancel
+                    OnSelect: |-
+                        =Reset(ComboBox1);
+                        Reset(textDenied);
+                    Visible: =If(!ComboBox1.Visible && isSecurity, true)
+                    Width: =20
+                    X: =796
+                    Y: =490
+                    ZIndex: =10
+
+            formSecurity As form:
+                DataSource: =VisitorRequest
+                DefaultMode: =FormMode.View
+                Height: =Parent.Height - (labelReview_1.Height + dimIcon)
+                Item: =formData/*Patch(dataEventForm, formVisitor.Updates, formLongTerm.Updates)*/
+                OnSuccess: |
+                    =Set(formData, formSecurity.LastSubmit);
+                    ViewForm(formSecurity);
+                    Notify("Request Approval Page Was Succesfully Saved.", NotificationType.Success);
+                Width: =Parent.Width - 1
+                X: =1
+                Y: =labelReview_1.Height
+                ZIndex: =12
+
+                dcrLabelEventInfo_1 As typedDataCard.blankCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =30
+                    Width: =Parent.Width 
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
+
+                    labelReviewEventInfo_1 As button:
+                        DisplayMode: =DisplayMode.View
+                        Fill: =RGBA(116, 116, 116, 1)
+                        Height: =dimDataCardValueHeight
+                        RadiusBottomLeft: =25
+                        RadiusBottomRight: =25
+                        RadiusTopLeft: =25
+                        RadiusTopRight: =25
+                        Text: ="Event Information"
+                        Width: =Parent.Width
+                        ZIndex: =1
+
+                dcrStartDate_1 As typedDataCard.dateEditCard:
+                    BorderColor: =If(formSecurity.Mode = FormMode.Edit && ThisItem.'Visit Start Date' <>dcrvStartDate_1.SelectedDate, Orange,  RGBA(0, 18, 107, 1))
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="VisitStartDate"
+                    Default: =ThisItem.'Visit Start Date'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"VisitStartDate")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =dcrvStartDate_1.SelectedDate
+                    Width: =Parent.Width / 2
+                    X: =0
+                    Y: =1
+                    ZIndex: =1
+
+                    dcrkStartDate_1 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvStartDate_1 As datepicker:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        DefaultDate: =Parent.Default
+                        DisplayMode: =Parent.DisplayMode
+                        EndYear: =Year(Today())+100
+                        Height: =dimDataCardValueHeight
+                        IsEditable: =true
+                        PaddingLeft: =5
+                        PaddingTop: =5
+                        Size: =dimInputFontSize
+                        StartYear: =1899
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                dcrEndDate_1 As typedDataCard.dateEditCard:
+                    BorderColor: =If(formSecurity.Mode = FormMode.Edit && ThisItem.'Visit End Date' <>dcrvEndDate_1.SelectedDate, Orange,  RGBA(0, 18, 107, 1))
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="VisitEndDate"
+                    Default: =ThisItem.'Visit End Date'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"VisitEndDate")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =dcrvEndDate_1.SelectedDate
+                    Width: =Parent.Width / 2
+                    X: =1
+                    Y: =1
+                    ZIndex: =1
+
+                    dcrkEndDate_1 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvEndDate_1 As datepicker:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        DefaultDate: =Parent.Default
+                        DisplayMode: =Parent.DisplayMode
+                        EndYear: =Year(Today())+100
+                        Height: =dimDataCardValueHeight
+                        IsEditable: =true
+                        PaddingLeft: =5
+                        PaddingTop: =5
+                        Size: =dimInputFontSize
+                        StartYear: =1899
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                dcrLabelSponsorInfo_1 As typedDataCard.blankCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: |
+                        =30
+                    Width: =Parent.Width 
+                    X: =2
+                    Y: =2
+                    ZIndex: =1
+
+                    labelReviewSponsorInfo_1 As button:
+                        DisplayMode: =DisplayMode.View
+                        Fill: =RGBA(116, 116, 116, 1)
+                        Height: =dimDataCardValueHeight
+                        RadiusBottomLeft: =25
+                        RadiusBottomRight: =25
+                        RadiusTopLeft: =25
+                        RadiusTopRight: =25
+                        Text: ="Sponsor Information"
+                        Width: =Parent.Width
+                        ZIndex: =1
+
+                dcrSponsor_1 As typedDataCard.comboBoxEditCard:
+                    BorderColor: |
+                        =
+                        
+                        If(formSecurity.Mode = FormMode.Edit && ThisItem.Sponsor.DisplayName <> dcrvSponsor_1.Selected.DisplayName, Orange, RGBA(0, 18, 107, 1))
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Sponsor"
+                    Default: =ThisItem.Sponsor
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"Sponsor")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =dcrvSponsor_1.Selected
+                    Width: =369
+                    X: =2
+                    Y: =2
+                    ZIndex: =1
+
+                    dcrkSponsor_1 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvSponsor_1 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        DefaultSelectedItems: =Parent.Default
+                        DisplayFields: =["DisplayName","Email","Picture"]
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =dimDataCardValueHeight
+                        Items: =Choices([@VisitorRequest].Sponsor)
+                        SearchFields: =["DisplayName"]
+                        SearchItems: =Choices(VisitorRequest.Sponsor,dcrvSponsor_1.SearchText)
+                        SelectMultiple: =false
+                        Size: =dimInputFontSize
+                        Template: =ListItemTemplate.Person
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                dcrAltSponsor_1 As typedDataCard.comboBoxEditCard:
+                    BorderColor: |
+                        =If(formSecurity.Mode = FormMode.Edit && ThisItem.'Alternate Sponsor'.DisplayName <> dcrvAltSponsor_1.Selected.DisplayName, Orange, RGBA(0, 18, 107, 1))
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="AlternateSponsor"
+                    Default: =ThisItem.'Alternate Sponsor'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"AlternateSponsor")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =dcrvAltSponsor_1.Selected
+                    Width: =369
+                    X: =2
+                    Y: =2
+                    ZIndex: =1
+
+                    dcrkAltSponsor_1 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvAltSponsor_1 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        DefaultSelectedItems: =Parent.Default
+                        DisplayFields: =["DisplayName","Email","Picture"]
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =dimDataCardValueHeight
+                        Items: =Choices([@VisitorRequest].AlternateSponsor)
+                        SearchFields: =["DisplayName"]
+                        SearchItems: =Choices(VisitorRequest.AlternateSponsor,dcrvAltSponsor_1.SearchText)
+                        SelectMultiple: =false
+                        Size: =dimInputFontSize
+                        Template: =ListItemTemplate.Person
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                dcrSponsorPhone_1 As typedDataCard.textualEditCard:
+                    BorderColor: =If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Sponsor Phone Number'<>dcrvSponsorPhone_1.Text, Orange, RGBA(0, 18, 107, 1))
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Phone_x0020_Number"
+                    Default: =ThisItem.'Sponsor Phone Number'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"Phone_x0020_Number")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@VisitorRequest], DataSourceInfo.MaxLength, "Phone_x0020_Number")
+                    Required: =false
+                    Update: =dcrvSponsorPhone_1.Text
+                    Width: =369
+                    X: =3
+                    Y: =2
+                    ZIndex: =1
+
+                    dcrkSponsorPhone_1 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvSponsorPhone_1 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =dimDataCardValueHeight
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =dimInputFontSize
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                dcrLabelVisitorInfo_1 As typedDataCard.blankCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: |
+                        =30
+                    Width: =Parent.Width 
+                    X: =1
+                    Y: =3
+                    ZIndex: =1
+
+                    labelReviewVisitorInfo_2 As button:
+                        DisplayMode: =DisplayMode.View
+                        Fill: =RGBA(116, 116, 116, 1)
+                        Height: =dimDataCardValueHeight
+                        RadiusBottomLeft: =25
+                        RadiusBottomRight: =25
+                        RadiusTopLeft: =25
+                        RadiusTopRight: =25
+                        Text: ="Visitor Information"
+                        Width: =Parent.Width
+                        ZIndex: =1
+
+                dcrFirstName_1 As typedDataCard.textualEditCard:
+                    BorderColor: =If(formSecurity.Mode = FormMode.Edit &&ThisItem.FirstName<> dcrvFirstName_1.Text, Orange, RGBA(0, 18, 107, 1))
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="FirstName"
+                    Default: =ThisItem.'First Name'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"FirstName")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@VisitorRequest], DataSourceInfo.MaxLength, "FirstName")
+                    Required: =false
+                    Update: =dcrvFirstName_1.Text
+                    Width: =369
+                    X: =1
+                    Y: =3
+                    ZIndex: =1
+
+                    dcrkFirstName_1 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvFirstName_1 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =dimDataCardValueHeight
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =dimInputFontSize
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                dcrMiddleName_1 As typedDataCard.textualEditCard:
+                    BorderColor: |+
+                        =If(IsBlank(dcrvMiddleName_1.Text),RGBA(0, 18, 107, 1), If(formSecurity.Mode = FormMode.Edit &&ThisItem.MiddleName<> dcrvMiddleName_1.Text, Orange, RGBA(0, 18, 107, 1)))
+                        
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="MiddleName"
+                    Default: =ThisItem.'Middle Name'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"MiddleName")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@VisitorRequest], DataSourceInfo.MaxLength, "MiddleName")
+                    Required: =false
+                    Update: =dcrvMiddleName_1.Text
+                    Width: =369
+                    X: =2
+                    Y: =3
+                    ZIndex: =1
+
+                    dcrkMiddleName_1 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvMiddleName_1 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =dimDataCardValueHeight
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =dimInputFontSize
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                dcrLastName_1 As typedDataCard.textualEditCard:
+                    BorderColor: |+
+                        =If(formSecurity.Mode = FormMode.Edit &&ThisItem.LastName<> dcrvLastName_1.Text, Orange, RGBA(0, 18, 107, 1))
+                        
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="LastName"
+                    Default: =ThisItem.'Last Name'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"LastName")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@VisitorRequest], DataSourceInfo.MaxLength, "LastName")
+                    Required: =false
+                    Update: =dcrvLastName_1.Text
+                    Width: =369
+                    X: =3
+                    Y: =3
+                    ZIndex: =1
+
+                    dcrkLastName_1 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvLastName_1 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =dimDataCardValueHeight
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =dimInputFontSize
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                dcrEmail_1 As typedDataCard.textualEditCard:
+                    BorderColor: |+
+                        =If(IsBlank(dcrvEmail_1.Text),RGBA(0, 18, 107, 1), If(formSecurity.Mode = FormMode.Edit &&ThisItem.Email<> dcrvEmail_1.Text, Orange, RGBA(0, 18, 107, 1)))
+                        
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Email"
+                    Default: =ThisItem.Email
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"Email")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@VisitorRequest], DataSourceInfo.MaxLength, "Email")
+                    Required: =false
+                    Update: =dcrvEmail_1.Text
+                    Width: =369
+                    X: =1
+                    Y: =4
+                    ZIndex: =1
+
+                    dcrkEmail_1 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvEmail_1 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =dimDataCardValueHeight
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =dimInputFontSize
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                dcrOrganization_1 As typedDataCard.textualEditCard:
+                    BorderColor: |+
+                        =If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Company/Organization'<> dcrvOrganization_1.Text, Orange, RGBA(0, 18, 107, 1))
+                        
+                        
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Company_x002f_Organization"
+                    Default: =ThisItem.'Company/Organization'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"Company_x002f_Organization")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@VisitorRequest], DataSourceInfo.MaxLength, "Company_x002f_Organization")
+                    Required: =false
+                    Update: =dcrvOrganization_1.Text
+                    Width: =369
+                    X: =2
+                    Y: =4
+                    ZIndex: =1
+
+                    dcrkOrganization_1 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvOrganization_1 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =dimDataCardValueHeight
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =dimInputFontSize
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                dcrOrganizationPhone_1 As typedDataCard.textualEditCard:
+                    BorderColor: |+
+                        =If(IsBlank(dcrvOrganizationPhone_1.Text),RGBA(0, 18, 107, 1), If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Company/Organization Phone Number'<> dcrvOrganizationPhone_1.Text, Orange, RGBA(0, 18, 107, 1)))
+                        
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Company_x002f_OrganizationPhoneN"
+                    Default: =ThisItem.'Company/Organization Phone Number'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"Company_x002f_OrganizationPhoneN")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@VisitorRequest], DataSourceInfo.MaxLength, "Company_x002f_OrganizationPhoneN")
+                    Required: =false
+                    Update: =dcrvOrganizationPhone_1.Text
+                    Width: =369
+                    X: =3
+                    Y: =4
+                    ZIndex: =1
+
+                    dcrkOrganizationPhone_1 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvOrganizationPhone_1 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =dimDataCardValueHeight
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =dimInputFontSize
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                dcrDaysAWeek_1 As typedDataCard.comboBoxEditCard:
+                    BorderColor: =If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Days a Week Working at MCTSSA'.Value<> dcrvDaysAWeek_1.Selected.Value, Orange, RGBA(0, 18, 107, 1))
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="DaysaWeekWorkingatMCTSSA"
+                    Default: =ThisItem.'Days a Week Working at MCTSSA'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"DaysaWeekWorkingatMCTSSA")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =dcrvDaysAWeek_1.Selected
+                    Width: =369
+                    X: =0
+                    Y: =5
+                    ZIndex: =1
+
+                    dcrkDaysAWeek_1 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvDaysAWeek_1 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        DefaultSelectedItems: =Parent.Default
+                        DisplayFields: =["Value"]
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =dimDataCardValueHeight
+                        Items: =Choices([@VisitorRequest].DaysaWeekWorkingatMCTSSA)
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        SearchFields: =["Value"]
+                        SearchItems: =Choices(VisitorRequest.DaysaWeekWorkingatMCTSSA,dcrvDaysAWeek_1.SearchText)
+                        SelectMultiple: =false
+                        Size: =dimInputFontSize
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                dcrRank_1 As typedDataCard.comboBoxEditCard:
+                    BorderColor: =If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Rank/Grade'.Value<> dcrvRank_1.Selected.Value, Orange, RGBA(0, 18, 107, 1))
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Rank_x002f_Grade"
+                    Default: =ThisItem.'Rank/Grade'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"Rank_x002f_Grade")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =dcrvRank_1.Selected
+                    Width: =369
+                    X: =1
+                    Y: =5
+                    ZIndex: =1
+
+                    dcrkRank_1 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvRank_1 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        DefaultSelectedItems: =Parent.Default
+                        DisplayFields: =["Value"]
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =dimDataCardValueHeight
+                        Items: =Choices([@VisitorRequest].Rank_x002f_Grade)
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        SearchFields: =["Value"]
+                        SearchItems: =Choices(VisitorRequest.Rank_x002f_Grade,dcrvRank_1.SearchText)
+                        SelectMultiple: =false
+                        Size: =dimInputFontSize
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                dcrVisitType_1 As typedDataCard.comboBoxEditCard:
+                    BorderColor: =If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Type of Visit'.Value<> dcrvVisitType_1.Selected.Value, Orange, RGBA(0, 18, 107, 1))
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="TypeofVisit"
+                    Default: =ThisItem.'Type of Visit'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"TypeofVisit")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =dcrvVisitType_1.Selected
+                    Width: =369
+                    X: =2
+                    Y: =5
+                    ZIndex: =1
+
+                    dcrkVisitType_1 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvVisitType_1 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        DefaultSelectedItems: =Parent.Default
+                        DisplayFields: =["Value"]
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =dimDataCardValueHeight
+                        Items: =Choices([@VisitorRequest].TypeofVisit)
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        SearchFields: =["Value"]
+                        SearchItems: =Choices(VisitorRequest.TypeofVisit,dcrvVisitType_1.SearchText)
+                        SelectMultiple: =false
+                        Size: =dimInputFontSize
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                dcrAfterHours_1 As typedDataCard.toggleEditCard:
+                    BorderColor: |
+                        =If(formSecurity.Mode = FormMode.Edit && ThisItem.'After Hours Access Required'<> dcrvAfterHours_1.Value, Orange, RGBA(0, 18, 107, 1))
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="After_x0020_Hours_x0020_Access_x"
+                    Default: =ThisItem.'After Hours Access Required'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"After_x0020_Hours_x0020_Access_x")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =55
+                    Required: =false
+                    Update: =dcrvAfterHours_1.Value
+                    Width: =369
+                    X: =1
+                    Y: =6
+                    ZIndex: =1
+
+                    dcrrAfterHours_1 As rectangle:
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Height: =dcrvAfterHours_1.Height
+                        Width: =dcrvAfterHours_1.Width
+                        X: =dcrvAfterHours_1.X
+                        Y: =dcrvAfterHours_1.Y
+                        ZIndex: =1
+
+                    dcrkAfterHours_1 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =2
+
+                    dcrvAfterHours_1 As toggleSwitch:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        BorderThickness: =2
+                        Default: =Parent.Default
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =dimDataCardValueHeight
+                        Size: =dimInputFontSize
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =3
+
+                dcrLabelLongTermInfo_1 As typedDataCard.blankCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: |
+                        =30
+                    Visible: =isLongTerm
+                    Width: =Parent.Width 
+                    X: =2
+                    Y: =6
+                    ZIndex: =1
+
+                    labelReviewVisitorInfo_3 As button:
+                        DisplayMode: =DisplayMode.View
+                        Fill: =RGBA(116, 116, 116, 1)
+                        Height: =dimDataCardValueHeight
+                        RadiusBottomLeft: =25
+                        RadiusBottomRight: =25
+                        RadiusTopLeft: =25
+                        RadiusTopRight: =25
+                        Text: ="Long Term Information"
+                        Width: =Parent.Width
+                        ZIndex: =1
+
+                dcrContractNumber_1 As typedDataCard.textualEditCard:
+                    BorderColor: |+
+                        =If(IsBlank(dcrvContractNumber_1.Text),RGBA(0, 18, 107, 1), If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Contract Number'<> dcrvContractNumber_1.Text, Orange, RGBA(0, 18, 107, 1)))
+                        
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="ContractNumber"
+                    Default: =ThisItem.'Contract Number'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"ContractNumber")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@VisitorRequest], DataSourceInfo.MaxLength, "ContractNumber")
+                    Required: =false
+                    Update: =dcrvContractNumber_1.Text
+                    Visible: =isLongTerm
+                    Width: =369
+                    X: =0
+                    Y: =7
+                    ZIndex: =1
+
+                    dcrkContractNumber_1 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvContractNumber_1 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =dimDataCardValueHeight
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =dimInputFontSize
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                dcrEDIP_1 As typedDataCard.textualEditCard:
+                    BorderColor: |+
+                        =If(IsBlank(dcrvEDIP_1.Text),RGBA(0, 18, 107, 1), If(formSecurity.Mode = FormMode.Edit &&ThisItem.EDIP<> dcrvEDIP_1.Text, Orange, RGBA(0, 18, 107, 1)))
+                        
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="EDIP"
+                    Default: =ThisItem.EDIP
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"EDIP")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@VisitorRequest], DataSourceInfo.MaxLength, "EDIP")
+                    Required: =false
+                    Update: =dcrvEDIP_1.Text
+                    Visible: =isLongTerm
+                    Width: =369
+                    X: =1
+                    Y: =7
+                    ZIndex: =1
+
+                    dcrkEDIP_1 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvEDIP_1 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =dimDataCardValueHeight
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =dimInputFontSize
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                dcrSection_1 As typedDataCard.comboBoxEditCard:
+                    BorderColor: =If(formSecurity.Mode = FormMode.Edit && ThisItem.'Assigned to Section'.DisplayName <> dcrvSection_1.Selected.DisplayName, Orange, RGBA(0, 18, 107, 1))
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="AssignedtoSection"
+                    Default: =ThisItem.'Assigned to Section'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"AssignedtoSection")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =dcrvSection_1.Selected
+                    Visible: =isLongTerm
+                    Width: =369
+                    X: =2
+                    Y: =7
+                    ZIndex: =1
+
+                    dcrkSection_1 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvSection_1 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        DefaultSelectedItems: =Parent.Default
+                        DisplayFields: =["DisplayName","Email","Picture"]
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =dimDataCardValueHeight
+                        Items: =Choices([@VisitorRequest].AssignedtoSection)
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        SearchFields: =["DisplayName"]
+                        SearchItems: =Choices(VisitorRequest.AssignedtoSection,dcrvSection_1.SearchText)
+                        SelectMultiple: =false
+                        Size: =dimInputFontSize
+                        Template: =ListItemTemplate.Person
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                dcrACP_1 As typedDataCard.comboBoxEditCard:
+                    BorderColor: =If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Access Control Points'.Value<> dcrvACP_1.Selected.Value, Orange, RGBA(0, 18, 107, 1))
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="AccessControlPoints"
+                    Default: =ThisItem.'Access Control Points'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"AccessControlPoints")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =dcrvACP_1.Selected
+                    Visible: =isLongTerm
+                    Width: =369
+                    X: =0
+                    Y: =8
+                    ZIndex: =1
+
+                    dcrkACP_1 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvACP_1 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        DefaultSelectedItems: =Parent.Default
+                        DisplayFields: =["Value"]
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =dimDataCardValueHeight
+                        Items: =Choices([@VisitorRequest].AccessControlPoints)
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        SearchFields: =["Value"]
+                        SearchItems: =Choices(VisitorRequest.AccessControlPoints,dcrvACP_1.SearchText)
+                        SelectMultiple: =false
+                        Size: =dimInputFontSize
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                dcrCAC_1 As typedDataCard.toggleEditCard:
+                    BorderColor: |+
+                        =If(formSecurity.Mode = FormMode.Edit && ThisItem.'CAC Required?'<> dcrvCAC_1.Value, Orange, RGBA(0, 18, 107, 1))
+                        
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =0
+                    DataField: ="CACRequired_x003f_"
+                    Default: =ThisItem.'CAC Required?'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"CACRequired_x003f_")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =dcrvCAC_1.Value
+                    Visible: =isLongTerm
+                    Width: =369
+                    X: =1
+                    Y: =8
+                    ZIndex: =1
+
+                    dcrrAfterHours_2 As rectangle:
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Height: =dcrvCAC_1.Height
+                        Width: =dcrvCAC_1.Width
+                        X: =dcrvCAC_1.X
+                        Y: =dcrvCAC_1.Y
+                        ZIndex: =1
+
+                    dcrkCAC_1 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Tooltip: =Parent.Width / 3
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =2
+
+                    dcrvCAC_1 As toggleSwitch:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        BorderThickness: =2
+                        Default: =Parent.Default
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =dimDataCardValueHeight
+                        Size: =dimInputFontSize
+                        Tooltip: =Parent.Width / 3
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =3
+
+        Label6 As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Semibold
+            Size: =15
+            Text: |
+                =
+                If(
+                    formData.Approved.Value <> "Denied",
+                    formData.Approved.Value,
+                    formData.Approved.Value & ": " & formData.'Denied Reason'.Value
+                    )
+                    
+            Visible: =!isSecurity 
+            Width: =300
+            X: =514
+            Y: =564
+            ZIndex: =4
 
