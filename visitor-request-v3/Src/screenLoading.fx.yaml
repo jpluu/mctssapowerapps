@@ -11,7 +11,7 @@ screenLoading As screen:
         // APPVER | number | gets app verison
         Set(
             APPVER,
-            CountRows(PowerAppsforMakers.GetAppVersions("9bea056e-aa6f-4de4-8a1c-c0acf5274911").value)
+            CountRows(PowerAppsforMakers.GetAppVersions("e38754b5-bbaf-42c2-916f-61a035ffb83a").value)
         );
         /* === User Data === */
         // CURRENTUSER | 365User | 
@@ -21,7 +21,8 @@ screenLoading As screen:
                 '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
                 DisplayName: User().FullName,
                 Claims: "i:0#.f|membership|" & Lower(User().Email),
-                Email: User().Email
+                Email: User().Email,
+                PhoneNumber: Office365Users.UserProfile(User().Email).mobilePhone
             }
         );
         // isSecurity | bool
@@ -37,7 +38,7 @@ screenLoading As screen:
                 150,
                 150,
                 150,
-                0.5
+                1
             )
         );
         // posModal | number | (x,y) pos of the top left corner
@@ -54,6 +55,36 @@ screenLoading As screen:
         Set(
             heightModal,
             App.Height - 2 * posModal
+        );
+        // dimIcon | number | icon dimensions
+        Set(
+            dimIcon,
+            100
+        );
+        // dimDataCard | number | border for data cards
+        Set(
+            dimDataCard,
+            10
+        );
+        // dimDataCardHeight | number | height for full data card
+        Set (
+            dimDataCardHeight, 
+            3 * dimDataCard + dimDataCardValueHeight
+        );
+        // dimDataCardValueHeight | number | height for display box
+        Set(
+            dimDataCardValueHeight,
+            30
+        );
+        // dimLabelFontSize | number | font size for label
+        Set(
+            dimLabelFontSize,
+            10
+        );
+        // dimInputFontSize | number | font size for label
+        Set(
+            dimInputFontSize,
+            10
         );
         /* === Home Screen === */
         // collectionDateFilter | Date Range | date range for gallery filter dropdown
@@ -102,6 +133,18 @@ screenLoading As screen:
                                 }
         
         );
+        
+        // collectionApproved | Approved Status | Approval status for button gallery
+        
+        ClearCollect(
+            collectionApproved,
+            AddColumns(
+                Choices(VisitorRequest.Approved),
+                "Selected",
+                false
+            )
+        );
+        
         /* === Request Navigation === */
         // isPageEvent | bool
         Set(
@@ -129,17 +172,32 @@ screenLoading As screen:
             false
         );
         /* === Request Control === */
-        // bool | control for request modal container
+        // isModalRequest | bool | control for request modal container
         Set(
             isModalRequest,
             false
         );
-        // bool | control for bulk adds
+        // isLongTerm | bool | control for showing long term page
+        Set(
+            isLongTerm,
+            false
+        );
+        // isBulk | bool | control for bulk adds
         Set(
             isBulk,
             false
         );
         /* === Request Data === */
+        // dataDefaultForm | record | empty form
+        Set(
+            dataDefaultForm,
+            Defaults(VisitorRequest)
+        );
+        // dataEventForm | record | save the data from event form for bulk
+        Set(
+            dataEventForm,
+            Defaults(VisitorRequest)
+        );
         /* === Security Control === */
         // isModalSecurity | bool | control for security modal container
         Set(

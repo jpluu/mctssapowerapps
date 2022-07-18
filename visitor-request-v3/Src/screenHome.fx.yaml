@@ -1,144 +1,402 @@
 screenHome As screen:
 
-    buttonRequest As icon.CancelBadge:
-        Height: =150
-        Icon: =Icon.CancelBadge
-        OnSelect: =Navigate(screenRequest);
-        PaddingBottom: =10
-        PaddingLeft: =10
-        PaddingRight: =10
-        PaddingTop: =10
-        Rotation: =45
-        Width: =150
-        X: =1216
-        Y: =618
-        ZIndex: =1
+    containerScreenHome As groupContainer.manualLayoutContainer:
+        Height: =screenHome.Height
+        Width: =screenHome.Width
+        ZIndex: =4
 
-    buttonSecurity As icon.CancelBadge:
-        Height: =150
-        Icon: =Icon.CheckBadge
-        OnSelect: =Navigate(screenSecurity);
-        PaddingBottom: =10
-        PaddingLeft: =10
-        PaddingRight: =10
-        PaddingTop: =10
-        Width: =150
-        Y: =618
-        ZIndex: =2
-
-    "galleryRequests As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
-        Height: =522
-        Items: |-
-            =VisitorRequest/*SortByColumns(
-            If(isSecurity,
-                Search(
-                Filter(
-                    VisitorRequest,
-                      IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
-                     IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate
-                ),
-                searchBarRequest.Text,
-                "LastName",
-                "FirstName",
-                "Title"
-            ),
-                Search(
-                Filter(
-                    VisitorRequest,
-                    Lower(Sponsor.Email) = Lower(currentUser.Email), IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
-                     IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate
-                ),
-                searchBarRequest.Text,
-                "LastName",
-                "FirstName",
-                "Title"
-            )),
-            "LastName",
-                Ascending)
-            
-            */
-        Layout: =Layout.Vertical
-        TemplateFill: |+
-            =Switch(ThisItem.Approved.Value,
-            
-            "Approved", PaleGreen,
-            
-            "Pending", PaleGoldenRod, 
-            
-            "Denied", Red
-            )
-            
-        TemplatePadding: =0
-        TemplateSize: =87
-        Width: =1066//App.Width - 2 * buttonNewRequest.Width
-        X: =150
-        Y: =233
-        ZIndex: =3
-
-        Title1 As label:
-            Height: =Self.Size * 1.8
-            OnSelect: =Select(Parent)
-            PaddingBottom: =0
-            PaddingLeft: =0
-            PaddingRight: =0
-            PaddingTop: =0
-            Size: =16
-            Text: |-
-                =If(
-                    IsEmpty(galleryRequests),
-                    "",
-                    ThisItem.'Last Name' & ", " & ThisItem.'First Name'
-                )
-            VerticalAlign: =VerticalAlign.Top
-            Width: =Parent.TemplateWidth - 104
-            X: =1
-            Y: =8
+        buttonRequest_1 As icon.CancelBadge:
+            Height: =150
+            Icon: =Icon.CancelBadge
+            OnSelect: =Navigate(screenRequest);
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            Rotation: =45
+            Width: =150
+            X: =1216
+            Y: =618
             ZIndex: =1
 
-        Subtitle1 As label:
-            Height: =Self.Size * 1.8
-            OnSelect: =Select(Parent)
-            PaddingBottom: =0
-            PaddingLeft: =0
-            PaddingRight: =0
-            PaddingTop: =0
-            Size: =12
-            Text: =ThisItem.Title
-            VerticalAlign: =VerticalAlign.Top
-            Width: =Parent.TemplateWidth - 104
-            X: =1
-            Y: =Title1.Y + Title1.Height + 1
+        buttonSecurity_1 As icon.CancelBadge:
+            Height: =150
+            Icon: =Icon.CheckBadge
+            OnSelect: =Navigate(screenSecurity);
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            Width: =150
+            Y: =618
             ZIndex: =2
 
-        Body1 As label:
-            Height: =26
-            OnSelect: =Select(Parent)
-            PaddingBottom: =0
-            PaddingLeft: =0
-            PaddingRight: =0
-            PaddingTop: =0
-            Size: =12
-            Text: |
-                =
-                If(
-                    ThisItem.Approved.Value <> "Denied",
-                    ThisItem.Approved.Value,
-                    ThisItem.Approved.Value & ": " & ThisItem.'Denied Reason'.Value
-                    )
-                    
-            VerticalAlign: =VerticalAlign.Top
-            Width: =Parent.TemplateWidth - 104
-            X: =1
-            Y: =Subtitle1.Y + Subtitle1.Height 
+        searchBarRequest As text:
+            Default: =""
+            HintText: ="Search"
+            PaddingLeft: =40
+            Size: =15
+            Width: =galleryRequests_1.Width//320
+            X: =150
+            Y: =103
             ZIndex: =3
 
-        NextArrow1 As icon.ChevronRight:
-            AccessibleLabel: =Self.Tooltip
-            Height: =60
-            Icon: =Icon.Information
+        iconSearch As icon.Search:
+            Color: =RGBA(128, 128, 128, 1)
+            Height: =28
+            Icon: =Icon.Search
+            Width: =44
+            X: =150
+            Y: =110
+            ZIndex: =4
+
+        galleryButtons As gallery.galleryHorizontal:
+            Height: =90
+            Items: =collectionApproved
+            ShowScrollbar: =false
+            TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(320, Self.Width - 60), Min(320, Self.Height - 60))
+            Width: =872
+            X: =235
+            Y: =110
+            ZIndex: =5
+
+            Button6 As button:
+                Color: =RGBA(0, 0, 0, 1)
+                Fill: |-
+                    =If(ThisItem.Selected,
+                    
+                    Switch(Button6.Text,
+                    
+                    "Approved", RGBA(0, 177, 106, 1),
+                    
+                    "Pending", RGBA(255, 255, 126, 1), 
+                    
+                    "Denied", RGBA(240, 52, 24, 1)),
+                    
+                    ColorFade(
+                        Switch(Button6.Text,
+                    
+                    "Approved", RGBA(0, 177, 106, 1),
+                    
+                    "Pending", RGBA(255, 255, 126, 1), 
+                    
+                    "Denied", RGBA(240, 52, 24, 1)), 0.85))
+                    
+                    /*
+                    If(ThisItem.Selected,
+                    
+                    Switch(Button6.Text,
+                    
+                    "Approved", RGBA(0, 177, 106, 1),
+                    
+                    "Pending", RGBA(255, 246, 143, 1), 
+                    
+                    "Denied", RGBA(240, 52, 24, 1)),
+                    
+                    ColorFade(
+                        Switch(Button6.Text,
+                    
+                    "Approved", RGBA(0, 177, 106, 1),
+                    
+                    "Pending", RGBA(255, 246, 143, 1), 
+                    
+                    "Denied", RGBA(240, 52, 24, 1)), 0.7))
+                    
+                    
+                    
+                    
+                    
+                    If(ThisItem.Selected,
+                    
+                    Switch(Button6.Text,
+                    
+                    "Approved", RGBA(38, 166, 91, 1),
+                    
+                    "Pending", PaleGoldenRod, 
+                    
+                    "Denied", RGBA(240, 52, 24, 1)),
+                    
+                    ColorFade(
+                        Switch(Button6.Text,
+                    
+                    "Approved", RGBA(38, 166, 91, 1),
+                    
+                    "Pending", PaleGoldenRod, 
+                    
+                    "Denied", RGBA(240, 52, 24, 1)), 0.7))
+                    */
+                    /*If(ThisItem.Selected,
+                    
+                    Switch(Button6.Text,
+                    
+                    "Approved", PaleGreen,
+                    
+                    "Pending", PaleGoldenRod, 
+                    
+                    "Denied", RGBA(240, 52, 24, 1)),
+                    
+                    ColorFade(
+                        Switch(Button6.Text,
+                    
+                    "Approved", PaleGreen,
+                    
+                    "Pending", PaleGoldenRod, 
+                    
+                    "Denied", RGBA(240, 52, 24, 1)), 0.7))
+                    */
+                    //If(ThisItem.Selected, RGBA(56, 96, 178, 1), ColorFade(RGBA(56, 96, 178, 1),0.7))
+                HoverFill: |-
+                    =ColorFade(Switch(Button6.Text,
+                    
+                    "Approved", RGBA(0, 177, 106, 1),
+                    
+                    "Pending", RGBA(255, 255, 126, 1), 
+                    
+                    "Denied", RGBA(240, 52, 24, 1)
+                    ), -20%)
+                    
+                    //ColorFade(RGBA(56, 96, 178, 1), -20%)
+                OnSelect: |-
+                    =UpdateIf(collectionApproved,Value = ThisItem.Value, {Selected:!Selected})
+                Text: =ThisItem.Value
+                X: =40
+                Y: =40
+                ZIndex: =1
+
+        comboBoxButtons As combobox:
+            DefaultSelectedItems: =Filter(collectionApproved, Selected)
+            DisplayFields: =["Value"]
+            Height: =35
+            InputTextPlaceholder: |-
+                ="Reasons for Denial
+                "
+            IsSearchable: =false
+            Items: =Choices(VisitorRequest.Approved)
+            NoSelectionText: ="All"
+            SearchFields: =["Value"]
+            SearchItems: =[]
+            Visible: =false
+            Width: =68
+            X: =1257
+            Y: =103
+            ZIndex: =6
+
+        galleryRequests_1 As gallery.galleryVertical:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            Height: =568
+            Items: |-
+                =SortByColumns(
+                If(isSecurity,
+                    Search(
+                    Filter(
+                        VisitorRequest,
+                          IsBlank(comboBoxButtons.SelectedItems) || IsEmpty(comboBoxButtons.SelectedItems) || Approved.Value in comboBoxButtons.SelectedItems.Value,
+                         IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate
+                    ),
+                    searchBarRequest.Text,
+                    "LastName",
+                    "FirstName",
+                    "Title"
+                ),
+                    Search(
+                    Filter(
+                        VisitorRequest,
+                        Lower(Sponsor.Email) = Lower(CURRENTUSER.Email), IsBlank(comboBoxButtons.SelectedItems) || IsEmpty(comboBoxButtons.SelectedItems) || Approved.Value in comboBoxButtons.SelectedItems.Value,
+                         IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate
+                    ),
+                    searchBarRequest.Text,
+                    "LastName",
+                    "FirstName",
+                    "Title"
+                )),
+                "LastName",
+                    Ascending)
+                
+                
+                
+                
+                    /*SortByColumns(
+                If(!isSecurity,
+                    Search(
+                    Filter(
+                        VisitorRequest,
+                         Lower(Sponsor.Email) = Lower(currentUser.Email), IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
+                         IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate
+                    ),
+                    searchBarRequest.Text,
+                    "LastName",
+                    "FirstName",
+                    "Title"
+                ),
+                    Search(
+                    Filter(
+                        VisitorRequest,
+                        IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
+                         IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate
+                    ),
+                    searchBarRequest.Text,
+                    "LastName",
+                    "FirstName",
+                    "Title"
+                )),
+                "LastName",
+                    Ascending)*/
+                    
+                    /*SortByColumns(
+                Search(
+                    Filter(
+                        VisitorRequest,
+                        If(isSecurity, Lower(Sponsor.Email) = Lower(currentUser.Email), IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
+                         IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate)
+                    ),
+                    searchBarRequest.Text,
+                    "LastName",
+                    "FirstName",
+                    "Title"
+                ),
+                "LastName",
+                    Ascending)*/
+                
+                    /*
+                    SortByColumns(
+                Search(
+                    Filter(
+                        VisitorRequest,
+                        If(isSecurity, Lower(Sponsor.Email) = Lower(currentUser.Email), IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
+                         IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate)
+                    ),
+                    searchBarRequest.Text,
+                    "LastName",
+                    "FirstName",
+                    "Title"
+                ),
+                "LastName",
+                    Ascending)
+                    */
+                
+                   
+                    
+                    /*SortByColumns(
+                Search(
+                    Filter(
+                        VisitorRequest,
+                        IsBlank(ComboBoxCheckBox.SelectedItems) || IsEmpty(ComboBoxCheckBox.SelectedItems) || Approved.Value in ComboBoxCheckBox.SelectedItems.Value,
+                         IsBlank(ddDateFilter.Selected) || 'Visit Start Date' >= ddDateFilter.Selected.StartDate && 'Visit Start Date' <= ddDateFilter.Selected.EndDate,
+                        If(isSecurity, Lower(Sponsor.Email) = Lower(currentUser.Email))
+                    ),
+                    searchBarRequest.Text,
+                    "LastName",
+                    "FirstName",
+                    "Title"
+                ),
+                "LastName",
+                    Ascending)*/
+                    /*
+                    SortByColumns(
+                Search(
+                    Filter(
+                        VisitorRequest,
+                        IsBlank(ComboBox1_4.SelectedItems) || IsEmpty(ComboBox1_4.SelectedItems) || Approved.Value in ComboBox1_4.SelectedItems.Value
+                    ),
+                    searchBarRequest.Text,
+                    "LastName",
+                    "FirstName",
+                    "Title"
+                ),
+                "LastName",
+                    Ascending)
+                    */
+                
+                
+                /*SortByColumns(
+                    If( 
+                        IsBlank(searchBarRequest.Text) && ddDateFilter.Selected.Value = "All",
+                            Filter(
+                            VisitorRequest,
+                            Approved.Value = VarStatus),
+                        If(
+                            IsBlank(searchBarRequest.Text) && ddDateFilter.Selected.Value = "This Month",
+                            With(
+                                {
+                                    StartDate: Date(
+                                        Year(Today()),
+                                        Month(Today()),
+                                        1
+                                    ),
+                                    EndDate: Date(
+                                        Year(Today()),
+                                        Month(Today()) + 1,
+                                        1
+                                    ) - 1
+                                },
+                                Filter(
+                                    VisitorRequest,
+                                    'Visit Start Date' >= StartDate,
+                                    'Visit Start Date' <= EndDate,
+                                     Approved.Value = VarStatus
+                                )
+                            ),
+                            If(
+                                IsBlank(searchBarRequest.Text) && ddDateFilter.Selected.Value = "Next Month",
+                                With(
+                                    {
+                                        StartDate: Date(
+                                            Year(Today()),
+                                            Month(Today()) + 1,
+                                            1
+                                        ),
+                                        EndDate: Date(
+                                            Year(Today()),
+                                            Month(Today()) + 2,
+                                            1
+                                        ) - 1
+                                    },
+                                    Filter(
+                                        VisitorRequest,
+                                        'Visit Start Date' >= StartDate,
+                                        'Visit Start Date' <= EndDate,
+                                         Approved.Value = VarStatus
+                                    )
+                                ),
+                                If(
+                                    IsBlank(searchBarRequest.Text) && ddDateFilter.Selected.Value = "Next Quarter",
+                                    With(
+                                        {
+                                            StartDate: Date(
+                                                Year(Today()),
+                                                Month(Today()),
+                                                Day(Today())
+                                            ),
+                                            EndDate: Date(
+                                                Year(Today()),
+                                                Month(Today()) + 3,
+                                                Day(Today())
+                                            ) - 1
+                                        },
+                                        Filter(
+                                            VisitorRequest,
+                                            'Visit Start Date' >= StartDate,
+                                            'Visit Start Date' <= EndDate,
+                                             Approved.Value = VarStatus
+                                        )
+                                    ),
+                                    Search(
+                                        VisitorRequest,
+                                        searchBarRequest.Text,
+                                        "LastName","FirstName","Title"
+                                    )
+                                )
+                            )
+                        )
+                    ),
+                    "LastName",
+                    Ascending
+                )
+                /*,
+                        'Visit Start Date'>=Slider1.Value*/
+            Layout: =Layout.Vertical
             OnSelect: |-
-                =Select(Parent); 
-                /*Set(formData, galleryRequests.Selected);
+                =Set(formData, galleryRequests_1.Selected);
                 If(
                     DateDiff(
                         formData.'Visit Start Date',
@@ -164,23 +422,182 @@ screenHome As screen:
                 ViewForm(formSecurity)
                 
                 
-                */
+                
                     
-            PaddingBottom: =10
-            PaddingLeft: =10
-            PaddingRight: =10
-            PaddingTop: =10
-            TabIndex: =0
-            Tooltip: ="View item details"
-            Width: =60
-            X: =986
-            Y: =14
-            ZIndex: =4
+            ShowNavigation: =true
+            ShowScrollbar: =false
+            TabIndex: |
+                =-1
+            TemplateFill: |-
+                =If(ThisItem.IsSelected, ColorFade(Gray, .45), LightGray) //LightGray
+                //c
+                /*Switch(ThisItem.Approved.Value,
+                
+                "Approved", PaleGreen,
+                
+                "Pending", PaleGoldenRod, 
+                
+                "Denied", RGBA(240, 52, 24, 1)
+                )
+                //RGBA(240, 52, 24, 1) RGBA(196, 77, 65, 1)
+                */
+            TemplatePadding: =10
+            TemplateSize: =130
+            Transition: =Transition.Push
+            Width: =1064
+            WrapCount: =4
+            X: =150
+            Y: =200
+            ZIndex: =7
 
-        Separator1 As rectangle:
-            Height: =0
-            OnSelect: =Select(Parent)
-            Width: =Parent.TemplateWidth
-            Y: =Parent.TemplateHeight - 1
-            ZIndex: =5
+            Rectangle2 As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 1)
+                BorderThickness: =1
+                Fill: |
+                    =Switch(ThisItem.Approved.Value,
+                    
+                    "Approved", RGBA(0, 177, 106, 1),
+                    
+                    "Pending", RGBA(255, 255, 126, 1)/*RGBA(255, 255, 126, 1)*/, 
+                    
+                    "Denied", RGBA(240, 52, 24, 1)
+                    )
+                    //RGBA(240, 52, 24, 1) RGBA(196, 77, 65, 1)
+                Height: =24
+                Width: =Parent.TemplateWidth
+                ZIndex: =1
+
+            Rectangle3 As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 1)
+                BorderThickness: =1
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =130
+                OnSelect: =Select(Parent)
+                Width: =Parent.TemplateWidth
+                X: |
+                    =0
+                ZIndex: =2
+
+            Label3 As label:
+                Align: =Center
+                FontWeight: =FontWeight.Semibold
+                OnSelect: =Select(Parent)
+                PaddingBottom: =2
+                PaddingTop: =2
+                Size: =14
+                Text: |-
+                    =If(
+                        IsEmpty(galleryRequests_1),
+                        "",
+                        ThisItem.'Last Name' & ", " & ThisItem.'First Name'
+                    )
+                Width: =Parent.TemplateWidth
+                Y: =22
+                ZIndex: =3
+
+            Label3_1 As label:
+                Align: =Center
+                OnSelect: =Select(Parent)
+                PaddingBottom: =2
+                PaddingTop: =2
+                Size: =11
+                Text: |
+                    =ThisItem.Title
+                Width: =Parent.TemplateWidth
+                Y: =45
+                ZIndex: =4
+
+            Label3_2 As label:
+                Align: =Center
+                OnSelect: =Select(Parent)
+                PaddingBottom: =2
+                PaddingTop: =2
+                Size: =10
+                Text: |
+                    =ThisItem.'Visit Start Date' &" - " & ThisItem.'Visit End Date'
+                Width: =Parent.TemplateWidth
+                Y: =65
+                ZIndex: =5
+
+            Label3_3 As label:
+                Align: =Center
+                OnSelect: =Select(Parent)
+                PaddingBottom: =2
+                PaddingTop: =2
+                Size: =10
+                Text: |-
+                    ="Sponsor:" & " " & ThisItem.Sponsor.DisplayName
+                Width: =Parent.TemplateWidth
+                Y: =82
+                ZIndex: =6
+
+            Label5 As label:
+                Align: =Center
+                FontWeight: =FontWeight.Bold
+                Height: =24
+                OnSelect: =Select(Parent)
+                Size: =11
+                Text: |
+                    =ThisItem.Approved.Value
+                     
+                        
+                Width: =Parent.TemplateWidth
+                ZIndex: =7
+
+            Label3_4 As label:
+                Align: =Center
+                FontWeight: =FontWeight.Semibold
+                Height: =24
+                Italic: =true
+                OnSelect: =Select(Parent)
+                PaddingBottom: =2
+                PaddingTop: =2
+                Size: =10
+                Text: |-
+                    =If(
+                        ThisItem.Approved.Value = "Denied",
+                        ThisItem.'Denied Reason'.Value
+                        )
+                        
+                Width: =Parent.TemplateWidth
+                Y: =106
+                ZIndex: =8
+
+        Button1 As button:
+            Height: =30
+            OnSelect: =Navigate(screenSecurity)
+            Text: ="Button"
+            Width: =110
+            X: =20
+            Y: =539
+            ZIndex: =8
+
+        Icon1 As icon.Reset:
+            Height: =27
+            Icon: =Icon.Reset
+            OnSelect: |-
+                =UpdateIf(collectionApproved, true, {Selected:false}); Reset(ddDateFilter); Reset(searchBarRequest)
+            Width: =33
+            X: =1168
+            Y: =164
+            ZIndex: =9
+
+        headerSecurity As Header_2:
+            HomeVar: =screenHome
+            ZIndex: =10
+
+        ddDateFilter As combobox:
+            DisplayFields: =["DisplayName"]
+            InputTextPlaceholder: ="Start Date"
+            Items: =collectionDateFilter
+            PaddingLeft: =10
+            Reset: =true
+            SearchFields: =["DisplayName"]
+            SearchItems: =Search(collectionDateFilter,ddDateFilter.SearchText,"DisplayName")
+            SelectMultiple: =false
+            Size: =15
+            Width: =150
+            X: =1066
+            Y: =103
+            ZIndex: =11
 
