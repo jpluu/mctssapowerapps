@@ -7,7 +7,6 @@
   },
   "ControlUniqueIds": {
     "App": 1,
-    "Button1": 37,
     "Button2": 403,
     "Button3": 402,
     "Button6": 25,
@@ -310,7 +309,7 @@
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "07/18/2022 21:41:23",
+  "HeaderLastSavedDateTimeUTC": "07/18/2022 21:41:53",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "54a4008d-5e05-4a17-9c08-a68a724bb8ad": "\"/providers/microsoft.powerapps/apis/shared_powerappsforappmakers/connections/1e61d3e34b704a1eaecdd5d9106e68d1\"",
@@ -372,7 +371,6 @@
   },
   "PublishOrderIndices": {
     "App": 0,
-    "Button1": 27,
     "Button2": 108,
     "Button3": 107,
     "Button6": 15,

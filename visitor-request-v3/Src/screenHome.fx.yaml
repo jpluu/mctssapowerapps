@@ -181,15 +181,6 @@ screenHome As screen:
             Y: =103
             ZIndex: =6
 
-        Button1 As button:
-            Height: =30
-            OnSelect: =Navigate(screenSecurity)
-            Text: ="Button"
-            Width: =110
-            X: =20
-            Y: =539
-            ZIndex: =8
-
         Icon1 As icon.Reset:
             Height: =27
             Icon: =Icon.Reset
