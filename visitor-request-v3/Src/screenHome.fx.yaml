@@ -626,37 +626,13 @@ screenHome As screen:
             Y: =posModal
             ZIndex: =3
 
-            labelReview_1 As label:
-                Align: =Align.Center
-                Fill: |-
-                    =Switch(formData.Approved.Value,
-                    
-                    "Approved", RGBA(54, 176, 75, 100) /*RGBA(0, 177, 106, 1)*/,
-                    
-                    "Pending", RGBA(255, 255, 126, 1),/*RGBA(255, 255, 126, 1)*/ 
-                    
-                    "Denied", RGBA(240, 52, 24, 1)
-                    )
-                    //RGBA(240, 52, 24, 1) RGBA(196, 77, 65, 1)
-                     //RGBA(0, 0, 0, 0)
-                FontWeight: =FontWeight.Bold
-                Height: =64
-                Size: =24
-                Text: |-
-                    ="Review Request:" & " " & formData.Title 
-                       
-                        
-                        
-                Width: =widthModal
-                ZIndex: =1
-
             iconEdit As icon.Edit:
                 Icon: =Icon.Edit
                 OnSelect: =EditForm(formSecurity)
                 Visible: =If(formSecurity.Mode = FormMode.View, true, false)
                 Width: =52
                 X: =1017
-                ZIndex: =4
+                ZIndex: =1
 
             iconSave As icon.Save:
                 Icon: =Icon.Save
@@ -664,7 +640,7 @@ screenHome As screen:
                 Visible: =If(formSecurity.Mode = FormMode.Edit, true, false)
                 Width: =52
                 X: =1017
-                ZIndex: =5
+                ZIndex: =2
 
             Button2 As button:
                 Color: =RGBA(0, 0, 0, 1)
@@ -731,7 +707,7 @@ screenHome As screen:
                 Visible: =If( isSecurity && formData.Approved.Value = "Pending", true, false)
                 X: =686
                 Y: =435
-                ZIndex: =6
+                ZIndex: =3
 
             Button3 As button:
                 Color: =RGBA(0, 0, 0, 1)
@@ -774,70 +750,12 @@ screenHome As screen:
                 Visible: =If( isSecurity && formData.Approved.Value = "Pending", true, false)
                 X: =pageSecurity.X*2
                 Y: =435
-                ZIndex: =7
-
-            groupDenied As group:
-                Height: =5
-                Width: =5
-                X: =60
-                Y: =60
-                ZIndex: =11
-
-                ComboBox1 As combobox:
-                    DisplayFields: =["Value"]
-                    DisplayMode: =If(formSecurity.Mode <> FormMode.Edit, DisplayMode.Edit, DisplayMode.Disabled)
-                    Height: =23
-                    InputTextPlaceholder: ="Denied Reason"
-                    IsSearchable: =false
-                    Items: |-
-                        =Ungroup(
-                            Table
-                            ({DropdownOptions: Choices(VisitorRequest.'Denied Reason')}, 
-                            {DropdownOptions: ["Other"]}
-                            ), 
-                            "DropdownOptions"
-                            ) 
-                    NoSelectionText: ="Denied Reason"
-                    SearchFields: =["Value"]
-                    SearchItems: =[]
-                    SelectMultiple: =false
-                    Size: =12
-                    Visible: =If(Self.Selected.Value<>"Other" && isSecurity && formData.Approved.Value = "Pending", true)
-                    Width: =160
-                    X: =686
-                    Y: =485
-                    ZIndex: =8
-
-                textDenied As text:
-                    Default: =""
-                    DisplayMode: =If(formSecurity.Mode <> FormMode.Edit, DisplayMode.Edit, DisplayMode.Disabled)
-                    Height: =23
-                    HintText: ="Denied Reason"
-                    Size: =12
-                    Visible: |
-                        =If(!ComboBox1.Visible && isSecurity && formData.Approved.Value = "Pending", true)
-                    Width: =160
-                    X: =686
-                    Y: =485
-                    ZIndex: =9
-
-                Icon3 As icon.Cancel:
-                    DisplayMode: =If(formSecurity.Mode <> FormMode.Edit, DisplayMode.Edit, DisplayMode.Disabled)
-                    Height: =14
-                    Icon: =Icon.Cancel
-                    OnSelect: |-
-                        =Reset(ComboBox1);
-                        Reset(textDenied);
-                    Visible: =If(!ComboBox1.Visible && isSecurity && formData.Approved.Value = "Pending", true)
-                    Width: =20
-                    X: =826
-                    Y: =490
-                    ZIndex: =10
+                ZIndex: =4
 
             formSecurity As form:
                 DataSource: =VisitorRequest
                 DefaultMode: =FormMode.View
-                Height: =Parent.Height - (labelReview_1.Height + dimIcon)
+                Height: =Parent.Height - (labelReview_1.Height + dimIcon )
                 Item: =formData/*Patch(dataEventForm, formVisitor.Updates, formLongTerm.Updates)*/
                 OnSuccess: |
                     =Set(formData, formSecurity.LastSubmit);
@@ -845,8 +763,8 @@ screenHome As screen:
                     Notify("Request Approval Page Was Succesfully Saved.", NotificationType.Success);
                 Width: =Parent.Width - 1
                 X: =1
-                Y: =labelReview_1.Height
-                ZIndex: =12
+                Y: =labelReview_1.Height 
+                ZIndex: =8
 
                 dcrLabelEventInfo_1 As typedDataCard.blankCard:
                     BorderStyle: =BorderStyle.Solid
@@ -1971,6 +1889,98 @@ screenHome As screen:
                         X: =dimDataCard
                         Y: =dimDataCard
                         ZIndex: =3
+
+            labelReview_1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 0, 0, 1)
+                Fill: |-
+                    =Switch(formData.Approved.Value,
+                    
+                    "Approved", RGBA(54, 176, 75, 100) /*RGBA(0, 177, 106, 1)*/,
+                    
+                    "Pending", RGBA(255, 255, 126, 1),/*RGBA(255, 255, 126, 1)*/ 
+                    
+                    "Denied", RGBA(240, 52, 24, 1)
+                    )
+                    //RGBA(240, 52, 24, 1) RGBA(196, 77, 65, 1)
+                     //RGBA(0, 0, 0, 0)
+                FontWeight: =FontWeight.Bold
+                Height: |
+                    =64
+                Size: =24
+                Text: |-
+                    ="Review Request:" & " " & formData.Title 
+                       
+                        
+                        
+                Width: =widthModal
+                ZIndex: =9
+
+            Rectangle1 As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 1)
+                BorderThickness: =1
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =64
+                Width: =1110
+                ZIndex: =10
+
+            groupDenied As group:
+                Height: =5
+                Width: =5
+                X: =60
+                Y: =60
+                ZIndex: =11
+
+                ComboBox1 As combobox:
+                    DisplayFields: =["Value"]
+                    DisplayMode: =If(formSecurity.Mode <> FormMode.Edit, DisplayMode.Edit, DisplayMode.Disabled)
+                    Height: =23
+                    InputTextPlaceholder: ="Denied Reason"
+                    IsSearchable: =false
+                    Items: |-
+                        =Ungroup(
+                            Table
+                            ({DropdownOptions: Choices(VisitorRequest.'Denied Reason')}, 
+                            {DropdownOptions: ["Other"]}
+                            ), 
+                            "DropdownOptions"
+                            ) 
+                    NoSelectionText: ="Denied Reason"
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectMultiple: =false
+                    Size: =12
+                    Visible: =If(Self.Selected.Value<>"Other" && isSecurity && formData.Approved.Value = "Pending", true)
+                    Width: =160
+                    X: =686
+                    Y: =485
+                    ZIndex: =5
+
+                textDenied As text:
+                    Default: =""
+                    DisplayMode: =If(formSecurity.Mode <> FormMode.Edit, DisplayMode.Edit, DisplayMode.Disabled)
+                    Height: =23
+                    HintText: ="Denied Reason"
+                    Size: =12
+                    Visible: |
+                        =If(!ComboBox1.Visible && isSecurity && formData.Approved.Value = "Pending", true)
+                    Width: =160
+                    X: =686
+                    Y: =485
+                    ZIndex: =6
+
+                Icon3 As icon.Cancel:
+                    DisplayMode: =If(formSecurity.Mode <> FormMode.Edit, DisplayMode.Edit, DisplayMode.Disabled)
+                    Height: =14
+                    Icon: =Icon.Cancel
+                    OnSelect: |-
+                        =Reset(ComboBox1);
+                        Reset(textDenied);
+                    Visible: =If(!ComboBox1.Visible && isSecurity && formData.Approved.Value = "Pending", true)
+                    Width: =20
+                    X: =826
+                    Y: =490
+                    ZIndex: =7
 
         Label6 As label:
             Align: =Align.Center
