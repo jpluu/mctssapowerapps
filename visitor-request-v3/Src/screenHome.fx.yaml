@@ -441,13 +441,13 @@ screenHome As screen:
                         false
                     )
                 );
-                
-                If(isSecurity,
+                Set(isModalSecurity, true);
+                /*If(isSecurity,
                 Set(isModalSecurity, true),
                 If(formData.Approved.Value <> "Approved",
                 Set(isModalRequest, true);
                 Set(isEventPage, true),
-                Set(isModalSecurity, true)));
+                Set(isModalSecurity, true)));*/
                 //ViewForm('formSecurity');
                 Set(varRecord, ThisItem)
                 
