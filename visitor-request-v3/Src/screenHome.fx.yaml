@@ -628,6 +628,17 @@ screenHome As screen:
 
             labelReview_1 As label:
                 Align: =Align.Center
+                Fill: |-
+                    =Switch(formData.Approved.Value,
+                    
+                    "Approved", RGBA(54, 176, 75, 100) /*RGBA(0, 177, 106, 1)*/,
+                    
+                    "Pending", RGBA(255, 255, 126, 1),/*RGBA(255, 255, 126, 1)*/ 
+                    
+                    "Denied", RGBA(240, 52, 24, 1)
+                    )
+                    //RGBA(240, 52, 24, 1) RGBA(196, 77, 65, 1)
+                     //RGBA(0, 0, 0, 0)
                 FontWeight: =FontWeight.Bold
                 Height: =64
                 Size: =24
@@ -642,7 +653,7 @@ screenHome As screen:
             iconEdit As icon.Edit:
                 Icon: =Icon.Edit
                 OnSelect: =EditForm(formSecurity)
-                Visible: =If(formSecurity.Mode = FormMode.View && isSecurity, true, false)
+                Visible: =If(formSecurity.Mode = FormMode.View, true, false)
                 Width: =52
                 X: =1017
                 ZIndex: =4
@@ -650,7 +661,7 @@ screenHome As screen:
             iconSave As icon.Save:
                 Icon: =Icon.Save
                 OnSelect: =SubmitForm(formSecurity);
-                Visible: =If(formSecurity.Mode = FormMode.Edit && isSecurity, true, false)
+                Visible: =If(formSecurity.Mode = FormMode.Edit, true, false)
                 Width: =52
                 X: =1017
                 ZIndex: =5
@@ -717,8 +728,8 @@ screenHome As screen:
                         )
                     )
                 Text: ="Denied"
-                Visible: =If( isSecurity, true, false)
-                X: =656
+                Visible: =If( isSecurity && formData.Approved.Value = "Pending", true, false)
+                X: =686
                 Y: =435
                 ZIndex: =6
 
@@ -760,7 +771,7 @@ screenHome As screen:
                         Reset(textDenied)
                     )
                 Text: ="Approved"
-                Visible: =If( isSecurity, true, false)
+                Visible: =If( isSecurity && formData.Approved.Value = "Pending", true, false)
                 X: =pageSecurity.X*2
                 Y: =435
                 ZIndex: =7
@@ -791,9 +802,9 @@ screenHome As screen:
                     SearchItems: =[]
                     SelectMultiple: =false
                     Size: =12
-                    Visible: =If(Self.Selected.Value<>"Other" && isSecurity, true)
+                    Visible: =If(Self.Selected.Value<>"Other" && isSecurity && formData.Approved.Value = "Pending", true)
                     Width: =160
-                    X: =656
+                    X: =686
                     Y: =485
                     ZIndex: =8
 
@@ -804,9 +815,9 @@ screenHome As screen:
                     HintText: ="Denied Reason"
                     Size: =12
                     Visible: |
-                        =If(!ComboBox1.Visible && isSecurity, true)
+                        =If(!ComboBox1.Visible && isSecurity && formData.Approved.Value = "Pending", true)
                     Width: =160
-                    X: =656
+                    X: =686
                     Y: =485
                     ZIndex: =9
 
@@ -817,9 +828,9 @@ screenHome As screen:
                     OnSelect: |-
                         =Reset(ComboBox1);
                         Reset(textDenied);
-                    Visible: =If(!ComboBox1.Visible && isSecurity, true)
+                    Visible: =If(!ComboBox1.Visible && isSecurity && formData.Approved.Value = "Pending", true)
                     Width: =20
-                    X: =796
+                    X: =826
                     Y: =490
                     ZIndex: =10
 
@@ -1964,7 +1975,7 @@ screenHome As screen:
         Label6 As label:
             Align: =Align.Center
             FontWeight: =FontWeight.Bold
-            Height: =100
+            Height: =96
             PaddingLeft: =2
             PaddingRight: =2
             Text: |
@@ -1976,8 +1987,8 @@ screenHome As screen:
                     )
                     
             Visible: =true//!isSecurity 
-            Width: =237
-            X: =545
-            Y: =540
+            Width: =1108
+            X: =130
+            Y: =544
             ZIndex: =4
 
