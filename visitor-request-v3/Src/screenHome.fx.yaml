@@ -627,21 +627,13 @@ screenHome As screen:
             Y: =posModal
             ZIndex: =3
 
-            iconEdit As icon.Edit:
-                Icon: =Icon.Edit
-                OnSelect: =EditForm(formSecurity)
-                Visible: =If(formSecurity.Mode = FormMode.View, true, false)
-                Width: =52
-                X: =1017
+            Rectangle1 As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 1)
+                BorderThickness: =1
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =64
+                Width: =1110
                 ZIndex: =1
-
-            iconSave As icon.Save:
-                Icon: =Icon.Save
-                OnSelect: =SubmitForm(formSecurity);
-                Visible: =If(formSecurity.Mode = FormMode.Edit, true, false)
-                Width: =52
-                X: =1017
-                ZIndex: =2
 
             Button2 As button:
                 Color: =RGBA(0, 0, 0, 1)
@@ -708,7 +700,7 @@ screenHome As screen:
                 Visible: =If( isSecurity && formData.Approved.Value = "Pending", true, false)
                 X: =686
                 Y: =435
-                ZIndex: =3
+                ZIndex: =2
 
             Button3 As button:
                 Color: =RGBA(0, 0, 0, 1)
@@ -751,7 +743,7 @@ screenHome As screen:
                 Visible: =If( isSecurity && formData.Approved.Value = "Pending", true, false)
                 X: =pageSecurity.X*2
                 Y: =435
-                ZIndex: =4
+                ZIndex: =3
 
             formSecurity As form:
                 DataSource: =VisitorRequest
@@ -765,7 +757,7 @@ screenHome As screen:
                 Width: =Parent.Width - 1
                 X: =1
                 Y: =labelReview_1.Height 
-                ZIndex: =8
+                ZIndex: =7
 
                 dcrLabelEventInfo_1 As typedDataCard.blankCard:
                     BorderStyle: =BorderStyle.Solid
@@ -1926,14 +1918,22 @@ screenHome As screen:
                         
                         
                 Width: =widthModal
+                ZIndex: =8
+
+            iconEdit As icon.Edit:
+                Icon: =Icon.Edit
+                OnSelect: =EditForm(formSecurity)
+                Visible: =If(formSecurity.Mode = FormMode.View, true, false)
+                Width: =52
+                X: =1017
                 ZIndex: =9
 
-            Rectangle1 As rectangle:
-                BorderColor: =RGBA(0, 0, 0, 1)
-                BorderThickness: =1
-                Fill: =RGBA(0, 0, 0, 0)
-                Height: =64
-                Width: =1110
+            iconSave As icon.Save:
+                Icon: =Icon.Save
+                OnSelect: =SubmitForm(formSecurity);
+                Visible: =If(formSecurity.Mode = FormMode.Edit, true, false)
+                Width: =52
+                X: =1017
                 ZIndex: =10
 
             groupDenied As group:
@@ -1966,7 +1966,7 @@ screenHome As screen:
                     Width: =160
                     X: =686
                     Y: =485
-                    ZIndex: =5
+                    ZIndex: =4
 
                 textDenied As text:
                     Default: =""
@@ -1979,7 +1979,7 @@ screenHome As screen:
                     Width: =160
                     X: =686
                     Y: =485
-                    ZIndex: =6
+                    ZIndex: =5
 
                 Icon3 As icon.Cancel:
                     DisplayMode: =If(formSecurity.Mode <> FormMode.Edit, DisplayMode.Edit, DisplayMode.Disabled)
@@ -1992,7 +1992,7 @@ screenHome As screen:
                     Width: =20
                     X: =826
                     Y: =490
-                    ZIndex: =7
+                    ZIndex: =6
 
         Label6 As label:
             Align: =Align.Center
