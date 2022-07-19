@@ -11,7 +11,7 @@ screenLoading As screen:
         // APPVER | number | gets app verison
         Set(
             APPVER,
-            CountRows(PowerAppsforMakers.GetAppVersions("e38754b5-bbaf-42c2-916f-61a035ffb83a").value)
+            CountRows(PowerAppsforMakers.GetAppVersions("9bea056e-aa6f-4de4-8a1c-c0acf5274911").value)
         );
         /* === User Data === */
         // CURRENTUSER | 365User | 
