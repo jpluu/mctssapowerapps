@@ -449,7 +449,7 @@ screenHome As screen:
                 Set(isEventPage, true),
                 Set(isModalSecurity, true)));*/
                 //ViewForm('formSecurity');
-                Set(varRecord, ThisItem)
+                Set(varRecord, ThisItem);
                 
                 
                 
