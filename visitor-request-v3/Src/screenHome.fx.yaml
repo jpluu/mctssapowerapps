@@ -1930,7 +1930,16 @@ screenHome As screen:
 
             iconSave As icon.Save:
                 Icon: =Icon.Save
-                OnSelect: =SubmitForm(formSecurity);
+                OnSelect: |-
+                    =SubmitForm(formSecurity); 
+                    If(!isSecurity && formData.Approved.Value <> "Approved", Patch(
+                            VisitorRequest,
+                            LookUp(
+                                VisitorRequest,
+                                Title = formData.Title
+                            ),
+                            {Approved: {Value: "Pending"}}
+                        ));
                 Visible: =If(formSecurity.Mode = FormMode.Edit, true, false)
                 Width: =52
                 X: =1017
