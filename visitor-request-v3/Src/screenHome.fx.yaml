@@ -450,6 +450,7 @@ screenHome As screen:
                 Set(isModalSecurity, true)));*/
                 //ViewForm('formSecurity');
                 Set(varRecord, ThisItem);
+                SetFocus(TextInput1);
                 
                 
                 
@@ -787,6 +788,17 @@ screenHome As screen:
                         Text: ="Event Information"
                         Width: =Parent.Width
                         ZIndex: =1
+
+                    TextInput1 As text:
+                        BorderThickness: =0
+                        Color: =RGBA(0, 0, 0, 0)
+                        Default: ="Text input"
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =0
+                        Width: =250
+                        X: =40
+                        Y: =10
+                        ZIndex: =2
 
                 dcrStartDate_1 As typedDataCard.dateEditCard:
                     BorderColor: =If(formSecurity.Mode = FormMode.Edit && ThisItem.'Visit Start Date' <>dcrvStartDate_1.SelectedDate, Orange,  RGBA(0, 18, 107, 1))
