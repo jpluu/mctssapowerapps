@@ -62,6 +62,26 @@
     "dependents": [],
     "id": "2e4106d8-46b0-4649-8d7a-d5e67fee0a0f"
   },
+  "54a4008d-5e05-4a17-9c08-a68a724bb8ad": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Power Apps for Makers",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1551/1.0.1551.2693/powerappsforappmakers/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_powerappsforappmakers",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "PowerAppsforMakers"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "54a4008d-5e05-4a17-9c08-a68a724bb8ad"
+  },
   "ff903fc8-e644-4e8c-9692-6cf5da21e1d4": {
     "connectionParameters": {
       "sku": "Enterprise"

@@ -1,0 +1,37 @@
+{
+  "ComponentAllowCustomization": true,
+  "ComponentChangedSinceFileImport": false,
+  "ComponentManifest": {
+    "AllowAccessToGlobals": false,
+    "AllowCustomization": true,
+    "Description": "",
+    "Name": "componentProgressBar_1",
+    "TemplateGuid": "e11d74072bf348d38bf83c68f82412ad"
+  },
+  "ComponentType": "CanvasComponent",
+  "CustomGroupControlTemplateName": "",
+  "CustomProperties": [
+    {
+      "Category": 0,
+      "DisplayName": "inputCurrentStep",
+      "Hidden": false,
+      "Name": "inputCurrentStep",
+      "PropertyDataTypeKey": "Number",
+      "Tooltip": "A custom property progress bar",
+      "Type": "{\"Version\":\"1.324\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}}"
+    }
+  ],
+  "FirstParty": true,
+  "Id": "http://microsoft.com/appmagic/Component",
+  "IsComponentLocked": false,
+  "IsComponentTemplate": true,
+  "IsCustomGroupControlTemplate": false,
+  "IsPcfControl": false,
+  "IsPremiumPcfControl": false,
+  "IsWidgetTemplate": false,
+  "LastModifiedTimestamp": "637939190539498147",
+  "Name": "e11d74072bf348d38bf83c68f82412ad",
+  "OverridableProperties": {},
+  "TemplateOriginalName": "850c671f93d04e30ab9fe0b7f7d3e176",
+  "Version": "637934194022226193"
+}

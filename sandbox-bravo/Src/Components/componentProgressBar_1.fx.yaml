@@ -1,0 +1,667 @@
+componentProgressBar_1 As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =100
+    inputCurrentStep: =100
+    Width: =widthModal
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Container2_1 As groupContainer.manualLayoutContainer:
+        Height: =100
+        Width: =200
+        ZIndex: =1
+
+        Circle2_8 As circle:
+            DisplayMode: =If(isEditing, DisplayMode.View, DisplayMode.Edit)
+            Fill: =If(componentProgressBar_1.inputCurrentStep >= 1, Green, Black)
+            Height: =60
+            OnSelect: |-
+                = Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
+                        Set(
+                        isEventPage, 
+                        true
+                        )
+            Width: =60
+            X: =70
+            Y: =6
+            ZIndex: =1
+
+        labelNewEventName_7 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(89, 0, 0, 1)
+            Color: =Black
+            DisplayMode: =If(isEditing, DisplayMode.View, DisplayMode.Edit)//DisplayMode.View
+            FontWeight: =FontWeight.Bold
+            Height: =29
+            OnSelect: |-
+                = Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
+                        Set(
+                        isEventPage, 
+                        true
+                        )
+            PaddingLeft: =0
+            Size: =10
+            Text: ="Event and Sponsor Information"
+            Width: =153
+            X: =28
+            Y: =71
+            ZIndex: =2
+
+        Icon2 As icon.Information:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =50
+            Icon: =Icon.Information
+            Width: =50
+            X: =77
+            Y: =13
+            ZIndex: =3
+
+    Container3 As groupContainer.manualLayoutContainer:
+        Height: =100
+        Width: =225
+        X: =129
+        ZIndex: =2
+
+        rectangleNewEventNameStatusBar_6 As rectangle:
+            BorderColor: =RGBA(99, 139, 44, 1)
+            DisplayMode: =DisplayMode.View
+            Fill: =If(componentProgressBar_1.inputCurrentStep >= 2, Green, Black)
+            Height: =6
+            Width: |
+                =100
+            Y: =35
+            ZIndex: =1
+
+        Circle2_10 As circle:
+            DisplayMode: =If(isEditing, DisplayMode.View, DisplayMode.Edit)
+            Fill: =If(componentProgressBar_1.inputCurrentStep >= 2, Green, Black)
+            Height: =60
+            OnSelect: |-
+                = /*Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);*/
+                    If(
+                        formEvent.Valid,
+                          Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
+                        Set(
+                        isVisitorPage, 
+                        true
+                        ),
+                        Notify("Form Page Not Complete!", NotificationType.Warning)
+                    )
+                    
+                   /*
+                If(
+                    formEvent.Valid,
+                    Set(isEventPage, false);
+                    Set(isVisitorPage, true),
+                    Notify("Form Page Not Complete!", NotificationType.Warning)
+                )
+                   */ 
+                    
+                    /*   Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                    If(
+                    formEvent.Valid,
+                    Set(isEventPage, false);
+                    Set(isVisitorPage, true),
+                    Notify("Form Page Not Complete!", NotificationType.Warning)
+                )*/
+            Width: =60
+            X: =99
+            Y: =6
+            ZIndex: =2
+
+        labelNewEventName_8 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(89, 0, 0, 1)
+            Color: =Black
+            DisplayMode: =DisplayMode.View
+            FontWeight: =FontWeight.Bold
+            Height: =29
+            OnSelect: |-
+                = /*Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);*/
+                    If(
+                        formEvent.Valid,
+                         Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
+                        Set(
+                        isVisitorPage, 
+                        true
+                        ),
+                        Notify("Form Page Not Complete!", NotificationType.Warning)
+                    )
+                    
+                   /*
+                If(
+                    formEvent.Valid,
+                    Set(isEventPage, false);
+                    Set(isVisitorPage, true),
+                    Notify("Form Page Not Complete!", NotificationType.Warning)
+                )
+                   */ 
+                    
+                    /*   Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                    If(
+                    formEvent.Valid,
+                    Set(isEventPage, false);
+                    Set(isVisitorPage, true),
+                    Notify("Form Page Not Complete!", NotificationType.Warning)
+                )*/
+            PaddingLeft: =0
+            Size: =10
+            Text: ="Visitor Information"
+            Width: =143
+            X: =60
+            Y: =71
+            ZIndex: =3
+
+        Icon2_1 As icon.Information:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =50
+            Icon: =Icon.Person
+            Width: =50
+            X: =104
+            Y: =10
+            ZIndex: =4
+
+    Container3_1 As groupContainer.manualLayoutContainer:
+        Height: =100
+        Width: =225
+        X: =287
+        ZIndex: =3
+
+        rectangleNewEventNameStatusBar_7 As rectangle:
+            BorderColor: =RGBA(99, 139, 44, 1)
+            DisplayMode: =DisplayMode.View
+            Fill: =If(componentProgressBar_1.inputCurrentStep >= 3, Green, Black)
+            Height: =6
+            Width: |
+                =100
+            Y: =35
+            ZIndex: =1
+
+        Circle2_11 As circle:
+            DisplayMode: =If(isEditing, DisplayMode.View, DisplayMode.Edit)
+            Fill: =If(componentProgressBar_1.inputCurrentStep >= 3, Green, Black)
+            Height: =60
+            OnSelect: |-
+                =If(
+                    formVisitor.Valid Or isBulk,
+                    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
+                    If(
+                        isLongTerm,
+                        Set(
+                            isLongTermPage,
+                            true
+                        ),
+                        Set(
+                            isReviewPage,
+                            true
+                        )
+                    ),
+                    
+                    If(
+                        isBulk,
+                        Collect(
+                            collectionFormUpdates,
+                            formVisitor.Updates
+                        ),
+                        Notify(
+                            "Required Fields Not Completly Filled",
+                            NotificationType.Warning
+                        )
+                    )
+                )
+                
+                
+                /*
+                    Notify(
+                        "Required Fields Not Completly Filled",
+                        NotificationType.Warning
+                    )
+                )*/
+                     /* If(
+                        formVisitor.Valid,
+                        Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
+                        Set(
+                        isVisitorPage, 
+                        true
+                        ),
+                        Notify("Form Page Not Complete!", NotificationType.Warning)
+                    )  
+                  */
+                  
+                  /*  Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                    
+                    Set(
+                    isVisitorPage,
+                    false
+                );
+                If(
+                    formVisitor.Valid,
+                    If(
+                        isLongTerm,
+                        Set(
+                            isLongTermPage,
+                            true
+                        ),
+                        Set(
+                            isReviewPage,
+                            true
+                        )
+                    ),
+                    Notify(
+                        "Required Fields Not Completly Filled",
+                        NotificationType.Warning
+                    )
+                )
+                
+                
+                Set(
+                    isVisitorPage,
+                    false
+                );
+                If(
+                    formVisitor.Valid Or isBulk,
+                    If(
+                        isLongTerm,
+                        Set(
+                            isLongTermPage,
+                            true
+                        ),
+                        Set(
+                            isReviewPage,
+                            true
+                        )
+                    ),
+                    If(
+                        isBulk,
+                        Collect(
+                            collectionFormUpdates,
+                            formVisitor.Updates
+                        ),
+                        Notify(
+                            "Required Fields Not Completly Filled",
+                            NotificationType.Warning
+                        )
+                    )
+                )
+                
+                
+                */
+            Width: =60
+            X: =99
+            Y: =6
+            ZIndex: =2
+
+        labelNewEventName_9 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(89, 0, 0, 1)
+            Color: =Black
+            DisplayMode: =DisplayMode.View
+            FontWeight: =FontWeight.Bold
+            Height: =29
+            OnSelect: |-
+                =If(Text= "Long-Term Additional Information", If(
+                    formVisitor.Valid,
+                    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
+                    If(
+                        isLongTerm,
+                        Set(
+                            isLongTermPage,
+                            true
+                        ),
+                        Set(
+                            isReviewPage,
+                            true
+                        )
+                    ),
+                    Notify(
+                        "Required Fields Not Completly Filled",
+                        NotificationType.Warning
+                    )
+                )
+                );
+                If(Text="Review", If(
+                    formVisitor.Valid,
+                    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
+                    If(
+                        isLongTerm,
+                        Set(
+                            isLongTermPage,
+                            true
+                        ),
+                        Set(
+                            isReviewPage,
+                            true
+                        )
+                    ),
+                    Notify(
+                        "Required Fields Not Completly Filled",
+                        NotificationType.Warning
+                    )
+                )
+                )
+            PaddingLeft: =0
+            Size: =10
+            Text: =If(isLongTerm, "Long-Term Additional Information", "Review")
+            X: =60
+            Y: =71
+            ZIndex: =3
+
+        Icon2_5 As icon.Information:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =50
+            Icon: =If(isLongTerm, Icon.Clock, Icon.DockCheckProperties)
+            Visible: =isLongTerm
+            Width: =50
+            X: =104
+            Y: =11
+            ZIndex: =5
+
+    Container3_2 As groupContainer.manualLayoutContainer:
+        Height: =100
+        Width: =225
+        X: =445
+        ZIndex: =4
+
+        rectangleNewEventNameStatusBar_8 As rectangle:
+            BorderColor: =RGBA(99, 139, 44, 1)
+            DisplayMode: =DisplayMode.View
+            Fill: =If(componentProgressBar_1.inputCurrentStep >= 4, Green, Black)
+            Height: =6
+            Width: |
+                =100
+            Y: =35
+            ZIndex: =1
+
+        Circle2_12 As circle:
+            DisplayMode: =If(isEditing, DisplayMode.View, DisplayMode.Edit)
+            Fill: =If(componentProgressBar_1.inputCurrentStep >= 4, Green, Black)
+            Height: =60
+            OnSelect: |+
+                =If(
+                    formVisitor.Valid Or isBulk,
+                    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
+                    If(
+                        isLongTerm,
+                        Set(
+                            isReviewPage,
+                            true
+                        ),
+                        Set(
+                            isAcknowPage,
+                            true
+                        )
+                    ),
+                    
+                     Notify(
+                        "Required Fields Not Completly Filled",
+                        NotificationType.Warning
+                        )
+                )
+                
+                /*If(
+                    formVisitor.Valid,
+                    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
+                    If(
+                        isLongTerm,
+                        Set(
+                            isReviewPage,
+                            true
+                        ),
+                        Set(
+                            isAcknowPage,
+                            true
+                        )
+                    ),
+                    Notify(
+                        "Required Fields Not Completly Filled",
+                        NotificationType.Warning
+                    )
+                )*/
+                /*If(
+                        isLongTerm, 
+                        If(formLongTerm.Valid,
+                    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false),
+                        Set(
+                            isReviewPage,
+                            true
+                        )),
+                          If(formReview.Valid,
+                    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false),
+                        Set(
+                            isAcknowPage,
+                            true
+                        )),
+                    Notify(
+                        "Required Fields Not Completly Filled",
+                        NotificationType.Warning
+                    )
+                )*/
+                
+            Width: =60
+            X: =99
+            Y: =6
+            ZIndex: =2
+
+        labelNewEventName_10 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(89, 0, 0, 1)
+            Color: =Black
+            DisplayMode: =DisplayMode.View
+            FontWeight: =FontWeight.Bold
+            Height: =29
+            OnSelect: |+
+                =If(Text="Review", If(
+                    formVisitor.Valid,
+                    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
+                    If(
+                        isLongTerm,
+                        Set(
+                            isReviewPage,
+                            true
+                        ),
+                        Set(
+                            isAcknowPage,
+                            true
+                        )
+                    ),
+                    Notify(
+                        "Required Fields Not Completly Filled",
+                        NotificationType.Warning
+                    )
+                )
+                );
+                
+                If(Text="Acknowledge", If(
+                    formVisitor.Valid,
+                    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
+                    If(
+                        isLongTerm,
+                        Set(
+                            isReviewPage,
+                            true
+                        ),
+                        Set(
+                            isAcknowPage,
+                            true
+                        )
+                    ),
+                    Notify(
+                        "Required Fields Not Completly Filled",
+                        NotificationType.Warning
+                    )
+                )
+                )
+                
+            PaddingLeft: =0
+            Size: =10
+            Text: =If(isLongTerm, "Review", "Acknowledge")
+            X: =60
+            Y: =71
+            ZIndex: =3
+
+        Icon2_6 As icon.Information:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =50
+            Icon: =If(isLongTerm, Icon.DockCheckProperties, Icon.Check)
+            Visible: =isLongTerm
+            Width: =50
+            X: =105
+            Y: =11
+            ZIndex: =5
+
+    Container3_3 As groupContainer.manualLayoutContainer:
+        Height: =100
+        Visible: =isLongTerm
+        Width: =225
+        X: =604
+        ZIndex: =5
+
+        rectangleNewEventNameStatusBar_9 As rectangle:
+            BorderColor: =RGBA(99, 139, 44, 1)
+            DisplayMode: =DisplayMode.View
+            Fill: =If(componentProgressBar_1.inputCurrentStep >= 5, Green, Black)
+            Height: =6
+            Visible: |-
+                =If (isLongTerm, true, false)
+                /*If (DateDiff(DataCardValue27, DataCardValue28, Days) >= 90 Or DataCardValue57.Selected.Value = "Five Days"= true, true, false)*/
+            Width: |
+                =100
+            Y: =35
+            ZIndex: =1
+
+        Circle2_13 As circle:
+            Fill: =If(componentProgressBar_1.inputCurrentStep >= 5, Green, Black)
+            Height: =60
+            OnSelect: |-
+                = If(
+                    formVisitor.Valid  Or isBulk,
+                    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
+                    If(
+                        isLongTerm,
+                        Set(
+                            isAcknowPage,
+                            true
+                        )
+                    ),
+                    Notify(
+                        "Required Fields Not Completly Filled",
+                        NotificationType.Warning
+                    )
+                )
+                /*Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                    
+                   
+                
+                If(
+                    isLongTerm,
+                    If(formLongTerm.Valid, 
+                    Set(
+                        isAcknowPage,
+                        true
+                        ))
+                )*/
+                /*If(
+                        isLongTerm,
+                        Set(
+                            isReviewPage,
+                            false
+                        ),
+                        Set(
+                            isAcknowPage,
+                            false
+                        )
+                );
+                If(
+                    formReview.Valid,
+                       
+                        Set(
+                            isAcknowPage,
+                            true
+                    ),
+                    Notify(
+                        "Required Fields Not Completly Filled",
+                        NotificationType.Warning
+                    )
+                )
+                */
+            Width: =60
+            X: =99
+            Y: =6
+            ZIndex: =2
+
+        labelNewEventName_11 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(89, 0, 0, 1)
+            Color: =Black
+            DisplayMode: =DisplayMode.View
+            FontWeight: =FontWeight.Bold
+            Height: =29
+            OnSelect: |-
+                = If(
+                    formVisitor.Valid,
+                    Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTermPage, false) &&  Set(isReviewPage, false) && Set(isAcknowPage, false);
+                    If(
+                        isLongTerm,
+                        Set(
+                            isAcknowPage,
+                            true
+                        )
+                    ),
+                    Notify(
+                        "Required Fields Not Completly Filled",
+                        NotificationType.Warning
+                    )
+                )
+                /*Set(isEventPage, false) &&  Set(isVisitorPage, false) &&   Set(isLongTerm, false) &&  Set(isReview, false) && Set(isAcknowPage, false);
+                    
+                   
+                
+                If(
+                    isLongTerm,
+                    If(formLongTerm.Valid, 
+                    Set(
+                        isAcknowPage,
+                        true
+                        ))
+                )*/
+                /*If(
+                        isLongTerm,
+                        Set(
+                            isReviewPage,
+                            false
+                        ),
+                        Set(
+                            isAcknowPage,
+                            false
+                        )
+                );
+                If(
+                    formReview.Valid,
+                       
+                        Set(
+                            isAcknowPage,
+                            true
+                    ),
+                    Notify(
+                        "Required Fields Not Completly Filled",
+                        NotificationType.Warning
+                    )
+                )
+                */
+            PaddingLeft: =0
+            Size: =10
+            Text: ="Acknowledge"
+            X: =60
+            Y: =71
+            ZIndex: =3
+
+        Icon2_4 As icon.Information:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =50
+            Icon: =Icon.Check
+            Width: =50
+            X: =104
+            Y: =12
+            ZIndex: =4
+
