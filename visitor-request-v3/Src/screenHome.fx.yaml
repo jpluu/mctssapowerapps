@@ -1921,6 +1921,7 @@ screenHome As screen:
                 ZIndex: =8
 
             iconEdit As icon.Edit:
+                Color: =RGBA(0, 0, 0, 1)
                 Icon: =Icon.Edit
                 OnSelect: =EditForm(formSecurity)
                 Visible: =If(formSecurity.Mode = FormMode.View, true, false)
@@ -1929,6 +1930,7 @@ screenHome As screen:
                 ZIndex: =9
 
             iconSave As icon.Save:
+                Color: =RGBA(0, 0, 0, 1)
                 Icon: =Icon.Save
                 OnSelect: |-
                     =SubmitForm(formSecurity); 
