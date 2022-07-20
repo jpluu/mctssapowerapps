@@ -625,7 +625,7 @@ screenHome As screen:
             Width: =widthModal
             X: =posModal
             Y: =posModal
-            ZIndex: =3
+            ZIndex: =2
 
             Rectangle1 As rectangle:
                 BorderColor: =RGBA(0, 0, 0, 1)
@@ -2020,8 +2020,8 @@ screenHome As screen:
                     )
                     
             Visible: =true//!isSecurity 
-            Width: =1108
-            X: =130
+            Width: =268
+            X: =545
             Y: =544
-            ZIndex: =4
+            ZIndex: =3
 
