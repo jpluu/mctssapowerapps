@@ -1924,7 +1924,7 @@ screenHome As screen:
                 Color: =RGBA(0, 0, 0, 1)
                 Icon: =Icon.Edit
                 OnSelect: =EditForm(formSecurity)
-                Visible: =If(formSecurity.Mode = FormMode.View, true, false)
+                Visible: =If(formSecurity.Mode = FormMode.View /*&& formData.Approved.Value = "Pending"*/, true, false)
                 Width: =52
                 X: =1017
                 ZIndex: =9
@@ -1942,7 +1942,7 @@ screenHome As screen:
                             ),
                             {Approved: {Value: "Pending"}}
                         ));
-                Visible: =If(formSecurity.Mode = FormMode.Edit, true, false)
+                Visible: =If(formSecurity.Mode = FormMode.Edit /*&& formData.Approved.Value = "Pending"*/, true, false)
                 Width: =52
                 X: =1017
                 ZIndex: =10
