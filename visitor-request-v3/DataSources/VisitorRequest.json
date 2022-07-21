@@ -3,7 +3,7 @@
     "ApiId": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
     "CdpRevision": {
       "BaseUrl": "/",
-      "LastChangedTimeString": "2022-06-02T17:40:00.9680000Z",
+      "LastChangedTimeString": "2022-07-20T16:54:41.1830000Z",
       "RevisionNumber": 1
     },
     "ConnectedDataSourceInfoNameMapping": {
@@ -52,6 +52,9 @@
       "Email": "Email",
       "FirstName": "First Name",
       "ID": "ID",
+      "IncorrectFields": "Incorrect",
+      "IncorrectFields#Id": "Incorrect Id",
+      "IncorrectFields@odata.type": "IncorrectFields (IncorrectFields@odata.type)",
       "LastName": "Last Name",
       "Long_x002d_Term_x0020_Visitor": "Long-Term Visitor",
       "MiddleName": "Middle Name",

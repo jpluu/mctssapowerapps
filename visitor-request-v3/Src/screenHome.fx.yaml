@@ -451,6 +451,7 @@ screenHome As screen:
                 //ViewForm('formSecurity');
                 Set(varRecord, ThisItem);
                 SetFocus(TextInput1);
+                Reset(ComboBox1);
                 
                 
                 
@@ -1001,9 +1002,9 @@ screenHome As screen:
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =dimDataCardValueHeight
-                        Items: =Choices([@VisitorRequest].AlternateSponsor)
+                        Items: =Choices([@VisitorRequest].'Alternate Sponsor')
                         SearchFields: =["DisplayName"]
-                        SearchItems: =Choices(VisitorRequest.AlternateSponsor,dcrvAltSponsor_1.SearchText)
+                        SearchItems: =Choices(VisitorRequest.'Alternate Sponsor',dcrvAltSponsor_1.SearchText)
                         SelectMultiple: =false
                         Size: =dimInputFontSize
                         Template: =ListItemTemplate.Person
@@ -1088,7 +1089,7 @@ screenHome As screen:
                         ZIndex: =1
 
                 dcrFirstName_1 As typedDataCard.textualEditCard:
-                    BorderColor: =If(formSecurity.Mode = FormMode.Edit &&ThisItem.FirstName<> dcrvFirstName_1.Text, Orange, RGBA(0, 18, 107, 1))
+                    BorderColor: =If(formSecurity.Mode = FormMode.Edit &&ThisItem.'First Name'<> dcrvFirstName_1.Text, Orange, RGBA(0, 18, 107, 1))
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="FirstName"
                     Default: =ThisItem.'First Name'
@@ -1140,7 +1141,7 @@ screenHome As screen:
 
                 dcrMiddleName_1 As typedDataCard.textualEditCard:
                     BorderColor: |+
-                        =If(IsBlank(dcrvMiddleName_1.Text),RGBA(0, 18, 107, 1), If(formSecurity.Mode = FormMode.Edit &&ThisItem.MiddleName<> dcrvMiddleName_1.Text, Orange, RGBA(0, 18, 107, 1)))
+                        =If(IsBlank(dcrvMiddleName_1.Text),RGBA(0, 18, 107, 1), If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Middle Name'<> dcrvMiddleName_1.Text, Orange, RGBA(0, 18, 107, 1)))
                         
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="MiddleName"
@@ -1193,7 +1194,7 @@ screenHome As screen:
 
                 dcrLastName_1 As typedDataCard.textualEditCard:
                     BorderColor: |+
-                        =If(formSecurity.Mode = FormMode.Edit &&ThisItem.LastName<> dcrvLastName_1.Text, Orange, RGBA(0, 18, 107, 1))
+                        =If(formSecurity.Mode = FormMode.Edit &&ThisItem.'Last Name'<> dcrvLastName_1.Text, Orange, RGBA(0, 18, 107, 1))
                         
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="LastName"
@@ -1441,10 +1442,10 @@ screenHome As screen:
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =dimDataCardValueHeight
-                        Items: =Choices([@VisitorRequest].DaysaWeekWorkingatMCTSSA)
+                        Items: =Choices([@VisitorRequest].'Days a Week Working at MCTSSA')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
-                        SearchItems: =Choices(VisitorRequest.DaysaWeekWorkingatMCTSSA,dcrvDaysAWeek_1.SearchText)
+                        SearchItems: =Choices(VisitorRequest.'Days a Week Working at MCTSSA',dcrvDaysAWeek_1.SearchText)
                         SelectMultiple: =false
                         Size: =dimInputFontSize
                         Tooltip: =Parent.DisplayName
@@ -1490,10 +1491,10 @@ screenHome As screen:
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =dimDataCardValueHeight
-                        Items: =Choices([@VisitorRequest].Rank_x002f_Grade)
+                        Items: =Choices([@VisitorRequest].'Rank/Grade')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
-                        SearchItems: =Choices(VisitorRequest.Rank_x002f_Grade,dcrvRank_1.SearchText)
+                        SearchItems: =Choices(VisitorRequest.'Rank/Grade',dcrvRank_1.SearchText)
                         SelectMultiple: =false
                         Size: =dimInputFontSize
                         Tooltip: =Parent.DisplayName
@@ -1539,10 +1540,10 @@ screenHome As screen:
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =dimDataCardValueHeight
-                        Items: =Choices([@VisitorRequest].TypeofVisit)
+                        Items: =Choices([@VisitorRequest].'Type of Visit')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
-                        SearchItems: =Choices(VisitorRequest.TypeofVisit,dcrvVisitType_1.SearchText)
+                        SearchItems: =Choices(VisitorRequest.'Type of Visit',dcrvVisitType_1.SearchText)
                         SelectMultiple: =false
                         Size: =dimInputFontSize
                         Tooltip: =Parent.DisplayName
@@ -1774,10 +1775,10 @@ screenHome As screen:
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =dimDataCardValueHeight
-                        Items: =Choices([@VisitorRequest].AssignedtoSection)
+                        Items: =Choices([@VisitorRequest].'Assigned to Section')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
-                        SearchItems: =Choices(VisitorRequest.AssignedtoSection,dcrvSection_1.SearchText)
+                        SearchItems: =Choices(VisitorRequest.'Assigned to Section',dcrvSection_1.SearchText)
                         SelectMultiple: =false
                         Size: =dimInputFontSize
                         Template: =ListItemTemplate.Person
@@ -1825,10 +1826,10 @@ screenHome As screen:
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =dimDataCardValueHeight
-                        Items: =Choices([@VisitorRequest].AccessControlPoints)
+                        Items: =Choices([@VisitorRequest].'Access Control Points')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
-                        SearchItems: =Choices(VisitorRequest.AccessControlPoints,dcrvACP_1.SearchText)
+                        SearchItems: =Choices(VisitorRequest.'Access Control Points',dcrvACP_1.SearchText)
                         SelectMultiple: =false
                         Size: =dimInputFontSize
                         Tooltip: =Parent.DisplayName

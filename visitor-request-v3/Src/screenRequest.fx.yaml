@@ -576,9 +576,9 @@ screenRequest As screen:
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =dimDataCardValueHeight
-                        Items: =Choices([@VisitorRequest].AlternateSponsor)
+                        Items: =Choices([@VisitorRequest].'Alternate Sponsor')
                         SearchFields: =["DisplayName"]
-                        SearchItems: =Choices(VisitorRequest.AlternateSponsor,dcrvAltSponsor.SearchText)
+                        SearchItems: =Choices(VisitorRequest.'Alternate Sponsor',dcrvAltSponsor.SearchText)
                         SelectMultiple: =false
                         Size: =dimInputFontSize
                         Template: =ListItemTemplate.Person
@@ -947,10 +947,10 @@ screenRequest As screen:
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =dimDataCardValueHeight
-                        Items: =Choices([@VisitorRequest].Rank_x002f_Grade)
+                        Items: =Choices([@VisitorRequest].'Rank/Grade')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
-                        SearchItems: =Choices(VisitorRequest.Rank_x002f_Grade,dcrvRank.SearchText)
+                        SearchItems: =Choices(VisitorRequest.'Rank/Grade',dcrvRank.SearchText)
                         SelectMultiple: =false
                         Size: =dimInputFontSize
                         Tooltip: =Parent.DisplayName
@@ -995,10 +995,10 @@ screenRequest As screen:
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =dimDataCardValueHeight
-                        Items: =Choices([@VisitorRequest].TypeofVisit)
+                        Items: =Choices([@VisitorRequest].'Type of Visit')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
-                        SearchItems: =Choices(VisitorRequest.TypeofVisit,dcrvVisitType.SearchText)
+                        SearchItems: =Choices(VisitorRequest.'Type of Visit',dcrvVisitType.SearchText)
                         SelectMultiple: =false
                         Size: =dimInputFontSize
                         Tooltip: =Parent.DisplayName
@@ -1043,10 +1043,10 @@ screenRequest As screen:
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =dimDataCardValueHeight
-                        Items: =Choices([@VisitorRequest].DaysaWeekWorkingatMCTSSA)
+                        Items: =Choices([@VisitorRequest].'Days a Week Working at MCTSSA')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
-                        SearchItems: =Choices(VisitorRequest.DaysaWeekWorkingatMCTSSA,dcrvDaysAWeek.SearchText)
+                        SearchItems: =Choices(VisitorRequest.'Days a Week Working at MCTSSA',dcrvDaysAWeek.SearchText)
                         SelectMultiple: =false
                         Size: =dimInputFontSize
                         Tooltip: =Parent.DisplayName
@@ -1260,10 +1260,10 @@ screenRequest As screen:
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =dimDataCardValueHeight
-                        Items: =Choices([@VisitorRequest].AssignedtoSection)
+                        Items: =Choices([@VisitorRequest].'Assigned to Section')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
-                        SearchItems: =Choices(VisitorRequest.AssignedtoSection,dcrvSection.SearchText)
+                        SearchItems: =Choices(VisitorRequest.'Assigned to Section',dcrvSection.SearchText)
                         SelectMultiple: =false
                         Size: =dimInputFontSize
                         Template: =ListItemTemplate.Person
@@ -1310,10 +1310,10 @@ screenRequest As screen:
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =dimDataCardValueHeight
-                        Items: =Choices([@VisitorRequest].AccessControlPoints)
+                        Items: =Choices([@VisitorRequest].'Access Control Points')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
-                        SearchItems: =Choices(VisitorRequest.AccessControlPoints,dcrvACP.SearchText)
+                        SearchItems: =Choices(VisitorRequest.'Access Control Points',dcrvACP.SearchText)
                         SelectMultiple: =false
                         Size: =dimInputFontSize
                         Tooltip: =Parent.DisplayName
@@ -1506,10 +1506,10 @@ screenRequest As screen:
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =dimDataCardValueHeight
-                        Items: =Choices([@VisitorRequest].AssignedtoSection)
+                        Items: =Choices([@VisitorRequest].'Assigned to Section')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
-                        SearchItems: =Choices(VisitorRequest.AssignedtoSection,dcvSection.SearchText)
+                        SearchItems: =Choices(VisitorRequest.'Assigned to Section',dcvSection.SearchText)
                         SelectMultiple: =false
                         Size: =dimInputFontSize
                         Template: =ListItemTemplate.Person
@@ -1605,10 +1605,10 @@ screenRequest As screen:
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =dimDataCardValueHeight
-                        Items: =Choices([@VisitorRequest].AccessControlPoints)
+                        Items: =Choices([@VisitorRequest].'Access Control Points')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
-                        SearchItems: =Choices(VisitorRequest.AccessControlPoints,dcvACP.SearchText)
+                        SearchItems: =Choices(VisitorRequest.'Access Control Points',dcvACP.SearchText)
                         SelectMultiple: =false
                         Size: =dimInputFontSize
                         Tooltip: =Parent.DisplayName
@@ -2099,10 +2099,10 @@ screenRequest As screen:
                         DisplayFields: =["Value","Value"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =dimDataCardValueHeight
-                        Items: =Choices([@VisitorRequest].Rank_x002f_Grade)
+                        Items: =Choices([@VisitorRequest].'Rank/Grade')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
-                        SearchItems: =Choices(VisitorRequest.Rank_x002f_Grade,dcvRank.SearchText)
+                        SearchItems: =Choices(VisitorRequest.'Rank/Grade',dcvRank.SearchText)
                         SelectMultiple: =false
                         Size: =dimInputFontSize
                         Tooltip: =Parent.DisplayName
@@ -2148,10 +2148,10 @@ screenRequest As screen:
                         DisplayMode: =Parent.DisplayMode
                         Height: =dimDataCardValueHeight
                         InputTextPlaceholder: ="Visit Types"
-                        Items: =Choices([@VisitorRequest].TypeofVisit)
+                        Items: =Choices([@VisitorRequest].'Type of Visit')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
-                        SearchItems: =Choices(VisitorRequest.TypeofVisit,dcvVisitType.SearchText)
+                        SearchItems: =Choices(VisitorRequest.'Type of Visit',dcvVisitType.SearchText)
                         SelectMultiple: =false
                         Size: =dimInputFontSize
                         Tooltip: =Parent.DisplayName
@@ -2197,7 +2197,7 @@ screenRequest As screen:
                         DisplayMode: =Parent.DisplayMode
                         Height: =dimDataCardValueHeight
                         InputTextPlaceholder: ="Days a Week"
-                        Items: =Choices([@VisitorRequest].DaysaWeekWorkingatMCTSSA)
+                        Items: =Choices([@VisitorRequest].'Days a Week Working at MCTSSA')
                         OnChange: |
                             =Set(
                                 isLongTerm,
@@ -2209,7 +2209,7 @@ screenRequest As screen:
                             );
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["Value"]
-                        SearchItems: =Choices(VisitorRequest.DaysaWeekWorkingatMCTSSA,dcvDaysAWeek.SearchText)
+                        SearchItems: =Choices(VisitorRequest.'Days a Week Working at MCTSSA',dcvDaysAWeek.SearchText)
                         SelectMultiple: =false
                         Size: =dimInputFontSize
                         Tooltip: =Parent.DisplayName
@@ -2628,10 +2628,10 @@ screenRequest As screen:
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
                         Height: =dimDataCardValueHeight
-                        Items: =Choices([@VisitorRequest].AlternateSponsor)
+                        Items: =Choices([@VisitorRequest].'Alternate Sponsor')
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         SearchFields: =["DisplayName"]
-                        SearchItems: =Choices(VisitorRequest.AlternateSponsor,dcvAltSponsor.SearchText)
+                        SearchItems: =Choices(VisitorRequest.'Alternate Sponsor',dcvAltSponsor.SearchText)
                         SelectMultiple: =false
                         Size: =dimInputFontSize
                         Template: =ListItemTemplate.Person
