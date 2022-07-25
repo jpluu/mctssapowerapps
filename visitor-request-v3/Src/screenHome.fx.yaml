@@ -667,6 +667,14 @@ screenHome As screen:
                                     {'Denied Reason': ComboBox1.Selected}
                                 )
                             );
+                            Patch(
+                                VisitorRequest,
+                                LookUp(
+                                    VisitorRequest,
+                                    Title = formData.Title
+                                ),
+                                {Incorrect: ComboBoxIncorrect.SelectedItems}
+                            );
                             IsEmpty(Errors(VisitorRequest)),
                             Notify(
                                 "Success",
@@ -694,7 +702,10 @@ screenHome As screen:
                                 false
                             );
                             Reset(ComboBox1);
-                            Reset(textDenied)
+                            Reset(textDenied);
+                            UpdateContext({ResetCheckbox:true});
+                            UpdateContext({ResetCheckbox:false});
+                            Clear(colErrorFilter);
                         )
                     )
                 Text: ="Denied"
@@ -767,7 +778,7 @@ screenHome As screen:
                     DisplayMode: =DisplayMode.Edit
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =30
-                    Width: =369
+                    Width: =Parent.Width //369
                     X: =0
                     Y: =0
                     ZIndex: =1
@@ -796,7 +807,7 @@ screenHome As screen:
                     Required: =false
                     Update: =dcrvStartDate_4.SelectedDate
                     Visible: =true
-                    Width: =369
+                    Width: =Parent.Width / 2
                     X: =1
                     Y: =0
                     ZIndex: =1
@@ -871,7 +882,7 @@ screenHome As screen:
                     Height: =50
                     Required: =false
                     Update: =dcrvEndDate_4.SelectedDate
-                    Width: =369
+                    Width: =Parent.Width / 2
                     X: =2
                     Y: =0
                     ZIndex: =1
@@ -941,7 +952,7 @@ screenHome As screen:
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: |
                         =30
-                    Width: =369
+                    Width: =Parent.Width 
                     X: =0
                     Y: =1
                     ZIndex: =1
@@ -958,6 +969,85 @@ screenHome As screen:
                         Width: =Parent.Width
                         ZIndex: =1
 
+                dcrSponsorPhone_4 As typedDataCard.textualEditCard:
+                    BorderColor: =If(formSecurityIncorrect.Mode = FormMode.Edit &&ThisItem.'Sponsor Phone Number'<>dcrvSponsorPhone_4.Text, Orange, RGBA(0, 18, 107, 1))
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Phone_x0020_Number"
+                    Default: =ThisItem.'Sponsor Phone Number'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"Phone_x0020_Number")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@VisitorRequest], DataSourceInfo.MaxLength, "Phone_x0020_Number")
+                    Required: =false
+                    Update: =dcrvSponsorPhone_4.Text
+                    Width: =Parent.Width / 3
+                    X: =0
+                    Y: |
+                        =1
+                    ZIndex: =1
+
+                    dcrkSponsorPhone_4 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvSponsorPhone_4 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =If("Sponsor Phone Number" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisplayMode: =DisplayMode.Disabled
+                        Height: =dimDataCardValueHeight
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =dimInputFontSize
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                    Gallery3_6 As gallery.galleryVertical:
+                        Height: =25
+                        Items: =["Sponsor Phone Number"]
+                        Layout: =Layout.Vertical
+                        ShowScrollbar: =false
+                        TemplatePadding: =3
+                        TemplateSize: =19
+                        Visible: =If(ComboBox1.Selected.Value = "Incorrect Information" && isSecurity, true)
+                        Width: =25
+                        WrapCount: =5
+                        X: =165
+                        Y: =35
+                        ZIndex: =3
+
+                        Checkbox3_6 As checkbox:
+                            CheckboxSize: =20
+                            Height: =19
+                            OnCheck: =Collect(colErrorFilter,ThisItem)
+                            OnSelect: =Select(Parent)
+                            OnUncheck: =Remove(colErrorFilter,ThisItem)
+                            Reset: =ResetCheckbox
+                            Size: =0
+                            Text: =ThisItem.Value
+                            Width: =1.3999999999999986
+                            ZIndex: =1
+
                 dcrSponsor_4 As typedDataCard.comboBoxEditCard:
                     BorderColor: |
                         =
@@ -972,7 +1062,7 @@ screenHome As screen:
                     Height: =50
                     Required: =false
                     Update: =dcrvSponsor_4.Selected
-                    Width: =369
+                    Width: =Parent.Width / 3
                     X: =1
                     Y: =1
                     ZIndex: =1
@@ -1050,7 +1140,7 @@ screenHome As screen:
                     Height: =50
                     Required: =false
                     Update: =dcrvAltSponsor_4.Selected
-                    Width: =369
+                    Width: =Parent.Width / 3
                     X: =2
                     Y: =1
                     ZIndex: =1
@@ -1116,91 +1206,13 @@ screenHome As screen:
                             Width: =1.3999999999999986
                             ZIndex: =1
 
-                dcrSponsorPhone_4 As typedDataCard.textualEditCard:
-                    BorderColor: =If(formSecurityIncorrect.Mode = FormMode.Edit &&ThisItem.'Sponsor Phone Number'<>dcrvSponsorPhone_4.Text, Orange, RGBA(0, 18, 107, 1))
-                    BorderStyle: =BorderStyle.Solid
-                    DataField: ="Phone_x0020_Number"
-                    Default: =ThisItem.'Sponsor Phone Number'
-                    DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"Phone_x0020_Number")
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =50
-                    MaxLength: =DataSourceInfo([@VisitorRequest], DataSourceInfo.MaxLength, "Phone_x0020_Number")
-                    Required: =false
-                    Update: =dcrvSponsorPhone_4.Text
-                    Width: =369
-                    X: =0
-                    Y: =2
-                    ZIndex: =1
-
-                    dcrkSponsorPhone_4 As label:
-                        FontWeight: =FontWeight.Semibold
-                        Height: =2 * dimDataCard
-                        PaddingBottom: =0
-                        PaddingLeft: =0
-                        PaddingRight: =0
-                        PaddingTop: =0
-                        Size: =dimLabelFontSize
-                        Text: =Parent.DisplayName
-                        Width: =Parent.Width - 2 * dimDataCard
-                        Wrap: =false
-                        X: =dimDataCard
-                        Y: =dimDataCard + dimDataCardValueHeight
-                        ZIndex: =1
-
-                    dcrvSponsorPhone_4 As text:
-                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Color: =If("Sponsor Phone Number" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
-                        Default: =Parent.Default
-                        DelayOutput: =true
-                        DisplayMode: =DisplayMode.Disabled
-                        Height: =dimDataCardValueHeight
-                        MaxLength: =Parent.MaxLength
-                        PaddingLeft: =5
-                        RadiusBottomLeft: =0
-                        RadiusBottomRight: =0
-                        RadiusTopLeft: =0
-                        RadiusTopRight: =0
-                        Size: =dimInputFontSize
-                        Tooltip: =Parent.DisplayName
-                        Width: =Parent.Width - 2 * dimDataCard
-                        X: =dimDataCard
-                        Y: =dimDataCard
-                        ZIndex: =2
-
-                    Gallery3_6 As gallery.galleryVertical:
-                        Height: =25
-                        Items: =["Sponsor Phone Number"]
-                        Layout: =Layout.Vertical
-                        ShowScrollbar: =false
-                        TemplatePadding: =3
-                        TemplateSize: =19
-                        Visible: =If(ComboBox1.Selected.Value = "Incorrect Information" && isSecurity, true)
-                        Width: =25
-                        WrapCount: =5
-                        X: =165
-                        Y: =35
-                        ZIndex: =3
-
-                        Checkbox3_6 As checkbox:
-                            CheckboxSize: =20
-                            Height: =19
-                            OnCheck: =Collect(colErrorFilter,ThisItem)
-                            OnSelect: =Select(Parent)
-                            OnUncheck: =Remove(colErrorFilter,ThisItem)
-                            Reset: =ResetCheckbox
-                            Size: =0
-                            Text: =ThisItem.Value
-                            Width: =1.3999999999999986
-                            ZIndex: =1
-
                 dcrLabelVisitorInfo_4 As typedDataCard.blankCard:
                     BorderStyle: =BorderStyle.Solid
                     DisplayMode: =DisplayMode.Edit
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: |
                         =30
-                    Width: =369
+                    Width: =Parent.Width 
                     X: =1
                     Y: =2
                     ZIndex: =1
@@ -1309,9 +1321,10 @@ screenHome As screen:
                     MaxLength: =DataSourceInfo([@VisitorRequest], DataSourceInfo.MaxLength, "MiddleName")
                     Required: =false
                     Update: =dcrvMiddleName_4.Text
-                    Width: =369
-                    X: =0
-                    Y: =3
+                    Width: =Parent.Width / 3
+                    X: =2
+                    Y: |
+                        =2
                     ZIndex: =1
 
                     dcrkMiddleName_4 As label:
@@ -1389,9 +1402,11 @@ screenHome As screen:
                     MaxLength: =DataSourceInfo([@VisitorRequest], DataSourceInfo.MaxLength, "LastName")
                     Required: =false
                     Update: =dcrvLastName_4.Text
-                    Width: =369
-                    X: =1
-                    Y: =3
+                    Width: =Parent.Width / 3
+                    X: |
+                        =3
+                    Y: |
+                        =2
                     ZIndex: =1
 
                     dcrkLastName_4 As label:
@@ -1551,8 +1566,10 @@ screenHome As screen:
                     Required: =false
                     Update: =dcrvOrganization_4.Text
                     Width: =369
-                    X: =0
-                    Y: =4
+                    X: |
+                        =2
+                    Y: |
+                        =3
                     ZIndex: =1
 
                     dcrkOrganization_4 As label:
@@ -1631,8 +1648,10 @@ screenHome As screen:
                     Required: =false
                     Update: =dcrvOrganizationPhone_4.Text
                     Width: =369
-                    X: =1
-                    Y: =4
+                    X: |
+                        =3
+                    Y: |
+                        =3
                     ZIndex: =1
 
                     dcrkOrganizationPhone_4 As label:
@@ -1785,8 +1804,8 @@ screenHome As screen:
                     Required: =false
                     Update: =dcrvRank_4.Selected
                     Width: =369
-                    X: =0
-                    Y: =5
+                    X: =2
+                    Y: =4
                     ZIndex: =1
 
                     dcrkRank_4 As label:
@@ -1862,8 +1881,8 @@ screenHome As screen:
                     Required: =false
                     Update: =dcrvVisitType_4.Selected
                     Width: =369
-                    X: =1
-                    Y: =5
+                    X: =3
+                    Y: =4
                     ZIndex: =1
 
                     dcrkVisitType_4 As label:
@@ -2447,6 +2466,7 @@ screenHome As screen:
                     =Set(formData, formSecurity.LastSubmit);
                     ViewForm(formSecurity);
                     Notify("Request Approval Page Was Succesfully Saved.", NotificationType.Success);
+                Visible: =If(ComboBox1.Selected.Value = "Incorrect Information", false, true)
                 Width: =Parent.Width - 1
                 X: =1
                 Y: =labelReview_1.Height 
@@ -3697,6 +3717,61 @@ screenHome As screen:
                     X: =826
                     Y: =490
                     ZIndex: =6
+
+            containerIncorrect As groupContainer.manualLayoutContainer:
+                Fill: =RGBA(153, 153, 153, 1)
+                Height: =108
+                Visible: =false//If(ComboBox1_5.Selected.Value = "Incorrect Information", true, false) //!IsBlank(ComboBox1_1)
+                Width: =671
+                X: =40
+                Y: =40
+                ZIndex: =12
+
+                Label7_2 As label:
+                    Align: =Align.Center
+                    FontWeight: =FontWeight.Bold
+                    Height: =16
+                    Size: =10
+                    Text: ="Which Fields Are Incorrect ?"
+                    Width: =671
+                    Y: =3
+                    ZIndex: =1
+
+                Gallery3 As gallery.galleryVertical:
+                    Height: =90
+                    Items: =If(isLongTerm, ["Visit Start Date", "Visit End Date", "Sponsor", "Alternate Sponsor", "Sponsor Phone Number", "First Name", "Middle Name", "Last Name", "Rank/Grade", "Company/Organization", "Company/Organization Phone Number", "Days a Week Working at MCTSSA", "Type of Visit", "After Hours Access Required", "Contract Number", "Assigned to Section", "EDIP", "Email", "CAC Required?", "Access Control Points"], ["Visit Start Date", "Visit End Date", "Sponsor", "Alternate Sponsor", "Sponsor Phone Number", "First Name", "Middle Name", "Last Name", "Rank/Grade", "Company/Organization", "Company/Organization Phone Number", "Days a Week Working at MCTSSA", "Type of Visit", "After Hours Access Required"]) 
+                    Layout: =Layout.Vertical
+                    ShowScrollbar: =false
+                    TemplatePadding: =3
+                    TemplateSize: =19
+                    Width: =663
+                    WrapCount: =5
+                    Y: =18
+                    ZIndex: =2
+
+                    Checkbox3 As checkbox:
+                        CheckboxSize: =20
+                        Height: =19
+                        OnCheck: =Collect(colErrorFilter,ThisItem)
+                        OnSelect: =Select(Parent)
+                        OnUncheck: =Remove(colErrorFilter,ThisItem)
+                        Size: =7
+                        Text: =ThisItem.Value
+                        Width: =129
+                        ZIndex: =1
+
+                ComboBoxIncorrect As combobox:
+                    DefaultSelectedItems: =colErrorFilter.Value
+                    DisplayFields: =["Value"]
+                    Items: |-
+                        =["Visit Sart Date", "Visit End Date", "Sponsor", "Alternate Sponsor", "Sponsor Phone #", "First Name", "Middle Name", "Last Name", "Rank/Grade", "First Name", "Middle Name", "Last Name", "Company/Organization", "Company/Organization Phone #", "Days a Week Working at MCTSSA", "Type of Visit", "After Hours Acess Required?", "Contract #", "Assigned to Section", "EDIP", "Email", "CAC Required", "Acess Control Points"]
+                    SearchFields: =["Value"]
+                    SearchItems: |-
+                        =Search(["Visit Sart Date", "Visit End Date", "Sponsor", "Alternate Sponsor", "Sponsor Phone #", "First Name", "Middle Name", "Last Name", "Rank/Grade", "First Name", "Middle Name", "Last Name", "Company/Organization", "Company/Organization Phone #", "Days a Week Working at MCTSSA", "Type of Visit", "After Hours Acess Required?", "Contract #", "Assigned to Section", "EDIP", "Email", "CAC Required", "Acess Control Points"],ComboBoxIncorrect.SearchText,"Value")
+                    Width: =164
+                    X: =172
+                    Y: =68
+                    ZIndex: =4
 
         Label6 As label:
             Align: =Align.Center

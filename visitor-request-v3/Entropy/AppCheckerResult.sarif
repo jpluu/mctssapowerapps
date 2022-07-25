@@ -3141,806 +3141,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrCAC_4.Gallery3_21.Checkbox3_21.Reset"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrCAC_4.Gallery3_21.Checkbox3_21.Reset",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 13,
-                  "charOffset": 0,
-                  "snippet": {
-                    "text": "ResetCheckbox"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Reset",
-                "module": "screenHome",
-                "type": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrCAC_4.Gallery3_21.Checkbox3_21"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "ResetCheckbox"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrACP_4.Gallery3_20.Checkbox3_20.Reset"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrACP_4.Gallery3_20.Checkbox3_20.Reset",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 13,
-                  "charOffset": 0,
-                  "snippet": {
-                    "text": "ResetCheckbox"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Reset",
-                "module": "screenHome",
-                "type": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrACP_4.Gallery3_20.Checkbox3_20"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "ResetCheckbox"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrSection_4.Gallery3_19.Checkbox3_19.Reset"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrSection_4.Gallery3_19.Checkbox3_19.Reset",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 13,
-                  "charOffset": 0,
-                  "snippet": {
-                    "text": "ResetCheckbox"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Reset",
-                "module": "screenHome",
-                "type": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrSection_4.Gallery3_19.Checkbox3_19"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "ResetCheckbox"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrEDIP_4.Gallery3_18.Checkbox3_18.Reset"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrEDIP_4.Gallery3_18.Checkbox3_18.Reset",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 13,
-                  "charOffset": 0,
-                  "snippet": {
-                    "text": "ResetCheckbox"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Reset",
-                "module": "screenHome",
-                "type": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrEDIP_4.Gallery3_18.Checkbox3_18"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "ResetCheckbox"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrContractNumber_4.Gallery3_17.Checkbox3_17.Reset"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrContractNumber_4.Gallery3_17.Checkbox3_17.Reset",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 13,
-                  "charOffset": 0,
-                  "snippet": {
-                    "text": "ResetCheckbox"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Reset",
-                "module": "screenHome",
-                "type": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrContractNumber_4.Gallery3_17.Checkbox3_17"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "ResetCheckbox"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrAfterHours_4.Gallery3_16.Checkbox3_16.Reset"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrAfterHours_4.Gallery3_16.Checkbox3_16.Reset",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 13,
-                  "charOffset": 0,
-                  "snippet": {
-                    "text": "ResetCheckbox"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Reset",
-                "module": "screenHome",
-                "type": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrAfterHours_4.Gallery3_16.Checkbox3_16"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "ResetCheckbox"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrVisitType_4.Gallery3_15.Checkbox3_15.Reset"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrVisitType_4.Gallery3_15.Checkbox3_15.Reset",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 13,
-                  "charOffset": 0,
-                  "snippet": {
-                    "text": "ResetCheckbox"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Reset",
-                "module": "screenHome",
-                "type": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrVisitType_4.Gallery3_15.Checkbox3_15"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "ResetCheckbox"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrRank_4.Gallery3_14.Checkbox3_14.Reset"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrRank_4.Gallery3_14.Checkbox3_14.Reset",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 13,
-                  "charOffset": 0,
-                  "snippet": {
-                    "text": "ResetCheckbox"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Reset",
-                "module": "screenHome",
-                "type": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrRank_4.Gallery3_14.Checkbox3_14"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "ResetCheckbox"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrDaysAWeek_4.Gallery3_13.Checkbox3_13.Reset"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrDaysAWeek_4.Gallery3_13.Checkbox3_13.Reset",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 13,
-                  "charOffset": 0,
-                  "snippet": {
-                    "text": "ResetCheckbox"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Reset",
-                "module": "screenHome",
-                "type": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrDaysAWeek_4.Gallery3_13.Checkbox3_13"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "ResetCheckbox"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrOrganizationPhone_4.Gallery3_12.Checkbox3_12.Reset"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrOrganizationPhone_4.Gallery3_12.Checkbox3_12.Reset",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 13,
-                  "charOffset": 0,
-                  "snippet": {
-                    "text": "ResetCheckbox"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Reset",
-                "module": "screenHome",
-                "type": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrOrganizationPhone_4.Gallery3_12.Checkbox3_12"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "ResetCheckbox"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrOrganization_4.Gallery3_11.Checkbox3_11.Reset"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrOrganization_4.Gallery3_11.Checkbox3_11.Reset",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 13,
-                  "charOffset": 0,
-                  "snippet": {
-                    "text": "ResetCheckbox"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Reset",
-                "module": "screenHome",
-                "type": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrOrganization_4.Gallery3_11.Checkbox3_11"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "ResetCheckbox"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrEmail_4.Gallery3_10.Checkbox3_10.Reset"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrEmail_4.Gallery3_10.Checkbox3_10.Reset",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 13,
-                  "charOffset": 0,
-                  "snippet": {
-                    "text": "ResetCheckbox"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Reset",
-                "module": "screenHome",
-                "type": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrEmail_4.Gallery3_10.Checkbox3_10"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "ResetCheckbox"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrLastName_4.Gallery3_9.Checkbox3_9.Reset"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrLastName_4.Gallery3_9.Checkbox3_9.Reset",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 13,
-                  "charOffset": 0,
-                  "snippet": {
-                    "text": "ResetCheckbox"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Reset",
-                "module": "screenHome",
-                "type": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrLastName_4.Gallery3_9.Checkbox3_9"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "ResetCheckbox"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrMiddleName_4.Gallery3_8.Checkbox3_8.Reset"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrMiddleName_4.Gallery3_8.Checkbox3_8.Reset",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 13,
-                  "charOffset": 0,
-                  "snippet": {
-                    "text": "ResetCheckbox"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Reset",
-                "module": "screenHome",
-                "type": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrMiddleName_4.Gallery3_8.Checkbox3_8"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "ResetCheckbox"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrFirstName_4.Gallery3_7.Checkbox3_7.Reset"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrFirstName_4.Gallery3_7.Checkbox3_7.Reset",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 13,
-                  "charOffset": 0,
-                  "snippet": {
-                    "text": "ResetCheckbox"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Reset",
-                "module": "screenHome",
-                "type": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrFirstName_4.Gallery3_7.Checkbox3_7"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "ResetCheckbox"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrSponsorPhone_4.Gallery3_6.Checkbox3_6.Reset"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrSponsorPhone_4.Gallery3_6.Checkbox3_6.Reset",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 13,
-                  "charOffset": 0,
-                  "snippet": {
-                    "text": "ResetCheckbox"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Reset",
-                "module": "screenHome",
-                "type": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrSponsorPhone_4.Gallery3_6.Checkbox3_6"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "ResetCheckbox"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrAltSponsor_4.Gallery3_5.Checkbox3_5.Reset"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrAltSponsor_4.Gallery3_5.Checkbox3_5.Reset",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 13,
-                  "charOffset": 0,
-                  "snippet": {
-                    "text": "ResetCheckbox"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Reset",
-                "module": "screenHome",
-                "type": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrAltSponsor_4.Gallery3_5.Checkbox3_5"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "ResetCheckbox"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrSponsor_4.Gallery3_4.Checkbox3_4.Reset"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrSponsor_4.Gallery3_4.Checkbox3_4.Reset",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 13,
-                  "charOffset": 0,
-                  "snippet": {
-                    "text": "ResetCheckbox"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Reset",
-                "module": "screenHome",
-                "type": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrSponsor_4.Gallery3_4.Checkbox3_4"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "ResetCheckbox"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrEndDate_4.Gallery3_3.Checkbox3_3.Reset"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrEndDate_4.Gallery3_3.Checkbox3_3.Reset",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 13,
-                  "charOffset": 0,
-                  "snippet": {
-                    "text": "ResetCheckbox"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Reset",
-                "module": "screenHome",
-                "type": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrEndDate_4.Gallery3_3.Checkbox3_3"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "ResetCheckbox"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrStartDate_4.Gallery3_2.Checkbox3_2.Reset"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrStartDate_4.Gallery3_2.Checkbox3_2.Reset",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 13,
-                  "charOffset": 0,
-                  "snippet": {
-                    "text": "ResetCheckbox"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Reset",
-                "module": "screenHome",
-                "type": "screenHome.containerModalSecurity.pageSecurity.formSecurityIncorrect.dcrStartDate_4.Gallery3_2.Checkbox3_2"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "ResetCheckbox"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "Header.Image1.AccessibleLabel"
                 }
               ],
@@ -9161,6 +8361,96 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.containerIncorrect.Gallery3.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.containerIncorrect.Gallery3.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "screenHome",
+                "type": "screenHome.containerModalSecurity.pageSecurity.containerIncorrect.Gallery3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.containerIncorrect.Gallery3.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.containerIncorrect.Gallery3.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "screenHome",
+                "type": "screenHome.containerModalSecurity.pageSecurity.containerIncorrect.Gallery3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 7
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.containerIncorrect.ComboBoxIncorrect.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.containerIncorrect.ComboBoxIncorrect.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "screenHome",
+                "type": "screenHome.containerModalSecurity.pageSecurity.containerIncorrect.ComboBoxIncorrect"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App.isBulk"
                 }
               ],
@@ -9560,7 +8850,7 @@
                 ],
                 "level": "Medium",
                 "primaryCategory": "performance",
-                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"screenHome\" is 443, which exceeds the maximum threshold recommended (300)."
+                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"screenHome\" is 457, which exceeds the maximum threshold recommended (300)."
               }
             }
           ],
