@@ -2035,7 +2035,7 @@ screenHome As screen:
                     Height: |
                         =30
                     Visible: =isLongTerm
-                    Width: =369
+                    Width: =Parent.Width
                     X: =0
                     Y: =6
                     ZIndex: =1
@@ -2219,7 +2219,7 @@ screenHome As screen:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="AssignedtoSection"
                     Default: =ThisItem.'Assigned to Section'
-                    DisplayMode: =DisplayMode.Disabled
+                    DisplayMode: =Parent.DisplayMode//DisplayMode.Disabled
                     DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"AssignedtoSection")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
@@ -2227,8 +2227,8 @@ screenHome As screen:
                     Update: =dcrvSection_4.Selected
                     Visible: =isLongTerm
                     Width: =369
-                    X: =0
-                    Y: =7
+                    X: =3
+                    Y: =6
                     ZIndex: =1
 
                     dcrkSection_4 As label:
@@ -2251,7 +2251,7 @@ screenHome As screen:
                         Color: =If("Assigned to Section" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["DisplayName","Email","Picture"]
-                        DisplayMode: =Parent.DisplayMode
+                        DisplayMode: =DisplayMode.Disabled
                         Height: =dimDataCardValueHeight
                         HoverColor: =If("Assigned to Section" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) ) //RGBA(0, 0, 0, 1)//RGBA(0, 0, 0, 1)
                         Items: =Choices([@VisitorRequest].'Assigned to Section')
@@ -2298,7 +2298,7 @@ screenHome As screen:
                     BorderStyle: =BorderStyle.Solid
                     DataField: ="AccessControlPoints"
                     Default: =ThisItem.'Access Control Points'
-                    DisplayMode: =DisplayMode.Disabled
+                    DisplayMode: =Parent.DisplayMode
                     DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"AccessControlPoints")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
@@ -2330,7 +2330,7 @@ screenHome As screen:
                         Color: =If("Acess Control Points" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["Value"]
-                        DisplayMode: =Parent.DisplayMode
+                        DisplayMode: =DisplayMode.Disabled
                         Height: =dimDataCardValueHeight
                         HoverColor: =If("Access Control Points" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) ) //RGBA(0, 0, 0, 1)//RGBA(0, 0, 0, 1)
                         Items: =Choices([@VisitorRequest].'Access Control Points')
@@ -2379,7 +2379,7 @@ screenHome As screen:
                     BorderThickness: =0
                     DataField: ="CACRequired_x003f_"
                     Default: =ThisItem.'CAC Required?'
-                    DisplayMode: =DisplayMode.Disabled
+                    DisplayMode: =Parent.DisplayMode
                     DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"CACRequired_x003f_")
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =50
@@ -2420,7 +2420,7 @@ screenHome As screen:
                         BorderThickness: =2
                         Color: =If("CAC Required?" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
                         Default: =Parent.Default
-                        DisplayMode: =Parent.DisplayMode
+                        DisplayMode: =DisplayMode.Disabled
                         FalseFill: =If("CAC Required?" in formData.Incorrect.Value, DarkRed, RGBA(128, 130, 133, 1))
                         Height: =dimDataCardValueHeight
                         Size: =dimInputFontSize
