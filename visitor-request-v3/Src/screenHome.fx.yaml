@@ -3393,6 +3393,7 @@ screenHome As screen:
 
                     dcrvContractNumber_1 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =If("Contract Number" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
                         Default: =Parent.Default
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
@@ -3447,6 +3448,7 @@ screenHome As screen:
 
                     dcrvEDIP_1 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =If("EDIP" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
                         Default: =Parent.Default
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
@@ -3498,6 +3500,7 @@ screenHome As screen:
 
                     dcrvSection_1 As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =If("Assigned to Section" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
@@ -3549,6 +3552,7 @@ screenHome As screen:
 
                     dcrvACP_1 As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =If("Acess Control Points" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
@@ -3612,6 +3616,7 @@ screenHome As screen:
                     dcrvCAC_1 As toggleSwitch:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         BorderThickness: =2
+                        Color: =If("CAC Required?" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
                         Default: =Parent.Default
                         DisplayMode: =Parent.DisplayMode
                         Height: =dimDataCardValueHeight
