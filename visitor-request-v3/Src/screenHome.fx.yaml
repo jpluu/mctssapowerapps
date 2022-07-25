@@ -3776,7 +3776,6 @@ screenHome As screen:
         Label6 As label:
             Align: =Align.Center
             FontWeight: =FontWeight.Bold
-            Height: =96
             PaddingLeft: =2
             PaddingRight: =2
             Text: |
@@ -3787,9 +3786,20 @@ screenHome As screen:
                     formData.Approved.Value & ": " & formData.'Denied Reason'.Value
                     )
                     
-            Visible: =true//!isSecurity 
-            Width: =268
-            X: =545
-            Y: =544
+            Visible: =!isSecurity 
+            Width: =300
+            X: =514
+            Y: =564
             ZIndex: =3
+
+        Label7_4 As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Bold
+            Size: =10
+            Text: ="Which Fields Are Incorrect ?"
+            Visible: =If(ComboBox1.Selected.Value = "Incorrect Information" && isSecurity, true)
+            Width: =300
+            X: =514
+            Y: =564
+            ZIndex: =4
 
