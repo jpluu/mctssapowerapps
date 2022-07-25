@@ -735,7 +735,7 @@ screenHome As screen:
                                 VisitorRequest,
                                 LookUp(
                                     VisitorRequest,
-                                    Title = formData.Title
+                                   Identifier = formData.Identifier //Title = formData.Title
                                 ),
                                 {Incorrect: ComboBoxIncorrect.SelectedItems}
                             );
@@ -3685,6 +3685,16 @@ screenHome As screen:
                             ),
                             {Approved: {Value: "Pending"}}
                         ));
+                    
+                        Reset(ComboBoxIncorrect);
+                        Patch(
+                                VisitorRequest,
+                                LookUp(
+                                    VisitorRequest,
+                                   Identifier = formData.Identifier //Title = formData.Title
+                                ),
+                                {Incorrect: ComboBoxIncorrect.SelectedItems}
+                            );
                 Visible: =If(formSecurity.Mode = FormMode.Edit /*&& formData.Approved.Value = "Pending"*/, true, false)
                 Width: =52
                 X: =1017

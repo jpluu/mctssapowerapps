@@ -3221,6 +3221,86 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.iconSave.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.iconSave.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 10,
+                  "charOffset": 414,
+                  "snippet": {
+                    "text": "Identifier"
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "screenHome",
+                "type": "screenHome.containerModalSecurity.pageSecurity.iconSave"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Identifier"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint-OpNotSupportedByColumn",
+          "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.iconSave.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.iconSave.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 1,
+                  "charOffset": 425,
+                  "snippet": {
+                    "text": "="
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "screenHome",
+                "type": "screenHome.containerModalSecurity.pageSecurity.iconSave"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "LookUp"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.Button3.OnSelect"
                 }
               ],
@@ -3272,6 +3352,86 @@
                 "region": {
                   "charLength": 1,
                   "charOffset": 111,
+                  "snippet": {
+                    "text": "="
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "screenHome",
+                "type": "screenHome.containerModalSecurity.pageSecurity.Button3"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "LookUp"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.Button3.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.Button3.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 10,
+                  "charOffset": 336,
+                  "snippet": {
+                    "text": "Identifier"
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "screenHome",
+                "type": "screenHome.containerModalSecurity.pageSecurity.Button3"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Identifier"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint-OpNotSupportedByColumn",
+          "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.Button3.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.Button3.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 1,
+                  "charOffset": 347,
                   "snippet": {
                     "text": "="
                   }

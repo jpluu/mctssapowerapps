@@ -479,7 +479,7 @@
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "07/25/2022 19:39:11",
+  "HeaderLastSavedDateTimeUTC": "07/25/2022 21:55:27",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "54a4008d-5e05-4a17-9c08-a68a724bb8ad": "\"/providers/microsoft.powerapps/apis/shared_powerappsforappmakers/connections/1e61d3e34b704a1eaecdd5d9106e68d1\"",
@@ -1052,7 +1052,7 @@
       "typedDataCard": 98
     },
     "DeserializationLoadTime": 6.7557327,
-    "ErrorCount": 85
+    "ErrorCount": 89
   },
   "WasLocalDatabaseReferencesEmpty": true
 }
