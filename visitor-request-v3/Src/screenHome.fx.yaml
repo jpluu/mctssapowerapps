@@ -3695,7 +3695,7 @@ screenHome As screen:
                                 {Incorrect: ComboBoxIncorrect.SelectedItems}
                             ));
                 Visible: |-
-                    =If(formSecurity.Mode = FormMode.Edit && isSecurity /*&& formData.Approved.Value = "Pending"*/, true, If(formSecurity.Mode = FormMode.View && !isSecurity && formData.Approved.Value = "Pending", true, false)) 
+                    =If(formSecurity.Mode = FormMode.Edit && isSecurity /*&& formData.Approved.Value = "Pending"*/, true, If(formSecurity.Mode = FormMode.Edit && !isSecurity && formData.Approved.Value = "Pending", true, false)) 
                     
                     //If(formSecurity.Mode = FormMode.Edit && isSecurity /*&& formData.Approved.Value = "Pending"*/, true, false)
                 Width: =52
