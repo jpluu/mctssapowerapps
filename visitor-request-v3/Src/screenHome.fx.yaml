@@ -3562,7 +3562,7 @@ screenHome As screen:
 
                     dcrvACP_1 As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                        Color: =If("Acess Control Points" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
+                        Color: =If("Access Control Points" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
@@ -3685,8 +3685,7 @@ screenHome As screen:
                             ),
                             {Approved: {Value: "Pending"}}
                         ));
-                    
-                        Reset(ComboBoxIncorrect);
+                        If(!isSecurity, Reset(ComboBoxIncorrect);
                         Patch(
                                 VisitorRequest,
                                 LookUp(
@@ -3694,7 +3693,7 @@ screenHome As screen:
                                    Identifier = formData.Identifier //Title = formData.Title
                                 ),
                                 {Incorrect: ComboBoxIncorrect.SelectedItems}
-                            );
+                            ));
                 Visible: =If(formSecurity.Mode = FormMode.Edit /*&& formData.Approved.Value = "Pending"*/, true, false)
                 Width: =52
                 X: =1017
