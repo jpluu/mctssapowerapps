@@ -709,7 +709,7 @@ screenHome As screen:
                         )
                     )
                 Text: ="Denied"
-                Visible: =If( isSecurity && formData.Approved.Value = "Pending", true, false)
+                Visible: =If( isSecurity, true, false)
                 X: =686
                 Y: =435
                 ZIndex: =2
@@ -752,7 +752,7 @@ screenHome As screen:
                         Reset(textDenied)
                     )
                 Text: ="Approved"
-                Visible: =If( isSecurity && formData.Approved.Value = "Pending", true, false)
+                Visible: =If( isSecurity, true, false)
                 X: =pageSecurity.X*2
                 Y: =435
                 ZIndex: =3
@@ -3706,7 +3706,7 @@ screenHome As screen:
                     SearchItems: =[]
                     SelectMultiple: =false
                     Size: =12
-                    Visible: =If(Self.Selected.Value<>"Other" && isSecurity && formData.Approved.Value = "Pending", true)
+                    Visible: =If(Self.Selected.Value<>"Other" && isSecurity, true)
                     Width: =160
                     X: =686
                     Y: =485
@@ -3719,7 +3719,7 @@ screenHome As screen:
                     HintText: ="Denied Reason"
                     Size: =12
                     Visible: |
-                        =If(!ComboBox1.Visible && isSecurity && formData.Approved.Value = "Pending", true)
+                        =If(!ComboBox1.Visible && isSecurity, true)
                     Width: =160
                     X: =686
                     Y: =485
@@ -3732,7 +3732,7 @@ screenHome As screen:
                     OnSelect: |-
                         =Reset(ComboBox1);
                         Reset(textDenied);
-                    Visible: =If(!ComboBox1.Visible && isSecurity && formData.Approved.Value = "Pending", true)
+                    Visible: =If(!ComboBox1.Visible && isSecurity, true)
                     Width: =20
                     X: =826
                     Y: =490
