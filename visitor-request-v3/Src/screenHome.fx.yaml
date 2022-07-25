@@ -2538,6 +2538,7 @@ screenHome As screen:
 
                     dcrvStartDate_1 As datepicker:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =If("Visit Start Date" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) ) //RGBA(0, 0, 0, 1)
                         DefaultDate: =Parent.Default
                         DisplayMode: =Parent.DisplayMode
                         EndYear: =Year(Today())+100
@@ -2586,6 +2587,7 @@ screenHome As screen:
 
                     dcrvEndDate_1 As datepicker:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =If("Visit End Date" in formData.Incorrect.Value , DarkRed, RGBA(0, 0, 0, 1) ) //RGBA(0, 0, 0, 1)
                         DefaultDate: =Parent.Default
                         DisplayMode: =Parent.DisplayMode
                         EndYear: =Year(Today())+100
@@ -2660,6 +2662,7 @@ screenHome As screen:
 
                     dcrvSponsor_1 As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =If("Sponsor" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) ) //RGBA(0, 0, 0, 1)//If("Sponsor" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) ) 
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
@@ -2710,6 +2713,7 @@ screenHome As screen:
 
                     dcrvAltSponsor_1 As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =If("Alternate Sponsor" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
@@ -2760,6 +2764,7 @@ screenHome As screen:
 
                     dcrvSponsorPhone_1 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =If("Sponsor Phone Number" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
                         Default: =Parent.Default
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
@@ -2834,6 +2839,7 @@ screenHome As screen:
 
                     dcrvFirstName_1 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =If("First Name" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
                         Default: =Parent.Default
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
@@ -2887,6 +2893,7 @@ screenHome As screen:
 
                     dcrvMiddleName_1 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =If("Middle Name" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
                         Default: =Parent.Default
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
@@ -2940,6 +2947,7 @@ screenHome As screen:
 
                     dcrvLastName_1 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =If("Last Name" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
                         Default: =Parent.Default
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
@@ -2993,6 +3001,7 @@ screenHome As screen:
 
                     dcrvEmail_1 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =If("Email" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
                         Default: =Parent.Default
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
@@ -3047,6 +3056,7 @@ screenHome As screen:
 
                     dcrvOrganization_1 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =If("Company/Organization" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
                         Default: =Parent.Default
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
@@ -3100,6 +3110,7 @@ screenHome As screen:
 
                     dcrvOrganizationPhone_1 As text:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =If("Company/Organization Phone Number" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
                         Default: =Parent.Default
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
@@ -3150,6 +3161,7 @@ screenHome As screen:
 
                     dcrvDaysAWeek_1 As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =If("Days a Week Working at MCTSSA" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
@@ -3199,6 +3211,7 @@ screenHome As screen:
 
                     dcrvRank_1 As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =If("Rank/Grade" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
@@ -3248,6 +3261,7 @@ screenHome As screen:
 
                     dcrvVisitType_1 As combobox:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =If("Type of Visit" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
@@ -3307,6 +3321,7 @@ screenHome As screen:
                     dcrvAfterHours_1 As toggleSwitch:
                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                         BorderThickness: =2
+                        Color: =If("After Hours Acess Required" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
                         Default: =Parent.Default
                         DisplayMode: =Parent.DisplayMode
                         Height: =dimDataCardValueHeight
