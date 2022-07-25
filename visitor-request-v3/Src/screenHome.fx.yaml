@@ -861,14 +861,14 @@ screenHome As screen:
 
                         Checkbox3_2 As checkbox:
                             CheckboxSize: =20
-                            Height: =19
+                            Height: =25
                             OnCheck: =Collect(colErrorFilter,ThisItem)
                             OnSelect: =Select(Parent)
                             OnUncheck: =Remove(colErrorFilter,ThisItem)
                             Reset: =ResetCheckbox
                             Size: =0
                             Text: =ThisItem.Value
-                            Width: =1.3999999999999986
+                            Width: =20
                             ZIndex: =1
 
                 dcrEndDate_4 As typedDataCard.dateEditCard:
@@ -936,14 +936,14 @@ screenHome As screen:
 
                         Checkbox3_3 As checkbox:
                             CheckboxSize: =20
-                            Height: =19
+                            Height: =25
                             OnCheck: =Collect(colErrorFilter,ThisItem)
                             OnSelect: =Select(Parent)
                             OnUncheck: =Remove(colErrorFilter,ThisItem)
                             Reset: =ResetCheckbox
                             Size: =0
                             Text: =ThisItem.Value
-                            Width: =1.3999999999999986
+                            Width: =20
                             ZIndex: =1
 
                 dcrLabelSponsorInfo_4 As typedDataCard.blankCard:
@@ -1038,14 +1038,14 @@ screenHome As screen:
 
                         Checkbox3_6 As checkbox:
                             CheckboxSize: =20
-                            Height: =19
+                            Height: =25
                             OnCheck: =Collect(colErrorFilter,ThisItem)
                             OnSelect: =Select(Parent)
                             OnUncheck: =Remove(colErrorFilter,ThisItem)
                             Reset: =ResetCheckbox
                             Size: =0
                             Text: =ThisItem.Value
-                            Width: =1.3999999999999986
+                            Width: =20
                             ZIndex: =1
 
                 dcrSponsor_4 As typedDataCard.comboBoxEditCard:
@@ -1118,14 +1118,14 @@ screenHome As screen:
 
                         Checkbox3_4 As checkbox:
                             CheckboxSize: =20
-                            Height: =19
+                            Height: =25
                             OnCheck: =Collect(colErrorFilter,ThisItem)
                             OnSelect: =Select(Parent)
                             OnUncheck: =Remove(colErrorFilter,ThisItem)
                             Reset: =ResetCheckbox
                             Size: =0
                             Text: =ThisItem.Value
-                            Width: =1.3999999999999986
+                            Width: =20
                             ZIndex: =1
 
                 dcrAltSponsor_4 As typedDataCard.comboBoxEditCard:
@@ -1196,14 +1196,14 @@ screenHome As screen:
 
                         Checkbox3_5 As checkbox:
                             CheckboxSize: =20
-                            Height: =19
+                            Height: =25
                             OnCheck: =Collect(colErrorFilter,ThisItem)
                             OnSelect: =Select(Parent)
                             OnUncheck: =Remove(colErrorFilter,ThisItem)
                             Reset: =ResetCheckbox
                             Size: =0
                             Text: =ThisItem.Value
-                            Width: =1.3999999999999986
+                            Width: =20
                             ZIndex: =1
 
                 dcrLabelVisitorInfo_4 As typedDataCard.blankCard:
@@ -1297,14 +1297,14 @@ screenHome As screen:
 
                         Checkbox3_7 As checkbox:
                             CheckboxSize: =20
-                            Height: =19
+                            Height: =25
                             OnCheck: =Collect(colErrorFilter,ThisItem)
                             OnSelect: =Select(Parent)
                             OnUncheck: =Remove(colErrorFilter,ThisItem)
                             Reset: =ResetCheckbox
                             Size: =0
                             Text: =ThisItem.Value
-                            Width: =1.3999999999999986
+                            Width: =20
                             ZIndex: =1
 
                 dcrMiddleName_4 As typedDataCard.textualEditCard:
@@ -1378,14 +1378,14 @@ screenHome As screen:
 
                         Checkbox3_8 As checkbox:
                             CheckboxSize: =20
-                            Height: =19
+                            Height: =25
                             OnCheck: =Collect(colErrorFilter,ThisItem)
                             OnSelect: =Select(Parent)
                             OnUncheck: =Remove(colErrorFilter,ThisItem)
                             Reset: =ResetCheckbox
                             Size: =0
                             Text: =ThisItem.Value
-                            Width: =1.3999999999999986
+                            Width: =20
                             ZIndex: =1
 
                 dcrLastName_4 As typedDataCard.textualEditCard:
@@ -1460,14 +1460,14 @@ screenHome As screen:
 
                         Checkbox3_9 As checkbox:
                             CheckboxSize: =20
-                            Height: =19
+                            Height: =25
                             OnCheck: =Collect(colErrorFilter,ThisItem)
                             OnSelect: =Select(Parent)
                             OnUncheck: =Remove(colErrorFilter,ThisItem)
                             Reset: =ResetCheckbox
                             Size: =0
                             Text: =ThisItem.Value
-                            Width: =1.3999999999999986
+                            Width: =20
                             ZIndex: =1
 
                 dcrEmail_4 As typedDataCard.textualEditCard:
@@ -1540,14 +1540,14 @@ screenHome As screen:
 
                         Checkbox3_10 As checkbox:
                             CheckboxSize: =20
-                            Height: =19
+                            Height: =25
                             OnCheck: =Collect(colErrorFilter,ThisItem)
                             OnSelect: =Select(Parent)
                             OnUncheck: =Remove(colErrorFilter,ThisItem)
                             Reset: =ResetCheckbox
                             Size: =0
                             Text: =ThisItem.Value
-                            Width: =1.3999999999999986
+                            Width: =20
                             ZIndex: =1
 
                 dcrOrganization_4 As typedDataCard.textualEditCard:
@@ -1623,14 +1623,14 @@ screenHome As screen:
 
                         Checkbox3_11 As checkbox:
                             CheckboxSize: =20
-                            Height: =19
+                            Height: =25
                             OnCheck: =Collect(colErrorFilter,ThisItem)
                             OnSelect: =Select(Parent)
                             OnUncheck: =Remove(colErrorFilter,ThisItem)
                             Reset: =ResetCheckbox
                             Size: =0
                             Text: =ThisItem.Value
-                            Width: =1.3999999999999986
+                            Width: =20
                             ZIndex: =1
 
                 dcrOrganizationPhone_4 As typedDataCard.textualEditCard:
@@ -1705,14 +1705,14 @@ screenHome As screen:
 
                         Checkbox3_12 As checkbox:
                             CheckboxSize: =20
-                            Height: =19
+                            Height: =25
                             OnCheck: =Collect(colErrorFilter,ThisItem)
                             OnSelect: =Select(Parent)
                             OnUncheck: =Remove(colErrorFilter,ThisItem)
                             Reset: =ResetCheckbox
                             Size: =0
                             Text: =ThisItem.Value
-                            Width: =1.3999999999999986
+                            Width: =20
                             ZIndex: =1
 
                 dcrDaysAWeek_4 As typedDataCard.comboBoxEditCard:
@@ -1782,14 +1782,14 @@ screenHome As screen:
 
                         Checkbox3_13 As checkbox:
                             CheckboxSize: =20
-                            Height: =19
+                            Height: =25
                             OnCheck: =Collect(colErrorFilter,ThisItem)
                             OnSelect: =Select(Parent)
                             OnUncheck: =Remove(colErrorFilter,ThisItem)
                             Reset: =ResetCheckbox
                             Size: =0
                             Text: =ThisItem.Value
-                            Width: =1.3999999999999986
+                            Width: =20
                             ZIndex: =1
 
                 dcrRank_4 As typedDataCard.comboBoxEditCard:
@@ -1859,14 +1859,14 @@ screenHome As screen:
 
                         Checkbox3_14 As checkbox:
                             CheckboxSize: =20
-                            Height: =19
+                            Height: =25
                             OnCheck: =Collect(colErrorFilter,ThisItem)
                             OnSelect: =Select(Parent)
                             OnUncheck: =Remove(colErrorFilter,ThisItem)
                             Reset: =ResetCheckbox
                             Size: =0
                             Text: =ThisItem.Value
-                            Width: =1.3999999999999986
+                            Width: =20
                             ZIndex: =1
 
                 dcrVisitType_4 As typedDataCard.comboBoxEditCard:
@@ -1936,14 +1936,14 @@ screenHome As screen:
 
                         Checkbox3_15 As checkbox:
                             CheckboxSize: =20
-                            Height: =19
+                            Height: =25
                             OnCheck: =Collect(colErrorFilter,ThisItem)
                             OnSelect: =Select(Parent)
                             OnUncheck: =Remove(colErrorFilter,ThisItem)
                             Reset: =ResetCheckbox
                             Size: =0
                             Text: =ThisItem.Value
-                            Width: =1.3999999999999986
+                            Width: =20
                             ZIndex: =1
 
                 dcrAfterHours_4 As typedDataCard.toggleEditCard:
@@ -2018,14 +2018,14 @@ screenHome As screen:
 
                         Checkbox3_16 As checkbox:
                             CheckboxSize: =20
-                            Height: =19
+                            Height: =25
                             OnCheck: =Collect(colErrorFilter,ThisItem)
                             OnSelect: =Select(Parent)
                             OnUncheck: =Remove(colErrorFilter,ThisItem)
                             Reset: =ResetCheckbox
                             Size: =0
                             Text: =ThisItem.Value
-                            Width: =1.3999999999999986
+                            Width: =20
                             ZIndex: =1
 
                 dcrLabelLongTermInfo_4 As typedDataCard.blankCard:
@@ -2123,14 +2123,14 @@ screenHome As screen:
 
                         Checkbox3_17 As checkbox:
                             CheckboxSize: =20
-                            Height: =19
+                            Height: =25
                             OnCheck: =Collect(colErrorFilter,ThisItem)
                             OnSelect: =Select(Parent)
                             OnUncheck: =Remove(colErrorFilter,ThisItem)
                             Reset: =ResetCheckbox
                             Size: =0
                             Text: =ThisItem.Value
-                            Width: =1.3999999999999986
+                            Width: =20
                             ZIndex: =1
 
                 dcrEDIP_4 As typedDataCard.textualEditCard:
@@ -2204,14 +2204,14 @@ screenHome As screen:
 
                         Checkbox3_18 As checkbox:
                             CheckboxSize: =20
-                            Height: =19
+                            Height: =25
                             OnCheck: =Collect(colErrorFilter,ThisItem)
                             OnSelect: =Select(Parent)
                             OnUncheck: =Remove(colErrorFilter,ThisItem)
                             Reset: =ResetCheckbox
                             Size: =0
                             Text: =ThisItem.Value
-                            Width: =1.3999999999999986
+                            Width: =20
                             ZIndex: =1
 
                 dcrSection_4 As typedDataCard.comboBoxEditCard:
@@ -2283,14 +2283,14 @@ screenHome As screen:
 
                         Checkbox3_19 As checkbox:
                             CheckboxSize: =20
-                            Height: =19
+                            Height: =25
                             OnCheck: =Collect(colErrorFilter,ThisItem)
                             OnSelect: =Select(Parent)
                             OnUncheck: =Remove(colErrorFilter,ThisItem)
                             Reset: =ResetCheckbox
                             Size: =0
                             Text: =ThisItem.Value
-                            Width: =1.3999999999999986
+                            Width: =20
                             ZIndex: =1
 
                 dcrACP_4 As typedDataCard.comboBoxEditCard:
@@ -2361,14 +2361,14 @@ screenHome As screen:
 
                         Checkbox3_20 As checkbox:
                             CheckboxSize: =20
-                            Height: =19
+                            Height: =25
                             OnCheck: =Collect(colErrorFilter,ThisItem)
                             OnSelect: =Select(Parent)
                             OnUncheck: =Remove(colErrorFilter,ThisItem)
                             Reset: =ResetCheckbox
                             Size: =0
                             Text: =ThisItem.Value
-                            Width: =1.3999999999999986
+                            Width: =20
                             ZIndex: =1
 
                 dcrCAC_4 As typedDataCard.toggleEditCard:
@@ -2447,14 +2447,14 @@ screenHome As screen:
 
                         Checkbox3_21 As checkbox:
                             CheckboxSize: =20
-                            Height: =19
+                            Height: =25
                             OnCheck: =Collect(colErrorFilter,ThisItem)
                             OnSelect: =Select(Parent)
                             OnUncheck: =Remove(colErrorFilter,ThisItem)
                             Reset: =ResetCheckbox
                             Size: =0
                             Text: =ThisItem.Value
-                            Width: =1.3999999999999986
+                            Width: =20
                             ZIndex: =1
 
             formSecurity As form:
