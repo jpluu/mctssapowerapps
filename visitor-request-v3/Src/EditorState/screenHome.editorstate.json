@@ -33916,7 +33916,14 @@
           "NameMapSourceSchema": "?"
         },
         "FalseHoverFill",
-        "TrueFill",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "RGBA(56, 96, 178, 1)",
+          "InvariantPropertyName": "TrueFill",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "TrueHoverFill",
         {
           "AFDDataSourceName": "",

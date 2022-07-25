@@ -726,7 +726,7 @@ screenHome As screen:
                             VisitorRequest,
                             LookUp(
                                 VisitorRequest,
-                                Title = formData.Title
+                                Title = formData.Identifier
                             ),
                             {Approved: {Value: "Approved"}}
                         );
@@ -3324,9 +3324,11 @@ screenHome As screen:
                         Color: =If("After Hours Acess Required" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
                         Default: =Parent.Default
                         DisplayMode: =Parent.DisplayMode
+                        FalseFill: =If("Type of Visit" in formData.Incorrect.Value, DarkRed, RGBA(128, 130, 133, 1))
                         Height: =dimDataCardValueHeight
                         Size: =dimInputFontSize
                         Tooltip: =Parent.DisplayName
+                        TrueFill: =If("Type of Visit" in formData.Incorrect.Value, DarkRed, RGBA(56, 96, 178, 1) ) //RGBA(0, 0, 0, 1)//RGBA(0, 0, 0, 1)RGBA(56, 96, 178, 1)
                         Width: =Parent.Width - 2 * dimDataCard
                         X: =dimDataCard
                         Y: =dimDataCard
