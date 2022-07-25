@@ -3141,6 +3141,86 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.iconSave.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.iconSave.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 10,
+                  "charOffset": 176,
+                  "snippet": {
+                    "text": "Identifier"
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "screenHome",
+                "type": "screenHome.containerModalSecurity.pageSecurity.iconSave"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Identifier"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint-OpNotSupportedByColumn",
+          "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.iconSave.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.iconSave.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 1,
+                  "charOffset": 187,
+                  "snippet": {
+                    "text": "="
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "screenHome",
+                "type": "screenHome.containerModalSecurity.pageSecurity.iconSave"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "LookUp"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.Button3.OnSelect"
                 }
               ],
@@ -5834,66 +5914,6 @@
                 "member": "TabIndex",
                 "module": "screenHome",
                 "type": "screenHome.containerModalSecurity.pageSecurity.iconEdit"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 8
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.iconSave.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.iconSave.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "screenHome",
-                "type": "screenHome.containerModalSecurity.pageSecurity.iconSave"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 7
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.iconSave.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "screenHome.containerModalSecurity.pageSecurity.iconSave.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "screenHome",
-                "type": "screenHome.containerModalSecurity.pageSecurity.iconSave"
               }
             }
           ],

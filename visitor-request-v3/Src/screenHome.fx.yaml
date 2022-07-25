@@ -730,6 +730,15 @@ screenHome As screen:
                             ),
                             {Approved: {Value: "Approved"}}
                         );
+                        Reset(ComboBoxIncorrect);
+                        Patch(
+                                VisitorRequest,
+                                LookUp(
+                                    VisitorRequest,
+                                    Title = formData.Title
+                                ),
+                                {Incorrect: ComboBoxIncorrect.SelectedItems}
+                            );
                         IsEmpty(Errors(VisitorRequest)),
                         Notify(
                             "Success",
@@ -3672,7 +3681,7 @@ screenHome As screen:
                             VisitorRequest,
                             LookUp(
                                 VisitorRequest,
-                                Title = formData.Title
+                                Identifier = formData.Identifier
                             ),
                             {Approved: {Value: "Pending"}}
                         ));
