@@ -746,6 +746,1698 @@ screenHome As screen:
                 Y: =435
                 ZIndex: =3
 
+            formSecurityIncorrect As form:
+                AcceptsFocus: =true
+                DataSource: =VisitorRequest
+                Height: =Parent.Height - (labelReview_1.Height + dimIcon)
+                Item: =formData/*Patch(dataEventForm, formVisitor.Updates, formLongTerm.Updates)*/
+                OnSuccess: |
+                    =Set(formData, formSecurityIncorrect.LastSubmit);
+                    ViewForm(formSecurityIncorrect);
+                    Notify("Request Approval Page Was Succesfully Saved.", NotificationType.Success);
+                Visible: |
+                    =If(ComboBox1.Selected.Value = "Incorrect Information", true, false)
+                Width: =Parent.Width - 1
+                X: =1
+                Y: =labelReview_1.Height
+                ZIndex: =7
+
+                dcrLabelEventInfo_4 As typedDataCard.blankCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =30
+                    Width: =369
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
+
+                    labelReviewEventInfo_4 As button:
+                        DisplayMode: =DisplayMode.View
+                        Fill: =RGBA(116, 116, 116, 1)
+                        Height: =dimDataCardValueHeight
+                        RadiusBottomLeft: =25
+                        RadiusBottomRight: =25
+                        RadiusTopLeft: =25
+                        RadiusTopRight: =25
+                        Text: ="Event Information"
+                        Width: =Parent.Width
+                        ZIndex: =1
+
+                dcrStartDate_4 As typedDataCard.dateEditCard:
+                    BorderColor: =If(formSecurityIncorrect.Mode = FormMode.Edit && ThisItem.'Visit Start Date' <>dcrvStartDate_4.SelectedDate, Orange,  RGBA(0, 18, 107, 1))
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="VisitStartDate"
+                    Default: =ThisItem.'Visit Start Date'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"VisitStartDate")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =dcrvStartDate_4.SelectedDate
+                    Visible: =true
+                    Width: =369
+                    X: =1
+                    Y: =0
+                    ZIndex: =1
+
+                    dcrkStartDate_4 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvStartDate_4 As datepicker:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =If("Visit Start Date" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) ) //RGBA(0, 0, 0, 1)
+                        DefaultDate: =Parent.Default
+                        DisplayMode: =DisplayMode.Disabled//Parent.DisplayMode
+                        EndYear: =Year(Today())+100
+                        Height: =dimDataCardValueHeight
+                        IsEditable: =true
+                        PaddingLeft: =5
+                        PaddingTop: =5
+                        Size: =dimInputFontSize
+                        StartYear: =1899
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                    Gallery3_2 As gallery.galleryVertical:
+                        Height: =25
+                        Items: =["Visit Start Date"]
+                        Layout: =Layout.Vertical
+                        ShowScrollbar: =false
+                        TemplatePadding: =3
+                        TemplateSize: =19
+                        Visible: =If(ComboBox1.Selected.Value = "Incorrect Information" && isSecurity, true)
+                        Width: =25
+                        WrapCount: =5
+                        X: =110
+                        Y: =35
+                        ZIndex: =4
+
+                        Checkbox3_2 As checkbox:
+                            CheckboxSize: =20
+                            Height: =19
+                            OnCheck: =Collect(colErrorFilter,ThisItem)
+                            OnSelect: =Select(Parent)
+                            OnUncheck: =Remove(colErrorFilter,ThisItem)
+                            Reset: =ResetCheckbox
+                            Size: =0
+                            Text: =ThisItem.Value
+                            Width: =1.3999999999999986
+                            ZIndex: =1
+
+                dcrEndDate_4 As typedDataCard.dateEditCard:
+                    BorderColor: =If(formSecurityIncorrect.Mode = FormMode.Edit && ThisItem.'Visit End Date' <>dcrvEndDate_4.SelectedDate, Orange,  RGBA(0, 18, 107, 1))
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="VisitEndDate"
+                    Default: =ThisItem.'Visit End Date'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"VisitEndDate")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =dcrvEndDate_4.SelectedDate
+                    Width: =369
+                    X: =2
+                    Y: =0
+                    ZIndex: =1
+
+                    dcrkEndDate_4 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvEndDate_4 As datepicker:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =If("Visit End Date" in formData.Incorrect.Value , DarkRed, RGBA(0, 0, 0, 1) ) //RGBA(0, 0, 0, 1)
+                        DefaultDate: =Parent.Default
+                        DisplayMode: =DisplayMode.Disabled
+                        EndYear: =Year(Today())+100
+                        Height: =dimDataCardValueHeight
+                        IsEditable: =true
+                        PaddingLeft: =5
+                        PaddingTop: =5
+                        Size: =dimInputFontSize
+                        StartYear: =1899
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                    Gallery3_3 As gallery.galleryVertical:
+                        Height: =25
+                        Items: =["Visit End Date"]
+                        Layout: =Layout.Vertical
+                        ShowScrollbar: =false
+                        TemplatePadding: =3
+                        TemplateSize: =19
+                        Visible: =If(ComboBox1.Selected.Value = "Incorrect Information" && isSecurity, true)
+                        Width: =25
+                        WrapCount: =5
+                        X: =100
+                        Y: =35
+                        ZIndex: =3
+
+                        Checkbox3_3 As checkbox:
+                            CheckboxSize: =20
+                            Height: =19
+                            OnCheck: =Collect(colErrorFilter,ThisItem)
+                            OnSelect: =Select(Parent)
+                            OnUncheck: =Remove(colErrorFilter,ThisItem)
+                            Reset: =ResetCheckbox
+                            Size: =0
+                            Text: =ThisItem.Value
+                            Width: =1.3999999999999986
+                            ZIndex: =1
+
+                dcrLabelSponsorInfo_4 As typedDataCard.blankCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: |
+                        =30
+                    Width: =369
+                    X: =0
+                    Y: =1
+                    ZIndex: =1
+
+                    labelReviewSponsorInfo_4 As button:
+                        DisplayMode: =DisplayMode.View
+                        Fill: =RGBA(116, 116, 116, 1)
+                        Height: =dimDataCardValueHeight
+                        RadiusBottomLeft: =25
+                        RadiusBottomRight: =25
+                        RadiusTopLeft: =25
+                        RadiusTopRight: =25
+                        Text: ="Sponsor Information"
+                        Width: =Parent.Width
+                        ZIndex: =1
+
+                dcrSponsor_4 As typedDataCard.comboBoxEditCard:
+                    BorderColor: |
+                        =
+                        
+                        If(formSecurityIncorrect.Mode = FormMode.Edit && ThisItem.Sponsor.DisplayName <> dcrvSponsor_4.Selected.DisplayName, Orange, RGBA(0, 18, 107, 1))
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Sponsor"
+                    Default: =ThisItem.Sponsor
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"Sponsor")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =dcrvSponsor_4.Selected
+                    Width: =369
+                    X: =1
+                    Y: =1
+                    ZIndex: =1
+
+                    dcrkSponsor_4 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvSponsor_4 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =RGBA(0, 0, 0, 1) 
+                        DefaultSelectedItems: =Parent.Default
+                        DisplayFields: =["DisplayName","Email","Picture"]
+                        DisplayMode: =DisplayMode.Disabled
+                        Height: =dimDataCardValueHeight
+                        HoverColor: =If("Sponsor" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) ) //RGBA(0, 0, 0, 1)//RGBA(0, 0, 0, 1)
+                        Items: =Choices([@VisitorRequest].Sponsor)
+                        SearchFields: =["DisplayName"]
+                        SearchItems: =Choices(VisitorRequest.Sponsor,dcrvSponsor_4.SearchText)
+                        SelectMultiple: =false
+                        Size: =dimInputFontSize
+                        Template: =ListItemTemplate.Person
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                    Gallery3_4 As gallery.galleryVertical:
+                        Height: =25
+                        Items: =["Sponsor"]
+                        Layout: =Layout.Vertical
+                        ShowScrollbar: =false
+                        TemplatePadding: =3
+                        TemplateSize: =19
+                        Visible: =If(ComboBox1.Selected.Value = "Incorrect Information" && isSecurity, true)
+                        Width: =25
+                        WrapCount: =5
+                        X: =65
+                        Y: =35
+                        ZIndex: =3
+
+                        Checkbox3_4 As checkbox:
+                            CheckboxSize: =20
+                            Height: =19
+                            OnCheck: =Collect(colErrorFilter,ThisItem)
+                            OnSelect: =Select(Parent)
+                            OnUncheck: =Remove(colErrorFilter,ThisItem)
+                            Reset: =ResetCheckbox
+                            Size: =0
+                            Text: =ThisItem.Value
+                            Width: =1.3999999999999986
+                            ZIndex: =1
+
+                dcrAltSponsor_4 As typedDataCard.comboBoxEditCard:
+                    BorderColor: |
+                        =If(formSecurityIncorrect.Mode = FormMode.Edit && ThisItem.'Alternate Sponsor'.DisplayName <> dcrvAltSponsor_4.Selected.DisplayName, Orange, RGBA(0, 18, 107, 1))
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="AlternateSponsor"
+                    Default: =ThisItem.'Alternate Sponsor'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"AlternateSponsor")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =dcrvAltSponsor_4.Selected
+                    Width: =369
+                    X: =2
+                    Y: =1
+                    ZIndex: =1
+
+                    dcrkAltSponsor_4 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvAltSponsor_4 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =If("Alternate Sponsor" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
+                        DefaultSelectedItems: =Parent.Default
+                        DisplayFields: =["DisplayName","Email","Picture"]
+                        DisplayMode: =DisplayMode.Disabled
+                        Height: =dimDataCardValueHeight
+                        HoverColor: =If("Alternate Sponsor" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) ) //RGBA(0, 0, 0, 1)//RGBA(0, 0, 0, 1)
+                        Items: =Choices([@VisitorRequest].'Alternate Sponsor')
+                        SearchFields: =["DisplayName"]
+                        SearchItems: =Choices(VisitorRequest.'Alternate Sponsor',dcrvAltSponsor_4.SearchText)
+                        SelectMultiple: =false
+                        Size: =dimInputFontSize
+                        Template: =ListItemTemplate.Person
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                    Gallery3_5 As gallery.galleryVertical:
+                        Height: =25
+                        Items: =["Alternate Sponsor"]
+                        Layout: =Layout.Vertical
+                        ShowScrollbar: =false
+                        TemplatePadding: =3
+                        TemplateSize: =19
+                        Visible: =If(ComboBox1.Selected.Value = "Incorrect Information" && isSecurity, true)
+                        Width: =25
+                        WrapCount: =5
+                        X: =130
+                        Y: =35
+                        ZIndex: =3
+
+                        Checkbox3_5 As checkbox:
+                            CheckboxSize: =20
+                            Height: =19
+                            OnCheck: =Collect(colErrorFilter,ThisItem)
+                            OnSelect: =Select(Parent)
+                            OnUncheck: =Remove(colErrorFilter,ThisItem)
+                            Reset: =ResetCheckbox
+                            Size: =0
+                            Text: =ThisItem.Value
+                            Width: =1.3999999999999986
+                            ZIndex: =1
+
+                dcrSponsorPhone_4 As typedDataCard.textualEditCard:
+                    BorderColor: =If(formSecurityIncorrect.Mode = FormMode.Edit &&ThisItem.'Sponsor Phone Number'<>dcrvSponsorPhone_4.Text, Orange, RGBA(0, 18, 107, 1))
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Phone_x0020_Number"
+                    Default: =ThisItem.'Sponsor Phone Number'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"Phone_x0020_Number")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@VisitorRequest], DataSourceInfo.MaxLength, "Phone_x0020_Number")
+                    Required: =false
+                    Update: =dcrvSponsorPhone_4.Text
+                    Width: =369
+                    X: =0
+                    Y: =2
+                    ZIndex: =1
+
+                    dcrkSponsorPhone_4 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvSponsorPhone_4 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =If("Sponsor Phone Number" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisplayMode: =DisplayMode.Disabled
+                        Height: =dimDataCardValueHeight
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =dimInputFontSize
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                    Gallery3_6 As gallery.galleryVertical:
+                        Height: =25
+                        Items: =["Sponsor Phone Number"]
+                        Layout: =Layout.Vertical
+                        ShowScrollbar: =false
+                        TemplatePadding: =3
+                        TemplateSize: =19
+                        Visible: =If(ComboBox1.Selected.Value = "Incorrect Information" && isSecurity, true)
+                        Width: =25
+                        WrapCount: =5
+                        X: =165
+                        Y: =35
+                        ZIndex: =3
+
+                        Checkbox3_6 As checkbox:
+                            CheckboxSize: =20
+                            Height: =19
+                            OnCheck: =Collect(colErrorFilter,ThisItem)
+                            OnSelect: =Select(Parent)
+                            OnUncheck: =Remove(colErrorFilter,ThisItem)
+                            Reset: =ResetCheckbox
+                            Size: =0
+                            Text: =ThisItem.Value
+                            Width: =1.3999999999999986
+                            ZIndex: =1
+
+                dcrLabelVisitorInfo_4 As typedDataCard.blankCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: |
+                        =30
+                    Width: =369
+                    X: =1
+                    Y: =2
+                    ZIndex: =1
+
+                    labelReviewVisitorInfo_8 As button:
+                        DisplayMode: =DisplayMode.View
+                        Fill: =RGBA(116, 116, 116, 1)
+                        Height: =dimDataCardValueHeight
+                        RadiusBottomLeft: =25
+                        RadiusBottomRight: =25
+                        RadiusTopLeft: =25
+                        RadiusTopRight: =25
+                        Text: ="Visitor Information"
+                        Width: =Parent.Width
+                        ZIndex: =1
+
+                dcrFirstName_4 As typedDataCard.textualEditCard:
+                    BorderColor: =If(formSecurityIncorrect.Mode = FormMode.Edit &&ThisItem.'First Name'<> dcrvFirstName_4.Text, Orange, RGBA(0, 18, 107, 1))
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="FirstName"
+                    Default: =ThisItem.'First Name'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"FirstName")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@VisitorRequest], DataSourceInfo.MaxLength, "FirstName")
+                    Required: =false
+                    Update: =dcrvFirstName_4.Text
+                    Width: =369
+                    X: =2
+                    Y: =2
+                    ZIndex: =1
+
+                    dcrkFirstName_4 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvFirstName_4 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =If("First Name" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisplayMode: =DisplayMode.Disabled
+                        Height: =dimDataCardValueHeight
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =dimInputFontSize
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                    Gallery3_7 As gallery.galleryVertical:
+                        Height: =25
+                        Items: =["First Name"]
+                        Layout: =Layout.Vertical
+                        ShowScrollbar: =false
+                        TemplatePadding: =3
+                        TemplateSize: =19
+                        Visible: =If(ComboBox1.Selected.Value = "Incorrect Information" && isSecurity, true)
+                        Width: =25
+                        WrapCount: =5
+                        X: =80
+                        Y: =35
+                        ZIndex: =3
+
+                        Checkbox3_7 As checkbox:
+                            CheckboxSize: =20
+                            Height: =19
+                            OnCheck: =Collect(colErrorFilter,ThisItem)
+                            OnSelect: =Select(Parent)
+                            OnUncheck: =Remove(colErrorFilter,ThisItem)
+                            Reset: =ResetCheckbox
+                            Size: =0
+                            Text: =ThisItem.Value
+                            Width: =1.3999999999999986
+                            ZIndex: =1
+
+                dcrMiddleName_4 As typedDataCard.textualEditCard:
+                    BorderColor: |+
+                        =If(IsBlank(dcrvMiddleName_4.Text),RGBA(0, 18, 107, 1), If(formSecurityIncorrect.Mode = FormMode.Edit &&ThisItem.'Middle Name'<> dcrvMiddleName_4.Text, Orange, RGBA(0, 18, 107, 1)))
+                        
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="MiddleName"
+                    Default: =ThisItem.'Middle Name'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"MiddleName")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@VisitorRequest], DataSourceInfo.MaxLength, "MiddleName")
+                    Required: =false
+                    Update: =dcrvMiddleName_4.Text
+                    Width: =369
+                    X: =0
+                    Y: =3
+                    ZIndex: =1
+
+                    dcrkMiddleName_4 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvMiddleName_4 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =If("Middle Name" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisplayMode: =DisplayMode.Disabled
+                        Height: =dimDataCardValueHeight
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =dimInputFontSize
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                    Gallery3_8 As gallery.galleryVertical:
+                        Height: =25
+                        Items: =["Middle Name"]
+                        Layout: =Layout.Vertical
+                        ShowScrollbar: =false
+                        TemplatePadding: =3
+                        TemplateSize: =19
+                        Visible: =If(ComboBox1.Selected.Value = "Incorrect Information" && isSecurity, true)
+                        Width: =25
+                        WrapCount: =5
+                        X: =100
+                        Y: =35
+                        ZIndex: =3
+
+                        Checkbox3_8 As checkbox:
+                            CheckboxSize: =20
+                            Height: =19
+                            OnCheck: =Collect(colErrorFilter,ThisItem)
+                            OnSelect: =Select(Parent)
+                            OnUncheck: =Remove(colErrorFilter,ThisItem)
+                            Reset: =ResetCheckbox
+                            Size: =0
+                            Text: =ThisItem.Value
+                            Width: =1.3999999999999986
+                            ZIndex: =1
+
+                dcrLastName_4 As typedDataCard.textualEditCard:
+                    BorderColor: |+
+                        =If(formSecurityIncorrect.Mode = FormMode.Edit &&ThisItem.'Last Name'<> dcrvLastName_4.Text, Orange, RGBA(0, 18, 107, 1))
+                        
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="LastName"
+                    Default: =ThisItem.'Last Name'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"LastName")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@VisitorRequest], DataSourceInfo.MaxLength, "LastName")
+                    Required: =false
+                    Update: =dcrvLastName_4.Text
+                    Width: =369
+                    X: =1
+                    Y: =3
+                    ZIndex: =1
+
+                    dcrkLastName_4 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvLastName_4 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =If("Last Name" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisplayMode: =DisplayMode.Disabled
+                        Height: =dimDataCardValueHeight
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =dimInputFontSize
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                    Gallery3_9 As gallery.galleryVertical:
+                        Height: =25
+                        Items: =["Last Name"]
+                        Layout: =Layout.Vertical
+                        ShowScrollbar: =false
+                        TemplatePadding: =3
+                        TemplateSize: =19
+                        Visible: =If(ComboBox1.Selected.Value = "Incorrect Information" && isSecurity, true)
+                        Width: =25
+                        WrapCount: =5
+                        X: =80
+                        Y: =35
+                        ZIndex: =3
+
+                        Checkbox3_9 As checkbox:
+                            CheckboxSize: =20
+                            Height: =19
+                            OnCheck: =Collect(colErrorFilter,ThisItem)
+                            OnSelect: =Select(Parent)
+                            OnUncheck: =Remove(colErrorFilter,ThisItem)
+                            Reset: =ResetCheckbox
+                            Size: =0
+                            Text: =ThisItem.Value
+                            Width: =1.3999999999999986
+                            ZIndex: =1
+
+                dcrEmail_4 As typedDataCard.textualEditCard:
+                    BorderColor: |+
+                        =If(IsBlank(dcrvEmail_4.Text),RGBA(0, 18, 107, 1), If(formSecurityIncorrect.Mode = FormMode.Edit &&ThisItem.Email<> dcrvEmail_4.Text, Orange, RGBA(0, 18, 107, 1)))
+                        
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Email"
+                    Default: =ThisItem.Email
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"Email")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@VisitorRequest], DataSourceInfo.MaxLength, "Email")
+                    Required: =false
+                    Update: =dcrvEmail_4.Text
+                    Width: =369
+                    X: =2
+                    Y: =3
+                    ZIndex: =1
+
+                    dcrkEmail_4 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvEmail_4 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =If("Email" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisplayMode: =DisplayMode.Disabled
+                        Height: =dimDataCardValueHeight
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =dimInputFontSize
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                    Gallery3_10 As gallery.galleryVertical:
+                        Height: =25
+                        Items: =["Email"]
+                        Layout: =Layout.Vertical
+                        ShowScrollbar: =false
+                        TemplatePadding: =3
+                        TemplateSize: =19
+                        Visible: =If(ComboBox1.Selected.Value = "Incorrect Information" && isSecurity, true)
+                        Width: =25
+                        WrapCount: =5
+                        X: =48
+                        Y: =35
+                        ZIndex: =3
+
+                        Checkbox3_10 As checkbox:
+                            CheckboxSize: =20
+                            Height: =19
+                            OnCheck: =Collect(colErrorFilter,ThisItem)
+                            OnSelect: =Select(Parent)
+                            OnUncheck: =Remove(colErrorFilter,ThisItem)
+                            Reset: =ResetCheckbox
+                            Size: =0
+                            Text: =ThisItem.Value
+                            Width: =1.3999999999999986
+                            ZIndex: =1
+
+                dcrOrganization_4 As typedDataCard.textualEditCard:
+                    BorderColor: |+
+                        =If(formSecurityIncorrect.Mode = FormMode.Edit &&ThisItem.'Company/Organization'<> dcrvOrganization_4.Text, Orange, RGBA(0, 18, 107, 1))
+                        
+                        
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Company_x002f_Organization"
+                    Default: =ThisItem.'Company/Organization'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"Company_x002f_Organization")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@VisitorRequest], DataSourceInfo.MaxLength, "Company_x002f_Organization")
+                    Required: =false
+                    Update: =dcrvOrganization_4.Text
+                    Width: =369
+                    X: =0
+                    Y: =4
+                    ZIndex: =1
+
+                    dcrkOrganization_4 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvOrganization_4 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =If("Company/Organization" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisplayMode: =DisplayMode.Disabled
+                        Height: =dimDataCardValueHeight
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =dimInputFontSize
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                    Gallery3_11 As gallery.galleryVertical:
+                        Height: =25
+                        Items: =["Company/Organization"]
+                        Layout: =Layout.Vertical
+                        ShowScrollbar: =false
+                        TemplatePadding: =3
+                        TemplateSize: =19
+                        Visible: =If(ComboBox1.Selected.Value = "Incorrect Information" && isSecurity, true)
+                        Width: =25
+                        WrapCount: =5
+                        X: =160
+                        Y: =35
+                        ZIndex: =3
+
+                        Checkbox3_11 As checkbox:
+                            CheckboxSize: =20
+                            Height: =19
+                            OnCheck: =Collect(colErrorFilter,ThisItem)
+                            OnSelect: =Select(Parent)
+                            OnUncheck: =Remove(colErrorFilter,ThisItem)
+                            Reset: =ResetCheckbox
+                            Size: =0
+                            Text: =ThisItem.Value
+                            Width: =1.3999999999999986
+                            ZIndex: =1
+
+                dcrOrganizationPhone_4 As typedDataCard.textualEditCard:
+                    BorderColor: |+
+                        =If(IsBlank(dcrvOrganizationPhone_4.Text),RGBA(0, 18, 107, 1), If(formSecurityIncorrect.Mode = FormMode.Edit &&ThisItem.'Company/Organization Phone Number'<> dcrvOrganizationPhone_4.Text, Orange, RGBA(0, 18, 107, 1)))
+                        
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Company_x002f_OrganizationPhoneN"
+                    Default: =ThisItem.'Company/Organization Phone Number'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"Company_x002f_OrganizationPhoneN")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@VisitorRequest], DataSourceInfo.MaxLength, "Company_x002f_OrganizationPhoneN")
+                    Required: =false
+                    Update: =dcrvOrganizationPhone_4.Text
+                    Width: =369
+                    X: =1
+                    Y: =4
+                    ZIndex: =1
+
+                    dcrkOrganizationPhone_4 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvOrganizationPhone_4 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =If("Company/Organization Phone Number" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisplayMode: =DisplayMode.Disabled
+                        Height: =dimDataCardValueHeight
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =dimInputFontSize
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                    Gallery3_12 As gallery.galleryVertical:
+                        Height: =25
+                        Items: =["Company/Organization Phone Number"]
+                        Layout: =Layout.Vertical
+                        ShowScrollbar: =false
+                        TemplatePadding: =3
+                        TemplateSize: =19
+                        Visible: =If(ComboBox1.Selected.Value = "Incorrect Information" && isSecurity, true)
+                        Width: =25
+                        WrapCount: =5
+                        X: =265
+                        Y: =35
+                        ZIndex: =3
+
+                        Checkbox3_12 As checkbox:
+                            CheckboxSize: =20
+                            Height: =19
+                            OnCheck: =Collect(colErrorFilter,ThisItem)
+                            OnSelect: =Select(Parent)
+                            OnUncheck: =Remove(colErrorFilter,ThisItem)
+                            Reset: =ResetCheckbox
+                            Size: =0
+                            Text: =ThisItem.Value
+                            Width: =1.3999999999999986
+                            ZIndex: =1
+
+                dcrDaysAWeek_4 As typedDataCard.comboBoxEditCard:
+                    BorderColor: =If(formSecurityIncorrect.Mode = FormMode.Edit &&ThisItem.'Days a Week Working at MCTSSA'.Value<> dcrvDaysAWeek_4.Selected.Value, Orange, RGBA(0, 18, 107, 1))
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="DaysaWeekWorkingatMCTSSA"
+                    Default: =ThisItem.'Days a Week Working at MCTSSA'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"DaysaWeekWorkingatMCTSSA")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =dcrvDaysAWeek_4.Selected
+                    Width: =369
+                    X: =2
+                    Y: =4
+                    ZIndex: =1
+
+                    dcrkDaysAWeek_4 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvDaysAWeek_4 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =If("Days a Week Working at MCTSSA" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
+                        DefaultSelectedItems: =Parent.Default
+                        DisplayFields: =["Value"]
+                        DisplayMode: =DisplayMode.Disabled
+                        Height: =dimDataCardValueHeight
+                        HoverColor: =If("Days a Week Working at MCTSSA" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) ) //RGBA(0, 0, 0, 1)//RGBA(0, 0, 0, 1)
+                        Items: =Choices([@VisitorRequest].'Days a Week Working at MCTSSA')
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        SearchFields: =["Value"]
+                        SearchItems: =Choices(VisitorRequest.'Days a Week Working at MCTSSA',dcrvDaysAWeek_4.SearchText)
+                        SelectMultiple: =false
+                        Size: =dimInputFontSize
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                    Gallery3_13 As gallery.galleryVertical:
+                        Height: =25
+                        Items: =["Days a Week Working at MCTSSA"]
+                        Layout: =Layout.Vertical
+                        ShowScrollbar: =false
+                        TemplatePadding: =3
+                        TemplateSize: =19
+                        Visible: =If(ComboBox1.Selected.Value = "Incorrect Information" && isSecurity, true)
+                        Width: =25
+                        WrapCount: =5
+                        X: =225
+                        Y: =35
+                        ZIndex: =3
+
+                        Checkbox3_13 As checkbox:
+                            CheckboxSize: =20
+                            Height: =19
+                            OnCheck: =Collect(colErrorFilter,ThisItem)
+                            OnSelect: =Select(Parent)
+                            OnUncheck: =Remove(colErrorFilter,ThisItem)
+                            Reset: =ResetCheckbox
+                            Size: =0
+                            Text: =ThisItem.Value
+                            Width: =1.3999999999999986
+                            ZIndex: =1
+
+                dcrRank_4 As typedDataCard.comboBoxEditCard:
+                    BorderColor: =If(formSecurityIncorrect.Mode = FormMode.Edit &&ThisItem.'Rank/Grade'.Value<> dcrvRank_4.Selected.Value, Orange, RGBA(0, 18, 107, 1))
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Rank_x002f_Grade"
+                    Default: =ThisItem.'Rank/Grade'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"Rank_x002f_Grade")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =dcrvRank_4.Selected
+                    Width: =369
+                    X: =0
+                    Y: =5
+                    ZIndex: =1
+
+                    dcrkRank_4 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvRank_4 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =If("Rank/Grade" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
+                        DefaultSelectedItems: =Parent.Default
+                        DisplayFields: =["Value"]
+                        DisplayMode: =DisplayMode.Disabled
+                        Height: =dimDataCardValueHeight
+                        HoverColor: =If("Rank/Grade" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) ) //RGBA(0, 0, 0, 1)//RGBA(0, 0, 0, 1)
+                        Items: =Choices([@VisitorRequest].'Rank/Grade')
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        SearchFields: =["Value"]
+                        SearchItems: =Choices(VisitorRequest.'Rank/Grade',dcrvRank_4.SearchText)
+                        SelectMultiple: =false
+                        Size: =dimInputFontSize
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                    Gallery3_14 As gallery.galleryVertical:
+                        Height: =25
+                        Items: =["Rank/Grade"]
+                        Layout: =Layout.Vertical
+                        ShowScrollbar: =false
+                        TemplatePadding: =3
+                        TemplateSize: =19
+                        Visible: =If(ComboBox1.Selected.Value = "Incorrect Information" && isSecurity, true)
+                        Width: =25
+                        WrapCount: =5
+                        X: =90
+                        Y: =35
+                        ZIndex: =3
+
+                        Checkbox3_14 As checkbox:
+                            CheckboxSize: =20
+                            Height: =19
+                            OnCheck: =Collect(colErrorFilter,ThisItem)
+                            OnSelect: =Select(Parent)
+                            OnUncheck: =Remove(colErrorFilter,ThisItem)
+                            Reset: =ResetCheckbox
+                            Size: =0
+                            Text: =ThisItem.Value
+                            Width: =1.3999999999999986
+                            ZIndex: =1
+
+                dcrVisitType_4 As typedDataCard.comboBoxEditCard:
+                    BorderColor: =If(formSecurityIncorrect.Mode = FormMode.Edit &&ThisItem.'Type of Visit'.Value<> dcrvVisitType_4.Selected.Value, Orange, RGBA(0, 18, 107, 1))
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="TypeofVisit"
+                    Default: =ThisItem.'Type of Visit'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"TypeofVisit")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =dcrvVisitType_4.Selected
+                    Width: =369
+                    X: =1
+                    Y: =5
+                    ZIndex: =1
+
+                    dcrkVisitType_4 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvVisitType_4 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =If("Type of Visit" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
+                        DefaultSelectedItems: =Parent.Default
+                        DisplayFields: =["Value"]
+                        DisplayMode: =DisplayMode.Disabled
+                        Height: =dimDataCardValueHeight
+                        HoverColor: =If("Type of Visit" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) ) //RGBA(0, 0, 0, 1)//RGBA(0, 0, 0, 1)
+                        Items: =Choices([@VisitorRequest].'Type of Visit')
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        SearchFields: =["Value"]
+                        SearchItems: =Choices(VisitorRequest.'Type of Visit',dcrvVisitType_4.SearchText)
+                        SelectMultiple: =false
+                        Size: =dimInputFontSize
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                    Gallery3_15 As gallery.galleryVertical:
+                        Height: =25
+                        Items: =["Type of Visit"]
+                        Layout: =Layout.Vertical
+                        ShowScrollbar: =false
+                        TemplatePadding: =3
+                        TemplateSize: =19
+                        Visible: =If(ComboBox1.Selected.Value = "Incorrect Information" && isSecurity, true)
+                        Width: =25
+                        WrapCount: =5
+                        X: =95
+                        Y: =35
+                        ZIndex: =3
+
+                        Checkbox3_15 As checkbox:
+                            CheckboxSize: =20
+                            Height: =19
+                            OnCheck: =Collect(colErrorFilter,ThisItem)
+                            OnSelect: =Select(Parent)
+                            OnUncheck: =Remove(colErrorFilter,ThisItem)
+                            Reset: =ResetCheckbox
+                            Size: =0
+                            Text: =ThisItem.Value
+                            Width: =1.3999999999999986
+                            ZIndex: =1
+
+                dcrAfterHours_4 As typedDataCard.toggleEditCard:
+                    BorderColor: |
+                        =If(formSecurityIncorrect.Mode = FormMode.Edit && ThisItem.'After Hours Access Required'<> dcrvAfterHours_4.Value, Orange, RGBA(0, 18, 107, 1))
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="After_x0020_Hours_x0020_Access_x"
+                    Default: =ThisItem.'After Hours Access Required'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"After_x0020_Hours_x0020_Access_x")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =55
+                    Required: =false
+                    Update: =dcrvAfterHours_4.Value
+                    Width: =369
+                    X: =2
+                    Y: =5
+                    ZIndex: =1
+
+                    dcrrAfterHours_5 As rectangle:
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Height: =dcrvAfterHours_4.Height
+                        Width: =dcrvAfterHours_4.Width
+                        X: =dcrvAfterHours_4.X
+                        Y: =dcrvAfterHours_4.Y
+                        ZIndex: =1
+
+                    dcrkAfterHours_4 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =2
+
+                    dcrvAfterHours_4 As toggleSwitch:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        BorderThickness: =2
+                        Color: =If("After Hours Acess Required" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
+                        Default: =Parent.Default
+                        DisplayMode: =DisplayMode.Disabled
+                        FalseFill: =If("Type of Visit" in formData.Incorrect.Value, DarkRed, RGBA(128, 130, 133, 1))
+                        Height: =dimDataCardValueHeight
+                        Size: =dimInputFontSize
+                        Tooltip: =Parent.DisplayName
+                        TrueFill: =If("Type of Visit" in formData.Incorrect.Value, DarkRed, RGBA(56, 96, 178, 1) ) //RGBA(0, 0, 0, 1)//RGBA(0, 0, 0, 1)RGBA(56, 96, 178, 1)
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =3
+
+                    Gallery3_16 As gallery.galleryVertical:
+                        Height: =25
+                        Items: =["After Hours Access Required"]
+                        Layout: =Layout.Vertical
+                        ShowScrollbar: =false
+                        TemplatePadding: =3
+                        TemplateSize: =19
+                        Visible: =If(ComboBox1.Selected.Value = "Incorrect Information" && isSecurity, true)
+                        Width: =25
+                        WrapCount: =5
+                        X: =200
+                        Y: =35
+                        ZIndex: =4
+
+                        Checkbox3_16 As checkbox:
+                            CheckboxSize: =20
+                            Height: =19
+                            OnCheck: =Collect(colErrorFilter,ThisItem)
+                            OnSelect: =Select(Parent)
+                            OnUncheck: =Remove(colErrorFilter,ThisItem)
+                            Reset: =ResetCheckbox
+                            Size: =0
+                            Text: =ThisItem.Value
+                            Width: =1.3999999999999986
+                            ZIndex: =1
+
+                dcrLabelLongTermInfo_4 As typedDataCard.blankCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DisplayMode: =DisplayMode.Edit
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: |
+                        =30
+                    Visible: =isLongTerm
+                    Width: =369
+                    X: =0
+                    Y: =6
+                    ZIndex: =1
+
+                    labelReviewVisitorInfo_9 As button:
+                        DisplayMode: =DisplayMode.View
+                        Fill: =RGBA(116, 116, 116, 1)
+                        Height: =dimDataCardValueHeight
+                        RadiusBottomLeft: =25
+                        RadiusBottomRight: =25
+                        RadiusTopLeft: =25
+                        RadiusTopRight: =25
+                        Text: ="Long Term Information"
+                        Width: =Parent.Width
+                        ZIndex: =1
+
+                dcrContractNumber_4 As typedDataCard.textualEditCard:
+                    BorderColor: |+
+                        =If(IsBlank(dcrvContractNumber_4.Text),RGBA(0, 18, 107, 1), If(formSecurityIncorrect.Mode = FormMode.Edit &&ThisItem.'Contract Number'<> dcrvContractNumber_4.Text, Orange, RGBA(0, 18, 107, 1)))
+                        
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="ContractNumber"
+                    Default: =ThisItem.'Contract Number'
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"ContractNumber")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@VisitorRequest], DataSourceInfo.MaxLength, "ContractNumber")
+                    Required: =false
+                    Update: =dcrvContractNumber_4.Text
+                    Visible: =isLongTerm
+                    Width: =369
+                    X: =1
+                    Y: =6
+                    ZIndex: =1
+
+                    dcrkContractNumber_4 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvContractNumber_4 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =If("Contract Number" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisplayMode: =DisplayMode.Disabled
+                        Height: =dimDataCardValueHeight
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =dimInputFontSize
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                    Gallery3_17 As gallery.galleryVertical:
+                        Height: =25
+                        Items: =["Contract Number"]
+                        Layout: =Layout.Vertical
+                        ShowScrollbar: =false
+                        TemplatePadding: =3
+                        TemplateSize: =19
+                        Visible: =If(ComboBox1.Selected.Value = "Incorrect Information" && isSecurity, true)
+                        Width: =25
+                        WrapCount: =5
+                        X: =130
+                        Y: =35
+                        ZIndex: =3
+
+                        Checkbox3_17 As checkbox:
+                            CheckboxSize: =20
+                            Height: =19
+                            OnCheck: =Collect(colErrorFilter,ThisItem)
+                            OnSelect: =Select(Parent)
+                            OnUncheck: =Remove(colErrorFilter,ThisItem)
+                            Reset: =ResetCheckbox
+                            Size: =0
+                            Text: =ThisItem.Value
+                            Width: =1.3999999999999986
+                            ZIndex: =1
+
+                dcrEDIP_4 As typedDataCard.textualEditCard:
+                    BorderColor: |+
+                        =If(IsBlank(dcrvEDIP_4.Text),RGBA(0, 18, 107, 1), If(formSecurityIncorrect.Mode = FormMode.Edit &&ThisItem.EDIP<> dcrvEDIP_4.Text, Orange, RGBA(0, 18, 107, 1)))
+                        
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="EDIP"
+                    Default: =ThisItem.EDIP
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"EDIP")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@VisitorRequest], DataSourceInfo.MaxLength, "EDIP")
+                    Required: =false
+                    Update: =dcrvEDIP_4.Text
+                    Visible: =isLongTerm
+                    Width: =369
+                    X: =2
+                    Y: =6
+                    ZIndex: =1
+
+                    dcrkEDIP_4 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvEDIP_4 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =If("EDIP" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisplayMode: =DisplayMode.Disabled
+                        Height: =dimDataCardValueHeight
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =dimInputFontSize
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                    Gallery3_18 As gallery.galleryVertical:
+                        Height: =25
+                        Items: =["EDIP"]
+                        Layout: =Layout.Vertical
+                        ShowScrollbar: =false
+                        TemplatePadding: =3
+                        TemplateSize: =19
+                        Visible: =If(ComboBox1.Selected.Value = "Incorrect Information" && isSecurity, true)
+                        Width: =25
+                        WrapCount: =5
+                        X: =45
+                        Y: =35
+                        ZIndex: =3
+
+                        Checkbox3_18 As checkbox:
+                            CheckboxSize: =20
+                            Height: =19
+                            OnCheck: =Collect(colErrorFilter,ThisItem)
+                            OnSelect: =Select(Parent)
+                            OnUncheck: =Remove(colErrorFilter,ThisItem)
+                            Reset: =ResetCheckbox
+                            Size: =0
+                            Text: =ThisItem.Value
+                            Width: =1.3999999999999986
+                            ZIndex: =1
+
+                dcrSection_4 As typedDataCard.comboBoxEditCard:
+                    BorderColor: =If(formSecurityIncorrect.Mode = FormMode.Edit && ThisItem.'Assigned to Section'.DisplayName <> dcrvSection_4.Selected.DisplayName, Orange, RGBA(0, 18, 107, 1))
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="AssignedtoSection"
+                    Default: =ThisItem.'Assigned to Section'
+                    DisplayMode: =DisplayMode.Disabled
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"AssignedtoSection")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =dcrvSection_4.Selected
+                    Visible: =isLongTerm
+                    Width: =369
+                    X: =0
+                    Y: =7
+                    ZIndex: =1
+
+                    dcrkSection_4 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvSection_4 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =If("Assigned to Section" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
+                        DefaultSelectedItems: =Parent.Default
+                        DisplayFields: =["DisplayName","Email","Picture"]
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =dimDataCardValueHeight
+                        HoverColor: =If("Assigned to Section" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) ) //RGBA(0, 0, 0, 1)//RGBA(0, 0, 0, 1)
+                        Items: =Choices([@VisitorRequest].'Assigned to Section')
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        SearchFields: =["DisplayName"]
+                        SearchItems: =Choices(VisitorRequest.'Assigned to Section',dcrvSection_4.SearchText)
+                        SelectMultiple: =false
+                        Size: =dimInputFontSize
+                        Template: =ListItemTemplate.Person
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                    Gallery3_19 As gallery.galleryVertical:
+                        Height: =25
+                        Items: =["Assigned to Section"]
+                        Layout: =Layout.Vertical
+                        ShowScrollbar: =false
+                        TemplatePadding: =3
+                        TemplateSize: =19
+                        Visible: =If(ComboBox1.Selected.Value = "Incorrect Information" && isSecurity, true)
+                        Width: =25
+                        WrapCount: =5
+                        X: =140
+                        Y: =35
+                        ZIndex: =3
+
+                        Checkbox3_19 As checkbox:
+                            CheckboxSize: =20
+                            Height: =19
+                            OnCheck: =Collect(colErrorFilter,ThisItem)
+                            OnSelect: =Select(Parent)
+                            OnUncheck: =Remove(colErrorFilter,ThisItem)
+                            Reset: =ResetCheckbox
+                            Size: =0
+                            Text: =ThisItem.Value
+                            Width: =1.3999999999999986
+                            ZIndex: =1
+
+                dcrACP_4 As typedDataCard.comboBoxEditCard:
+                    BorderColor: =If(formSecurityIncorrect.Mode = FormMode.Edit &&ThisItem.'Access Control Points'.Value<> dcrvACP_4.Selected.Value, Orange, RGBA(0, 18, 107, 1))
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="AccessControlPoints"
+                    Default: =ThisItem.'Access Control Points'
+                    DisplayMode: =DisplayMode.Disabled
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"AccessControlPoints")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =dcrvACP_4.Selected
+                    Visible: =isLongTerm
+                    Width: =369
+                    X: =1
+                    Y: =7
+                    ZIndex: =1
+
+                    dcrkACP_4 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =1
+
+                    dcrvACP_4 As combobox:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        Color: =If("Acess Control Points" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
+                        DefaultSelectedItems: =Parent.Default
+                        DisplayFields: =["Value"]
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =dimDataCardValueHeight
+                        HoverColor: =If("Access Control Points" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) ) //RGBA(0, 0, 0, 1)//RGBA(0, 0, 0, 1)
+                        Items: =Choices([@VisitorRequest].'Access Control Points')
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        SearchFields: =["Value"]
+                        SearchItems: =Choices(VisitorRequest.'Access Control Points',dcrvACP_4.SearchText)
+                        SelectMultiple: =false
+                        Size: =dimInputFontSize
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =2
+
+                    Gallery3_20 As gallery.galleryVertical:
+                        Height: =25
+                        Items: =["Access Control Points"]
+                        Layout: =Layout.Vertical
+                        ShowScrollbar: =false
+                        TemplatePadding: =3
+                        TemplateSize: =19
+                        Visible: =If(ComboBox1.Selected.Value = "Incorrect Information" && isSecurity, true)
+                        Width: =25
+                        WrapCount: =5
+                        X: =155
+                        Y: =35
+                        ZIndex: =3
+
+                        Checkbox3_20 As checkbox:
+                            CheckboxSize: =20
+                            Height: =19
+                            OnCheck: =Collect(colErrorFilter,ThisItem)
+                            OnSelect: =Select(Parent)
+                            OnUncheck: =Remove(colErrorFilter,ThisItem)
+                            Reset: =ResetCheckbox
+                            Size: =0
+                            Text: =ThisItem.Value
+                            Width: =1.3999999999999986
+                            ZIndex: =1
+
+                dcrCAC_4 As typedDataCard.toggleEditCard:
+                    BorderColor: |+
+                        =If(formSecurityIncorrect.Mode = FormMode.Edit && ThisItem.'CAC Required?'<> dcrvCAC_4.Value, Orange, RGBA(0, 18, 107, 1))
+                        
+                    BorderStyle: =BorderStyle.Solid
+                    BorderThickness: =0
+                    DataField: ="CACRequired_x003f_"
+                    Default: =ThisItem.'CAC Required?'
+                    DisplayMode: =DisplayMode.Disabled
+                    DisplayName: =DataSourceInfo([@VisitorRequest],DataSourceInfo.DisplayName,"CACRequired_x003f_")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =dcrvCAC_4.Value
+                    Visible: =isLongTerm
+                    Width: =369
+                    X: =2
+                    Y: =7
+                    ZIndex: =1
+
+                    dcrrAfterHours_6 As rectangle:
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Height: =dcrvCAC_4.Height
+                        Width: =dcrvCAC_4.Width
+                        X: =dcrvCAC_4.X
+                        Y: =dcrvCAC_4.Y
+                        ZIndex: =1
+
+                    dcrkCAC_4 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =2 * dimDataCard
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =dimLabelFontSize
+                        Text: =Parent.DisplayName
+                        Tooltip: =Parent.Width / 3
+                        Width: =Parent.Width - 2 * dimDataCard
+                        Wrap: =false
+                        X: =dimDataCard
+                        Y: =dimDataCard + dimDataCardValueHeight
+                        ZIndex: =2
+
+                    dcrvCAC_4 As toggleSwitch:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        BorderThickness: =2
+                        Color: =If("CAC Required?" in formData.Incorrect.Value, DarkRed, RGBA(0, 0, 0, 1) )
+                        Default: =Parent.Default
+                        DisplayMode: =Parent.DisplayMode
+                        FalseFill: =If("CAC Required?" in formData.Incorrect.Value, DarkRed, RGBA(128, 130, 133, 1))
+                        Height: =dimDataCardValueHeight
+                        Size: =dimInputFontSize
+                        Tooltip: =Parent.Width / 3
+                        TrueFill: =If("CAC Required?" in formData.Incorrect.Value, DarkRed, RGBA(56, 96, 178, 1))
+                        Width: =Parent.Width - 2 * dimDataCard
+                        X: =dimDataCard
+                        Y: =dimDataCard
+                        ZIndex: =3
+
+                    Gallery3_21 As gallery.galleryVertical:
+                        Height: =25
+                        Items: =["CAC Required?"]
+                        Layout: =Layout.Vertical
+                        ShowScrollbar: =false
+                        TemplatePadding: =3
+                        TemplateSize: =19
+                        Visible: =If(ComboBox1.Selected.Value = "Incorrect Information" && isSecurity, true)
+                        Width: =25
+                        WrapCount: =5
+                        X: =110
+                        Y: =35
+                        ZIndex: =4
+
+                        Checkbox3_21 As checkbox:
+                            CheckboxSize: =20
+                            Height: =19
+                            OnCheck: =Collect(colErrorFilter,ThisItem)
+                            OnSelect: =Select(Parent)
+                            OnUncheck: =Remove(colErrorFilter,ThisItem)
+                            Reset: =ResetCheckbox
+                            Size: =0
+                            Text: =ThisItem.Value
+                            Width: =1.3999999999999986
+                            ZIndex: =1
+
             formSecurity As form:
                 DataSource: =VisitorRequest
                 DefaultMode: =FormMode.View
@@ -758,7 +2450,7 @@ screenHome As screen:
                 Width: =Parent.Width - 1
                 X: =1
                 Y: =labelReview_1.Height 
-                ZIndex: =7
+                ZIndex: =8
 
                 dcrLabelEventInfo_1 As typedDataCard.blankCard:
                     BorderStyle: =BorderStyle.Solid
@@ -1919,7 +3611,7 @@ screenHome As screen:
                         
                         
                 Width: =widthModal
-                ZIndex: =8
+                ZIndex: =9
 
             iconEdit As icon.Edit:
                 Color: =RGBA(0, 0, 0, 1)
@@ -1928,7 +3620,7 @@ screenHome As screen:
                 Visible: =If(formSecurity.Mode = FormMode.View /*&& formData.Approved.Value = "Pending"*/, true, false)
                 Width: =52
                 X: =1017
-                ZIndex: =9
+                ZIndex: =10
 
             iconSave As icon.Save:
                 Color: =RGBA(0, 0, 0, 1)
@@ -1946,7 +3638,7 @@ screenHome As screen:
                 Visible: =If(formSecurity.Mode = FormMode.Edit /*&& formData.Approved.Value = "Pending"*/, true, false)
                 Width: =52
                 X: =1017
-                ZIndex: =10
+                ZIndex: =11
 
             groupDenied As group:
                 Height: =5
