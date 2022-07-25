@@ -651,7 +651,7 @@ screenHome As screen:
                                 VisitorRequest,
                                 LookUp(
                                     VisitorRequest,
-                                    Title = formData.Title
+                                    Identifier = formData.Identifier
                                 ),
                                 {Approved: {Value: "Denied"}}
                             );
@@ -726,7 +726,7 @@ screenHome As screen:
                             VisitorRequest,
                             LookUp(
                                 VisitorRequest,
-                                Title = formData.Identifier
+                                Identifier = formData.Identifier
                             ),
                             {Approved: {Value: "Approved"}}
                         );
