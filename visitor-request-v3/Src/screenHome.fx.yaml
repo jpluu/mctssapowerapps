@@ -3667,7 +3667,7 @@ screenHome As screen:
                 Color: =RGBA(0, 0, 0, 1)
                 Icon: =Icon.Edit
                 OnSelect: =EditForm(formSecurity)
-                Visible: =If(formSecurity.Mode = FormMode.View && isSecurity /*&& formData.Approved.Value = "Pending"*/, true, If(formSecurity.Mode = FormMode.View && !isSecurity && formData.Approved.Value = "Pending", true, false))
+                Visible: =If(formSecurity.Mode = FormMode.View && isSecurity /*&& formData.Approved.Value = "Pending"*/, true, If(formSecurity.Mode = FormMode.View && !isSecurity && formData.Approved.Value <> "Approved", true, false))
                 Width: =52
                 X: =1017
                 ZIndex: =10
@@ -3695,7 +3695,7 @@ screenHome As screen:
                                 {Incorrect: ComboBoxIncorrect.SelectedItems}
                             ));
                 Visible: |-
-                    =If(formSecurity.Mode = FormMode.Edit && isSecurity /*&& formData.Approved.Value = "Pending"*/, true, If(formSecurity.Mode = FormMode.Edit && !isSecurity && formData.Approved.Value = "Pending", true, false)) 
+                    =If(formSecurity.Mode = FormMode.Edit && isSecurity /*&& formData.Approved.Value = "Pending"*/, true, If(formSecurity.Mode = FormMode.Edit && !isSecurity && formData.Approved.Value <> "Approved", true, false)) 
                     
                     //If(formSecurity.Mode = FormMode.Edit && isSecurity /*&& formData.Approved.Value = "Pending"*/, true, false)
                 Width: =52
