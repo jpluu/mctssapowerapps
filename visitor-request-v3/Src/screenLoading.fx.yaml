@@ -145,6 +145,72 @@ screenLoading As screen:
             )
         );
         
+        // collectionPie | Amount of each Approved Status | Approval status for pie chart
+        
+        ClearCollect(
+            collectionPie,
+            {
+                Approved: "Pending",
+                Count: CountRows(
+                    Filter(
+                        VisitorRequest,
+                        Approved.Value = "Pending" && Lower(ThisRecord.Sponsor.Email) = Lower(CURRENTUSER.Email)
+                    )
+                )
+            },
+            {
+                Approved: "Approved",
+                Count: CountRows(
+                    Filter(
+                        VisitorRequest,
+                        Approved.Value = "Approved" && Lower(ThisRecord.Sponsor.Email) = Lower(CURRENTUSER.Email)
+                    )
+                )
+            },
+            {
+                Approved: "Denied",
+                Count: CountRows(
+                    Filter(
+                        VisitorRequest,
+                        Approved.Value = "Denied" && Lower(ThisRecord.Sponsor.Email) = Lower(CURRENTUSER.Email)
+                    )
+                )
+            }
+        );
+        
+        // collectionPieS | Amount of each Approved Status | Approval status for pie chart for security team
+        
+        ClearCollect(
+            collectionPieS,
+            {
+                Approved: "Pending",
+                Count: CountRows(
+                    Filter(
+                        VisitorRequest,
+                        Approved.Value = "Pending"
+                    )
+                )
+            },
+            {
+                Approved: "Approved",
+                Count: CountRows(
+                    Filter(
+                        VisitorRequest,
+                        Approved.Value = "Approved"
+                    )
+                )
+            },
+            {
+                Approved: "Denied",
+                Count: CountRows(
+                    Filter(
+                        VisitorRequest,
+                        Approved.Value = "Denied"
+                    )
+                )
+            }
+        );
+        
         /* === Request Navigation === */
         // isPageEvent | bool
         Set(

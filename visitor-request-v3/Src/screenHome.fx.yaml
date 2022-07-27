@@ -21,7 +21,7 @@ screenHome As screen:
 
         buttonSecurity_1 As icon.CancelBadge:
             Height: =150
-            Icon: =Icon.CheckBadge
+            Icon: =Icon.Information
             OnSelect: =Navigate(screenSecurity);
             PaddingBottom: =10
             PaddingLeft: =10
@@ -3844,4 +3844,258 @@ screenHome As screen:
             X: =514
             Y: =564
             ZIndex: =4
+
+    containerAnalytics As groupContainer:
+        Height: =768
+        Visible: =If(isModalAnalytics, true)
+        Width: =1366
+        ZIndex: =3
+
+        buttonModalRequestExit_1 As button:
+            Color: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =768
+            HoverFill: =ColorFade(colorModal, 40%)
+            OnSelect: =Set(isModalAnalytics, false)
+            Text: =""
+            Width: =1366
+            ZIndex: =1
+
+        pageAnalytics As groupContainer:
+            Fill: =colorModal
+            Height: =heightModal
+            Width: =widthModal
+            X: =posModal
+            Y: =posModal
+            ZIndex: =4
+
+            CompositePieChart1 As group:
+                Height: =5
+                Width: =5
+                X: =-926
+                Y: =-80
+                ZIndex: =1
+
+                pieChartAnalytics As pieChart:
+                    Height: =470
+                    ItemBorderColor: =RGBA(0, 0, 0, 1)
+                    ItemColorSet: =[RGBA(255, 255, 126, 1), RGBA(0, 177, 106, 1), RGBA(240, 52, 24, 1)]
+                    Items: |-
+                        =If(isSecurity, collectionPieS, collectionPie)
+                         //AddColumns(GroupBy(Filter(VisitorRequest, Lower(ThisRecord.Sponsor.Email) = Lower(CURRENTUSER.Email)), "Questions", "SubGrp"), "Count", CountRows(SubGrp))
+                         //AddColumns(GroupBy(Filter(VisitorRequest,Title = "Week1"),"Question","SubGrp"),"Count",CountRows(SubGrp))
+                         
+                          /*If(!isSecurity, ForAll(Choices(VisitorRequest.Approved) As A,{Number:CountIf(ForAll(VisitorRequest,ThisRecord.Approved.Value) As B,B.Value=A.Value),Value:A.Value}), ForAll(Choices(VisitorRequest.Approved) As A,{Number:CountIf(Filter(VisitorRequest, Lower(ThisRecord.Sponsor.Email) = Lower(CURRENTUSER.Email)),(VisitorRequest, ThisRecord.Approved.Value) As B,B.Value=A.Value),Value:A.Value}) //As B,B.Value=A.Value),Value:A.Value})) 
+                        
+                        */
+                    LabelPosition: |
+                        =LabelPosition.Outside
+                    Size: =11
+                    Width: =478
+                    X: =535
+                    Y: =26
+                    ZIndex: =3
+
+                Legend1 As legend:
+                    Height: =58
+                    ItemColorSet: =pieChartAnalytics.ItemColorSet
+                    Items: =["Pending", "Approved", "Denied"]
+                    Size: =16
+                    Visible: =false
+                    Width: =437
+                    X: =540
+                    Y: =454
+                    ZIndex: =4
+
+            GroupPending As group:
+                Height: =5
+                Width: =5
+                X: =60
+                Y: =60
+                ZIndex: =7
+
+                Rectangle2_1 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 1)
+                    BorderThickness: =1
+                    Fill: |
+                        =
+                        
+                        //"Approved", RGBA(0, 177, 106, 1),
+                        
+                        RGBA(255, 255, 126, 1)/*RGBA(255, 255, 126, 1)*/
+                        
+                        //"Denied", RGBA(240, 52, 24, 1)
+                        //)
+                        //RGBA(240, 52, 24, 1) RGBA(196, 77, 65, 1)
+                    Height: =24
+                    Width: =253.5
+                    X: =180
+                    Y: =114
+                    ZIndex: =5
+
+                Label5_1 As label:
+                    Align: =Center
+                    FontWeight: =FontWeight.Bold
+                    Height: =24
+                    OnSelect: =
+                    Size: =11
+                    Text: |
+                        ="Pending"
+                         
+                            
+                    Width: =253.5
+                    X: =180
+                    Y: =114
+                    ZIndex: =6
+
+            GroupApproved As group:
+                Height: =5
+                Width: =5
+                X: =20
+                Y: =20
+                ZIndex: =9
+
+                Rectangle2_2 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 1)
+                    BorderThickness: =1
+                    Fill: |
+                        =
+                        
+                        RGBA(0, 177, 106, 1)
+                        
+                        //"Denied", RGBA(240, 52, 24, 1)
+                        //)
+                        //RGBA(240, 52, 24, 1) RGBA(196, 77, 65, 1)
+                    Height: =24
+                    Width: =253.5
+                    X: =180
+                    Y: =244
+                    ZIndex: =7
+
+                Label5_2 As label:
+                    Align: =Center
+                    FontWeight: =FontWeight.Bold
+                    Height: =24
+                    OnSelect: =
+                    Size: =11
+                    Text: |
+                        ="Approved"
+                         
+                            
+                    Width: =253.5
+                    X: =180
+                    Y: =244
+                    ZIndex: =8
+
+            Label2 As label:
+                Align: =Align.Center
+                FontWeight: =FontWeight.Semibold
+                Text: |-
+                    =If(
+                        isSecurity,
+                        CountIf(
+                            VisitorRequest,
+                            Approved.Value = "Pending"
+                        ),
+                        CountRows(
+                            Filter(
+                                VisitorRequest,
+                                Approved.Value = "Pending" && Lower(ThisRecord.Sponsor.Email) = Lower(CURRENTUSER.Email)
+                            )
+                        )
+                    )
+                X: =231
+                Y: =138
+                ZIndex: =11
+
+            GroupDenied As group:
+                Height: =5
+                Width: =5
+                X: =20
+                Y: =-110
+                ZIndex: =11
+
+                Rectangle2_3 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 1)
+                    BorderThickness: =1
+                    Fill: |
+                        =
+                        RGBA(240, 52, 24, 1)
+                        //)
+                        //RGBA(240, 52, 24, 1) RGBA(196, 77, 65, 1)
+                    Height: =24
+                    Width: =253.5
+                    X: =180
+                    Y: =374
+                    ZIndex: =9
+
+                Label5_3 As label:
+                    Align: =Center
+                    FontWeight: =FontWeight.Bold
+                    Height: =24
+                    OnSelect: =
+                    Size: =11
+                    Text: |
+                        ="Denied"
+                         
+                            
+                    Width: =253.5
+                    X: =180
+                    Y: =374
+                    ZIndex: =10
+
+            Label2_1 As label:
+                Align: =Align.Center
+                FontWeight: =FontWeight.Semibold
+                Text: |-
+                    =If(
+                        isSecurity,
+                        CountIf(
+                            VisitorRequest,
+                            Approved.Value = "Approved"
+                        ),
+                        CountRows(
+                            Filter(
+                                VisitorRequest,
+                                Approved.Value = "Approved" && Lower(ThisRecord.Sponsor.Email) = Lower(CURRENTUSER.Email)
+                            )
+                        )
+                    )
+                X: =231
+                Y: =268
+                ZIndex: =12
+
+            Label2_2 As label:
+                Align: =Align.Center
+                FontWeight: =FontWeight.Semibold
+                Text: |-
+                    =If(
+                        isSecurity,
+                        CountIf(
+                            VisitorRequest,
+                            Approved.Value = "Denied"
+                        ),
+                        CountRows(
+                            Filter(
+                                VisitorRequest,
+                                Approved.Value = "Denied" && Lower(ThisRecord.Sponsor.Email) = Lower(CURRENTUSER.Email)
+                            )
+                        )
+                    )
+                X: =231
+                Y: =398
+                ZIndex: =13
+
+            labelReview_5 As label:
+                Align: =Align.Center
+                FontWeight: =FontWeight.Bold
+                Height: =64
+                Size: =24
+                Text: |-
+                    ="Review Requests"
+                       
+                        
+                        
+                Width: =widthModal
+                ZIndex: =14
 

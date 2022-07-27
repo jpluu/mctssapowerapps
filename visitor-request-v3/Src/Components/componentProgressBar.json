@@ -18,7 +18,7 @@
       "Name": "inputCurrentStep",
       "PropertyDataTypeKey": "Number",
       "Tooltip": "A custom property progress bar",
-      "Type": "{\"Version\":\"1.324\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}}"
+      "Type": "{\"Version\":\"1.325\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}}"
     }
   ],
   "FirstParty": true,
@@ -29,7 +29,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "637943702444648425",
+  "LastModifiedTimestamp": "637945407588189000",
   "Name": "414fbbfa5db04b2dbcee353bc25cb208",
   "OverridableProperties": {},
   "TemplateOriginalName": "850c671f93d04e30ab9fe0b7f7d3e176",
