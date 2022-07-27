@@ -22,7 +22,7 @@ screenHome As screen:
         buttonSecurity_1 As icon.CancelBadge:
             Height: =150
             Icon: =Icon.Information
-            OnSelect: =Navigate(screenSecurity);
+            OnSelect: =Set(isModalAnalytics, true)
             PaddingBottom: =10
             PaddingLeft: =10
             PaddingRight: =10

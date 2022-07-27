@@ -243,6 +243,9 @@ screenLoading As screen:
             isModalRequest,
             false
         );
+        // isModalAnalytics | bool | control for analytics modal container
+        Set(isModalAnalytics, false);
+        
         // isLongTerm | bool | control for showing long term page
         Set(
             isLongTerm,
